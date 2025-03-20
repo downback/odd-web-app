@@ -1,0 +1,67 @@
+@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&family=Puritan:wght@400;700&display=swap");
+
+/* @import "tailwindcss/preflight"; */
+@tailwind utilities;
+
+/* @layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
+} */
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  /* For Firefox. */
+  * {
+    scrollbar-width: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  /* For WebKit (Chrome & Safari). */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+:root {
+  --primary-color: #0d6efd;
+  --secondary-color: #6c757d;
+  /* --font-family: "Puritan", sans-serif;
+  --font-family-ko: "Nanum Gothic", sans-serif; */
+}
+
+html {
+  font-family: "Puritan", sans-serif;
+}
+
+/* For Korean version: by default use Nanum Gothic */
+html[lang="ko"] {
+  font-family: "Nanum Gothic", sans-serif;
+}
+
+/* However, for any element explicitly marked with lang="en" inside a Korean page, revert to Puritan */
+html[lang="ko"] :lang(en) {
+  font-family: "Puritan", sans-serif;
+}
+
+html,
+body {
+  background-image: url("/images/BackgroundImage.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+#__next {
+  min-height: 100vh;
+}
