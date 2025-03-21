@@ -1,7 +1,7 @@
 // src/components/AnimatedMotionDrawing.tsx
 "use client"
 
-import React, { useRef, useEffect } from "react"
+import React, { useRef } from "react"
 import gsap from "gsap"
 
 import { MdKeyboardDoubleArrowDown } from "react-icons/md"

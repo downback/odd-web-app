@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "source": "functions",
+    "timeoutSeconds": 60,
+    "memory": "512MB"
+  }
+}
