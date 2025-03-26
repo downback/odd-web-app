@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useRef, useState, RefObject } from "react"
+import React, { useRef, useState } from "react"
 
 import Link from "next/link"
 import Image from "next/image"
@@ -21,7 +21,7 @@ const Header: React.FC = () => {
   const mobileMenuRef = useRef<HTMLDivElement>(null)
   const logoRef = useRef<HTMLImageElement>(null)
   const [menuOpen, setMenuOpen] = useState(false)
-  const [lastScrollTop, setLastScrollTop] = useState(0)
+  // const [lastScrollTop, setLastScrollTop] = useState(0)
   const { sectionTriggerRef } = useScrollTrigger()
 
   useGSAP(() => {
@@ -62,7 +62,7 @@ const Header: React.FC = () => {
       },
     })
 
-    let lastScroll = window.scrollY
+    // let lastScroll = window.scrollY
 
     const handleScroll = () => {
       const currentScroll = window.scrollY
@@ -82,8 +82,8 @@ const Header: React.FC = () => {
         })
       }
 
-      lastScroll = currentScroll <= 0 ? 0 : currentScroll
-      setLastScrollTop(lastScroll)
+      // lastScroll = currentScroll <= 0 ? 0 : currentScroll
+      // setLastScrollTop(lastScroll)
     }
 
     window.addEventListener("scroll", handleScroll)

@@ -106,7 +106,6 @@ const AnimatedProcess: React.FC = () => {
     const dpr = window.devicePixelRatio || 1
     const newWidth = containerWidth
     const newHeight = BASE_PATH_HEIGHT * scaleY
-    const width = window.innerWidth
 
     canvas.width = newWidth * dpr
     canvas.height = newHeight * dpr
@@ -140,7 +139,7 @@ const AnimatedProcess: React.FC = () => {
     const interpolator = flubber.interpolate(from, to, { maxSegmentLength: 2 })
 
     const dummy = { t: 0 }
-    const targetX = 70 // Align x position with vertical line
+    // const targetX = 70
 
     // Animate path
     gsap.to(dummy, {
@@ -175,7 +174,7 @@ const AnimatedProcess: React.FC = () => {
   }
 
   useGSAP(() => {
-    circleRefs.current.forEach((el, i) => {
+    circleRefs.current.forEach((el) => {
       if (!el) return
 
       gsap.fromTo(
