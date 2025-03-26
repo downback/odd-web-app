@@ -70,3 +70,7 @@ const Footer: React.FC = () => {
 }
 
 export default Footer
+
+//TODO
+// [ ] privacy policy & terms of use
+// [ ] cookies?

@@ -4,27 +4,19 @@
 /* @import "tailwindcss/preflight"; */
 @tailwind utilities;
 
-/* @layer base {
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-  }
-} */
-
 @layer base {
   *,
   *::before,
   *::after {
     box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    scroll-behavior: smooth;
   }
 
   /* For Firefox. */
   * {
     scrollbar-width: none;
-    padding: 0;
-    margin: 0;
   }
 
   /* For WebKit (Chrome & Safari). */
@@ -56,9 +48,9 @@ html[lang="ko"] :lang(en) {
 
 html,
 body {
-  background-image: url("/images/BackgroundImage.png");
+  background-image: url("/images/Bg-gentle.png");
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   background-position: center center;
 }
 

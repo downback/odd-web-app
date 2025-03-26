@@ -1,4 +1,5 @@
-import MainLayout from "@/components/layouts/MainLayout"
+import Header from "@/components/common/header/Header"
+import Footer from "@/components/common/footer/Footer"
 import { LanguageProvider } from "../context/LanguageContext"
 
 import "./globals.css"
@@ -18,9 +19,15 @@ export default function RootLayout({
       <head />
       <body>
         <LanguageProvider>
-          <MainLayout>{children}</MainLayout>
+          <div className="min-h-screen flex flex-col">
+            {/* <Header /> */}
+            <main className="flex-grow">{children}</main>
+            <Footer />
+          </div>
         </LanguageProvider>
       </body>
     </html>
   )
 }
+
+// pt-16 px-4

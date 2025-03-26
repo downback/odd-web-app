@@ -3,7 +3,7 @@ import React from "react"
 
 const ProjectsListWrapper: React.FC = () => {
   return (
-    <div className="container">
+    <div className="">
       ProjectsListWrapper
       <ProjectsList />
     </div>

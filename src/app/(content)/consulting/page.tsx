@@ -4,7 +4,7 @@ import PageHeader from "@/components/layouts/PageHeader"
 
 const ConsultingPage: React.FC = () => {
   return (
-    <div className="container">
+    <div className="">
       <PageHeader title="CONSULTING" />
       <ProcessSection />
     </div>
