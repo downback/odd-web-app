@@ -39,7 +39,7 @@ const Header: React.FC = () => {
 
     gsap.to(header, {
       height: "2.5rem",
-      duration: 0.2,
+      duration: 0.4,
       ease: "power2.inOut",
       scrollTrigger: {
         trigger: sectionTriggerRef.current,
@@ -51,7 +51,7 @@ const Header: React.FC = () => {
     })
     gsap.to(logo, {
       scale: 0.7,
-      duration: 0.2,
+      duration: 0.4,
       ease: "power2.inOut",
       scrollTrigger: {
         trigger: sectionTriggerRef.current,

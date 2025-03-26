@@ -13,10 +13,7 @@ const ProcessSection: React.FC = () => {
   }, [])
 
   return (
-    <div
-      ref={sectionTriggerRef}
-      className="w-full h-min my-12 flex flex-col justify-center items-center"
-    >
+    <div ref={sectionTriggerRef} className="w-full h-auto">
       <ProcessAnimation />
     </div>
   )

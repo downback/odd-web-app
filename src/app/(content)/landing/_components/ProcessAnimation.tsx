@@ -15,8 +15,6 @@ interface CircleData {
   y: number
 }
 
-// const PATH_D = `M186.27,785.63c-1.16-44.94,66.22-104.26,51.43-117.63-12.03-10.87-85.37,27.64-105.2,11.63-60.74-49.05,174.85-85.15,152.73-135.72C260.55,487.52-6.47,493.24.43,412.88c8.39-97.66,405.39,80.68,374.96-21.5-23.22-77.98-265.76-73.4-233.32-139.93,20.63-42.31,165.53-8.85,167.03-66.88,1.48-57.29-206.57,19.9-199.5-33.23,6.44-48.36,172.43-30.54,139.71-88.61-13.86-24.6-63.06-6.38-63.06-62.73`
-
 const PATH_D_START = `M186.27,785.63c-1.16-44.94,66.22-104.26,51.43-117.63-12.03-10.87-85.37,27.64-105.2,11.63-60.74-49.05,174.85-85.15,152.73-135.72C260.55,487.52-6.47,493.24.43,412.88c8.39-97.66,405.39,80.68,374.96-21.5-23.22-77.98-265.76-73.4-233.32-139.93,20.63-42.31,165.53-8.85,167.03-66.88,1.48-57.29-206.57,19.9-199.5-33.23,6.44-48.36,172.43-30.54,139.71-88.61-13.86-24.6-63.06-6.38-63.06-62.73`
 const PATH_D_END = `M70,785.63 L70,0`
 
@@ -29,13 +27,21 @@ const AnimatedProcess: React.FC = () => {
   const [isStraight, setIsStraight] = useState(false)
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const circleRefs = useRef<HTMLDivElement[]>([])
+  const containerRef = useRef<HTMLDivElement>(null)
   circleRefs.current = []
 
+  // const getResponsiveWidth = () => {
+  //   const w = window.innerWidth
+  //   if (w < 768) return (7 / 8) * w
+  //   if (w >= 768) return (4 / 5) * w
+  //   return w
+  // }
+
   const getResponsiveWidth = () => {
-    const w = window.innerWidth
-    if (w < 768) return (7 / 8) * w
-    if (w >= 768) return (4 / 5) * w
-    return w
+    const raw = containerRef.current?.offsetWidth || window.innerWidth
+    if (raw < 768) return (7 / 8) * raw
+    if (raw >= 768) return (4 / 5) * raw
+    return raw
   }
 
   const lineWidth = () => {
@@ -100,6 +106,7 @@ const AnimatedProcess: React.FC = () => {
     const dpr = window.devicePixelRatio || 1
     const newWidth = containerWidth
     const newHeight = BASE_PATH_HEIGHT * scaleY
+    const width = window.innerWidth
 
     canvas.width = newWidth * dpr
     canvas.height = newHeight * dpr
@@ -120,8 +127,10 @@ const AnimatedProcess: React.FC = () => {
     ctx.restore()
   }
 
-  // Initial render
   useEffect(() => {
+    const containerWidth = getResponsiveWidth()
+    console.log(containerWidth)
+
     drawPath(currentPath)
   }, [currentPath])
 
@@ -190,53 +199,58 @@ const AnimatedProcess: React.FC = () => {
   }, [circleCoords])
 
   return (
-    <div className="relative w-fit h-fit">
-      <canvas
-        ref={canvasRef}
-        style={{
-          width: "100%",
-          height: "100%",
-          display: "block",
-          pointerEvents: "none",
-        }}
-      />
-      <button
-        onClick={handleMorph}
-        className="px-4 py-2 bg-black text-white rounded hover:bg-gray-800 transition"
-      >
-        Morph Path
-      </button>
+    <div
+      ref={containerRef}
+      className="w-full max-w-full overflow-x-hidden h-max my-12 flex flex-col justify-center items-center"
+    >
+      <div className="relative w-fit h-fit">
+        <canvas
+          ref={canvasRef}
+          style={{
+            width: "100%",
+            height: "100%",
+            display: "block",
+            pointerEvents: "none",
+          }}
+        />
+        <button
+          onClick={handleMorph}
+          className="px-4 py-2 bg-black text-white rounded hover:bg-gray-800 transition"
+        >
+          Morph Path
+        </button>
 
-      {circleCoords.map((pt, i) => {
-        const containerWidth = getResponsiveWidth()
-        const scaleX = containerWidth / BASE_PATH_WIDTH
-        const scaleY =
-          window.innerWidth < 768
-            ? (1.7 * containerWidth) / BASE_PATH_WIDTH
-            : scaleX
-        const offsetX = (containerWidth - BASE_PATH_WIDTH * scaleX) / 2
+        {circleCoords.map((pt, i) => {
+          const containerWidth = getResponsiveWidth()
+          const scaleX = containerWidth / BASE_PATH_WIDTH
+          const scaleY =
+            window.innerWidth < 768
+              ? (1.7 * containerWidth) / BASE_PATH_WIDTH
+              : scaleX
+          const offsetX = (containerWidth - BASE_PATH_WIDTH * scaleX) / 2
 
-        const x = pt.x * scaleX + offsetX
-        const y = pt.y * scaleY
+          const x = pt.x * scaleX + offsetX
+          const y = pt.y * scaleY
 
-        return (
-          <div
-            ref={(el) => {
-              if (el) circleRefs.current[i] = el
-            }}
-            key={`circle-${i}`}
-            className="absolute w-5 h-5"
-            style={{
-              left: `${x}px`,
-              top: `${y}px`,
-              transform: "translate(-50%, -50%)",
-            }}
-          >
-            <div className="absolute w-5 h-5 bg-white border border-black rounded-full"></div>
-            <ProcessDetailBox title={`Step ${i + 1}`} className="top-12" />
-          </div>
-        )
-      })}
+          return (
+            <div
+              ref={(el) => {
+                if (el) circleRefs.current[i] = el
+              }}
+              key={`circle-${i}`}
+              className="absolute w-5 h-5"
+              style={{
+                left: `${x}px`,
+                top: `${y}px`,
+                transform: "translate(-50%, -50%)",
+              }}
+            >
+              <div className="absolute w-5 h-5 bg-white border border-black rounded-full"></div>
+              <ProcessDetailBox title={`Step ${i + 1}`} className="top-12" />
+            </div>
+          )
+        })}
+      </div>
     </div>
   )
 }
