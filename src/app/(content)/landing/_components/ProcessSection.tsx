@@ -1,15 +1,17 @@
 "use client"
 
-import React, { RefObject } from "react"
+import React, { useEffect } from "react"
 import ProcessAnimation from "./ProcessAnimation"
+import { useScrollTrigger } from "@/context/ScrollTriggerContext"
 
-interface SectionComponentProps {
-  sectionTriggerRef: RefObject<HTMLDivElement | null>
-}
+const ProcessSection: React.FC = () => {
+  const { sectionTriggerRef } = useScrollTrigger()
+  useEffect(() => {
+    if (!sectionTriggerRef.current) return
+    // Optional: log or apply styles
+    console.log("Trigger section mounted", sectionTriggerRef.current)
+  }, [])
 
-const ProcessSection: React.FC<SectionComponentProps> = ({
-  sectionTriggerRef,
-}) => {
   return (
     <div
       ref={sectionTriggerRef}

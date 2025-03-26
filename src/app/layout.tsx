@@ -1,6 +1,7 @@
 import Header from "@/components/common/header/Header"
 import Footer from "@/components/common/footer/Footer"
 import { LanguageProvider } from "../context/LanguageContext"
+import { ScrollTriggerProvider } from "@/context/ScrollTriggerContext"
 
 import "./globals.css"
 
@@ -19,11 +20,13 @@ export default function RootLayout({
       <head />
       <body>
         <LanguageProvider>
+        <ScrollTriggerProvider>
           <div className="min-h-screen flex flex-col">
-            {/* <Header /> */}
+            <Header />
             <main className="flex-grow">{children}</main>
             <Footer />
           </div>
+        </ScrollTriggerProvider>
         </LanguageProvider>
       </body>
     </html>

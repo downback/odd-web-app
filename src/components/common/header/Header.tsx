@@ -11,28 +11,26 @@ import { IoCloseOutline } from "react-icons/io5"
 
 import gsap from "gsap"
 import { useGSAP } from "@gsap/react"
+import { useScrollTrigger } from "@/context/ScrollTriggerContext"
 
 gsap.registerPlugin(useGSAP)
 
-interface HeaderProps {
-  triggerRef: RefObject<HTMLDivElement | null>
-}
-
-const Header: React.FC<HeaderProps> = ({ triggerRef }) => {
+const Header: React.FC = () => {
   const headerRef = useRef<HTMLElement>(null)
   const bgRef = useRef<HTMLDivElement>(null)
   const mobileMenuRef = useRef<HTMLDivElement>(null)
   const logoRef = useRef<HTMLImageElement>(null)
   const [menuOpen, setMenuOpen] = useState(false)
   const [lastScrollTop, setLastScrollTop] = useState(0)
+  const { sectionTriggerRef } = useScrollTrigger()
 
   useGSAP(() => {
     const header = headerRef.current
     const bg = bgRef.current
     const logo = logoRef.current
-    const trigger = triggerRef.current
+    // const trigger = triggerRef.current
 
-    if (!header || !bg || !logo || !trigger) return
+    if (!header || !bg || !logo || !sectionTriggerRef.current) return
 
     // const animateY = gsap.quickTo(header, "y", {
     //   duration: 0.8,
@@ -44,7 +42,7 @@ const Header: React.FC<HeaderProps> = ({ triggerRef }) => {
       duration: 0.2,
       ease: "power2.inOut",
       scrollTrigger: {
-        trigger: trigger,
+        trigger: sectionTriggerRef.current,
         start: "top top",
         end: "+=100",
         scrub: true,
@@ -56,7 +54,7 @@ const Header: React.FC<HeaderProps> = ({ triggerRef }) => {
       duration: 0.2,
       ease: "power2.inOut",
       scrollTrigger: {
-        trigger: trigger,
+        trigger: sectionTriggerRef.current,
         start: "top top",
         end: "+=100",
         scrub: true,
@@ -90,7 +88,7 @@ const Header: React.FC<HeaderProps> = ({ triggerRef }) => {
 
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
-  }, [triggerRef.current])
+  }, [sectionTriggerRef.current])
 
   const toggleMenu = () => {
     const bg = bgRef.current

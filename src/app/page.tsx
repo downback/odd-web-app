@@ -1,20 +1,14 @@
-"use client"
-
-import React, { useRef, RefObject } from "react"
+import React from "react"
 import ProcessSection from "./(content)/landing/_components/ProcessSection"
 import DrawingSection from "./(content)/landing/_components/DrawingSection"
 import VideoSection from "./(content)/landing/_components/VideoSection"
 import ProjectsSection from "./(content)/landing/_components/ProjectsSection"
-import Header from "@/components/common/header/Header"
 
 const HomePage: React.FC = () => {
-  const sectionTriggerRef = useRef<HTMLDivElement | null>(null)
-
   return (
     <div className="">
-      <Header triggerRef={sectionTriggerRef} />
       <DrawingSection />
-      <ProcessSection sectionTriggerRef={sectionTriggerRef} />
+      <ProcessSection />
       <VideoSection />
       <ProjectsSection />
     </div>
