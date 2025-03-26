@@ -3,6 +3,7 @@ import ProcessSection from "./(content)/landing/_components/ProcessSection"
 import DrawingSection from "./(content)/landing/_components/DrawingSection"
 import VideoSection from "./(content)/landing/_components/VideoSection"
 import ProjectsSection from "./(content)/landing/_components/ProjectsSection"
+import GoodbyeSection from "./(content)/landing/_components/GoodbyeSection"
 
 const HomePage: React.FC = () => {
   return (
@@ -11,6 +12,7 @@ const HomePage: React.FC = () => {
       <ProcessSection />
       <VideoSection />
       <ProjectsSection />
+      <GoodbyeSection />
     </div>
   )
 }
