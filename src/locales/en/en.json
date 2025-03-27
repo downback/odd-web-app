@@ -1,6 +1,59 @@
 {
+  "processSteps": [
+    {
+      "title": "Interior Design",
+      "description": "Design spaces that reflect your brand.",
+      "position": "top-12 -left-8"
+    },
+    {
+      "title": "Branding",
+      "description": "Build a brand that stands out.",
+      "position": "top-12"
+    },
+    {
+      "title": "Interior Design",
+      "description": "Design spaces that reflect your brand.",
+      "position": "top-12 -left-8"
+    },
+    {
+      "title": "Branding",
+      "description": "Build a brand that stands out.",
+      "position": "top-12"
+    },
+    {
+      "title": "Location Selection",
+      "description": "We help you choose the perfect location.",
+      "position": "top-12 -left-12"
+    },
+    {
+      "title": "Interior Design",
+      "description": "Design spaces that reflect your brand.",
+      "position": "top-12 -left-8"
+    },
+    {
+      "title": "Branding",
+      "description": "Build a brand that stands out.",
+      "position": "top-12"
+    },
+    {
+      "title": "Location Selection",
+      "description": "We help you choose the perfect location.",
+      "position": "top-12 -left-12"
+    },
+    {
+      "title": "Legal Setup",
+      "description": "Handle all permits and administrative tasks.",
+      "position": "top-12 -right-12"
+    },
+    {
+      "title": "Business Plan",
+      "description": "We start by crafting a solid business strategy.",
+      "position": "top-12"
+    }
+  ],
   "greeting": "Hello, World!",
   "projectTitle": "PROJECTS",
-  "projectHeaderTitle": "EXPLORE PROJECTS",
+  "projectTitleTop": "EXPLORE",
+  "projectTitleBottom": "PROJECTS",
   "changeLanguage": "Change Language"
 }

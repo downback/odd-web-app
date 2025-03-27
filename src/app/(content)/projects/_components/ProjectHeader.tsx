@@ -7,9 +7,12 @@ import PageHeader from "@/components/layouts/PageHeader"
 const ProjectHeader: React.FC = () => {
   const { translations } = useContext(LanguageContext)
   return (
-    <div className="w-full">
-      <PageHeader title={translations.projectHeaderTitle} />
-    </div>
+    <>
+      <PageHeader
+        titleTop={translations.projectTitleTop}
+        titleBottom={translations.projectTitleBottom}
+      />
+    </>
   )
 }
 

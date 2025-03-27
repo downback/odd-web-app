@@ -20,13 +20,13 @@ export default function RootLayout({
       <head />
       <body>
         <LanguageProvider>
-        <ScrollTriggerProvider>
-          <div className="min-h-screen flex flex-col">
-            <Header />
-            <main className="flex-grow">{children}</main>
-            <Footer />
-          </div>
-        </ScrollTriggerProvider>
+          <ScrollTriggerProvider>
+            <div className="min-h-screen flex flex-col">
+              <Header />
+              <main className="flex-grow pt-14 xl:pt-18">{children}</main>
+              <Footer />
+            </div>
+          </ScrollTriggerProvider>
         </LanguageProvider>
       </body>
     </html>

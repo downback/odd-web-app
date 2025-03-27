@@ -4,7 +4,7 @@ import ProjectHeader from "./_components/ProjectHeader"
 
 const ProjectsPage: React.FC = () => {
   return (
-    <div className="">
+    <div className="relative h-dvh">
       <ProjectHeader />
       <ProjectsListWrapper />
     </div>

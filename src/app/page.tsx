@@ -20,8 +20,8 @@ const HomePage: React.FC = () => {
 export default HomePage
 
 //TODO
-//[ ] mobile menu not working
-//[ ] implementing "No headache" animation
+//[x] mobile menu not working
+//[x] implementing "No headache" animation
 //[ ] Process section text component improvement
 //[ ] Process animation morphing improvement
 //[ ] Process section -> Consulting page transition
@@ -31,4 +31,4 @@ export default HomePage
 
 //[ ] mail address connect & functions
 
-//[ ] Header 없어지는 것 대신, height 줄어드는 효과로 변경/ mobile에서도 똑같이 적용
+//[x] Header 없어지는 것 대신, height 줄어드는 효과로 변경/ mobile에서도 똑같이 적용

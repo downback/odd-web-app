@@ -12,8 +12,10 @@ import { IoCloseOutline } from "react-icons/io5"
 import gsap from "gsap"
 import { useGSAP } from "@gsap/react"
 import { useScrollTrigger } from "@/context/ScrollTriggerContext"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 gsap.registerPlugin(useGSAP)
+gsap.registerPlugin(ScrollTrigger)
 
 const Header: React.FC = () => {
   const headerRef = useRef<HTMLElement>(null)
@@ -39,26 +41,25 @@ const Header: React.FC = () => {
 
     gsap.to(header, {
       height: "2.5rem",
-      duration: 0.4,
-      ease: "power2.inOut",
+      duration: 0.6,
+      ease: "power1.inOut",
       scrollTrigger: {
         trigger: sectionTriggerRef.current,
         start: "top top",
         end: "+=100",
         scrub: true,
-        markers: true,
       },
     })
     gsap.to(logo, {
-      scale: 0.7,
-      duration: 0.4,
-      ease: "power2.inOut",
+      scale: 0.8,
+      duration: 0.6,
+      ease: "power1.inOut",
       scrollTrigger: {
         trigger: sectionTriggerRef.current,
         start: "top top",
         end: "+=100",
         scrub: true,
-        markers: true,
+        // markers: true,
       },
     })
 
@@ -87,7 +88,10 @@ const Header: React.FC = () => {
     }
 
     window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+      ScrollTrigger.refresh()
+    }
   }, [sectionTriggerRef.current])
 
   const toggleMenu = () => {
@@ -183,7 +187,10 @@ const Header: React.FC = () => {
 export default Header
 
 //TODO
-// [ ] entire header : scroll up - appear / scroll down - disappear (?)
-// [ ] header background-color : scroll start - appear
-// [ ] menu hover : underline with animation
-// [ ] mobile menu : hamburger menu (?)
+// [x] entire header : scroll up - appear / scroll down - disappear (?)
+// [x] header background-color : scroll start - appear
+// [x] menu hover : underline with animation
+// [x] mobile menu : hamburger menu (?)
+
+//DEBUG
+// [] 코드를 업데이트해서 새로 저장했을때문 ScrollTrigger가 적용됨

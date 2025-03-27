@@ -1,12 +1,13 @@
 "use client"
 
-import React, { useRef, useEffect, useState } from "react"
+import React, { useRef, useEffect, useState, useContext } from "react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { useGSAP } from "@gsap/react"
 import * as flubber from "flubber"
 
 import ProcessDetailBox from "./ProcessDetailBox"
+import { LanguageContext } from "../../../../context/LanguageContext"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -22,6 +23,9 @@ const BASE_PATH_WIDTH = 377.35
 const BASE_PATH_HEIGHT = 785.63
 
 const AnimatedProcess: React.FC = () => {
+  const { translations } = useContext(LanguageContext)
+  const stepDetails = translations?.processSteps || []
+
   const [circleCoords, setCircleCoords] = useState<CircleData[]>([])
   const [currentPath, setCurrentPath] = useState(PATH_D_START)
   const [isStraight, setIsStraight] = useState(false)
@@ -55,15 +59,12 @@ const AnimatedProcess: React.FC = () => {
     const handleResize = () => {
       window.location.reload()
     }
-
     window.addEventListener("resize", handleResize)
-
     return () => window.removeEventListener("resize", handleResize)
   }, [])
 
   useEffect(() => {
     const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg")
-
     svg.setAttribute("viewBox", "0 0 377.35 785.63")
     svg.style.position = "fixed"
     svg.style.overflow = "hidden"
@@ -84,7 +85,6 @@ const AnimatedProcess: React.FC = () => {
     }
 
     setCircleCoords(points)
-
     return () => {
       svg.remove()
     }
@@ -230,23 +230,45 @@ const AnimatedProcess: React.FC = () => {
 
           const x = pt.x * scaleX + offsetX
           const y = pt.y * scaleY
+          const step = stepDetails[i]
 
           return (
+            // <div
+            //   ref={(el) => {
+            //     if (el) circleRefs.current[i] = el
+            //   }}
+            //   key={`circle-${i}`}
+            //   className="absolute w-5 h-5"
+            //   style={{
+            //     left: `${x}px`,
+            //     top: `${y}px`,
+            //     transform: "translate(-50%, -50%)",
+            //   }}
+            // >
+            //   <div className="absolute w-5 h-5 bg-white border border-black rounded-full"></div>
+            //   <ProcessDetailBox title={`Step ${i + 1}`} className="top-12" />
+            // </div>
             <div
-              ref={(el) => {
-                if (el) circleRefs.current[i] = el
-              }}
-              key={`circle-${i}`}
-              className="absolute w-5 h-5"
-              style={{
-                left: `${x}px`,
-                top: `${y}px`,
-                transform: "translate(-50%, -50%)",
-              }}
-            >
-              <div className="absolute w-5 h-5 bg-white border border-black rounded-full"></div>
-              <ProcessDetailBox title={`Step ${i + 1}`} className="top-12" />
-            </div>
+            ref={(el) => {
+              if (el) circleRefs.current[i] = el
+            }}
+            key={`circle-${i}`}
+            className="absolute w-5 h-5"
+            style={{
+              left: `${x}px`,
+              top: `${y}px`,
+              transform: "translate(-50%, -50%)",
+            }}
+          >
+            <div className="absolute w-5 h-5 bg-white border border-black rounded-full" />
+            {step && (
+              <ProcessDetailBox
+                title={step.title}
+                description={step.description}
+                className={step.position}
+              />
+            )}
+          </div>
           )
         })}
       </div>
