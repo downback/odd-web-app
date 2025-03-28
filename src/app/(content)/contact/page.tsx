@@ -1,7 +1,6 @@
 import React from "react"
 import ContactForm from "./_components/ContactForm"
 import RadioSelectForm from "./_components/RadioSelectForm"
-import PageHeader from "@/components/layouts/PageHeader"
 import ContactHeader from "./_components/ContactHeader"
 
 const ContactPage: React.FC = () => {

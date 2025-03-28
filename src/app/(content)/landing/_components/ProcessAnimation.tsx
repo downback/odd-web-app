@@ -127,7 +127,7 @@ const AnimatedProcess: React.FC = () => {
   }
 
   useEffect(() => {
-    const containerWidth = getResponsiveWidth()
+    // const containerWidth = getResponsiveWidth()
     // console.log(containerWidth)
     drawPath(currentPath)
   }, [currentPath])

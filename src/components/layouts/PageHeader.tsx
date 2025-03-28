@@ -35,7 +35,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({ titleTop, titleBottom }) => {
     const snapHeight = gsap.utils.snap([0, 1])
     const normalize = gsap.utils.normalize(0, scrollRange)
 
-    let lastSnap = -1
+    const lastSnap = -1
     let lastScroll = window.scrollY
 
     const tl = gsap.timeline()

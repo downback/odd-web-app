@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useRef, useState } from "react"
+import React, { useRef } from "react"
 import gsap from "gsap"
 import { useGSAP } from "@gsap/react"
 
@@ -73,7 +73,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
               borderColor: "transparent transparent transparent #292524",
             }}
           />
-          <div className=""></div>
+          <div className="">{location}</div>
           <div
             className="absolute top-0 right-0 w-0 h-0 border-t-[48px] border-r-[50px] border-b-[0px] border-l-[0px] border-solid"
             style={{
@@ -97,7 +97,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
               borderColor: "transparent transparent transparent #292524",
             }}
           />
-          <div className=""></div>
+          <div className="">{desc}</div>
           <div
             className="absolute top-0 right-0 w-0 h-0 border-t-[0px] border-l-[0px] border-b-[48px] border-r-[50px] border-solid"
             style={{

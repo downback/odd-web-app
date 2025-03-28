@@ -36,26 +36,26 @@ export default function RootLayout({
 // TODO MAIN
 //[ ] footer hover
 
-//[ ] landing - process - text box / click btn / page transition
-//[ ] landing - video  - page pin(?)
-//[ ] landing - project - simple btn
-//[ ] landing - goodbye  -
-
-//[ ] json data
-
-//[ ] projects - list inside ouside ui
+//[ ] projects - list inside outside ui
 //[ ] projects - extra decoration
 
 //[ ] about us - header ui
 //[ ] about us - content ui
 
-//[ ] consulting - process straight line
-//[ ] projects - extra decoration
-
 //[ ] contact - ui
 //[ ] contact - nodemailer
 
 //[ ] odd people - content ui
+
+//[ ] json data
+
+//[ ] landing - process - text box / click btn / page transition
+//[ ] landing - video  - page pin(?)
+//[ ] landing - project - simple btn
+//[ ] landing - goodbye  -
+
+//[ ] consulting - process straight line
+//[ ] consulting - extra decoration
 
 //DEBUG
 //[ ] landing - process mobile
