@@ -55,13 +55,13 @@ const AnimatedProcess: React.FC = () => {
     return w
   }
 
-  useEffect(() => {
-    const handleResize = () => {
-      window.location.reload()
-    }
-    window.addEventListener("resize", handleResize)
-    return () => window.removeEventListener("resize", handleResize)
-  }, [])
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     window.location.reload()
+  //   }
+  //   window.addEventListener("resize", handleResize)
+  //   return () => window.removeEventListener("resize", handleResize)
+  // }, [])
 
   useEffect(() => {
     const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg")
@@ -128,8 +128,7 @@ const AnimatedProcess: React.FC = () => {
 
   useEffect(() => {
     const containerWidth = getResponsiveWidth()
-    console.log(containerWidth)
-
+    // console.log(containerWidth)
     drawPath(currentPath)
   }, [currentPath])
 
@@ -249,26 +248,26 @@ const AnimatedProcess: React.FC = () => {
             //   <ProcessDetailBox title={`Step ${i + 1}`} className="top-12" />
             // </div>
             <div
-            ref={(el) => {
-              if (el) circleRefs.current[i] = el
-            }}
-            key={`circle-${i}`}
-            className="absolute w-5 h-5"
-            style={{
-              left: `${x}px`,
-              top: `${y}px`,
-              transform: "translate(-50%, -50%)",
-            }}
-          >
-            <div className="absolute w-5 h-5 bg-white border border-black rounded-full" />
-            {step && (
-              <ProcessDetailBox
-                title={step.title}
-                description={step.description}
-                className={step.position}
-              />
-            )}
-          </div>
+              ref={(el) => {
+                if (el) circleRefs.current[i] = el
+              }}
+              key={`circle-${i}`}
+              className="absolute w-5 h-5"
+              style={{
+                left: `${x}px`,
+                top: `${y}px`,
+                transform: "translate(-50%, -50%)",
+              }}
+            >
+              <div className="absolute w-5 h-5 bg-white border border-black rounded-full" />
+              {step && (
+                <ProcessDetailBox
+                  title={step.title}
+                  description={step.description}
+                  className={step.position}
+                />
+              )}
+            </div>
           )
         })}
       </div>

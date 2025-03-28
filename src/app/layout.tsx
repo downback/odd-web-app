@@ -33,4 +33,30 @@ export default function RootLayout({
   )
 }
 
-// pt-16 px-4
+// TODO MAIN
+//[ ] footer hover
+
+//[ ] landing - process - text box / click btn / page transition
+//[ ] landing - video  - page pin(?)
+//[ ] landing - project - simple btn
+//[ ] landing - goodbye  -
+
+//[ ] json data
+
+//[ ] projects - list inside ouside ui
+//[ ] projects - extra decoration
+
+//[ ] about us - header ui
+//[ ] about us - content ui
+
+//[ ] consulting - process straight line
+//[ ] projects - extra decoration
+
+//[ ] contact - ui
+//[ ] contact - nodemailer
+
+//[ ] odd people - content ui
+
+//DEBUG
+//[ ] landing - process mobile
+//[ ] page headers - color glitching

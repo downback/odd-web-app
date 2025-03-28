@@ -5,7 +5,7 @@ import Image from "next/image"
 
 import { MdArrowOutward } from "react-icons/md"
 import FooterLinksList from "./FooterLinksList"
-import HoverLink from "@/components/layouts/hoverLink"
+import HoverLink from "@/components/ui/HoverLink"
 
 const Footer: React.FC = () => {
   return (

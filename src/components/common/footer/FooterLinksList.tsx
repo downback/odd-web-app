@@ -1,6 +1,5 @@
 import React from "react"
-import Link from "next/link"
-import HoverLink from "@/components/layouts/hoverLink"
+import HoverLink from "@/components/ui/HoverLink"
 
 interface FooterLinksProps {
   linkTitle: string
