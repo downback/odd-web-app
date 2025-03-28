@@ -4,7 +4,6 @@ import React from "react"
 const ProjectsListWrapper: React.FC = () => {
   return (
     <div className="">
-      ProjectsListWrapper
       <ProjectsList />
     </div>
   )

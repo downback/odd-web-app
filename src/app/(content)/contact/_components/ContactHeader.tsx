@@ -4,18 +4,18 @@ import React, { useContext } from "react"
 import { LanguageContext } from "../../../../context/LanguageContext"
 import PageHeader from "@/components/layouts/PageHeader"
 
-const AboutUsHeader: React.FC = () => {
+const ContactHeader: React.FC = () => {
   const { translations } = useContext(LanguageContext)
-  const aboutUsTranslation = translations.aboutUsPage
+  const contactTranslation = translations.contactPage
 
   return (
     <>
       <PageHeader
-        titleTop={aboutUsTranslation.titleTop}
-        titleBottom={aboutUsTranslation.titleBottom}
+        titleTop={contactTranslation.titleTop}
+        titleBottom={contactTranslation.titleBottom}
       />
     </>
   )
 }
 
-export default AboutUsHeader
+export default ContactHeader

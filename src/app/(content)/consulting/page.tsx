@@ -1,11 +1,11 @@
 import React from "react"
 import ProcessSection from "../landing/_components/ProcessSection"
-import PageHeader from "@/components/layouts/PageHeader"
+import ConsultingHeader from "./_components/ConsultingHeader"
 
 const ConsultingPage: React.FC = () => {
   return (
     <div className="">
-      <PageHeader title="CONSULTING" />
+      <ConsultingHeader />
       <ProcessSection />
     </div>
   )

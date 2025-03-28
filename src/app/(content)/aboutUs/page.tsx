@@ -2,7 +2,7 @@ import AboutUsHeader from "./_components/AboutUsHeader"
 
 const AboutUsPage: React.FC = () => {
   return (
-    <div className="w-full">
+    <div className="w-full h-dvh">
       <AboutUsHeader />
     </div>
   )

@@ -22,6 +22,7 @@ const LandingVideoSection: React.FC = () => {
       scrub: true,
       pin: true,
       anticipatePin: 1,
+      // pinSpacing: false,
       start: "top top",
       end: "bottom top",
       onEnter: () => video.play(),

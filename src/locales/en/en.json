@@ -1,27 +1,27 @@
 {
   "processSteps": [
     {
-      "title": "Interior Design",
+      "title": "Grand Opening",
       "description": "Design spaces that reflect your brand.",
       "position": "top-12 -left-8"
     },
     {
-      "title": "Branding",
+      "title": "System Setup",
       "description": "Build a brand that stands out.",
       "position": "top-12"
     },
     {
-      "title": "Interior Design",
+      "title": "Staff Recruitment & Training",
       "description": "Design spaces that reflect your brand.",
       "position": "top-12 -left-8"
     },
     {
-      "title": "Branding",
+      "title": "Online Marketing",
       "description": "Build a brand that stands out.",
       "position": "top-12"
     },
     {
-      "title": "Location Selection",
+      "title": "Construction & Installation",
       "description": "We help you choose the perfect location.",
       "position": "top-12 -left-12"
     },
@@ -51,9 +51,83 @@
       "position": "top-12"
     }
   ],
-  "greeting": "Hello, World!",
-  "projectTitle": "PROJECTS",
-  "projectTitleTop": "EXPLORE",
-  "projectTitleBottom": "PROJECTS",
-  "changeLanguage": "Change Language"
+  "projectsPage": {
+    "title": "PROJECTS",
+    "titleTop": "EXPLORE",
+    "titleBottom": "PROJECTS",
+    "projectsList": [
+      {
+        "title": "Sword Master Noodle",
+        "subTitle": "Korean Noodle Restaurant",
+        "location": "Dunckerstraße 30, 10439 Berlin",
+        "date": "September 2022",
+        "desc": "Scope of Work: Consulting, Branding (BI), Interior Design, Recipe Development, Managed and Operated"
+      },
+      {
+        "title": "odd cafe",
+        "subTitle": "Café",
+        "location": "Dunckerstraße 30, 10439 Berlin",
+        "date": "September 2022",
+        "desc": "Scope of Work: Consulting, Branding (BI), Interior Design, Recipe Development, Managed and Operated"
+      },
+      {
+        "title": "Lia Ppang",
+        "subTitle": "Korean Dessert Café",
+        "location": "Dunckerstraße 30, 10439 Berlin",
+        "date": "September 2022",
+        "desc": "Scope of Work: Consulting, Branding (BI), Interior Design, Recipe Development, Managed and Operated"
+      },
+      {
+        "title": "Go Gogi",
+        "subTitle": "Korean Dining Restaurant",
+        "location": "Dunckerstraße 30, 10439 Berlin",
+        "date": "September 2022",
+        "desc": "Scope of Work: Consulting, Branding (BI), Interior Design, Recipe Development, Managed and Operated"
+      }
+    ]
+  },
+  "consultingPage": {
+    "title": "CONSULTING",
+    "titleTop": "LET'S",
+    "titleBottom": "CONSULTING"
+  },
+  "aboutUsPage": {
+    "title": "CONSULTING",
+    "titleTop": "SANGHYUN NO",
+    "titleBottom": "DAEUN PARK",
+    "usList": [
+      {
+        "name": "Go Gogi",
+        "descMain": "Korean Dining Restaurant",
+        "descSub": "Dunckerstraße 30, 10439 Berlin"
+      },
+      {
+        "name": "Go Gogi",
+        "descMain": "Korean Dining Restaurant",
+        "descSub": "Dunckerstraße 30, 10439 Berlin"
+      }
+    ]
+  },
+  "oddPeoplePage": {
+    "title": "ODD PEOPLE",
+    "titleTop": "INTRODUCING",
+    "titleBottom": "ODD PEOPLE",
+    "peopleList": [
+      {
+        "name": "Go Gogi",
+        "descMain": "Korean Dining Restaurant",
+        "descSub": "Dunckerstraße 30, 10439 Berlin"
+      },
+      {
+        "name": "Go Gogi",
+        "descMain": "Korean Dining Restaurant",
+        "descSub": "Dunckerstraße 30, 10439 Berlin"
+      }
+    ]
+  },
+  "contactPage": {
+    "title": "CONTACT",
+    "titleTop": "LET'S",
+    "titleBottom": "CONTACT"
+  }
 }

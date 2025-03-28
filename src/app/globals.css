@@ -52,6 +52,7 @@ body {
   background-size: cover;
   background-repeat: repeat;
   background-position: center center;
+  --bg-color: #edebeb;
 }
 
 #__next {

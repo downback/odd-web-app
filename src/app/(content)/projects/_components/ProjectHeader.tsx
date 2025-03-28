@@ -6,11 +6,13 @@ import PageHeader from "@/components/layouts/PageHeader"
 
 const ProjectHeader: React.FC = () => {
   const { translations } = useContext(LanguageContext)
+  const projectsTranslation = translations.projectsPage
+
   return (
     <>
       <PageHeader
-        titleTop={translations.projectTitleTop}
-        titleBottom={translations.projectTitleBottom}
+        titleTop={projectsTranslation.titleTop}
+        titleBottom={projectsTranslation.titleBottom}
       />
     </>
   )

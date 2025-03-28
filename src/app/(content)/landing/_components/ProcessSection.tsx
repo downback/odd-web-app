@@ -1,3 +1,5 @@
+"use client"
+
 import React from "react"
 import ProcessAnimation from "./ProcessAnimation"
 import { useScrollTrigger } from "@/context/ScrollTriggerContext"

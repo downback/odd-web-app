@@ -44,10 +44,12 @@ const Header: React.FC = () => {
       duration: 0.6,
       ease: "power1.inOut",
       scrollTrigger: {
-        trigger: sectionTriggerRef.current,
-        start: "top top",
+        // trigger: sectionTriggerRef.current,
+        trigger: header,
+        start: "+=1000",
         end: "+=100",
         scrub: true,
+        markers: true,
       },
     })
     gsap.to(logo, {
@@ -75,11 +77,9 @@ const Header: React.FC = () => {
           duration: 0.4,
           ease: "power1.out",
         })
-      } else if (isMobile && !menuOpen) {
+      } else {
         gsap.to(bg, {
-          opacity: currentScroll > 30 ? 1 : 0,
-          duration: 0.4,
-          ease: "power1.out",
+          opacity: 1,
         })
       }
 
@@ -91,6 +91,7 @@ const Header: React.FC = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll)
       ScrollTrigger.refresh()
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
     }
   }, [sectionTriggerRef.current])
 
@@ -105,6 +106,7 @@ const Header: React.FC = () => {
       gsap.to(bg, {
         opacity: 1,
         height: isOpening ? "100dvh" : "100%",
+        // autoAlpha: isOpening ? 1 : 0,
         duration: 0.2,
         ease: "power2.inOut",
       })
@@ -127,10 +129,10 @@ const Header: React.FC = () => {
       <header
         lang="en"
         ref={headerRef}
-        className="fixed top-0 z-40 px-4 xl:px-6 w-screen h-14 xl:h-18 flex flex-row items-center justify-between"
+        className="fixed top-0 z-40 px-4 xl:px-6 w-screen h-14 flex flex-row items-center justify-between"
       >
         <div className="flex-1 z-40">
-          <div ref={logoRef} className=" w-28 md:w-38 xl:w-40">
+          <div ref={logoRef} className="w-28 md:w-38 xl:w-40">
             <Link href="/">
               <Image
                 src="/images/LogoBlack.png"
