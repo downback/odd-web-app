@@ -1,52 +1,52 @@
 {
   "processSteps": [
     {
-      "title": "정식 오픈",
+      "title": "10. 정식 오픈",
       "description": "Design spaces that reflect your brand.",
       "position": "top-12 -left-8"
     },
     {
-      "title": "시스템 구축",
+      "title": "9. 시스템 구축",
       "description": "Build a brand that stands out.",
       "position": "top-12"
     },
     {
-      "title": "직원 채용 및 교육",
+      "title": "8. 직원 채용 및 교육",
       "description": "Design spaces that reflect your brand.",
       "position": "top-12 -left-8"
     },
     {
-      "title": "온라인 마케팅",
+      "title": "7. 온라인 마케팅",
       "description": "Build a brand that stands out.",
       "position": "top-12"
     },
     {
-      "title": "시공 및 설치",
+      "title": "6. 시공 및 설치",
       "description": "We help you choose the perfect location.",
       "position": "top-12 -left-12"
     },
     {
-      "title": "인테리어 디자인",
+      "title": "5. 인테리어 디자인",
       "description": "Design spaces that reflect your brand.",
-      "position": "top-12 -left-8"
+      "position": "top-12 -left-24"
     },
     {
-      "title": "브랜딩",
+      "title": "4. 브랜딩",
       "description": "Build a brand that stands out.",
       "position": "top-12"
     },
     {
-      "title": "법적 허가와 행정 절차",
+      "title": "3. 법적 허가와 행정 절차",
       "description": "We help you choose the perfect location.",
       "position": "top-12 -left-12"
     },
     {
-      "title": "입지 선정과 계약",
+      "title": "2. 입지 선정과 계약",
       "description": "Handle all permits and administrative tasks.",
       "position": "top-12 -right-12"
     },
     {
-      "title": "비즈니스 계획",
+      "title": "1. 비즈니스 계획",
       "description": "We start by crafting a solid business strategy.",
       "position": "top-12"
     }

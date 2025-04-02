@@ -3,7 +3,6 @@
 import React, { useRef } from "react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-
 import { useGSAP } from "@gsap/react"
 
 gsap.registerPlugin(ScrollTrigger)
@@ -14,48 +13,44 @@ const LandingVideoSection: React.FC = () => {
 
   useGSAP(() => {
     const video = videoRef.current
-    const videoWrapper = videoWrapperRef.current
-    if (!video || !videoWrapper) return
+    const wrapper = videoWrapperRef.current
+
+    if (!video || !wrapper) return
+
+    // Reset scroll position for better experience
+    ScrollTrigger.refresh()
 
     ScrollTrigger.create({
-      trigger: videoWrapper,
-      scrub: true,
-      pin: true,
-      anticipatePin: 1,
-      // pinSpacing: false,
-      start: "top top",
+      trigger: wrapper,
+      start: "top 20%",
       end: "bottom top",
+      scrub: true,
       onEnter: () => video.play(),
-      onLeave: () => video.pause(),
       onEnterBack: () => video.play(),
+      onLeave: () => video.pause(),
       onLeaveBack: () => video.pause(),
       // markers: true,
-      id: "video",
     })
   }, [])
 
   return (
     <div
       ref={videoWrapperRef}
-      className="w-full h-[900px] flex justify-center items-center "
+      className="w-full h-[100vh] flex justify-center items-center relative overflow-hidden"
     >
       <div className="w-full h-3/5 lg:h-2/3 group relative">
         <video
           ref={videoRef}
           src="/images/landingPageVideo.mov"
-          width="100%"
           className="w-full h-full object-cover shadow-lg"
           muted
           playsInline
           preload="auto"
         />
-        <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity duration-300 pointer-events-none z-10" />
+        <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-50 transition-opacity duration-300 pointer-events-none z-10" />
       </div>
     </div>
   )
 }
 
 export default LandingVideoSection
-
-//TODO
-// [ ] video hover | pin | design?

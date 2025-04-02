@@ -14,7 +14,11 @@ const ProcessSection: React.FC = () => {
 
   return (
     <div ref={sectionTriggerRef} className="w-full h-auto">
+      <h1 className="text-center">
+        you got an idea to start your business?
+      </h1>
       <ProcessAnimation />
+      <h1 className="text-center h-24">WELCOME</h1>
     </div>
   )
 }

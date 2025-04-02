@@ -2,7 +2,7 @@
 
 import React, { useContext } from "react"
 import { LanguageContext } from "../../../../context/LanguageContext"
-import PageHeader from "@/components/layouts/PageHeader"
+import PageHeader from "@/components/ui/PageHeader"
 
 const ConsultingHeader: React.FC = () => {
   const { translations } = useContext(LanguageContext)

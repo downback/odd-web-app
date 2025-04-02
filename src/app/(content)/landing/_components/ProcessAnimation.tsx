@@ -24,22 +24,21 @@ const BASE_PATH_HEIGHT = 785.63
 
 const AnimatedProcess: React.FC = () => {
   const { translations } = useContext(LanguageContext)
-  const stepDetails = translations?.processSteps || []
+  const stepDetails = translations?.landingPage.processSteps || []
 
   const [circleCoords, setCircleCoords] = useState<CircleData[]>([])
   const [currentPath, setCurrentPath] = useState(PATH_D_START)
   const [isStraight, setIsStraight] = useState(false)
   const canvasRef = useRef<HTMLCanvasElement>(null)
-  const circleRefs = useRef<HTMLDivElement[]>([])
   const containerRef = useRef<HTMLDivElement>(null)
-  circleRefs.current = []
 
-  // const getResponsiveWidth = () => {
-  //   const w = window.innerWidth
-  //   if (w < 768) return (7 / 8) * w
-  //   if (w >= 768) return (4 / 5) * w
-  //   return w
-  // }
+  const circleRefs = useRef<HTMLDivElement[]>([])
+  const titleRefs = useRef<HTMLHeadingElement[]>([])
+  const descRefs = useRef<HTMLParagraphElement[]>([])
+
+  circleRefs.current = []
+  titleRefs.current = []
+  descRefs.current = []
 
   const getResponsiveWidth = () => {
     const raw = containerRef.current?.offsetWidth || window.innerWidth
@@ -48,12 +47,13 @@ const AnimatedProcess: React.FC = () => {
     return raw
   }
 
-  const lineWidth = () => {
-    const w = window.innerWidth
-    if (w < 768) return 1
-    if (w >= 768) return 0.5
-    return w
-  }
+  // const lineWidth = () => {
+  //   const w = window.innerWidth
+  //   if (w < 768) return 0.7
+  //   if (w >= 768) return 0.5
+  //   return w
+  // }
+  const lineWidth = () => (window.innerWidth < 768 ? 0.7 : 0.5)
 
   // useEffect(() => {
   //   const handleResize = () => {
@@ -61,6 +61,33 @@ const AnimatedProcess: React.FC = () => {
   //   }
   //   window.addEventListener("resize", handleResize)
   //   return () => window.removeEventListener("resize", handleResize)
+  // }, [])
+
+  // useEffect(() => {
+  //   const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg")
+  //   svg.setAttribute("viewBox", "0 0 377.35 785.63")
+  //   svg.style.position = "fixed"
+  //   svg.style.overflow = "hidden"
+
+  //   const path = document.createElementNS("http://www.w3.org/2000/svg", "path")
+  //   path.setAttribute("d", PATH_D_START)
+  //   svg.appendChild(path)
+  //   document.body.appendChild(svg)
+
+  //   const totalLength = path.getTotalLength()
+  //   const count = 10
+  //   const spacing = totalLength / (count - 1)
+
+  //   const points: CircleData[] = []
+  //   for (let i = 0; i < count; i++) {
+  //     const pt = path.getPointAtLength(i * spacing)
+  //     points.push({ x: pt.x, y: pt.y })
+  //   }
+
+  //   setCircleCoords(points)
+  //   return () => {
+  //     svg.remove()
+  //   }
   // }, [])
 
   useEffect(() => {
@@ -75,20 +102,24 @@ const AnimatedProcess: React.FC = () => {
     document.body.appendChild(svg)
 
     const totalLength = path.getTotalLength()
-    const count = 10
-    const spacing = totalLength / (count - 1)
+    const count = stepDetails.length
+    const startOffset = totalLength * 0.03 // 5% offset at start
+    const endOffset = totalLength * 0.97 // 5% offset at end
+    const spacing = (endOffset - startOffset) / (count - 1)
 
     const points: CircleData[] = []
     for (let i = 0; i < count; i++) {
-      const pt = path.getPointAtLength(i * spacing)
+      const distance = startOffset + i * spacing
+      const pt = path.getPointAtLength(distance)
       points.push({ x: pt.x, y: pt.y })
     }
 
     setCircleCoords(points)
+
     return () => {
       svg.remove()
     }
-  }, [])
+  }, [stepDetails])
 
   const drawPath = (d: string) => {
     const canvas = canvasRef.current
@@ -172,36 +203,122 @@ const AnimatedProcess: React.FC = () => {
     })
   }
 
+  // useGSAP(() => {
+  //   circleRefs.current.forEach((el) => {
+  //     if (!el) return
+
+  //     gsap.fromTo(
+  //       el,
+  //       { scale: 0, opacity: 0 },
+  //       {
+  //         scale: 1,
+  //         opacity: 1,
+  //         duration: 0.6,
+  //         ease: "back.out(1.7)",
+  //         scrollTrigger: {
+  //           trigger: el,
+  //           start: "top 70%",
+  //           end: "center center",
+  //           markers: false,
+  //           toggleActions: "play none none reset",
+  //         },
+  //       }
+  //     )
+  //   })
+  //   detailRefs.current.forEach((el) => {
+  //     if (!el) return
+  //     gsap.fromTo(
+  //       el,
+  //       { y: 30, opacity: 0 },
+  //       {
+  //         y: 0,
+  //         opacity: 1,
+  //         duration: 0.6,
+  //         delay: 0.2,
+  //         ease: "power3.out",
+  //         scrollTrigger: {
+  //           trigger: el,
+  //           start: "top 85%",
+  //           end: "center center",
+  //           toggleActions: "play none none reset",
+  //         },
+  //       }
+  //     )
+  //   })
+  // }, [circleCoords])
+
   useGSAP(() => {
-    circleRefs.current.forEach((el) => {
+    circleRefs.current.forEach((el, i) => {
       if (!el) return
 
-      gsap.fromTo(
-        el,
-        { scale: 0, opacity: 0 },
-        {
-          scale: 1,
-          opacity: 1,
-          duration: 0.6,
-          ease: "back.out(1.7)",
-          scrollTrigger: {
-            trigger: el,
-            start: "top 70%",
-            end: "center center",
-            markers: false,
-            toggleActions: "play none none reset",
-          },
-        }
-      )
+      // gsap.fromTo(
+      //   el,
+      //   { scale: 0, opacity: 0 },
+      //   {
+      //     scale: 1,
+      //     opacity: 1,
+      //     duration: 0.6,
+      //     ease: "back.out(1.7)",
+      //     scrollTrigger: {
+      //       trigger: el,
+      //       start: "top 75%",
+      //       end: "center center",
+      //       toggleActions: "play none none reset",
+      //     },
+      //   }
+      // )
+
+      // const title = titleRefs.current[i]
+      const desc = descRefs.current[i]
+
+      // if (title) {
+      //   gsap.fromTo(
+      //     title,
+      //     { y: 30, opacity: 0 },
+      //     {
+      //       y: 0,
+      //       opacity: 1,
+      //       duration: 0.6,
+      //       delay: 0.2,
+      //       ease: "power3.out",
+      //       scrollTrigger: {
+      //         trigger: title,
+      //         start: "top 85%",
+      //         toggleActions: "play none none reset",
+      //       },
+      //     }
+      //   )
+      // }
+
+      if (desc) {
+        gsap.fromTo(
+          desc,
+          { y: 30, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.6,
+            delay: 0.6,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: desc,
+              start: "top 85%",
+              end: "center center",
+              toggleActions: "play reverse play reverse",
+              // markers: true,
+            },
+          }
+        )
+      }
     })
   }, [circleCoords])
 
   return (
     <div
       ref={containerRef}
-      className="w-full max-w-full overflow-x-hidden h-max my-12 flex flex-col justify-center items-center"
+      className="w-full overflow-x-hidden max-w-full h-max flex flex-col justify-center items-center"
     >
-      <div className="relative w-fit h-fit">
+      <div className="relative w-fit h-fit mt-6 mb-12">
         <canvas
           ref={canvasRef}
           style={{
@@ -211,12 +328,6 @@ const AnimatedProcess: React.FC = () => {
             pointerEvents: "none",
           }}
         />
-        <button
-          onClick={handleMorph}
-          className="px-4 py-2 bg-black text-white rounded hover:bg-gray-800 transition"
-        >
-          Morph Path
-        </button>
 
         {circleCoords.map((pt, i) => {
           const containerWidth = getResponsiveWidth()
@@ -231,27 +342,14 @@ const AnimatedProcess: React.FC = () => {
           const y = pt.y * scaleY
           const step = stepDetails[i]
 
+          const isMobile = window.innerWidth < 768
+
           return (
-            // <div
-            //   ref={(el) => {
-            //     if (el) circleRefs.current[i] = el
-            //   }}
-            //   key={`circle-${i}`}
-            //   className="absolute w-5 h-5"
-            //   style={{
-            //     left: `${x}px`,
-            //     top: `${y}px`,
-            //     transform: "translate(-50%, -50%)",
-            //   }}
-            // >
-            //   <div className="absolute w-5 h-5 bg-white border border-black rounded-full"></div>
-            //   <ProcessDetailBox title={`Step ${i + 1}`} className="top-12" />
-            // </div>
             <div
+              key={`circle-${i}`}
               ref={(el) => {
                 if (el) circleRefs.current[i] = el
               }}
-              key={`circle-${i}`}
               className="absolute w-5 h-5"
               style={{
                 left: `${x}px`,
@@ -259,13 +357,33 @@ const AnimatedProcess: React.FC = () => {
                 transform: "translate(-50%, -50%)",
               }}
             >
-              <div className="absolute w-5 h-5 bg-white border border-black rounded-full" />
+              <div
+                ref={(el) => {
+                  if (el) circleRefs.current[i] = el
+                }}
+                className="w-5 h-5 bg-white border border-black rounded-full"
+              />
               {step && (
+                // <div
+                //   ref={(el) => {
+                //     if (el) detailRefs.current[i] = el
+                //   }}
+                // >
                 <ProcessDetailBox
                   title={step.title}
                   description={step.description}
                   className={step.position}
+                  titleClassName={step?.titlePosition}
+                  btnClassName={step?.btnPosition}
+                  clickLink={handleMorph}
+                  titleRef={(el) => {
+                    titleRefs.current[i] = el as HTMLHeadingElement
+                  }}
+                  descRef={(el) => {
+                    descRefs.current[i] = el as HTMLParagraphElement
+                  }}
                 />
+                // </div>
               )}
             </div>
           )

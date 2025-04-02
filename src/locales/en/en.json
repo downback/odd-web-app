@@ -1,56 +1,79 @@
 {
-  "processSteps": [
-    {
-      "title": "Grand Opening",
-      "description": "Design spaces that reflect your brand.",
-      "position": "top-12 -left-8"
-    },
-    {
-      "title": "System Setup",
-      "description": "Build a brand that stands out.",
-      "position": "top-12"
-    },
-    {
-      "title": "Staff Recruitment & Training",
-      "description": "Design spaces that reflect your brand.",
-      "position": "top-12 -left-8"
-    },
-    {
-      "title": "Online Marketing",
-      "description": "Build a brand that stands out.",
-      "position": "top-12"
-    },
-    {
-      "title": "Construction & Installation",
-      "description": "We help you choose the perfect location.",
-      "position": "top-12 -left-12"
-    },
-    {
-      "title": "Interior Design",
-      "description": "Design spaces that reflect your brand.",
-      "position": "top-12 -left-8"
-    },
-    {
-      "title": "Branding",
-      "description": "Build a brand that stands out.",
-      "position": "top-12"
-    },
-    {
-      "title": "Location Selection",
-      "description": "We help you choose the perfect location.",
-      "position": "top-12 -left-12"
-    },
-    {
-      "title": "Legal Setup",
-      "description": "Handle all permits and administrative tasks.",
-      "position": "top-12 -right-12"
-    },
-    {
-      "title": "Business Plan",
-      "description": "We start by crafting a solid business strategy.",
-      "position": "top-12"
-    }
-  ],
+  "landingPage": {
+    "processSteps": [
+      {
+        "title": "10. Grand Opening",
+        "description": "- Launch event & promotional campaign <br/> - Performance monitoring during the first month",
+        "position": "top-0 -left-8 -translate-x-1/2",
+        "titlePosition": "",
+        "btnPosition": "justify-start"
+      },
+      {
+        "title": "9. System Setup",
+        "description": "- Supplier selection & contract for food & beverages <br/> - Partnership with delivery platforms (Wolt, Lieferando, Uber Eats) <br/> - POS, reservation, and payment system integration",
+        "position": "top-0 -right-8 text-right",
+        "titlePosition": "-translate-x-16",
+        "btnPosition": "justify-end"
+      },
+      {
+        "title": "8. Staff Recruitment & Training",
+        "description": "- Hiring key personnel (chefs, kitchen staff, service team) <br/> - Hygiene & safety training <br/> - Service and operations manual training",
+        "position": "top-12 left-0 -translate-x-1/2",
+        "titlePosition": "",
+        "btnPosition": "justify-start"
+      },
+      {
+        "title": "7. Online Marketing",
+        "description": "- Marketing strategy & promotion planning <br/> - Professional photos & videos showcasing brand story <br/> - Optimized website development <br/> - Social media & promotional channel management",
+        "position": "top-12 -left-2",
+        "titlePosition": "",
+        "btnPosition": "justify-start"
+      },
+      {
+        "title": "6. Construction & Installation",
+        "description": "- Interior construction Kitchen equipment & furniture installation <br/> - Contractor selection & project management <br/> - Final touch-ups and finishing details",
+        "position": "top-8 right-0 translate-x-1/4 text-right",
+        "titlePosition": "",
+        "btnPosition": "justify-end"
+      },
+      {
+        "title": "5. Interior Design",
+        "description": "- Concept development & space planning <br/> - Electrical & facility layout planning <br/> - Architectural blueprint preparation <br/> - Furniture & lighting design",
+        "position": "top-0 right-6 text-right",
+        "titlePosition": "-translate-x-4",
+        "btnPosition": "justify-end"
+      },
+      {
+        "title": "4. Branding",
+        "description": "- Visual identity design <br/> - Logo, signage, menu, and packaging design",
+        "position": "top-8 -left-20",
+        "titlePosition": "",
+        "btnPosition": "justify-start"
+      },
+      {
+        "title": "3. Legal Permits",
+        "description": "- Company formation (UG, GmbH) <br/> - Business registration (Gewerbeanmeldung) <br/> - Liquor license (Gaststättenerlaubnis) Health department approval",
+        "position": "top-8 -right-16 text-right",
+        "titlePosition": "-translate-x-1/2",
+        "btnPosition": ""
+      },
+      {
+        "title": "2. Location Selection ",
+        "description": "- Local market & commercial district analysis <br/> - Property condition & zoning verification <br/> - Lease negotiation",
+        "position": "top-8 left-0 -translate-x-1/3 md:right-8",
+        "titlePosition": "translate-x-2",
+        "btnPosition": "justify-start"
+      },
+      {
+        "title": "1. Business Plan",
+        "description": "- Target audience analysis & market research <br/> - Menu concept & pricing strategy <br/> - Budgeting, investment, and revenue forecast <br/> - Business plan for official submission",
+        "position": "top-0 -right-16 md:left-24",
+        "titlePosition": "translate-x-0 md:-translate-x-8",
+        "btnPosition": "justify-start"
+      }
+    ],
+    "processTitle": "you got an idea to start your business?"
+  },
   "projectsPage": {
     "title": "PROJECTS",
     "titleTop": "EXPLORE",
@@ -58,6 +81,7 @@
     "projectsList": [
       {
         "title": "Sword Master Noodle",
+        "img": "TestImage.png",
         "subTitle": "Korean Noodle Restaurant",
         "location": "Dunckerstraße 30, 10439 Berlin",
         "date": "September 2022",
@@ -66,6 +90,7 @@
       {
         "title": "odd cafe",
         "subTitle": "Café",
+        "img": "TestImage.jpg",
         "location": "Dunckerstraße 30, 10439 Berlin",
         "date": "September 2022",
         "desc": "Scope of Work: Consulting, Branding (BI), Interior Design, Recipe Development, Managed and Operated"
@@ -73,6 +98,7 @@
       {
         "title": "Lia Ppang",
         "subTitle": "Korean Dessert Café",
+        "img": "TestImage.jpg",
         "location": "Dunckerstraße 30, 10439 Berlin",
         "date": "September 2022",
         "desc": "Scope of Work: Consulting, Branding (BI), Interior Design, Recipe Development, Managed and Operated"
@@ -80,6 +106,7 @@
       {
         "title": "Go Gogi",
         "subTitle": "Korean Dining Restaurant",
+        "img": "TestImage.jpg",
         "location": "Dunckerstraße 30, 10439 Berlin",
         "date": "September 2022",
         "desc": "Scope of Work: Consulting, Branding (BI), Interior Design, Recipe Development, Managed and Operated"
@@ -114,12 +141,12 @@
     "titleBottom": "ODD PEOPLE",
     "peopleList": [
       {
-        "name": "Go Gogi",
+        "name": "ODD PEOPLE1",
         "descMain": "Korean Dining Restaurant",
         "descSub": "Dunckerstraße 30, 10439 Berlin"
       },
       {
-        "name": "Go Gogi",
+        "name": "ODD PEOPLE2",
         "descMain": "Korean Dining Restaurant",
         "descSub": "Dunckerstraße 30, 10439 Berlin"
       }

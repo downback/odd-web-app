@@ -2,14 +2,14 @@ import React from "react"
 
 const ContactForm: React.FC = () => {
   return (
-    <div className="w-2/5 p-6 bg-white border border-black rounded">
+    <div className="w-2/5 p-6  border border-black rounded">
       <h2 className="text-2xl font-bold text-center text-black mb-4">
         Contact Us
       </h2>
       <form className="space-y-4">
         <div>
           <label htmlFor="name" className="block text-black font-semibold mb-1">
-            Name
+            Name*
           </label>
           <input
             type="text"
@@ -24,13 +24,28 @@ const ContactForm: React.FC = () => {
             htmlFor="email"
             className="block text-black font-semibold mb-1"
           >
-            Email
+            Email*
           </label>
           <input
             type="email"
             id="email"
             name="email"
             placeholder="Your email"
+            className="w-full px-3 py-2 border border-black rounded focus:outline-none focus:ring-1 focus:ring-black"
+          />
+        </div>
+        <div>
+          <label
+            htmlFor="contact detail"
+            className="block text-black font-semibold mb-1"
+          >
+            Contact Detail
+          </label>
+          <input
+            type="number"
+            id="number"
+            name="number"
+            placeholder="Your phone number or kakaotalk id"
             className="w-full px-3 py-2 border border-black rounded focus:outline-none focus:ring-1 focus:ring-black"
           />
         </div>
@@ -49,6 +64,7 @@ const ContactForm: React.FC = () => {
             className="w-full px-3 py-2 border border-black rounded focus:outline-none focus:ring-1 focus:ring-black"
           ></textarea>
         </div>
+        <div>* required feilds</div>
         <div className="text-center">
           <button
             type="submit"

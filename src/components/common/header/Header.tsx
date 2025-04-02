@@ -39,31 +39,33 @@ const Header: React.FC = () => {
     //   ease: "power3.out",
     // })
 
-    gsap.to(header, {
-      height: "2.5rem",
-      duration: 0.6,
-      ease: "power1.inOut",
-      scrollTrigger: {
-        // trigger: sectionTriggerRef.current,
-        trigger: header,
-        start: "+=1000",
-        end: "+=100",
-        scrub: true,
-        markers: true,
-      },
-    })
-    gsap.to(logo, {
-      scale: 0.8,
-      duration: 0.6,
-      ease: "power1.inOut",
-      scrollTrigger: {
-        trigger: sectionTriggerRef.current,
-        start: "top top",
-        end: "+=100",
-        scrub: true,
-        // markers: true,
-      },
-    })
+    // gsap.to(header, {
+    //   height: "2.5rem",
+    //   duration: 0.6,
+    //   ease: "power1.inOut",
+    //   scrollTrigger: {
+    //     // trigger: sectionTriggerRef.current,
+    //     trigger: header,
+    //     start: "+=600",
+    //     end: "+=100",
+    //     scrub: true,
+    //     markers: true,
+    //   },
+    // })
+    // gsap.to(logo, {
+    //   scale: 0.8,
+    //   duration: 0.6,
+    //   ease: "power1.inOut",
+    //   scrollTrigger: {
+    //     // trigger: sectionTriggerRef.current,
+    //     trigger: header,
+    //     // start: "top top",
+    //     start: "+=600",
+    //     end: "+=100",
+    //     scrub: true,
+    //     // markers: true,
+    //   },
+    // })
 
     // let lastScroll = window.scrollY
 
@@ -159,7 +161,7 @@ const Header: React.FC = () => {
         </div>
         <div
           ref={bgRef}
-          className="w-full h-full absolute left-0 top-0 bg-[#edebeb] border-b-2 border-stone-100 inset-shadow-[0_-2px_0_0_rgba(0,0,0,0.05)]"
+          className="w-full h-full absolute left-0 top-0 bg-[#edebeb] border-b-1 border-stone-100 inset-shadow-[0_-1px_0_0_rgba(0,0,0,0.05)] "
         />
         {/* header border designs */}
         {/* <div

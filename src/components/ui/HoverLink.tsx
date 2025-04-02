@@ -10,40 +10,54 @@ interface HoverLinkProps {
   linkText: string
   className?: string
   underlineColor?: string
-  activeLineColor?: string // example: "bg-black", "bg-white", "bg-red-500"
+  activeLineColor?: string
   activeTextColor?: string
+  isExternal?: boolean
 }
 
 const HoverLink: React.FC<HoverLinkProps> = ({
   href,
   linkText,
   className,
-  activeLineColor = "after:bg-black",
-  activeTextColor = "bg-black",
   underlineColor = "before:bg-black",
+  activeLineColor = "after:bg-black",
+  activeTextColor = "text-black",
+  isExternal = false,
 }) => {
   const pathname = usePathname()
   const isActive = pathname === href
 
+  const linkClasses = twMerge(
+    "relative inline-block overflow-hidden transition-all duration-300",
+    className,
+    isActive
+      ? `after:content-[''] after:absolute after:left-0 after:top-1/2 after:h-[1px] after:w-full ${activeLineColor} ${activeTextColor}`
+      : "hover:line-through",
+    !isActive &&
+      `before:content-[''] before:absolute before:left-0 before:top-1/2 before:h-[1px] before:w-full ${underlineColor} before:scale-x-0 before:origin-left before:transition-transform before:duration-300`
+  )
+
+  if (isExternal) {
+    return (
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={linkClasses}
+      >
+        {linkText}
+      </a>
+    )
+  }
+
   return (
-    <li>
-      <Link href={href}>
-        <div
-          className={twMerge(
-            "relative transition-all duration-300",
-            className,
-            isActive
-              ? `after:content-[''] after:absolute after:left-0 after:top-1/2 after:h-[1px] after:w-full ${activeLineColor} ${activeTextColor}`
-              : "hover:before:scale-x-100",
-            !isActive &&
-              `before:content-[''] before:absolute before:left-0 before:top-1/2 before:h-[1px] before:w-full  before:scale-x-0 before:origin-left before:transition-transform before:duration-400 ${underlineColor} `
-          )}
-        >
-          {linkText}
-        </div>
-      </Link>
-    </li>
+    <Link href={href}>
+      <span className={linkClasses}>{linkText}</span>
+    </Link>
   )
 }
 
 export default HoverLink
+
+//DEBUG
+//

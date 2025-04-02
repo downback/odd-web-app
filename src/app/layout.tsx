@@ -5,6 +5,20 @@ import { ScrollTriggerProvider } from "@/context/ScrollTriggerContext"
 
 import "./globals.css"
 
+import { Nunito_Sans, Noto_Sans_KR } from "next/font/google"
+
+const nunito = Nunito_Sans({
+  subsets: ["latin"],
+  weight: ["300", "400", "500"],
+  variable: "--font-nunito",
+})
+
+const noto = Noto_Sans_KR({
+  subsets: ["latin"],
+  weight: ["300", "400", "700"],
+  variable: "--font-noto",
+})
+
 export const metadata = {
   title: "My Web App",
   description: "A description of my web app",
@@ -16,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html>
+    <html lang="en" className={`${nunito.variable} ${noto.variable}`}>
       <head />
       <body>
         <LanguageProvider>
