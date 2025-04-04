@@ -3,8 +3,6 @@ import ProcessSection from "./(content)/landing/_components/ProcessSection"
 import DrawingSection from "./(content)/landing/_components/DrawingSection"
 import VideoSection from "./(content)/landing/_components/VideoSection"
 
-import GoodbyeSection from "./(content)/landing/_components/GoodbyeSection"
-
 const HomePage: React.FC = () => {
   return (
     <div className="flex flex-col">
@@ -15,7 +13,6 @@ const HomePage: React.FC = () => {
       <div className="w-full">
         <VideoSection />
       </div>
-      <GoodbyeSection />
     </div>
   )
 }

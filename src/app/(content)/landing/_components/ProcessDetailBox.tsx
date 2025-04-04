@@ -24,12 +24,7 @@ const ProcessDetailBox: React.FC<ProcessDetailBoxProps> = ({
   descRef,
 }) => {
   return (
-    <div
-      className={twMerge(
-        "absolute w-65 md:w-max h-fit ",
-        className
-      )}
-    >
+    <div className={twMerge("absolute w-65 md:w-max h-fit ", className)}>
       <h3
         ref={titleRef}
         className={twMerge("font-semibold mb-2", titleClassName)}
@@ -45,14 +40,14 @@ const ProcessDetailBox: React.FC<ProcessDetailBoxProps> = ({
         <div
           onClick={clickLink}
           className={twMerge(
-            "cursor-pointer flex flex-row w-full  md:justify-end pl-2 md:pl-0 mt-2 md:mt-4 text-sm md:text-base",
+            "cursor-pointer flex flex-row w-full md:justify-end pl-2 md:pl-0 mt-2 md:mt-4 text-sm md:text-base",
             btnClassName
           )}
         >
           <p>Learn More</p>
           <MdArrowOutward />
         </div>
-        <div className="w-full h-4/5 absolute bottom-0 left-0 rounded-xl blur-xl bg-[#edebeb] -z-10 block md:hidden"></div>
+        <div className="w-full h-4/5 absolute bottom-0 left-0 rounded-xl blur-xl bg-[#edebeb] -z-10 "></div>
       </div>
     </div>
   )

@@ -47,13 +47,13 @@ const AnimatedProcess: React.FC = () => {
     return raw
   }
 
-  // const lineWidth = () => {
-  //   const w = window.innerWidth
-  //   if (w < 768) return 0.7
-  //   if (w >= 768) return 0.5
-  //   return w
-  // }
-  const lineWidth = () => (window.innerWidth < 768 ? 0.7 : 0.5)
+  const lineWidth = () => {
+    const w = window.innerWidth
+    if (w < 768) return 0.7
+    if (w >= 768) return 0.5
+    return w
+  }
+  // const lineWidth = () => (window.innerWidth < 768 ? 0.7 : 0.5)
 
   // useEffect(() => {
   //   const handleResize = () => {
@@ -103,8 +103,8 @@ const AnimatedProcess: React.FC = () => {
 
     const totalLength = path.getTotalLength()
     const count = stepDetails.length
-    const startOffset = totalLength * 0.03 // 5% offset at start
-    const endOffset = totalLength * 0.97 // 5% offset at end
+    const startOffset = totalLength * 0.02 // 5% offset at start
+    const endOffset = totalLength * 0.98 // 5% offset at end
     const spacing = (endOffset - startOffset) / (count - 1)
 
     const points: CircleData[] = []
@@ -131,7 +131,7 @@ const AnimatedProcess: React.FC = () => {
     const scaleX = containerWidth / BASE_PATH_WIDTH
     const scaleY =
       window.innerWidth < 768
-        ? (1.7 * containerWidth) / BASE_PATH_WIDTH
+        ? (1.9 * containerWidth) / BASE_PATH_WIDTH
         : scaleX
 
     const dpr = window.devicePixelRatio || 1
@@ -302,8 +302,8 @@ const AnimatedProcess: React.FC = () => {
             ease: "power3.out",
             scrollTrigger: {
               trigger: desc,
-              start: "top 85%",
-              end: "center center",
+              start: "top 75%",
+              end: "center 40%",
               toggleActions: "play reverse play reverse",
               // markers: true,
             },
@@ -316,9 +316,9 @@ const AnimatedProcess: React.FC = () => {
   return (
     <div
       ref={containerRef}
-      className="w-full overflow-x-hidden max-w-full h-max flex flex-col justify-center items-center"
+      className="w-full overflow-hidden max-w-full h-max flex flex-col justify-center items-center"
     >
-      <div className="relative w-fit h-fit mt-6 mb-12">
+      <div className="relative w-fit h-fit mt-6 mb-34">
         <canvas
           ref={canvasRef}
           style={{
@@ -334,7 +334,7 @@ const AnimatedProcess: React.FC = () => {
           const scaleX = containerWidth / BASE_PATH_WIDTH
           const scaleY =
             window.innerWidth < 768
-              ? (1.7 * containerWidth) / BASE_PATH_WIDTH
+              ? (1.9 * containerWidth) / BASE_PATH_WIDTH
               : scaleX
           const offsetX = (containerWidth - BASE_PATH_WIDTH * scaleX) / 2
 
@@ -342,7 +342,7 @@ const AnimatedProcess: React.FC = () => {
           const y = pt.y * scaleY
           const step = stepDetails[i]
 
-          const isMobile = window.innerWidth < 768
+          // const isMobile = window.innerWidth < 768
 
           return (
             <div

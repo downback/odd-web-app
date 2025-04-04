@@ -11,9 +11,9 @@ const Footer: React.FC = () => {
   return (
     <footer
       lang="en"
-      className="divide-y-[0.5px] divide-gray-400 text-stone-300 bg-stone-950 h-1/2 px-8 w-full flex flex-col"
+      className="divide-y-[0.5px] divide-gray-400 text-stone-300 bg-stone-950 h-2/5 md:h-1/2 px-8 w-full flex flex-col"
     >
-      <div className="w-full py-8 md:py-12 flex flex-col justify-between h-72 md:h-80">
+      <div className="w-full py-8 md:py-12 flex flex-col justify-between h-60 md:h-72">
         <div className="w-48 md:w-50 xl:w-56">
           <Link href="/">
             <Image
@@ -65,8 +65,8 @@ const Footer: React.FC = () => {
           />
         </div>
       </div>
-      <div className="h-24 md:h-36 w-full py-6 flex flex-row justify-between text-sm text-stone-400">
-        <div className="flex flex-col md:flex-row gap-0 md:gap-2">
+      <div className="h-20 md:h-32 w-full py-4 md:py-6 flex flex-row justify-between text-sm text-stone-400">
+        <div className="flex flex-col md:flex-row gap-1 md:gap-2">
           <div>WEBSITE copyright</div>
           <Link href="/" className="text-stone-300">
             © DAEUN PARK
