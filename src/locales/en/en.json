@@ -11,7 +11,7 @@
       {
         "title": "9. System Setup",
         "description": "- Supplier selection & contract for food & beverages <br/> - Partnership with delivery platforms (Wolt, Lieferando, Uber Eats) <br/> - POS, reservation, and payment system integration",
-        "position": "top-0 md:top-4 -left-9 md:-left-12",
+        "position": "top-0 md:top-4 -left-9 md:left-0 translate-x-0 md:-translate-x-1/3",
         "titlePosition": "translate-x-8 md:translate-x-0",
         "btnPosition": "justify-start"
       },
@@ -25,7 +25,7 @@
       {
         "title": "7. Online Marketing",
         "description": "- Marketing strategy & promotion planning <br/> - Professional photos & videos showcasing brand story <br/> - Optimized website development <br/> - Social media & promotional channel management",
-        "position": "top-12 -left-2 md:-translate-x-1/3",
+        "position": "top-12 md:top-16 -left-2 translate-x-0 md:left-0 md:-translate-x-1/4",
         "titlePosition": "",
         "btnPosition": "justify-start"
       },
@@ -84,16 +84,18 @@
         "img": "TestImage.png",
         "subTitle": "Korean Noodle Restaurant",
         "location": "Dunckerstraße 30, 10439 Berlin",
-        "date": "September 2022",
-        "desc": "Scope of Work: Consulting, Branding (BI), Interior Design, Recipe Development, Managed and Operated"
+        "date": "Since September 2022",
+        "desc": "Scope of Work: Consulting, Branding (BI), Interior Design, Recipe Development, Managed and Operated",
+        "text": "A restaurant designed to capture the flow of experiencing food—from watching the artful performance of hand-cut noodle making to savoring the dish at the table."
       },
       {
         "title": "odd cafe",
         "subTitle": "Café",
         "img": "TestImage.jpg",
-        "location": "Dunckerstraße 30, 10439 Berlin",
-        "date": "September 2022",
-        "desc": "Scope of Work: Consulting, Branding (BI), Interior Design, Recipe Development, Managed and Operated"
+        "location": "Zelterstraße 6, 10439 Berlin",
+        "date": "Since April 12, 2023",
+        "desc": "Scope of Work: Consulting, Branding (BI), Interior Design, Recipe Development, Managed and Operated",
+        "text": "A restaurant designed to capture the flow of experiencing food—from watching the artful performance of hand-cut noodle making to savoring the dish at the table."
       },
       {
         "title": "Lia Ppang",
@@ -101,7 +103,8 @@
         "img": "TestImage.jpg",
         "location": "Dunckerstraße 30, 10439 Berlin",
         "date": "September 2022",
-        "desc": "Scope of Work: Consulting, Branding (BI), Interior Design, Recipe Development, Managed and Operated"
+        "desc": "Scope of Work: Consulting, Branding (BI), Interior Design, Recipe Development, Managed and Operated",
+        "text": "A restaurant designed to capture the flow of experiencing food—from watching the artful performance of hand-cut noodle making to savoring the dish at the table."
       },
       {
         "title": "Go Gogi",
@@ -109,7 +112,8 @@
         "img": "TestImage.jpg",
         "location": "Dunckerstraße 30, 10439 Berlin",
         "date": "September 2022",
-        "desc": "Scope of Work: Consulting, Branding (BI), Interior Design, Recipe Development, Managed and Operated"
+        "desc": "Scope of Work: Consulting, Branding (BI), Interior Design, Recipe Development, Managed and Operated",
+        "text": "A restaurant designed to capture the flow of experiencing food—from watching the artful performance of hand-cut noodle making to savoring the dish at the table."
       }
     ]
   },
@@ -119,26 +123,26 @@
     "titleBottom": "CONSULTING"
   },
   "aboutUsPage": {
-    "title": "CONSULTING",
+    "title": "ABOUT US",
     "titleTop": "SANGHYUN NO",
-    "titleBottom": "DAEUN PARK",
+    "titleBottom": "JONGHWAN KIM",
     "usList": [
       {
-        "name": "Go Gogi",
-        "descMain": "Korean Dining Restaurant",
-        "descSub": "Dunckerstraße 30, 10439 Berlin"
+        "name": "Sang-hyun No",
+        "descMain": "Solving problems and owning the outcome. That’s what I do.",
+        "descSub": "2025.03- odd office, Founder 2022.09- SWORD MASTER noodle, Founder 2023.04-2023.12 odd café, Founder 2021.07-2023.01 ATAYA Caffe, Operator 2017.10- Project Seom, Founder"
       },
       {
-        "name": "Go Gogi",
-        "descMain": "Korean Dining Restaurant",
-        "descSub": "Dunckerstraße 30, 10439 Berlin"
+        "name": "Jong-hwan Kim ",
+        "descMain": "Building on a broad range of design experience, I have expanded my work from two-dimensional to spatial and synesthetic realms, continually exploring depth in design through constant experimentation.",
+        "descSub": "Interior Designer, Consultant, Carpenter, Cook, Restaurant Management Email: 1309project@gmail.com"
       }
     ]
   },
   "oddPeoplePage": {
-    "title": "ODD PEOPLE",
-    "titleTop": "INTRODUCING",
-    "titleBottom": "ODD PEOPLE",
+    "title": "UPDATES",
+    "titleTop": "HERE ARE",
+    "titleBottom": "NEW UPDATES",
     "peopleList": [
       {
         "name": "ODD PEOPLE1",

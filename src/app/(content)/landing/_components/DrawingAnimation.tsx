@@ -18,23 +18,15 @@ const AnimatedMotionDrawing: React.FC = () => {
 
   useGSAP(() => {
     if (pathRef.current) {
-      // Get the total length of the path
       const pathLength = pathRef.current.getTotalLength()
 
-      // Set the initial dasharray and dashoffset to the path's length
+      // Animate the path drawing
       gsap.set(pathRef.current, {
         strokeDasharray: pathLength,
         strokeDashoffset: pathLength,
       })
 
-      // gsap.set(textRef.current, { opacity: 0, x: 300 })
-      // gsap.set(arrowRef.current, { opacity: 0 })
-      // gsap.set(afterWordRef.current, { x: "-100%" })
-
-      // Create a GSAP timeline.
       const tl = gsap.timeline()
-
-      // Animate the path drawing.
       tl.to(pathRef.current, {
         strokeDashoffset: 0,
         duration: 3,

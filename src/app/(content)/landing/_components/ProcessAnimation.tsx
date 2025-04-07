@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useRef, useEffect, useState, useContext } from "react"
+import { useRouter } from "next/navigation"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { useGSAP } from "@gsap/react"
@@ -22,13 +23,16 @@ const PATH_D_END = `M70,785.63 L70,0`
 const BASE_PATH_WIDTH = 377.35
 const BASE_PATH_HEIGHT = 785.63
 
-const AnimatedProcess: React.FC = () => {
+const ProcessAnimation: React.FC = () => {
   const { translations } = useContext(LanguageContext)
+  const router = useRouter()
+
   const stepDetails = translations?.landingPage.processSteps || []
 
   const [circleCoords, setCircleCoords] = useState<CircleData[]>([])
   const [currentPath, setCurrentPath] = useState(PATH_D_START)
-  const [isStraight, setIsStraight] = useState(false)
+  // const [isStraight, setIsStraight] = useState(false)
+  const [isMorphing, setIsMorphing] = useState(false)
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
 
@@ -53,8 +57,8 @@ const AnimatedProcess: React.FC = () => {
     if (w >= 768) return 0.5
     return w
   }
-  // const lineWidth = () => (window.innerWidth < 768 ? 0.7 : 0.5)
 
+  // RESIZING
   // useEffect(() => {
   //   const handleResize = () => {
   //     window.location.reload()
@@ -157,21 +161,31 @@ const AnimatedProcess: React.FC = () => {
     ctx.restore()
   }
 
+  // Animate Morph
+
   useEffect(() => {
-    // const containerWidth = getResponsiveWidth()
-    // console.log(containerWidth)
     drawPath(currentPath)
   }, [currentPath])
 
-  const handleMorph = () => {
-    const from = isStraight ? PATH_D_END : PATH_D_START
-    const to = isStraight ? PATH_D_START : PATH_D_END
-    const interpolator = flubber.interpolate(from, to, { maxSegmentLength: 2 })
+  const handleMorph = (index: number) => {
+    // const from = isStraight ? PATH_D_END : PATH_D_START
+    // const to = isStraight ? PATH_D_START : PATH_D_END
+    // const interpolator = flubber.interpolate(from, to, { maxSegmentLength: 2 })
+
+    setIsMorphing(true)
+
+    const interpolator = flubber.interpolate(PATH_D_START, PATH_D_END, {
+      maxSegmentLength: 2,
+    })
 
     const dummy = { t: 0 }
-    // const targetX = 70
+    const targetX = 70
 
-    // Animate path
+    // Hide all descs
+    descRefs.current.forEach((el) => {
+      if (el) gsap.to(el, { autoAlpha: 0, duration: 0.4 })
+    })
+
     gsap.to(dummy, {
       t: 1,
       duration: 2,
@@ -182,70 +196,26 @@ const AnimatedProcess: React.FC = () => {
         drawPath(d)
 
         // Animate circle Xs
-        // const updatedCoords = circleCoords.map((pt) => ({
-        //   ...pt,
-        //   x: gsap.utils.interpolate(pt.x, targetX, dummy.t),
-        // }))
-        // setCircleCoords(updatedCoords)
+        const updatedCoords = circleCoords.map((pt) => ({
+          ...pt,
+          x: gsap.utils.interpolate(pt.x, targetX, dummy.t),
+        }))
+        setCircleCoords(updatedCoords)
       },
       onComplete: () => {
-        setIsStraight(!isStraight)
+        // Snap
+        // const snapped = circleCoords.map((pt) => ({ ...pt, x: targetX }))
+        // setCircleCoords(snapped)
 
-        // Snap circles to final state
-        // if (!isStraight) {
-        //   const snapped = circleCoords.map((pt) => ({
-        //     ...pt,
-        //     x: targetX,
-        //   }))
-        //   setCircleCoords(snapped)
-        // }
+        setTimeout(() => {
+          // const reversedIndex = stepDetails.length - 1 - index
+          router.push(`/consulting?section=${index}`)
+        }, 800)
       },
     })
   }
 
-  // useGSAP(() => {
-  //   circleRefs.current.forEach((el) => {
-  //     if (!el) return
-
-  //     gsap.fromTo(
-  //       el,
-  //       { scale: 0, opacity: 0 },
-  //       {
-  //         scale: 1,
-  //         opacity: 1,
-  //         duration: 0.6,
-  //         ease: "back.out(1.7)",
-  //         scrollTrigger: {
-  //           trigger: el,
-  //           start: "top 70%",
-  //           end: "center center",
-  //           markers: false,
-  //           toggleActions: "play none none reset",
-  //         },
-  //       }
-  //     )
-  //   })
-  //   detailRefs.current.forEach((el) => {
-  //     if (!el) return
-  //     gsap.fromTo(
-  //       el,
-  //       { y: 30, opacity: 0 },
-  //       {
-  //         y: 0,
-  //         opacity: 1,
-  //         duration: 0.6,
-  //         delay: 0.2,
-  //         ease: "power3.out",
-  //         scrollTrigger: {
-  //           trigger: el,
-  //           start: "top 85%",
-  //           end: "center center",
-  //           toggleActions: "play none none reset",
-  //         },
-  //       }
-  //     )
-  //   })
-  // }, [circleCoords])
+  //Circle / title / desc ANIMATION
 
   useGSAP(() => {
     circleRefs.current.forEach((el, i) => {
@@ -375,13 +345,14 @@ const AnimatedProcess: React.FC = () => {
                   className={step.position}
                   titleClassName={step?.titlePosition}
                   btnClassName={step?.btnPosition}
-                  clickLink={handleMorph}
+                  clickLink={() => handleMorph(i)}
                   titleRef={(el) => {
                     titleRefs.current[i] = el as HTMLHeadingElement
                   }}
                   descRef={(el) => {
                     descRefs.current[i] = el as HTMLParagraphElement
                   }}
+                  forceFixedPosition={isMorphing} // 🔥 new prop
                 />
                 // </div>
               )}
@@ -393,4 +364,4 @@ const AnimatedProcess: React.FC = () => {
   )
 }
 
-export default AnimatedProcess
+export default ProcessAnimation

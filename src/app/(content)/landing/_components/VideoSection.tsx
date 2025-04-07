@@ -26,13 +26,13 @@ const LandingVideoSection: React.FC = () => {
       scrollTrigger: {
         trigger: wrapper,
         start: "top center", // when wrapper hits top of viewport
-        end: "bottom center", // animation duration
+        end: "bottom top", 
         scrub: true,
         onEnter: () => video.play(),
         onLeave: () => video.pause(),
         onEnterBack: () => video.play(),
         onLeaveBack: () => video.pause(),
-        // markers: true, // for debugging
+        // markers: true,
       },
     })
 

@@ -23,7 +23,7 @@ const NavBar: React.FC<NavBarProps> = ({
     { label: "Projects", path: "/projects" },
     { label: "Consulting", path: "/consulting" },
     { label: "About Us", path: "/aboutUs" },
-    { label: "Odd People", path: "/oddPeople" },
+    { label: "Updates", path: "/updates" },
     { label: "Contact", path: "/contact" },
   ]
 

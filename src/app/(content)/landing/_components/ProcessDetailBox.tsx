@@ -11,6 +11,8 @@ interface ProcessDetailBoxProps {
   clickLink: () => void
   titleRef?: React.Ref<HTMLHeadingElement>
   descRef?: React.Ref<HTMLParagraphElement>
+  forceFixedPosition?: boolean // ✅ new prop
+  isDetailPage?: boolean
 }
 
 const ProcessDetailBox: React.FC<ProcessDetailBoxProps> = ({
@@ -22,32 +24,52 @@ const ProcessDetailBox: React.FC<ProcessDetailBoxProps> = ({
   clickLink,
   titleRef,
   descRef,
+  forceFixedPosition,
+  isDetailPage = false,
 }) => {
   return (
-    <div className={twMerge("absolute w-65 md:w-max h-fit ", className)}>
+    <div
+      className={twMerge(
+        "absolute w-65 md:w-max h-fit ",
+        // !forceFixedPosition && className
+        forceFixedPosition ? "top-0 left-8 md:left-12" : className
+      )}
+    >
       <h3
         ref={titleRef}
-        className={twMerge("font-semibold mb-2", titleClassName)}
+        className={twMerge(
+          "font-semibold mb-2",
+          !forceFixedPosition && titleClassName,
+          isDetailPage && "text-lg"
+        )}
       >
         {title}
       </h3>
       {/* <p className="text-gray-600 mt-1">{description}</p> */}
-      <div ref={descRef}>
+      <div
+        ref={descRef}
+        className={twMerge("", isDetailPage ? "text-base/8" : "text-xs md:text-sm")}
+      >
         <p
-          className="text-gray-600 mt-1 pl-2 text-xs md:text-sm"
+          className="text-gray-600 mt-1 pl-2"
           dangerouslySetInnerHTML={{ __html: description }}
         />
-        <div
-          onClick={clickLink}
-          className={twMerge(
-            "cursor-pointer flex flex-row w-full md:justify-end pl-2 md:pl-0 mt-2 md:mt-4 text-sm md:text-base",
-            btnClassName
-          )}
-        >
-          <p>Learn More</p>
-          <MdArrowOutward />
-        </div>
-        <div className="w-full h-4/5 absolute bottom-0 left-0 rounded-xl blur-xl bg-[#edebeb] -z-10 "></div>
+
+        {!isDetailPage && (
+          <>
+            <div
+              onClick={clickLink}
+              className={twMerge(
+                "cursor-pointer flex flex-row w-full md:justify-end pl-2 md:pl-0 mt-2 md:mt-4 text-sm md:text-base",
+                !forceFixedPosition && btnClassName
+              )}
+            >
+              <p>Learn More</p>
+              <MdArrowOutward />
+            </div>
+            <div className="w-full h-4/5 absolute bottom-0 left-0 rounded-xl blur-xl bg-[#edebeb] -z-10" />
+          </>
+        )}
       </div>
     </div>
   )

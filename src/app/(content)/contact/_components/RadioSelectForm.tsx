@@ -3,15 +3,17 @@
 import React, { useState } from "react"
 
 const options = [
-    "Business Plan",
-    "Location Selection & Lease Agreement",
-    "Legal Permits & Administrative Procedures",
-    "Branding",
-    "Interior Design",
-    "Legal Permits & Administrative Procedures",
-    "Branding",
-    "Interior Design",
-  ]
+  "Business Plan",
+  "Location Selection & Lease Agreement",
+  "Legal Permits & Administrative Procedures",
+  "Branding",
+  "Interior Design",
+  "Construction & Installation",
+  "Online Marketing",
+  "Staff Recruitment & Training",
+  "System Setup",
+  "Grand Opening",
+]
 
 const RadioSelectForm: React.FC = () => {
   const [selected, setSelected] = useState<string | null>(null)

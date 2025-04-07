@@ -1,56 +1,79 @@
 {
-  "processSteps": [
-    {
-      "title": "10. 정식 오픈",
-      "description": "Design spaces that reflect your brand.",
-      "position": "top-12 -left-8"
-    },
-    {
-      "title": "9. 시스템 구축",
-      "description": "Build a brand that stands out.",
-      "position": "top-12"
-    },
-    {
-      "title": "8. 직원 채용 및 교육",
-      "description": "Design spaces that reflect your brand.",
-      "position": "top-12 -left-8"
-    },
-    {
-      "title": "7. 온라인 마케팅",
-      "description": "Build a brand that stands out.",
-      "position": "top-12"
-    },
-    {
-      "title": "6. 시공 및 설치",
-      "description": "We help you choose the perfect location.",
-      "position": "top-12 -left-12"
-    },
-    {
-      "title": "5. 인테리어 디자인",
-      "description": "Design spaces that reflect your brand.",
-      "position": "top-12 -left-24"
-    },
-    {
-      "title": "4. 브랜딩",
-      "description": "Build a brand that stands out.",
-      "position": "top-12"
-    },
-    {
-      "title": "3. 법적 허가와 행정 절차",
-      "description": "We help you choose the perfect location.",
-      "position": "top-12 -left-12"
-    },
-    {
-      "title": "2. 입지 선정과 계약",
-      "description": "Handle all permits and administrative tasks.",
-      "position": "top-12 -right-12"
-    },
-    {
-      "title": "1. 비즈니스 계획",
-      "description": "We start by crafting a solid business strategy.",
-      "position": "top-12"
-    }
-  ],
+  "landingPage": {
+    "processSteps": [
+      {
+        "title": "10. 정식 오픈",
+        "description": "- Launch event & promotional campaign <br/> - Performance monitoring during the first month",
+        "position": "top-0 -left-8 md:left-8 -translate-x-1/2 md:translate-x-0",
+        "titlePosition": "",
+        "btnPosition": "justify-start"
+      },
+      {
+        "title": "9. 시스템 구축",
+        "description": "- Supplier selection & contract for food & beverages <br/> - Partnership with delivery platforms (Wolt, Lieferando, Uber Eats) <br/> - POS, reservation, and payment system integration",
+        "position": "top-0 md:top-4 -left-9 md:left-0 translate-x-0 md:-translate-x-1/3",
+        "titlePosition": "translate-x-8 md:translate-x-0",
+        "btnPosition": "justify-start"
+      },
+      {
+        "title": "8. 직원 채용 및 교육",
+        "description": "- Hiring key personnel (chefs, kitchen staff, service team) <br/> - Hygiene & safety training <br/> - Service and operations manual training",
+        "position": "top-12 left-0 md:-left-6 -translate-x-1/2 md:translate-x-0",
+        "titlePosition": "",
+        "btnPosition": "justify-start"
+      },
+      {
+        "title": "7. 온라인 마케팅",
+        "description": "- Marketing strategy & promotion planning <br/> - Professional photos & videos showcasing brand story <br/> - Optimized website development <br/> - Social media & promotional channel management",
+        "position": "top-12 md:top-16 -left-2 translate-x-0 md:left-0 md:-translate-x-1/4",
+        "titlePosition": "",
+        "btnPosition": "justify-start"
+      },
+      {
+        "title": "6. 시공 및 설치",
+        "description": "- Interior construction Kitchen equipment & furniture installation <br/> - Contractor selection & project management <br/> - Final touch-ups and finishing details",
+        "position": "top-8 md:top-12 right-0 translate-x-1/4 text-right",
+        "titlePosition": "",
+        "btnPosition": "justify-end"
+      },
+      {
+        "title": "5. 인테리어 디자인",
+        "description": "- Concept development & space planning <br/> - Electrical & facility layout planning <br/> - Architectural blueprint preparation <br/> - Furniture & lighting design",
+        "position": "top-0 right-6 md:right-12 text-right",
+        "titlePosition": "-translate-x-4 md:translate-x-0",
+        "btnPosition": "justify-end"
+      },
+      {
+        "title": "4. 브랜딩",
+        "description": "- Visual identity design <br/> - Logo, signage, menu, and packaging design",
+        "position": "top-8 md:top-0 -left-20 md:-translate-x-1/3",
+        "titlePosition": "",
+        "btnPosition": "justify-start"
+      },
+      {
+        "title": "3. 법적 허가와 행정 절차",
+        "description": "- Company formation (UG, GmbH) <br/> - Business registration (Gewerbeanmeldung) <br/> - Liquor license (Gaststättenerlaubnis) Health department approval",
+        "position": "top-8 -right-16 md:-right-24 text-right",
+        "titlePosition": "",
+        "btnPosition": "justify-start"
+      },
+      {
+        "title": "2. 입지 선정과 계약",
+        "description": "- Local market & commercial district analysis <br/> - Property condition & zoning verification <br/> - Lease negotiation",
+        "position": "top-12 md:top-0 left-0 -translate-x-1/3 md:-translate-x-2/3",
+        "titlePosition": "translate-x-2",
+        "btnPosition": "justify-start"
+      },
+      {
+        "title": "1. 비즈니스 계획",
+        "description": "- Target audience analysis & market research <br/> - Menu concept & pricing strategy <br/> - Budgeting, investment, and revenue forecast <br/> - Business plan for official submission",
+        "position": "top-0 -right-16 md:left-24",
+        "titlePosition": "translate-x-0 md:-translate-x-8",
+        "btnPosition": "justify-start"
+      }
+    ],
+    "processTitle": "you got an idea to start your business?"
+  },
   "projectsPage": {
     "title": "PROJECTS",
     "titleTop": "EXPLORE",
@@ -58,31 +81,39 @@
     "projectsList": [
       {
         "title": "Sword Master Noodle",
+        "img": "TestImage.png",
         "subTitle": "Korean Noodle Restaurant",
         "location": "Dunckerstraße 30, 10439 Berlin",
-        "date": "September 2022",
-        "desc": "Scope of Work: Consulting, Branding (BI), Interior Design, Recipe Development, Managed and Operated"
+        "date": "Since September 2022",
+        "desc": "Scope of Work: Consulting, Branding (BI), Interior Design, Recipe Development, Managed and Operated",
+        "text": "A restaurant designed to capture the flow of experiencing food—from watching the artful performance of hand-cut noodle making to savoring the dish at the table."
       },
       {
         "title": "odd cafe",
         "subTitle": "Café",
-        "location": "Dunckerstraße 30, 10439 Berlin",
-        "date": "September 2022",
-        "desc": "Scope of Work: Consulting, Branding (BI), Interior Design, Recipe Development, Managed and Operated"
+        "img": "TestImage.jpg",
+        "location": "Zelterstraße 6, 10439 Berlin",
+        "date": "Since April 12, 2023",
+        "desc": "Scope of Work: Consulting, Branding (BI), Interior Design, Recipe Development, Managed and Operated",
+        "text": "A restaurant designed to capture the flow of experiencing food—from watching the artful performance of hand-cut noodle making to savoring the dish at the table."
       },
       {
         "title": "Lia Ppang",
         "subTitle": "Korean Dessert Café",
+        "img": "TestImage.jpg",
         "location": "Dunckerstraße 30, 10439 Berlin",
         "date": "September 2022",
-        "desc": "Scope of Work: Consulting, Branding (BI), Interior Design, Recipe Development, Managed and Operated"
+        "desc": "Scope of Work: Consulting, Branding (BI), Interior Design, Recipe Development, Managed and Operated",
+        "text": "A restaurant designed to capture the flow of experiencing food—from watching the artful performance of hand-cut noodle making to savoring the dish at the table."
       },
       {
         "title": "Go Gogi",
         "subTitle": "Korean Dining Restaurant",
+        "img": "TestImage.jpg",
         "location": "Dunckerstraße 30, 10439 Berlin",
         "date": "September 2022",
-        "desc": "Scope of Work: Consulting, Branding (BI), Interior Design, Recipe Development, Managed and Operated"
+        "desc": "Scope of Work: Consulting, Branding (BI), Interior Design, Recipe Development, Managed and Operated",
+        "text": "A restaurant designed to capture the flow of experiencing food—from watching the artful performance of hand-cut noodle making to savoring the dish at the table."
       }
     ]
   },

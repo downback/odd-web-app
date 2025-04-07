@@ -4,7 +4,7 @@ import React, { useContext } from "react"
 import { LanguageContext } from "../../../../context/LanguageContext"
 import PageHeader from "@/components/ui/PageHeader"
 
-const OddPeopleHeader: React.FC = () => {
+const UpdatesHeader: React.FC = () => {
   const { translations } = useContext(LanguageContext)
   const oddPeopleTranslation = translations.oddPeoplePage
 
@@ -18,4 +18,4 @@ const OddPeopleHeader: React.FC = () => {
   )
 }
 
-export default OddPeopleHeader
+export default UpdatesHeader

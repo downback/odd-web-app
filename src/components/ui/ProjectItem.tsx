@@ -13,6 +13,7 @@ interface ProjectItemProps {
   location: string
   date: string
   desc: string
+  text: string
   projectListLength: number
   isOpen: boolean
   onToggle: () => void
@@ -25,6 +26,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
   location,
   date,
   desc,
+  text,
   projectListLength,
   isOpen,
   onToggle,
@@ -32,6 +34,17 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
   const dropDownRef = useRef<HTMLDivElement>(null)
   const sliderContainerRef = useRef<HTMLDivElement>(null)
   const slideWrapperRef = useRef<HTMLDivElement>(null)
+
+  const topBarRef = useRef<HTMLDivElement>(null)
+  const bottomBarRef = useRef<HTMLDivElement>(null)
+
+  const leftBorderRef = useRef<HTMLDivElement>(null)
+  const rightBorderRef = useRef<HTMLDivElement>(null)
+
+  const topLeftRef = useRef<HTMLDivElement>(null)
+  const topRightRef = useRef<HTMLDivElement>(null)
+  const bottomLeftRef = useRef<HTMLDivElement>(null)
+  const bottomRightRef = useRef<HTMLDivElement>(null)
 
   const [currentSlide, setCurrentSlide] = useState(0)
   const [slideCount, setSlideCount] = useState(0)
@@ -74,9 +87,55 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
       duration: 0.4,
       ease: "power2.inOut",
     })
-    gsap.to(dropDownRef.current, {
+    gsap.to(content, {
       scaleY: isOpen ? 1 : 0,
       duration: 0.25,
+      ease: "power2.inOut",
+    })
+
+    gsap.to(leftBorderRef.current, {
+      x: isOpen ? "-100%" : "0",
+      duration: 0.4,
+      ease: "power2.inOut",
+    })
+    gsap.to(rightBorderRef.current, {
+      x: isOpen ? "100%" : "0",
+      duration: 0.4,
+      ease: "power2.inOut",
+    })
+
+    gsap.to(topBarRef.current, {
+      backgroundColor: isOpen
+        ? "rgba(214, 211, 209, 0.4)"
+        : "rgba(214, 211, 209, 1)",
+      duration: 0.4,
+    })
+    gsap.to(bottomBarRef.current, {
+      backgroundColor: isOpen
+        ? "rgba(214, 211, 209, 0.4)"
+        : "rgba(214, 211, 209, 1)",
+      duration: 0.4,
+    })
+
+    gsap.to(topLeftRef.current, {
+      borderLeftWidth: isOpen ? "0" : "50px",
+      duration: 0.4,
+      ease: "power2.inOut",
+    })
+    gsap.to(topRightRef.current, {
+      borderRightWidth: isOpen ? "0" : "50px",
+      duration: 0.4,
+      ease: "power2.inOut",
+    })
+
+    gsap.to(bottomLeftRef.current, {
+      borderLeftWidth: isOpen ? "0" : "50px",
+      duration: 0.4,
+      ease: "power2.inOut",
+    })
+    gsap.to(bottomRightRef.current, {
+      borderRightWidth: isOpen ? "0" : "50px",
+      duration: 0.4,
       ease: "power2.inOut",
     })
   }, [isOpen])
@@ -93,7 +152,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
     <div className="w-full flex flex-col relative">
       <div
         onClick={onToggle}
-        className=" w-full h-22 cursor-pointer border-b-[1.2px] border-stone-100 inset-shadow-[0_-1.2px_0_0_rgba(0,0,0,0.05)]  px-6"
+        className=" w-full h-22 cursor-pointer border-b-[1.2px] border-stone-100 inset-shadow-[0_-1.2px_0_0_rgba(0,0,0,0.05)] px-6"
       >
         <div className="w-full h-full flex flex-row justify-between items-center">
           <div className="w-1/3 text-xl uppercase">{title}</div>
@@ -110,66 +169,56 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
       <div
         ref={dropDownRef}
         className="w-full h-auto relative"
-        style={{ visibility: "hidden", height: 0, transform: "scaleY(0)" }}
+        style={{
+          visibility: "hidden",
+          height: 0,
+          transform: "scaleY(0)",
+        }}
       >
         {/* Top triangle bar */}
-        <div className="w-full relative h-12 bg-stone-300">
+        <div
+          ref={topBarRef}
+          className="w-full relative h-32 border-b-[1.2px] border-stone-100 inset-shadow-[0_-1.2px_0_0_rgba(0,0,0,0.05)]"
+          style={{ backgroundColor: "#d6d3d1" }}
+        >
           <div
-            className="absolute top-0 left-0 w-0 h-0 border-t-[48px] border-r-[0px] border-b-[0px] border-l-[50px] border-solid"
+            ref={topLeftRef}
+            className="absolute top-0 left-0 w-0 h-0 border-t-[128px] border-r-[0px] border-b-[0px]  border-solid"
             style={{
               borderColor: "transparent transparent transparent #292524",
+              borderLeftWidth: "50px",
             }}
           />
-          <div className="w-full h-full flex justify-center items-center">
-            {/* {location} */}
+          <div className="w-full h-full flex flex-col justify-center items-start py-12 px-6 tex-sm">
+            <p>Location : {location}</p>
+            <p>Completion Date : {date}</p>
+            <p>Scope of Work : {desc}</p>
           </div>
           <div
-            className="absolute top-0 right-0 w-0 h-0 border-t-[48px] border-r-[50px] border-b-[0px] border-l-[0px] border-solid"
+            ref={topRightRef}
+            className="absolute top-0 right-0 w-0 h-0 border-t-[128px] border-b-[0px] border-l-[0px] border-solid"
             style={{
               borderColor: "transparent #292524  transparent transparent ",
+              borderRightWidth: "50px",
             }}
           />
         </div>
 
         {/* Main content */}
-        {/* <div className="w-full h-96 flex justify-between  ">
-          <div className="w-[50px] h-full bg-stone-800" />
-          <div className="flex-1 h-full bg-[#edebeb]">
-            <div className="w-full h-full">
-              <div className="w-full h-full bg-amber-200">
-                <div className="">image title</div>
-                <div className="">
-                  <Image
-                    src="/images/TestImage.png"
-                    alt="TestImage"
-                    width={0}
-                    height={0}
-                    sizes="100vw"
-                    style={{ width: "100%", height: "auto" }}
-                  />
-                </div>
-              </div>
-              <div className="w-full h-full bg-blue-200 hidden">
-                2nd slide of slide show
-              </div>
-            </div>
-          </div>
-          <div className="w-[50px] h-full bg-stone-800" />
-        </div> */}
 
         {/* Slide Section */}
-        <div className="w-full h-96 flex justify-between relative overflow-hidden">
+        <div className="py-4 w-full h-120 flex justify-between relative overflow-hidden border-b-[1.2px] border-stone-100 inset-shadow-[0_-1.2px_0_0_rgba(0,0,0,0.05)]">
           {/* Left Border */}
-          <div className="w-[50px] h-full bg-stone-800" />
+          <div ref={leftBorderRef} className="w-[50px] h-full bg-stone-800" />
 
           {/* Slides */}
           <div
             ref={sliderContainerRef}
-            className="w-full flex-1 h-full bg-[#edebeb] overflow-hidden relative"
+            className="w-full flex-1 h-full overflow-hidden relative"
           >
             <div
               ref={slideWrapperRef}
-              className="w-full h-full  flex transition-transform duration-500 ease-in-out"
+              className="w-full h-full flex transition-transform duration-500 ease-in-out"
               style={{
                 transform: `translateX(-${
                   currentSlide * sliderContainerWidth
@@ -180,18 +229,17 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
               {/* Slide 1 */}
               <div
                 style={{ width: sliderContainerWidth }}
-                className="slide h-full flex-shrink-0 px-6 py-4 flex flex-col justify-center items-center "
+                className="slide w-full h-full flex-shrink-0 px-6 py-4 flex flex-col justify-center items-center "
               >
-                <div className="mb-4 font-semibold text-lg">{title}</div>
-                <Image
-                  // src={`/images/${img}`}
-                  src="/images/TestImage.png"
-                  alt={title}
-                  width={0}
-                  height={0}
-                  sizes="100vw"
-                  style={{ width: "100%", height: "auto", maxHeight: "80%" }}
-                />
+                <div className="w-auto h-full">
+                  <Image
+                    src="/images/TestImage.png"
+                    alt={title}
+                    width={1500}
+                    height={1000}
+                    className="object-cover h-full w-auto"
+                  />
+                </div>
               </div>
 
               {/* Slide 2 */}
@@ -199,16 +247,30 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
                 style={{ width: sliderContainerWidth }}
                 className="slide w-full h-full flex-shrink-0 px-6 py-4 flex flex-col justify-center items-center"
               >
-                <div className="mb-4 font-semibold text-lg">Slide Two</div>
-                <p>Additional content for this slide goes here.</p>
+                <div className="w-autoh-full">
+                  <Image
+                    src="/images/00-min.jpg"
+                    alt={title}
+                    width={1500}
+                    height={1000}
+                    className="object-cover h-full w-auto"
+                  />
+                </div>
               </div>
               {/* Slide 3 */}
               <div
                 style={{ width: sliderContainerWidth }}
                 className="slide w-full h-full flex-shrink-0 px-6 py-4 flex flex-col justify-center items-center "
               >
-                <div className="mb-4 font-semibold text-lg">Slide Two</div>
-                <p>Additional content for this slide goes here.</p>
+                <div className="w-auto h-full">
+                  <Image
+                    src="/images/00.png"
+                    alt={title}
+                    width={1500}
+                    height={1000}
+                    className="object-cover h-full w-auto"
+                  />
+                </div>
               </div>
             </div>
 
@@ -228,24 +290,32 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
           </div>
 
           {/* Right Border */}
-          <div className="w-[50px] h-full bg-stone-800" />
+          <div ref={rightBorderRef} className="w-[50px] h-full bg-stone-800" />
         </div>
 
         {/* Bottom triangle bar */}
-        <div className="w-full relative h-12 bg-stone-300 border-b-[1.2px] border-stone-100 inset-shadow-[0_-1.2px_0_0_rgba(0,0,0,0.05)] ">
+        <div
+          ref={bottomBarRef}
+          className="w-full relative h-64 border-b-[1.2px] border-stone-100 inset-shadow-[0_-1.2px_0_0_rgba(0,0,0,0.05)] "
+          style={{ backgroundColor: "#d6d3d1" }}
+        >
           <div
-            className="absolute top-0 left-0 w-0 h-0 border-t-[0px] border-r-[0px] border-b-[48px] border-l-[50px] border-solid"
+            ref={bottomLeftRef}
+            className="absolute top-0 left-0 w-0 h-0 border-t-[0px] border-r-[0px] border-b-[256px] border-solid"
             style={{
               borderColor: "transparent transparent transparent #292524",
+              borderLeftWidth: "50px",
             }}
           />
           <div className="w-full h-full flex justify-center items-center">
-            {/* {desc} */}
+            {desc}
           </div>
           <div
-            className="absolute top-0 right-0 w-0 h-0 border-t-[0px] border-l-[0px] border-b-[48px] border-r-[50px] border-solid"
+            ref={bottomRightRef}
+            className="absolute top-0 right-0 w-0 h-0 border-t-[0px] border-l-[0px] border-b-[256px]  border-solid"
             style={{
               borderColor: "transparent #292524 transparent transparent",
+              borderRightWidth: "50px",
             }}
           />
         </div>
