@@ -1,6 +1,7 @@
 "use client"
 
 import React from "react"
+import { twMerge } from "tailwind-merge"
 
 interface UpdateItem {
   id: number
@@ -13,13 +14,13 @@ interface UpdateItem {
 interface UpdateListProps {
   updates: UpdateItem[]
   onSelect: (item: UpdateItem) => void
-  // selectedId?: number
+  selectedId?: number
 }
 
 const UpdateList: React.FC<UpdateListProps> = ({
   updates,
   onSelect,
-  // selectedId,
+  selectedId,
 }) => {
   return (
     <div className="">
@@ -38,7 +39,12 @@ const UpdateList: React.FC<UpdateListProps> = ({
               <div className="w-1/3 text-sm font-light flex flex-row justify-between">
                 <div>{update.date}</div>
               </div>
-              <div className="text-base">
+              <div
+                className={twMerge(
+                  "cursor-pointer p-3 rounded border hover:bg-gray-50",
+                  selectedId === update.id && "border-blue-500 bg-blue-50"
+                )}
+              >
                 {/* {isOpen ? <MdOutlineCloseFullscreen /> : <MdOutlineOpenInFull />} */}
               </div>
             </div>
@@ -46,10 +52,6 @@ const UpdateList: React.FC<UpdateListProps> = ({
         ))}
       </ul>
     </div>
-    // className={twMerge(
-    //   "cursor-pointer p-3 rounded border hover:bg-gray-50",
-    //   selectedId === update.id && "border-blue-500 bg-blue-50"
-    // )}
   )
 }
 
