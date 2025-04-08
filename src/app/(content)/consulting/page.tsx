@@ -1,27 +1,15 @@
-"use client"
-
-import React from "react"
+import React, { Suspense } from "react"
 import ConsultingHeader from "./_components/ConsultingHeader"
 import StraightLineProcess from "./_components/StraightLineProcess"
 
 const ConsultingPage: React.FC = () => {
-  // const searchParams = useSearchParams()
-
-  // useEffect(() => {
-  //   const sectionParam = searchParams.get("section")
-
-  //   if (!sectionParam) {
-  //     // Delay scroll to top slightly to avoid layout jank
-  //     requestAnimationFrame(() => {
-  //       window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
-  //     })
-  //   }
-  // }, [searchParams])
-
   return (
     <div className="flex flex-col items-center justify-center w-full min-h-screen">
       <ConsultingHeader />
-      <StraightLineProcess />
+      {/* Wrap the client-side component using useSearchParams in Suspense */}
+      <Suspense fallback={<div className="py-16">Loading process...</div>}>
+        <StraightLineProcess />
+      </Suspense>
     </div>
   )
 }
