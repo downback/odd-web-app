@@ -13,7 +13,7 @@ interface ProjectItemProps {
   location: string
   date: string
   desc: string
-  text: string
+  // text: string
   projectListLength: number
   isOpen: boolean
   onToggle: () => void
@@ -22,12 +22,12 @@ interface ProjectItemProps {
 const ProjectItem: React.FC<ProjectItemProps> = ({
   title,
   subTitle,
-  img,
+  // img,
   location,
   date,
   desc,
-  text,
-  projectListLength,
+  // text,
+  // projectListLength,
   isOpen,
   onToggle,
 }) => {

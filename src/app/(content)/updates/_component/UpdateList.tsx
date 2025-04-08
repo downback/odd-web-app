@@ -1,7 +1,6 @@
 "use client"
 
 import React from "react"
-import { twMerge } from "tailwind-merge"
 
 interface UpdateItem {
   id: number
@@ -14,17 +13,19 @@ interface UpdateItem {
 interface UpdateListProps {
   updates: UpdateItem[]
   onSelect: (item: UpdateItem) => void
-  selectedId?: number
+  // selectedId?: number
 }
 
 const UpdateList: React.FC<UpdateListProps> = ({
   updates,
   onSelect,
-  selectedId,
+  // selectedId,
 }) => {
   return (
     <div className="">
-      <h3 className="px-6 text-sm mt-12  border-b-[1.2px] border-stone-100 inset-shadow-[0_-1.2px_0_0_rgba(0,0,0,0.05)]">Updates</h3>
+      <h3 className="px-6 text-sm mt-12  border-b-[1.2px] border-stone-100 inset-shadow-[0_-1.2px_0_0_rgba(0,0,0,0.05)]">
+        Updates
+      </h3>
       <ul className="">
         {updates.map((update) => (
           <li
