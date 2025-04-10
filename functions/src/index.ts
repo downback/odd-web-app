@@ -1,11 +1,12 @@
 // import * as functions from "firebase-functions"
-import functions from "firebase-functions"
+// import functions from "firebase-functions"
 import express from "express"
 import { Request, Response, NextFunction } from "express"
 import cors from "cors"
 import nodemailer from "nodemailer"
 import dotenv from "dotenv"
 
+const functions = require("firebase-functions")
 // Load environment variables from .env (locally, not needed in production)
 dotenv.config()
 
