@@ -55,9 +55,9 @@ const ProcessSection: React.FC = () => {
 
   return (
     <div ref={sectionTriggerRef} className="w-full h-auto flex flex-col">
-      <h1 className="text-center font-semibold">
+      {/* <h1 className="text-center font-semibold">
         Did you got an idea to start your business in Germany?
-      </h1>
+      </h1> */}
       <ProcessAnimation />
 
       <div
@@ -86,8 +86,8 @@ const ProcessSection: React.FC = () => {
       </div>
 
       <div className=" w-full h-24 flex flex-col justify-center items-center">
-        <p className="text-xs">It’ll never be easy.</p>
-        <p className="text-xs">But we’ll make it less painful</p>
+        <p className="text-sm">It’ll never be easy.</p>
+        <p className="text-sm">But we’ll make it less painful</p>
       </div>
     </div>
   )

@@ -23,7 +23,9 @@ const HomePage: React.FC = () => {
 
   return (
     <div className="flex flex-col">
-      <DrawingSection />
+      <div className="w-full h-[80vh]">
+        <DrawingSection />
+      </div>
       <div className="w-full">
         <ProcessSection />
       </div>
@@ -36,22 +38,8 @@ const HomePage: React.FC = () => {
 
 export default HomePage
 
-//TODO
-//[x] mobile menu not working
-//[x] implementing "No headache" animation
-//[ ] Process section text component improvement
-//[ ] Process animation morphing improvement
-//[ ] Process section -> Consulting page transition
-//[ ] implementing Lading page video and projects section
-//[ ] Footer mobile design
-//[ ] projects section 2 versions
-
-//[ ] mail address connect & functions
-
-//[x] Header 없어지는 것 대신, height 줄어드는 효과로 변경/ mobile에서도 똑같이 적용
-
-//중요!
-//비디오재생 더 길게 되게
-//배경 색감 편집
-//비디오 색상 조정, 크롭 , 로고
-//
+//PAGE TODO
+//[ ] make the line horizontally centered with illustration
+//[ ] text box position re-arranging - desktop
+//[ ] text box position re-arranging - mobile
+//[ ] text box json data

@@ -48,29 +48,52 @@ export default function RootLayout({
 }
 
 // TODO MAIN
-//[ ] footer hover
 
-//[ ] projects - list inside outside ui
-//[ ] projects - extra decoration
+// ----LANDING----
+//[x] drawing - position up
+//[x] process - start and end point design
+//[ ] process - svg animation improve & page transition
+//[ ] json data update
+//[ ] UI/UX detail
 
-//[ ] about us - header ui
-//[ ] about us - content ui
+// ----PROJECTS----
+//[ ] lists - list highlight design
+//[ ] item - clean up
+//[ ] item - slider
+//[ ] item - hover info / click and closed
+//[ ] UI/UX detail
 
-//[ ] contact - ui
-//[ ] contact - nodemailer
+// ----CONSULTING----
+//[ ] process - start and end point design
+//[ ] process - info and design update
+//[ ] UI/UX detail
 
-//[ ] odd people - content ui
+// ----ABOUT US----
+//[ ] header - test and scroll position update
+//[ ] text - info and design update
+//[ ] UI/UX detail
 
-//[ ] json data
+// ----UPDATES----
+//[ ] UI/UX detail
+//[ ] detail - info and design update
+//[ ] lists - list highlight design
+//[ ] firebase api
 
-//[ ] landing - process - text box / click btn / page transition
-//[ ] landing - video  - page pin(?)
-//[ ] landing - project - simple btn
-//[ ] landing - goodbye  -
+// ----CONTACT----
+//[x] select - multiple select
+//[x] form - validation
+//[x] form - nodemailer
 
-//[ ] consulting - process straight line
-//[ ] consulting - extra decoration
+// ----ADMIN----
+//[ ] ui
+//[ ] fire store
+//[ ] fire storage
 
 //DEBUG
-//[ ] landing - process mobile
 //[ ] page headers - color glitching
+
+//SCHEDULE
+// TUE -
+// WED
+// THU
+// FRI

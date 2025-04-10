@@ -17,22 +17,25 @@ interface CircleData {
   y: number
 }
 
-const PATH_D_START = `M186.27,785.63c-1.16-44.94,66.22-104.26,51.43-117.63-12.03-10.87-85.37,27.64-105.2,11.63-60.74-49.05,174.85-85.15,152.73-135.72C260.55,487.52-6.47,493.24.43,412.88c8.39-97.66,405.39,80.68,374.96-21.5-23.22-77.98-265.76-73.4-233.32-139.93,20.63-42.31,165.53-8.85,167.03-66.88,1.48-57.29-206.57,19.9-199.5-33.23,6.44-48.36,172.43-30.54,139.71-88.61-13.86-24.6-63.06-6.38-63.06-62.73`
-const PATH_D_END = `M70,785.63 L70,0`
+const PATH_D_START = `M186.27,842.73c-1.16-44.94,66.22-104.26,51.43-117.63-12.03-10.87-85.37,27.64-105.21,11.63-60.74-49.05,174.85-85.15,152.73-135.72C260.55,544.62-6.47,550.34.43,469.98c8.39-97.66,405.39,80.68,374.96-21.5-23.22-77.98-265.76-73.4-233.32-139.93,20.63-42.3,165.53-8.85,167.03-66.88,1.48-57.29-206.57,19.9-199.5-33.23,6.44-48.36,172.43-30.54,139.71-88.61-12.54-22.25-53.98-16.45-61.79-48.56-1.69-6.96-1.02-65.9-1.02-71.27`
+const PATH_D_END = `M70,842.73 L70,0`
 
 const BASE_PATH_WIDTH = 377.35
-const BASE_PATH_HEIGHT = 785.63
+const BASE_PATH_HEIGHT = 842.73
+// const BASE_PATH_HEIGHT = 850
 
 const ProcessAnimation: React.FC = () => {
   const { translations } = useContext(LanguageContext)
   const router = useRouter()
-
   const stepDetails = translations?.landingPage.processSteps || []
 
   const [circleCoords, setCircleCoords] = useState<CircleData[]>([])
   const [currentPath, setCurrentPath] = useState(PATH_D_START)
-  // const [isStraight, setIsStraight] = useState(false)
   const [isMorphing, setIsMorphing] = useState(false)
+
+  const [startPoint, setStartPoint] = useState<CircleData | null>(null)
+  const [endPoint, setEndPoint] = useState<CircleData | null>(null)
+
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
 
@@ -107,8 +110,8 @@ const ProcessAnimation: React.FC = () => {
 
     const totalLength = path.getTotalLength()
     const count = stepDetails.length
-    const startOffset = totalLength * 0.02 // 5% offset at start
-    const endOffset = totalLength * 0.98 // 5% offset at end
+    const startOffset = totalLength * 0.04
+    const endOffset = totalLength * 0.96
     const spacing = (endOffset - startOffset) / (count - 1)
 
     const points: CircleData[] = []
@@ -118,6 +121,8 @@ const ProcessAnimation: React.FC = () => {
       points.push({ x: pt.x, y: pt.y })
     }
 
+    setStartPoint(path.getPointAtLength(0))
+    setEndPoint(path.getPointAtLength(totalLength))
     setCircleCoords(points)
 
     return () => {
@@ -288,7 +293,7 @@ const ProcessAnimation: React.FC = () => {
       ref={containerRef}
       className="w-full overflow-hidden max-w-full h-max flex flex-col justify-center items-center"
     >
-      <div className="relative w-fit h-fit mt-6 mb-34">
+      <div className="relative w-fit h-max mt-4 mb-16">
         <canvas
           ref={canvasRef}
           style={{
@@ -298,6 +303,46 @@ const ProcessAnimation: React.FC = () => {
             pointerEvents: "none",
           }}
         />
+
+        {/* ✅ Start circle */}
+        {startPoint && (
+          <div
+            className="absolute w-5 h-5 bg-white border border-black rounded-full"
+            style={{
+              left: `${
+                (startPoint.x * getResponsiveWidth()) / BASE_PATH_WIDTH
+              }px`,
+              top: `${
+                (startPoint.y *
+                  (window.innerWidth < 768
+                    ? 1.9 * getResponsiveWidth()
+                    : getResponsiveWidth())) /
+                BASE_PATH_WIDTH
+              }px`,
+              transform: "translate(-50%, -50%)",
+            }}
+          />
+        )}
+
+        {/* ✅ End circle */}
+        {endPoint && (
+          <div
+            className="absolute w-5 h-5 bg-white border border-black rounded-full"
+            style={{
+              left: `${
+                (endPoint.x * getResponsiveWidth()) / BASE_PATH_WIDTH
+              }px`,
+              top: `${
+                (endPoint.y *
+                  (window.innerWidth < 768
+                    ? 1.9 * getResponsiveWidth()
+                    : getResponsiveWidth())) /
+                BASE_PATH_WIDTH
+              }px`,
+              transform: "translate(-50%, -50%)",
+            }}
+          />
+        )}
 
         {circleCoords.map((pt, i) => {
           const containerWidth = getResponsiveWidth()
@@ -352,7 +397,7 @@ const ProcessAnimation: React.FC = () => {
                   descRef={(el) => {
                     descRefs.current[i] = el as HTMLParagraphElement
                   }}
-                  forceFixedPosition={isMorphing} // 🔥 new prop
+                  forceFixedPosition={isMorphing}
                 />
                 // </div>
               )}

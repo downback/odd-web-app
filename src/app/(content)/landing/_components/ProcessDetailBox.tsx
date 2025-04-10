@@ -48,7 +48,10 @@ const ProcessDetailBox: React.FC<ProcessDetailBoxProps> = ({
       {/* <p className="text-gray-600 mt-1">{description}</p> */}
       <div
         ref={descRef}
-        className={twMerge("", isDetailPage ? "text-base/8" : "text-xs md:text-sm")}
+        className={twMerge(
+          "",
+          isDetailPage ? "text-base/8" : "text-xs md:text-sm"
+        )}
       >
         <p
           className="text-gray-600 mt-1 pl-2"
