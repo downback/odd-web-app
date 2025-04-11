@@ -1,0 +1,9 @@
+# .vercelignore
+
+functions/
+firebase.json
+.firebaserc
+.env.local
+.env.development
+.env.production
+tsconfig.functions.json
