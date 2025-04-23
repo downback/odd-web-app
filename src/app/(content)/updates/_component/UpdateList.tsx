@@ -5,7 +5,7 @@ import { twMerge } from "tailwind-merge"
 import { UpdateItem } from "../page"
 
 import { MdOutlineOpenInFull } from "react-icons/md"
-import { MdOutlineCloseFullscreen } from "react-icons/md"
+// import { MdOutlineCloseFullscreen } from "react-icons/md"
 
 interface UpdateListProps {
   updates: UpdateItem[]
