@@ -3,70 +3,70 @@
     "processSteps": [
       {
         "title": "10. Grand Opening",
-        "description": "오픈 행사 및 초기 점검",
+        "description": "Launch with events and monitor performance",
         "position": "top-0 -left-8 md:left-8 -translate-x-1/2 md:translate-x-0",
         "titlePosition": "",
         "btnPosition": "justify-start"
       },
       {
         "title": "9. System Setup",
-        "description": "공급 계약 및 시스템 세팅",
+        "description": "Set up supply chain and POS systems",
         "position": "top-0 left-2 md:left-12",
         "titlePosition": "translate-x-8 md:translate-x-0",
         "btnPosition": "justify-start"
       },
       {
         "title": "8. Staff Recruitment & Training",
-        "description": "인력 채용 및 교육",
+        "description": "Hire team and conduct training sessions",
         "position": "top-14 left-0 md:top-0 md:right-0 -translate-x-1/2 md:translate-x-1/2 text-left",
         "titlePosition": "translate-x-0 md:-translate-x-16",
         "btnPosition": "justify-start"
       },
       {
         "title": "7. Online Marketing",
-        "description": "웹사이트 제작 및 홍보 준비",
+        "description": "Build website and prepare promotional content",
         "position": "top-16 md:top-16 left-0 translate-x-0 md:left-0 md:-translate-x-1/5",
         "titlePosition": "",
         "btnPosition": "justify-start"
       },
       {
         "title": "6. Construction & Installation",
-        "description": "시공 및 장비·가구 설치",
+        "description": "Oversee construction and install equipment",
         "position": "top-8 md:top-12 right-0 translate-x-1/4 text-right",
         "titlePosition": "",
         "btnPosition": "justify-end"
       },
       {
         "title": "5. Interior Design",
-        "description": "공간 구성 및 설비 계획",
+        "description": "Create floor plans and kitchen layout",
         "position": "-top-6 md:top-0 right-6 md:right-12 text-right",
         "titlePosition": "-translate-x-4 md:translate-x-0",
         "btnPosition": "justify-end"
       },
       {
         "title": "4. Branding",
-        "description": "로고·메뉴·간판 등 브랜드 디자인",
+        "description": "Design logo, visuals, and menu layout",
         "position": "top-0 -left-24 md:-translate-x-1/2",
         "titlePosition": "",
         "btnPosition": "justify-start"
       },
       {
         "title": "3. Legal Permits",
-        "description": "사업자 등록, 인허가 및 규정 준수",
+        "description": "Register business and obtain required licenses",
         "position": "top-12 -right-12 translate-x-0  md:top-0 md:right-0 md:translate-x-1/2 text-right",
         "titlePosition": "",
         "btnPosition": "justify-start"
       },
       {
         "title": "2. Location Selection ",
-        "description": "입지 분석, 건물 확인, 임대 계약",
+        "description": "Analyze locations and finalize lease agreements",
         "position": "-top-6 md:top-0 left-8 md:-translate-x-2/3",
         "titlePosition": "translate-x-2",
         "btnPosition": "justify-start"
       },
       {
         "title": "1. Business Plan",
-        "description": "타깃 설정, 메뉴·예산·사업 계획 수립",
+        "description": "Define target customers, develop menu, <br/> and create financial plan",
         "position": "top-0 -right-20 md:left-0 translate-x-0 md:translate-x-1/2",
         "titlePosition": "translate-x-0 md:-translate-x-12",
         "btnPosition": "justify-start"
@@ -81,105 +81,99 @@
     "projectsList": [
       {
         "title": "Sword Master Noodle",
-        "img": "TestImage.png",
         "subTitle": "Korean Noodle Restaurant",
         "location": "Dunckerstraße 30, 10439 Berlin",
-        "date": "Since September 2022",
-        "desc": "Scope of Work: Consulting, Branding (BI), Interior Design, Recipe Development, Managed and Operated",
-        "text": "A restaurant designed to capture the flow of experiencing food—from watching the artful performance of hand-cut noodle making to savoring the dish at the table."
+        "date": "September 2022",
+        "scopeTags": "Consulting, Branding (BI), Interior Design, Recipe Development, Managed and Operated",
+        "projectText": "Gogogi was founded through the collaboration of three creatives from Korea: an electronic musician, a fashion stylist, and an interior designer.The concept was not to create a simple dining space serving Korean food, but rather to establish an experiential space where food, aroma, spatial design, and music come together in harmony."
       },
       {
         "title": "odd cafe",
         "subTitle": "Café",
-        "img": "TestImage.jpg",
         "location": "Zelterstraße 6, 10439 Berlin",
-        "date": "Since April 12, 2023",
-        "desc": "Scope of Work: Consulting, Branding (BI), Interior Design, Recipe Development, Managed and Operated",
-        "text": "A restaurant designed to capture the flow of experiencing food—from watching the artful performance of hand-cut noodle making to savoring the dish at the table."
+        "date": "April 12, 2023",
+        "scopeTags": "onsulting, Branding (BI), Interior Design, Recipe Development, Managed and Operated",
+        "projectText": "Gogogi was founded through the collaboration of three creatives from Korea: an electronic musician, a fashion stylist, and an interior designer.The concept was not to create a simple dining space serving Korean food, but rather to establish an experiential space where food, aroma, spatial design, and music come together in harmony."
       },
       {
         "title": "Lia Ppang",
         "subTitle": "Korean Dessert Café",
-        "img": "TestImage.jpg",
         "location": "Dunckerstraße 30, 10439 Berlin",
         "date": "September 2022",
-        "desc": "Scope of Work: Consulting, Branding (BI), Interior Design, Recipe Development, Managed and Operated",
-        "text": "A restaurant designed to capture the flow of experiencing food—from watching the artful performance of hand-cut noodle making to savoring the dish at the table."
+        "scopeTags": "Consulting, Branding (BI), Interior Design, Recipe Development, Managed and Operated",
+        "projectText": "Gogogi was founded through the collaboration of three creatives from Korea: an electronic musician, a fashion stylist, and an interior designer.The concept was not to create a simple dining space serving Korean food, but rather to establish an experiential space where food, aroma, spatial design, and music come together in harmony."
       },
       {
         "title": "Go Gogi",
         "subTitle": "Korean Dining Restaurant",
-        "img": "TestImage.jpg",
         "location": "Dunckerstraße 30, 10439 Berlin",
         "date": "September 2022",
-        "desc": "Scope of Work: Consulting, Branding (BI), Interior Design, Recipe Development, Managed and Operated",
-        "text": "A restaurant designed to capture the flow of experiencing food—from watching the artful performance of hand-cut noodle making to savoring the dish at the table."
+        "scopeTags": "Consulting, Branding (BI), Interior Design, Recipe Development, Managed and Operated",
+        "projectText": "Gogogi was founded through the collaboration of three creatives from Korea: an electronic musician, a fashion stylist, and an interior designer.The concept was not to create a simple dining space serving Korean food, but rather to establish an experiential space where food, aroma, spatial design, and music come together in harmony."
       }
     ]
   },
   "consultingPage": {
-    "title": "CONSULTING",
+    "title": "CONSULT",
     "titleTop": "LET'S",
-    "titleBottom": "CONSULTING"
+    "titleBottom": "CONSULT"
   },
   "aboutUsPage": {
-    "title": "ABOUT US",
-    "titleTop": "SANGHYUN NO",
-    "titleBottom": "DAEUN PARK",
+    "titleTop": "odd office is",
+    "titleBootom": "a Berlin-based studio offering business consulting and interior design. With deep experience in launching and running F&B ventures — from branding to build-out — we bring your ideas to life in spaces that work and inspire.",
     "usList": [
       {
         "name": "Sang-hyun No",
-        "descMain": "문제를 해결하고 책임지는 것. 제가 하는 일입니다.",
-        "descSub": "레스토랑 운영자, 컨설턴트, 기타 연주자",
+        "descMain": "Solving problems and owning the outcome. That’s what I do.",
+        "descSub": "Restaurant Operator, Consultant, Guitarist",
         "bioDetail": [
-          "odd office (컨설팅, 디자인 스튜디오) 설립 및 운영 /베를린, 2025",
-          "odd cafe (디저트 카페): 창업 및 운영 /베를린, 2023",
-          "SWORD MASTER noodle (코리안 레스토랑): 창업 및 운영 /베를린, 2022",
-          "ATAYA Caffe (브런치 카페): 창업 및 운영 /베를린, 2021",
-          "Project Seom (워크숍 플랫폼): 기획 및 운영 /베를린, 2017",
-          "클래식 기타 연주자 및 교육자로 활동 /로스톡, 2014"
+          "odd office (Consulting and Design Studio): Founder and Operator / Berlin, 2025",
+          "odd cafe (Dessert Café): Founder and Operator / Berlin, 2023",
+          "SWORD MASTER noodle (Korean Restaurant): Founder and Operator / Berlin, 20",
+          "Project Seom (Workshop Platform): Planner and Operator / Berlin, 2017",
+          "Classical Guitarist and Educator / Rostock, 2014"
         ]
       },
       {
         "name": "Jong-hwan Kim ",
-        "descMain": "디자인 전반의 다양한 경험을 바탕으로, 평면에서 공간, 나아가 공감각적 영역으로 확장하며 깊이 있는 디자인을 탐구하고 끊임없이 새로운 시도를 이어가고 있습니다.",
-        "descSub": "인테리어 디자이너, 컨설턴트, 목수, 요리사, 레스토랑 운영자",
+        "descMain": "Building on a broad range of design experience, I have expanded my work from two-dimensional to spatial and synesthetic realms, continually exploring depth in design through constant experimentation.",
+        "descSub": "IInterior Designer, Consultant, Carpenter, Chef, Restaurant",
         "bioDetail": [
-          "odd office (컨설팅, 디자인 스튜디오) 설립 및 운영 /베를린, 2025",
-          "Vingot (디저트 카페): 인테리어 시공 /베를린, 2023",
-          "수풀림 (코리안 레스토랑): 인테리어 시공 /베를린, 2023",
-          "odd cafe (디저트 카페): 브랜딩, 인테리어 디자인 및 시공 /베를린, 2023",
-          "SWORD MASTER noodle (코리안 레스토랑): 창업, 운영,  브랜딩, 인테리어 디자인 및 시공 /베를린, 2022",
-          "Le Duc (다이닝 레스토랑):브랜딩 및 인테리어 디자인 /베를린, 2021",
-          "Funky Fisch (다이닝 레스토랑): 테라스 가구 디자인 /베를린, 2021",
-          "Madame Ngo (베트남 레스토랑): 유니폼 디자인 /베를린, 2021",
-          "ATAYA Caffe (브런치 카페): 인테리어 시공 /베를린, 2021",
-          "리아빵 (디저트 카페): 브랜딩, 인테리어 디자인 및 시공 /베를린, 2020",
-          "gogogi (다이닝 레스토랑): 창업, 운영, 브랜딩, 인테리어 디자인 및 시공 /베를린, 2015",
-          "Ten (일본식 레스토랑): 브랜딩 및 인테리어 디자인 /서울, 2014",
-          "셀러브리티 주거공간: 인테리어 디자인 /서울, 2014",
-          "Idea Market (패션 스타일링 사무실): 브랜딩 및 인테리어 디자인 /서울, 2013",
-          "더하우스컴퍼니 (연예 기획사 사무실): 인테리어 디자인 /서울, 2013",
-          "Kodam (퓨전 레스토랑): 브랜딩 및 인테리어 디자인 /서울, 2013",
-          "스타일리스트 주거공간: 인테리어 디자인 /서울, 2012",
-          "e+e Atelier (빈티지 의류 매장): 인테리어 디자인 /서울, 2012",
-          "개인전: 나는 김목수 입니다 / I'm a Carpenter Kim /서울, 2011"
+          "odd office (Consulting and Design Studio): Founder and Operator / Berlin, 2025",
+          "Vingot (Dessert Café): Interior Construction / Berlin, 2023",
+          "Soopoollim (Korean Restaurant): Interior Construction / Berlin, 2023",
+          "odd café (Dessert Café): Branding, Interior Design and Construction / Berlin, 2023",
+          "SWORD MASTER noodle (Korean Restaurant): Founder, Operator, Branding, Interior Design and Construction / Berlin, 2022",
+          "Le Duc (Dining Restaurant): Branding and Interior Design / Berlin, 2021",
+          "Funky Fisch (Dining Restaurant): Terrace Furniture Design / Berlin, 2021",
+          "Madame Ngo (Vietnamese Restaurant): Uniform Design / Berlin, 2021",
+          "ATAYA Caffe (Brunch Café): Interior Construction / Berlin, 2021",
+          "Lia ppang (Dessert Café): Branding, Interior Design and Construction / Berlin, 2020",
+          "gogogi (Dining Restaurant): Founder, Operator, Branding, Interior Design and Construction / Berlin, 2015",
+          "Ten (Japanese Restaurant): Branding and Interior Design / Seoul, 2014",
+          "Celebrity Residence: Interior Design / Seoul, 2014",
+          "Idea Market (Fashion Styling Office): Branding and Interior Design / Seoul, 2013",
+          "The House Company (Entertainment Agency Office): Interior Design / Seoul, 2013",
+          "Kodam (Fusion Restaurant): Branding and Interior Design / Seoul, 2013",
+          "Stylist Residence: Interior Design / Seoul, 2012",
+          "e+e Atelier (Vintage Clothing Store): Interior Design / Seoul, 2012",
+          "Solo Exhibition: I'm a Carpenter Kim / Seoul, 2011"
         ]
       }
     ]
   },
   "oddPeoplePage": {
-    "title": "ODD PEOPLE",
-    "titleTop": "INTRODUCING",
-    "titleBottom": "ODD PEOPLE",
+    "title": "UPDATES",
+    "titleTop": "HERE ARE",
+    "titleBottom": "NEW UPDATES",
     "peopleList": [
       {
-        "name": "Go Gogi",
+        "name": "ODD PEOPLE1",
         "descMain": "Korean Dining Restaurant",
         "descSub": "Dunckerstraße 30, 10439 Berlin"
       },
       {
-        "name": "Go Gogi",
+        "name": "ODD PEOPLE2",
         "descMain": "Korean Dining Restaurant",
         "descSub": "Dunckerstraße 30, 10439 Berlin"
       }
