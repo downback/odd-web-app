@@ -6,12 +6,10 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { useGSAP } from "@gsap/react"
 
 import ProcessAnimation from "./ProcessAnimation"
-import { useScrollTrigger } from "@/context/ScrollTriggerContext"
 
 gsap.registerPlugin(ScrollTrigger)
 
 const ProcessSection: React.FC = () => {
-  const { sectionTriggerRef } = useScrollTrigger()
   const beforeWordRef = useRef<HTMLDivElement>(null)
   const afterWordRef = useRef<HTMLDivElement>(null)
   const textTriggerRef = useRef<HTMLDivElement>(null)
@@ -54,7 +52,7 @@ const ProcessSection: React.FC = () => {
   }, [])
 
   return (
-    <div ref={sectionTriggerRef} className="w-full h-auto flex flex-col">
+    <div className="w-full h-auto flex flex-col">
       {/* <h1 className="text-center font-semibold">
         Did you got an idea to start your business in Germany?
       </h1> */}
@@ -65,7 +63,7 @@ const ProcessSection: React.FC = () => {
         lang="en"
         className="font-bold text-5xl md:text-6xl w-full h-full flex flex-col justify-center items-center"
       >
-        <div className="w-4/5 md:w-4/7 h-max overflow-hidden font-medium">
+        <div className="w-full md:w-4/7 h-max overflow-hidden font-medium px-1">
           <div className="w-full h-fit flex justify-center">WELCOME TO</div>
 
           <div className="w-full relative h-16 md:h-16 overflow-hidden">
@@ -85,9 +83,9 @@ const ProcessSection: React.FC = () => {
         </div>
       </div>
 
-      <div className=" w-full h-24 flex flex-col justify-center items-center">
-        <p className="text-sm">It’ll never be easy.</p>
-        <p className="text-sm">But we’ll make it less painful</p>
+      <div className="w-full h-24 flex flex-col justify-center items-center">
+        <p className="text-base">It’ll never be easy</p>
+        <p className="text-base">But we’ll make it less painful</p>
       </div>
     </div>
   )

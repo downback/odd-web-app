@@ -3,72 +3,72 @@
     "processSteps": [
       {
         "title": "10. Grand Opening",
-        "description": "- Launch event & promotional campaign <br/> - Performance monitoring during the first month",
+        "description": "Launch with events and monitor performance",
         "position": "top-0 -left-8 md:left-8 -translate-x-1/2 md:translate-x-0",
         "titlePosition": "",
         "btnPosition": "justify-start"
       },
       {
         "title": "9. System Setup",
-        "description": "- Supplier selection & contract for food & beverages <br/> - Partnership with delivery platforms (Wolt, Lieferando, Uber Eats) <br/> - POS, reservation, and payment system integration",
-        "position": "top-0 md:top-4 -left-9 md:left-0 translate-x-0 md:-translate-x-1/3",
+        "description": "Set up supply chain and POS systems",
+        "position": "top-0 left-2 md:left-12",
         "titlePosition": "translate-x-8 md:translate-x-0",
         "btnPosition": "justify-start"
       },
       {
         "title": "8. Staff Recruitment & Training",
-        "description": "- Hiring key personnel (chefs, kitchen staff, service team) <br/> - Hygiene & safety training <br/> - Service and operations manual training",
-        "position": "top-12 left-0 md:-left-6 -translate-x-1/2 md:translate-x-0",
-        "titlePosition": "",
+        "description": "Hire team and conduct training sessions",
+        "position": "top-14 left-0 md:top-0 md:right-0 -translate-x-1/2 md:translate-x-1/2 text-left",
+        "titlePosition": "translate-x-0 md:-translate-x-16",
         "btnPosition": "justify-start"
       },
       {
         "title": "7. Online Marketing",
-        "description": "- Marketing strategy & promotion planning <br/> - Professional photos & videos showcasing brand story <br/> - Optimized website development <br/> - Social media & promotional channel management",
-        "position": "top-12 md:top-16 -left-2 translate-x-0 md:left-0 md:-translate-x-1/4",
+        "description": "Build website and prepare promotional content",
+        "position": "top-16 md:top-16 left-0 translate-x-0 md:left-0 md:-translate-x-1/5",
         "titlePosition": "",
         "btnPosition": "justify-start"
       },
       {
         "title": "6. Construction & Installation",
-        "description": "- Interior construction Kitchen equipment & furniture installation <br/> - Contractor selection & project management <br/> - Final touch-ups and finishing details",
+        "description": "Oversee construction and install equipment",
         "position": "top-8 md:top-12 right-0 translate-x-1/4 text-right",
         "titlePosition": "",
         "btnPosition": "justify-end"
       },
       {
         "title": "5. Interior Design",
-        "description": "- Concept development & space planning <br/> - Electrical & facility layout planning <br/> - Architectural blueprint preparation <br/> - Furniture & lighting design",
-        "position": "top-0 right-6 md:right-12 text-right",
+        "description": "Create floor plans and kitchen layout",
+        "position": "-top-6 md:top-0 right-6 md:right-12 text-right",
         "titlePosition": "-translate-x-4 md:translate-x-0",
         "btnPosition": "justify-end"
       },
       {
         "title": "4. Branding",
-        "description": "- Visual identity design <br/> - Logo, signage, menu, and packaging design",
-        "position": "top-8 md:top-0 -left-20 md:-translate-x-1/3",
+        "description": "Design logo, visuals, and menu layout",
+        "position": "top-0 -left-24 md:-translate-x-1/2",
         "titlePosition": "",
         "btnPosition": "justify-start"
       },
       {
         "title": "3. Legal Permits",
-        "description": "- Company formation (UG, GmbH) <br/> - Business registration (Gewerbeanmeldung) <br/> - Liquor license (Gaststättenerlaubnis) Health department approval",
-        "position": "top-8 -right-16 md:-right-24 text-right",
+        "description": "Register business and obtain required licenses",
+        "position": "top-12 -right-12 translate-x-0  md:top-0 md:right-0 md:translate-x-1/2 text-right",
         "titlePosition": "",
         "btnPosition": "justify-start"
       },
       {
         "title": "2. Location Selection ",
-        "description": "- Local market & commercial district analysis <br/> - Property condition & zoning verification <br/> - Lease negotiation",
-        "position": "top-12 md:top-0 left-0 -translate-x-1/3 md:-translate-x-2/3",
+        "description": "Analyze locations and finalize lease agreements",
+        "position": "-top-6 md:top-0 left-8 md:-translate-x-2/3",
         "titlePosition": "translate-x-2",
         "btnPosition": "justify-start"
       },
       {
         "title": "1. Business Plan",
-        "description": "- Target audience analysis & market research <br/> - Menu concept & pricing strategy <br/> - Budgeting, investment, and revenue forecast <br/> - Business plan for official submission",
-        "position": "top-0 -right-16 md:left-24",
-        "titlePosition": "translate-x-0 md:-translate-x-8",
+        "description": "Define target customers, develop menu, <br/> and create financial plan",
+        "position": "top-0 -right-20 md:left-0 translate-x-0 md:translate-x-1/2",
+        "titlePosition": "translate-x-0 md:-translate-x-12",
         "btnPosition": "justify-start"
       }
     ],
@@ -81,51 +81,86 @@
     "projectsList": [
       {
         "title": "Sword Master Noodle",
-        "img": "TestImage.png",
         "subTitle": "Korean Noodle Restaurant",
         "location": "Dunckerstraße 30, 10439 Berlin",
-        "date": "Since September 2022",
-        "desc": "Scope of Work: Consulting, Branding (BI), Interior Design, Recipe Development, Managed and Operated",
-        "text": "A restaurant designed to capture the flow of experiencing food—from watching the artful performance of hand-cut noodle making to savoring the dish at the table."
+        "date": "September 2022",
+        "desc": "Consulting, Branding (BI), Interior Design, Recipe Development, Managed and Operated",
+        "projectText": "Gogogi was founded through the collaboration of three creatives from Korea: an electronic musician, a fashion stylist, and an interior designer.The concept was not to create a simple dining space serving Korean food, but rather to establish an experiential space where food, aroma, spatial design, and music come together in harmony.",
+        "designText": [
+          {
+            "designTitle": "Reuse & Spatial Reconstruction",
+            "designDetail": "RThe project began with the demolition of existing wooden panel walls, shelves, and kitchen equipment that were left behind. Structural materials such as wooden beams and waterproof plywood were repurposed to create new shelves and a bar table."
+          },
+          {
+            "designTitle": "Furniture & Lighting",
+            "designDetail": "- Upcycled furniture found through zu verschenken was repurposed as tables. - A mix of vintage designer chairs (Arne Jacobsen, Charles & Ray Eames, Philippe Starck, Castelli Plia) and lighting (Gae Aulenti, Harvey Guzzini, Gino Sarfatti) was curated to complement the space. - While maintaining a vintage mood, modern materials like LED line lighting, stainless steel, and colorful acrylic were selectively incorporated to create a comfortable yet contemporary ambiance."
+          }
+        ]
       },
       {
         "title": "odd cafe",
         "subTitle": "Café",
-        "img": "TestImage.jpg",
         "location": "Zelterstraße 6, 10439 Berlin",
-        "date": "Since April 12, 2023",
-        "desc": "Scope of Work: Consulting, Branding (BI), Interior Design, Recipe Development, Managed and Operated",
-        "text": "A restaurant designed to capture the flow of experiencing food—from watching the artful performance of hand-cut noodle making to savoring the dish at the table."
+        "date": "April 12, 2023",
+        "desc": "onsulting, Branding (BI), Interior Design, Recipe Development, Managed and Operated",
+        "projectText": "Gogogi was founded through the collaboration of three creatives from Korea: an electronic musician, a fashion stylist, and an interior designer.The concept was not to create a simple dining space serving Korean food, but rather to establish an experiential space where food, aroma, spatial design, and music come together in harmony.",
+        "designText": [
+          {
+            "designTitle": "Reuse & Spatial Reconstruction",
+            "designDetail": "RThe project began with the demolition of existing wooden panel walls, shelves, and kitchen equipment that were left behind. Structural materials such as wooden beams and waterproof plywood were repurposed to create new shelves and a bar table."
+          },
+          {
+            "designTitle": "Furniture & Lighting",
+            "designDetail": "- Upcycled furniture found through zu verschenken was repurposed as tables. - A mix of vintage designer chairs (Arne Jacobsen, Charles & Ray Eames, Philippe Starck, Castelli Plia) and lighting (Gae Aulenti, Harvey Guzzini, Gino Sarfatti) was curated to complement the space. - While maintaining a vintage mood, modern materials like LED line lighting, stainless steel, and colorful acrylic were selectively incorporated to create a comfortable yet contemporary ambiance."
+          }
+        ]
       },
       {
         "title": "Lia Ppang",
         "subTitle": "Korean Dessert Café",
-        "img": "TestImage.jpg",
         "location": "Dunckerstraße 30, 10439 Berlin",
         "date": "September 2022",
-        "desc": "Scope of Work: Consulting, Branding (BI), Interior Design, Recipe Development, Managed and Operated",
-        "text": "A restaurant designed to capture the flow of experiencing food—from watching the artful performance of hand-cut noodle making to savoring the dish at the table."
+        "desc": "Consulting, Branding (BI), Interior Design, Recipe Development, Managed and Operated",
+        "projectText": "Gogogi was founded through the collaboration of three creatives from Korea: an electronic musician, a fashion stylist, and an interior designer.The concept was not to create a simple dining space serving Korean food, but rather to establish an experiential space where food, aroma, spatial design, and music come together in harmony.",
+        "designText": [
+          {
+            "designTitle": "Reuse & Spatial Reconstruction",
+            "designDetail": "RThe project began with the demolition of existing wooden panel walls, shelves, and kitchen equipment that were left behind. Structural materials such as wooden beams and waterproof plywood were repurposed to create new shelves and a bar table."
+          },
+          {
+            "designTitle": "Furniture & Lighting",
+            "designDetail": "- Upcycled furniture found through zu verschenken was repurposed as tables. - A mix of vintage designer chairs (Arne Jacobsen, Charles & Ray Eames, Philippe Starck, Castelli Plia) and lighting (Gae Aulenti, Harvey Guzzini, Gino Sarfatti) was curated to complement the space. - While maintaining a vintage mood, modern materials like LED line lighting, stainless steel, and colorful acrylic were selectively incorporated to create a comfortable yet contemporary ambiance."
+          }
+        ]
       },
       {
         "title": "Go Gogi",
         "subTitle": "Korean Dining Restaurant",
-        "img": "TestImage.jpg",
         "location": "Dunckerstraße 30, 10439 Berlin",
         "date": "September 2022",
-        "desc": "Scope of Work: Consulting, Branding (BI), Interior Design, Recipe Development, Managed and Operated",
-        "text": "A restaurant designed to capture the flow of experiencing food—from watching the artful performance of hand-cut noodle making to savoring the dish at the table."
+        "desc": "Consulting, Branding (BI), Interior Design, Recipe Development, Managed and Operated",
+        "projectText": "Gogogi was founded through the collaboration of three creatives from Korea: an electronic musician, a fashion stylist, and an interior designer.The concept was not to create a simple dining space serving Korean food, but rather to establish an experiential space where food, aroma, spatial design, and music come together in harmony.",
+        "designText": [
+          {
+            "designTitle": "Reuse & Spatial Reconstruction",
+            "designDetail": "RThe project began with the demolition of existing wooden panel walls, shelves, and kitchen equipment that were left behind. Structural materials such as wooden beams and waterproof plywood were repurposed to create new shelves and a bar table."
+          },
+          {
+            "designTitle": "Furniture & Lighting",
+            "designDetail": "- Upcycled furniture found through zu verschenken was repurposed as tables. - A mix of vintage designer chairs (Arne Jacobsen, Charles & Ray Eames, Philippe Starck, Castelli Plia) and lighting (Gae Aulenti, Harvey Guzzini, Gino Sarfatti) was curated to complement the space. - While maintaining a vintage mood, modern materials like LED line lighting, stainless steel, and colorful acrylic were selectively incorporated to create a comfortable yet contemporary ambiance."
+          }
+        ]
       }
     ]
   },
   "consultingPage": {
-    "title": "CONSULTING",
+    "title": "CONSULT",
     "titleTop": "LET'S",
-    "titleBottom": "CONSULTING"
+    "titleBottom": "CONSULT"
   },
   "aboutUsPage": {
-    "title": "ABOUT US",
-    "titleTop": "SANGHYUN NO",
-    "titleBottom": "JONGHWAN KIM",
+    "titleTop": "Odd Office is",
+    "titleBootom": "a Berlin-based studio offering business consulting and interior design. With deep experience in launching and running F&B ventures — from branding to build-out — we bring your ideas to life in spaces that work and inspire.",
     "usList": [
       {
         "name": "Sang-hyun No",

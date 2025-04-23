@@ -47,7 +47,7 @@ const Footer: React.FC = () => {
               { label: "Projects", path: "/projects" },
               { label: "About Us", path: "/aboutUs" },
               { label: "Consulting", path: "/consulting" },
-              { label: "Odd People", path: "/oddPeople" },
+              { label: "Updates", path: "/updates" },
               { label: "Contact", path: "/contact" },
             ]}
           />
@@ -59,8 +59,6 @@ const Footer: React.FC = () => {
                 label: "Instagram",
                 path: "http://instagram.com/odd_office_ber",
               },
-              { label: "Youtube", path: "/projects" },
-              { label: "Tiktok", path: "/consulting" },
             ]}
           />
         </div>
@@ -77,9 +75,7 @@ const Footer: React.FC = () => {
             <HoverLink
               href="/privacyPolicy"
               linkText="PRIVACY POLICY"
-              activeTextColor="text-stone-200"
-              activeLineColor="after:bg-stone-200"
-              underlineColor="before:tbg-stone-400"
+              underlineColor="before:bg-stone-400"
               className="text-stone-400 w-fit"
             />
           </li>
@@ -87,9 +83,7 @@ const Footer: React.FC = () => {
             <HoverLink
               href="/imprint"
               linkText="IMPRINT"
-              activeTextColor="text-stone-200"
-              activeLineColor="after:bg-stone-200"
-              underlineColor="before:tbg-stone-400"
+              underlineColor="before:bg-stone-400"
               className="text-stone-400"
             />
           </li>

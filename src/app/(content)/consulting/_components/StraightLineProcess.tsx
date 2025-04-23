@@ -10,9 +10,9 @@ interface CircleData {
   y: number
 }
 
-const PATH_D_END = `M70,1000 L70,0`
+// const PATH_D_END = `M50,1300 L50,0`
 const BASE_PATH_WIDTH = 377.35
-const BASE_PATH_HEIGHT = 1000
+// const BASE_PATH_HEIGHT = 1300
 
 const StraightLineProcess: React.FC = () => {
   const { translations } = useContext(LanguageContext)
@@ -29,6 +29,9 @@ const StraightLineProcess: React.FC = () => {
   }
 
   const lineWidth = () => (window.innerWidth < 768 ? 0.7 : 0.5)
+  const PATH_D_END = () =>
+    window.innerWidth < 768 ? `M30,1600 L30,0` : `M70,1000 L70,0`
+  const BASE_PATH_HEIGHT = () => (window.innerWidth < 768 ? 1600 : 1000)
 
   useEffect(() => {
     const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg")
@@ -37,19 +40,17 @@ const StraightLineProcess: React.FC = () => {
     svg.style.overflow = "hidden"
 
     const path = document.createElementNS("http://www.w3.org/2000/svg", "path")
-    path.setAttribute("d", PATH_D_END)
+    path.setAttribute("d", PATH_D_END())
     svg.appendChild(path)
     document.body.appendChild(svg)
 
     const totalLength = path.getTotalLength()
     const count = stepDetails.length
-    const startOffset = totalLength * 0.02
-    const endOffset = totalLength * 0.98
-    const spacing = (endOffset - startOffset) / (count - 1)
+    const spacing = totalLength / (count - 1)
 
     const points: CircleData[] = []
     for (let i = 0; i < count; i++) {
-      const distance = startOffset + i * spacing
+      const distance = i * spacing
       const pt = path.getPointAtLength(distance)
       points.push({ x: pt.x, y: pt.y })
     }
@@ -73,7 +74,7 @@ const StraightLineProcess: React.FC = () => {
 
     const dpr = window.devicePixelRatio || 1
     const newWidth = containerWidth
-    const newHeight = BASE_PATH_HEIGHT * scaleY
+    const newHeight = BASE_PATH_HEIGHT() * scaleY
 
     canvas.width = newWidth * dpr
     canvas.height = newHeight * dpr
@@ -95,7 +96,7 @@ const StraightLineProcess: React.FC = () => {
   }
 
   useEffect(() => {
-    drawPath(PATH_D_END)
+    drawPath(PATH_D_END())
   }, [circleCoords])
 
   // --- Section Scroll ---

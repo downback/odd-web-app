@@ -35,22 +35,22 @@ const ProcessDetailBox: React.FC<ProcessDetailBoxProps> = ({
         forceFixedPosition ? "top-0 left-8 md:left-12" : className
       )}
     >
-      <h3
+      <div
         ref={titleRef}
         className={twMerge(
-          "font-semibold mb-2",
+          "font-semibold mb-2 relative",
           !forceFixedPosition && titleClassName,
           isDetailPage && "text-lg"
         )}
       >
-        {title}
-      </h3>
+        <h3>{title}</h3>
+      </div>
       {/* <p className="text-gray-600 mt-1">{description}</p> */}
       <div
         ref={descRef}
         className={twMerge(
           "",
-          isDetailPage ? "text-base/8" : "text-xs md:text-sm"
+          isDetailPage ? "text-base/7 md:text-base/8" : "text-xs md:text-base"
         )}
       >
         <p
@@ -70,8 +70,9 @@ const ProcessDetailBox: React.FC<ProcessDetailBoxProps> = ({
               <p>Learn More</p>
               <MdArrowOutward />
             </div>
-            <div className="w-full h-4/5 absolute bottom-0 left-0 rounded-xl blur-xl bg-[#edebeb] -z-10" />
+            <div className="w-full h-full absolute bottom-0 left-0 rounded-xl blur-md md:blur-xl bg-[#edebeb] -z-10" />
           </>
+          //
         )}
       </div>
     </div>

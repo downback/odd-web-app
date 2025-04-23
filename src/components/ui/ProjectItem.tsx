@@ -6,14 +6,22 @@ import gsap from "gsap"
 import { useGSAP } from "@gsap/react"
 import { MdOutlineOpenInFull } from "react-icons/md"
 import { MdOutlineCloseFullscreen } from "react-icons/md"
+import { MdArrowBackIosNew } from "react-icons/md"
+import { MdArrowForwardIos } from "react-icons/md"
+
+interface DesignTextItem {
+  designTitle: string
+  designDetail: string
+}
 interface ProjectItemProps {
   title: string
   subTitle: string
-  img: string
+  imgList: string[]
   location: string
   date: string
   desc: string
-  // text: string
+  projectText: string
+  designText: DesignTextItem[]
   projectListLength: number
   isOpen: boolean
   onToggle: () => void
@@ -22,12 +30,12 @@ interface ProjectItemProps {
 const ProjectItem: React.FC<ProjectItemProps> = ({
   title,
   subTitle,
-  // img,
   location,
+  imgList,
   date,
   desc,
-  // text,
-  // projectListLength,
+  projectText,
+  designText,
   isOpen,
   onToggle,
 }) => {
@@ -47,33 +55,22 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
   const bottomRightRef = useRef<HTMLDivElement>(null)
 
   const [currentSlide, setCurrentSlide] = useState(0)
-  const [slideCount, setSlideCount] = useState(0)
+  // const [slideCount, setSlideCount] = useState(0)
   const [sliderContainerWidth, setSliderContainerWidth] = useState(0)
 
-  // const sliderContainerWidth = sliderContainerRef.current?.clientWidth
-
-  // useEffect(() => {
-  //   if (slideWrapperRef.current) {
-  //     const count = slideWrapperRef.current.querySelectorAll(".slide").length
-  //     setSlideCount(count)
-  //   }
-  // }, [])
+  const slideCount = imgList.length
 
   useEffect(() => {
-    if (slideWrapperRef.current) {
-      const count = slideWrapperRef.current.querySelectorAll(".slide").length
-      setSlideCount(count)
-    }
-
     const updateWidth = () => {
       if (sliderContainerRef.current) {
         setSliderContainerWidth(sliderContainerRef.current.clientWidth)
       }
     }
-
     updateWidth()
     window.addEventListener("resize", updateWidth)
-    return () => window.removeEventListener("resize", updateWidth)
+    return () => {
+      window.removeEventListener("resize", updateWidth)
+    }
   }, [])
 
   useGSAP(() => {
@@ -84,68 +81,64 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
     gsap.to(content, {
       height: isOpen ? targetHeight : 0,
       visibility: isOpen ? "visible" : "hidden",
-      duration: 0.4,
-      ease: "power2.inOut",
-    })
-    gsap.to(content, {
       scaleY: isOpen ? 1 : 0,
-      duration: 0.25,
-      ease: "power2.inOut",
+      duration: 0.55,
+      ease: "circ.in",
     })
 
     gsap.to(leftBorderRef.current, {
       x: isOpen ? "-100%" : "0",
-      duration: 0.4,
-      ease: "power2.inOut",
+      duration: 0.55,
+      ease: "circ.in",
     })
     gsap.to(rightBorderRef.current, {
       x: isOpen ? "100%" : "0",
-      duration: 0.4,
-      ease: "power2.inOut",
+      duration: 0.55,
+      ease: "circ.in",
     })
 
     gsap.to(topBarRef.current, {
       backgroundColor: isOpen
         ? "rgba(214, 211, 209, 0.4)"
         : "rgba(214, 211, 209, 1)",
-      duration: 0.4,
+      duration: 0.55,
     })
     gsap.to(bottomBarRef.current, {
       backgroundColor: isOpen
         ? "rgba(214, 211, 209, 0.4)"
         : "rgba(214, 211, 209, 1)",
-      duration: 0.4,
+      duration: 0.55,
     })
 
     gsap.to(topLeftRef.current, {
       borderLeftWidth: isOpen ? "0" : "50px",
-      duration: 0.4,
-      ease: "power2.inOut",
+      duration: 0.55,
+      ease: "circ.in",
     })
     gsap.to(topRightRef.current, {
       borderRightWidth: isOpen ? "0" : "50px",
-      duration: 0.4,
-      ease: "power2.inOut",
+      duration: 0.55,
+      ease: "circ.in",
     })
 
     gsap.to(bottomLeftRef.current, {
       borderLeftWidth: isOpen ? "0" : "50px",
-      duration: 0.4,
-      ease: "power2.inOut",
+      duration: 0.55,
+      ease: "circ.in",
     })
     gsap.to(bottomRightRef.current, {
       borderRightWidth: isOpen ? "0" : "50px",
-      duration: 0.4,
-      ease: "power2.inOut",
+      duration: 0.55,
+      ease: "circ.in",
     })
   }, [isOpen])
 
   const handleNext = () => {
-    setCurrentSlide((prev) => (prev + 1) % slideCount)
+    setCurrentSlide((prev) => (prev + 1) % imgList.length)
   }
 
   const handlePrev = () => {
-    setCurrentSlide((prev) => (prev - 1 + slideCount) % slideCount)
+    setCurrentSlide((prev) => (prev - 1 + imgList.length) % imgList.length)
   }
 
   return (
@@ -155,13 +148,23 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
         className=" w-full h-22 cursor-pointer border-b-[1.2px] border-stone-100 inset-shadow-[0_-1.2px_0_0_rgba(0,0,0,0.05)] px-6"
       >
         <div className="w-full h-full flex flex-row justify-between items-center">
-          <div className="w-1/3 text-xl uppercase">{title}</div>
-          <div className="w-1/3 text-sm font-light flex flex-row justify-between">
-            <div>{subTitle}</div>
-            <div>{date}</div>
+          <div className="w-24 md:w-xs flex h-full justify-between items-center">
+            <div className="text-xl uppercase">{title}</div>
           </div>
-          <div className="text-base">
-            {isOpen ? <MdOutlineCloseFullscreen /> : <MdOutlineOpenInFull />}
+          <div className="w-24 md:w-xs text-sm text-center font-light text-gray-500">
+            {subTitle}
+          </div>
+          <div className="flex-1 flex text-base h-16 justify-end items-center gap-2">
+            {isOpen ? (
+              <>
+                <div>Click to close</div>
+                <MdOutlineCloseFullscreen />
+              </>
+            ) : (
+              <div>
+                <MdOutlineOpenInFull />
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -173,26 +176,36 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
           visibility: "hidden",
           height: 0,
           transform: "scaleY(0)",
+          transformOrigin: "top",
         }}
       >
         {/* Top triangle bar */}
         <div
           ref={topBarRef}
-          className="w-full relative h-32 border-b-[1.2px] border-stone-100 inset-shadow-[0_-1.2px_0_0_rgba(0,0,0,0.05)]"
+          className="w-full relative h-42 border-b-[1.2px] border-stone-100 inset-shadow-[0_-1.2px_0_0_rgba(0,0,0,0.05)]"
           style={{ backgroundColor: "#d6d3d1" }}
         >
           <div
             ref={topLeftRef}
-            className="absolute top-0 left-0 w-0 h-0 border-t-[128px] border-r-[0px] border-b-[0px]  border-solid"
+            className="absolute top-0 left-0 w-0 h-0 border-t-[168px] border-r-[0px] border-b-[0px]  border-solid"
             style={{
               borderColor: "transparent transparent transparent #292524",
               borderLeftWidth: "50px",
             }}
           />
           <div className="w-full h-full flex flex-col justify-center items-start py-12 px-6 tex-sm">
-            <p>Location : {location}</p>
-            <p>Completion Date : {date}</p>
-            <p>Scope of Work : {desc}</p>
+            <div className="w-full h-fit flex justify-between">
+              <p className="w-36 text-sm">Location :</p>
+              <p>{location}</p>
+            </div>
+            <div className="w-full h-fit flex justify-between">
+              <p className="w-36 text-sm">Completion Date :</p>
+              <p>{date}</p>
+            </div>
+            <div className="w-full h-fit flex justify-between">
+              <p className="w-36 text-sm">Scope of Work :</p>
+              <p>{desc}</p>
+            </div>
           </div>
           <div
             ref={topRightRef}
@@ -207,88 +220,58 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
         {/* Main content */}
 
         {/* Slide Section */}
-        <div className="py-4 w-full h-120 flex justify-between relative overflow-hidden border-b-[1.2px] border-stone-100 inset-shadow-[0_-1.2px_0_0_rgba(0,0,0,0.05)]">
+        <div className="relative w-full h-140 md:h-120 flex justify-between overflow-hidden border-b-[1.2px] border-stone-100 inset-shadow-[0_-1.2px_0_0_rgba(0,0,0,0.05)]">
           {/* Left Border */}
-          <div ref={leftBorderRef} className="w-[50px] h-full bg-stone-800" />
+          <div ref={leftBorderRef} className="w-[50px] bg-stone-800 h-full" />
 
           {/* Slides */}
           <div
             ref={sliderContainerRef}
-            className="w-full flex-1 h-full overflow-hidden relative"
+            className="w-full flex-1 py-4 h-full relative overflow-hidden"
           >
             <div
               ref={slideWrapperRef}
-              className="w-full h-full flex transition-transform duration-500 ease-in-out"
+              className="w-full h-full flex transition-transform duration-500 ease-in-out items-center"
               style={{
                 transform: `translateX(-${
                   currentSlide * sliderContainerWidth
                 }px)`,
-                width: `${slideCount * sliderContainerWidth}px`,
+                width: `${imgList.length * sliderContainerWidth}px`,
               }}
             >
-              {/* Slide 1 */}
-              <div
-                style={{ width: sliderContainerWidth }}
-                className="slide w-full h-full flex-shrink-0 px-6 py-4 flex flex-col justify-center items-center "
-              >
-                <div className="w-auto h-full">
-                  <Image
-                    src="/images/TestImage.png"
-                    alt={title}
-                    width={1500}
-                    height={1000}
-                    className="object-cover h-full w-auto"
-                  />
+              {imgList.map((url, idx) => (
+                <div
+                  key={idx}
+                  style={{ width: sliderContainerWidth }}
+                  className="slide w-full h-full flex justify-center items-center"
+                >
+                  <div className="w-auto h-full overflow-hidden flex items-center">
+                    <Image
+                      src={url}
+                      alt={`${title}-${idx}`}
+                      width={1500}
+                      height={1000}
+                      className="object-cover h-auto w-full md:h-full md:w-auto"
+                    />
+                  </div>
                 </div>
-              </div>
-
-              {/* Slide 2 */}
-              <div
-                style={{ width: sliderContainerWidth }}
-                className="slide w-full h-full flex-shrink-0 px-6 py-4 flex flex-col justify-center items-center"
-              >
-                <div className="w-autoh-full">
-                  <Image
-                    src="/images/00-min.jpg"
-                    alt={title}
-                    width={1500}
-                    height={1000}
-                    className="object-cover h-full w-auto"
-                  />
-                </div>
-              </div>
-              {/* Slide 3 */}
-              <div
-                style={{ width: sliderContainerWidth }}
-                className="slide w-full h-full flex-shrink-0 px-6 py-4 flex flex-col justify-center items-center "
-              >
-                <div className="w-auto h-full">
-                  <Image
-                    src="/images/00.png"
-                    alt={title}
-                    width={1500}
-                    height={1000}
-                    className="object-cover h-full w-auto"
-                  />
-                </div>
-              </div>
+              ))}
             </div>
-
-            {/* Slide Controls */}
-            <button
-              onClick={handlePrev}
-              className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white rounded px-2 py-1 shadow"
-            >
-              ◀
-            </button>
-            <button
-              onClick={handleNext}
-              className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white rounded px-2 py-1 shadow"
-            >
-              ▶
-            </button>
           </div>
 
+          {/* Slide Controls */}
+          <div
+            onClick={handlePrev}
+            className="absolute top-0 w-2/5 h-140 md:h-120 left-3 md:left-0 cursor-pointer flex justify-start md:justify-center items-center"
+          >
+            <MdArrowBackIosNew className="m-0 text-2xl" />
+          </div>
+          <div
+            onClick={handleNext}
+            className="absolute top-0 w-2/5 h-140 md:h-120 right-3 md:right-0 cursor-pointer flex justify-end md:justify-center items-center"
+          >
+            <MdArrowForwardIos className="m-0 text-2xl" />
+          </div>
           {/* Right Border */}
           <div ref={rightBorderRef} className="w-[50px] h-full bg-stone-800" />
         </div>
@@ -296,19 +279,33 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
         {/* Bottom triangle bar */}
         <div
           ref={bottomBarRef}
-          className="w-full relative h-64 border-b-[1.2px] border-stone-100 inset-shadow-[0_-1.2px_0_0_rgba(0,0,0,0.05)] "
+          className="w-full relative h-160 md:h-120 border-b-[1.2px] border-stone-100 inset-shadow-[0_-1.2px_0_0_rgba(0,0,0,0.05)] "
           style={{ backgroundColor: "#d6d3d1" }}
         >
           <div
             ref={bottomLeftRef}
-            className="absolute top-0 left-0 w-0 h-0 border-t-[0px] border-r-[0px] border-b-[256px] border-solid"
+            className="absolute top-0 left-0 w-0 h-0 border-t-[0px] border-r-[0px] border-b-[640px] md:border-b-[480px] border-solid"
             style={{
               borderColor: "transparent transparent transparent #292524",
               borderLeftWidth: "50px",
             }}
           />
-          <div className="w-full h-full flex justify-center items-center">
-            {desc}
+          <div className="w-full h-full flex flex-col px-4">
+            <div>
+              <h2 className="text-lg mt-4">Project Overview</h2>
+              <p className="ml-2">{projectText}</p>
+            </div>
+            <div>
+              <h2 className="text-lg mt-4">Design Approach</h2>
+              {designText.map((item, index) => (
+                <div key={index} className="mb-4">
+                  <h3 className="text-base font-semibold ml-2">
+                    {item.designTitle}
+                  </h3>
+                  <p className="ml-6">{item.designDetail}</p>
+                </div>
+              ))}
+            </div>
           </div>
           <div
             ref={bottomRightRef}

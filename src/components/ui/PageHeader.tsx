@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useRef } from "react"
+import React, { useRef, useState, useEffect } from "react"
 import gsap from "gsap"
 import { useGSAP } from "@gsap/react"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
@@ -20,6 +20,18 @@ const PageHeader: React.FC<PageHeaderProps> = ({ titleTop, titleBottom }) => {
   const textTopRef = useRef<HTMLDivElement>(null)
   const textBottomRef = useRef<HTMLDivElement>(null)
 
+  const [mobileWidth, setMobileWidth] = useState(false)
+
+  useEffect(() => {
+    const handleResize = () => {
+      setMobileWidth(window.innerWidth < 768)
+    }
+
+    handleResize() // Initial check
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
+
   useGSAP(() => {
     const triggerBox = triggerBoxRef.current
     const pageHeaderText = headerBoxRef.current
@@ -34,6 +46,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({ titleTop, titleBottom }) => {
     const scrollRange = 100 // how far user must scroll for animation
     const snapHeight = gsap.utils.snap([0, 1])
     const normalize = gsap.utils.normalize(0, scrollRange)
+    const headerHeight = mobileWidth ? "2.5rem" : "2rem"
 
     const lastSnap = -1
     let lastScroll = window.scrollY
@@ -71,7 +84,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({ titleTop, titleBottom }) => {
         if (snapped !== lastSnap) {
           if (snapped === 1 && direction === "down") {
             gsap.to(pageHeaderText, {
-              height: "2.8rem",
+              height: headerHeight,
               ease: "power2.out",
               backgroundColor: "#edebeb",
               duration: 0.3,
@@ -108,12 +121,12 @@ const PageHeader: React.FC<PageHeaderProps> = ({ titleTop, titleBottom }) => {
 
   return (
     <>
-      <div ref={triggerBoxRef} className=" w-full h-10" />
+      <div ref={triggerBoxRef} className=" w-full h-8" />
       <div
         ref={headerBoxRef}
         // OPTION line height design
         // className=" z-30 sticky top-12 w-full  pb-10 border-b-2 border-stone-100 inset-shadow-[0_-2px_0_0_rgba(0,0,0,0.05)] text-7xl"
-        className=" z-30 sticky top-12 w-full  pb-10 border-b-[1.2px] border-stone-100 inset-shadow-[0_-1.2px_0_0_rgba(0,0,0,0.05)] text-7xl"
+        className=" z-30 sticky top-12 w-full  pb-10 border-b-[1.2px] border-stone-100 inset-shadow-[0_-1.2px_0_0_rgba(0,0,0,0.05)] text-6xl xl:text-7xl"
       >
         <div
           ref={textBoxRef}
@@ -123,7 +136,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({ titleTop, titleBottom }) => {
           <div ref={textTopRef} className="">
             {titleTop}
           </div>
-          <div ref={textBottomRef} className="">
+          <div ref={textBottomRef} className="mt-2">
             {titleBottom}
           </div>
         </div>
@@ -137,4 +150,3 @@ export default PageHeader
 //TODO
 //absolute or sticky and make margin top on the content
 //sticky top-12
-//ref={sectionTriggerRef}

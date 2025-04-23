@@ -22,9 +22,7 @@ const FooterLinksList: React.FC<FooterLinksProps> = ({
               href={item.path}
               linkText={item.label}
               isExternal={isExternal}
-              activeTextColor="text-stone-200"
-              activeLineColor="after:bg-stone-200"
-              underlineColor="before:tbg-stone-400"
+              underlineColor="before:bg-stone-400"
               className="text-stone-400"
             />
           </li>

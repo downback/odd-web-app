@@ -1,14 +1,43 @@
 "use client"
 
-import React, { useContext, useState } from "react"
+import React, { useContext, useState, useEffect } from "react"
 import { LanguageContext } from "../../context/LanguageContext"
 import ProjectItem from "./ProjectItem"
+import { getDownloadURL, listAll, ref } from "firebase/storage"
+import { storage } from "../../services/firebase-config"
 
 const ProjectsList: React.FC = () => {
   const { translations } = useContext(LanguageContext)
   const projects = translations.projectsPage.projectsList
   const projectListLength = projects.length
   const [openIndex, setOpenIndex] = useState<number | null>(null)
+  const [imgUrlsList, setImgUrlsList] = useState<string[][]>([])
+
+  useEffect(() => {
+    const fetchAllImages = async () => {
+      const allImages: string[][] = await Promise.all(
+        projects.map(async (_project, index) => {
+          const folderRef = ref(storage, `projects/project${index + 1}`)
+          try {
+            const result = await listAll(folderRef)
+            const urls = await Promise.all(
+              result.items.map((itemRef) => getDownloadURL(itemRef))
+            )
+            return urls
+          } catch (error) {
+            console.error(
+              `Error fetching images for project${index + 1}:`,
+              error
+            )
+            return []
+          }
+        })
+      )
+      setImgUrlsList(allImages)
+    }
+
+    fetchAllImages()
+  }, [projects])
 
   const handleToggle = (index: number) => {
     setOpenIndex((prev) => (prev === index ? null : index))
@@ -25,10 +54,12 @@ const ProjectsList: React.FC = () => {
             key={index}
             title={project.title}
             subTitle={project.subTitle}
-            img={project.img}
+            imgList={imgUrlsList[index] || []}
             location={project.location}
             date={project.date}
             desc={project.desc}
+            projectText={project.projectText}
+            designText={project.designText}
             projectListLength={projectListLength}
             isOpen={openIndex === index}
             onToggle={() => handleToggle(index)}
