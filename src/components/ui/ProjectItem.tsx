@@ -9,19 +9,14 @@ import { MdOutlineCloseFullscreen } from "react-icons/md"
 import { MdArrowBackIosNew } from "react-icons/md"
 import { MdArrowForwardIos } from "react-icons/md"
 
-interface DesignTextItem {
-  designTitle: string
-  designDetail: string
-}
 interface ProjectItemProps {
   title: string
   subTitle: string
   imgList: string[]
   location: string
   date: string
-  desc: string
+  scopeTags: string
   projectText: string
-  designText: DesignTextItem[]
   projectListLength: number
   isOpen: boolean
   onToggle: () => void
@@ -33,9 +28,8 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
   location,
   imgList,
   date,
-  desc,
+  scopeTags,
   projectText,
-  designText,
   isOpen,
   onToggle,
 }) => {
@@ -142,7 +136,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
   }
 
   return (
-    <div className="w-full flex flex-col relative">
+    <div className="w-full h-fit flex flex-col relative">
       <div
         onClick={onToggle}
         className=" w-full h-22 cursor-pointer border-b-[1.2px] border-stone-100 inset-shadow-[0_-1.2px_0_0_rgba(0,0,0,0.05)] px-6"
@@ -182,12 +176,12 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
         {/* Top triangle bar */}
         <div
           ref={topBarRef}
-          className="w-full relative h-42 border-b-[1.2px] border-stone-100 inset-shadow-[0_-1.2px_0_0_rgba(0,0,0,0.05)]"
+          className="w-full relative h-32 border-b-[1.2px] border-stone-100 inset-shadow-[0_-1.2px_0_0_rgba(0,0,0,0.05)]"
           style={{ backgroundColor: "#d6d3d1" }}
         >
           <div
             ref={topLeftRef}
-            className="absolute top-0 left-0 w-0 h-0 border-t-[168px] border-r-[0px] border-b-[0px]  border-solid"
+            className="absolute top-0 left-0 w-0 h-0 border-t-[128px] border-r-[0px] border-b-[0px]  border-solid"
             style={{
               borderColor: "transparent transparent transparent #292524",
               borderLeftWidth: "50px",
@@ -195,16 +189,12 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
           />
           <div className="w-full h-full flex flex-col justify-center items-start py-12 px-6 tex-sm">
             <div className="w-full h-fit flex justify-between">
-              <p className="w-36 text-sm">Location :</p>
+              <p className="w-fit md:w-36  text-sm">Location :</p>
               <p>{location}</p>
             </div>
             <div className="w-full h-fit flex justify-between">
-              <p className="w-36 text-sm">Completion Date :</p>
+              <p className="w-fit md:w-36 text-sm">Completion Date :</p>
               <p>{date}</p>
-            </div>
-            <div className="w-full h-fit flex justify-between">
-              <p className="w-36 text-sm">Scope of Work :</p>
-              <p>{desc}</p>
             </div>
           </div>
           <div
@@ -279,33 +269,24 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
         {/* Bottom triangle bar */}
         <div
           ref={bottomBarRef}
-          className="w-full relative h-160 md:h-120 border-b-[1.2px] border-stone-100 inset-shadow-[0_-1.2px_0_0_rgba(0,0,0,0.05)] "
+          className="w-full relative h-60 md:h-120 border-b-[1.2px] border-stone-100 inset-shadow-[0_-1.2px_0_0_rgba(0,0,0,0.05)] "
           style={{ backgroundColor: "#d6d3d1" }}
         >
           <div
             ref={bottomLeftRef}
-            className="absolute top-0 left-0 w-0 h-0 border-t-[0px] border-r-[0px] border-b-[640px] md:border-b-[480px] border-solid"
+            className="absolute top-0 left-0 w-0 h-0 border-t-[0px] border-r-[0px] border-b-[320px] md:border-b-[480px] border-solid"
             style={{
               borderColor: "transparent transparent transparent #292524",
               borderLeftWidth: "50px",
             }}
           />
-          <div className="w-full h-full flex flex-col px-4">
+          <div className="w-full h-full flex flex-col justify-center items-start py-12 px-6">
             <div>
-              <h2 className="text-lg mt-4">Project Overview</h2>
-              <p className="ml-2">{projectText}</p>
+              <p className="text-sm">Scope of Work :</p>
+              <p>{scopeTags}</p>
+              <p className="">{projectText}</p>
             </div>
-            <div>
-              <h2 className="text-lg mt-4">Design Approach</h2>
-              {designText.map((item, index) => (
-                <div key={index} className="mb-4">
-                  <h3 className="text-base font-semibold ml-2">
-                    {item.designTitle}
-                  </h3>
-                  <p className="ml-6">{item.designDetail}</p>
-                </div>
-              ))}
-            </div>
+            <div></div>
           </div>
           <div
             ref={bottomRightRef}

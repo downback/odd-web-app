@@ -69,11 +69,15 @@ const PageHeader: React.FC<PageHeaderProps> = ({ titleTop, titleBottom }) => {
       "<+0.1"
     )
 
+    gsap.set(pageHeaderText, {
+      backgroundColor: "transparent",
+      height: originalHeight,
+    })
+
     ScrollTrigger.create({
       trigger: triggerBox,
       start: "top top",
       end: "bottom bottom",
-      // markers: true,
       scrub: true,
       onUpdate: (self) => {
         const progress = normalize(self.scroll())
@@ -87,7 +91,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({ titleTop, titleBottom }) => {
               height: headerHeight,
               ease: "power2.out",
               backgroundColor: "#edebeb",
-              duration: 0.3,
+              duration: 0.6,
             })
             gsap.to(textBox, {
               scale: "0.45",
@@ -98,9 +102,9 @@ const PageHeader: React.FC<PageHeaderProps> = ({ titleTop, titleBottom }) => {
           } else if (snapped === 0 && direction === "up") {
             gsap.to(pageHeaderText, {
               height: originalHeight,
+              backgroundColor: "transparent", // Back to transparent
+              duration: 0.6,
               ease: "power2.out",
-              backgroundColor: "transparent",
-              duration: 0.3,
             })
             gsap.to(textBox, {
               scale: "1",
@@ -111,21 +115,34 @@ const PageHeader: React.FC<PageHeaderProps> = ({ titleTop, titleBottom }) => {
           }
         }
       },
+      onEnterBack: () => {
+        // When scrolling back into the trigger area, reset the height and background color
+        gsap.to(pageHeaderText, {
+          height: originalHeight,
+          backgroundColor: "transparent",
+          duration: 0.6,
+          ease: "power2.out",
+        })
+        gsap.to(textBox, {
+          scale: "1",
+          transform: "translateY(0)",
+          ease: "power2.out",
+          duration: 0.6,
+        })
+      },
     })
 
     return () => {
       gsap.set(pageHeaderText, { height: originalHeight })
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
     }
-  }, [])
+  }, [mobileWidth])
 
   return (
     <>
       <div ref={triggerBoxRef} className=" w-full h-8" />
       <div
         ref={headerBoxRef}
-        // OPTION line height design
-        // className=" z-30 sticky top-12 w-full  pb-10 border-b-2 border-stone-100 inset-shadow-[0_-2px_0_0_rgba(0,0,0,0.05)] text-7xl"
         className=" z-30 sticky top-12 w-full  pb-10 border-b-[1.2px] border-stone-100 inset-shadow-[0_-1.2px_0_0_rgba(0,0,0,0.05)] text-6xl xl:text-7xl"
       >
         <div

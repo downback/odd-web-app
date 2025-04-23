@@ -57,9 +57,8 @@ const ProjectsList: React.FC = () => {
             imgList={imgUrlsList[index] || []}
             location={project.location}
             date={project.date}
-            desc={project.desc}
+            scopeTags={project.scopeTags}
             projectText={project.projectText}
-            designText={project.designText}
             projectListLength={projectListLength}
             isOpen={openIndex === index}
             onToggle={() => handleToggle(index)}
