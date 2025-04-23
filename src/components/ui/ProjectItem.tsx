@@ -52,8 +52,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
   // const [slideCount, setSlideCount] = useState(0)
   const [sliderContainerWidth, setSliderContainerWidth] = useState(0)
 
-  const slideCount = imgList.length
-
+  // const slideCount = imgList.length
   useEffect(() => {
     const updateWidth = () => {
       if (sliderContainerRef.current) {
