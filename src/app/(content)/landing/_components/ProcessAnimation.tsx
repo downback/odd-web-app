@@ -18,15 +18,12 @@ interface CircleData {
 }
 
 const PATH_D_START = `M186.27,842.73c-1.16-44.94,66.22-104.26,51.43-117.63-12.03-10.87-85.37,27.64-105.21,11.63-60.74-49.05,174.85-85.15,152.73-135.72C260.55,544.62-6.47,550.34.43,469.98c8.39-97.66,405.39,80.68,374.96-21.5-23.22-77.98-265.76-73.4-233.32-139.93,20.63-42.3,165.53-8.85,167.03-66.88,1.48-57.29-206.57,19.9-199.5-33.23,6.44-48.36,172.43-30.54,139.71-88.61-12.54-22.25-52.29-17.17-60.11-49.28-1.69-6.96-.54-65.19-.54-70.55`
-// const PATH_D_START = `M186.27,842.73c-1.16-44.94,66.22-104.26,51.43-117.63-12.03-10.87-85.37,27.64-105.21,11.63-60.74-49.05,174.85-85.15,152.73-135.72C260.55,544.62-6.47,550.34.43,469.98c8.39-97.66,405.39,80.68,374.96-21.5-23.22-77.98-265.76-73.4-233.32-139.93,20.63-42.3,165.53-8.85,167.03-66.88,1.48-57.29-206.57,19.9-199.5-33.23,6.44-48.36,172.43-30.54,139.71-88.61-12.54-22.25-53.98-16.45-61.79-48.56-1.69-6.96-1.02-65.9-1.02-71.27`
-// const PATH_D_END = `M30,842.73 L30,0`
 
 const PATH_D_END = () =>
   window.innerWidth < 768 ? `M30,842.73 L30,0` : `M70,842.73 L70,0`
 
 const BASE_PATH_WIDTH = 377.35
 const BASE_PATH_HEIGHT = 842.73
-// const BASE_PATH_HEIGHT = 850
 
 const ProcessAnimation: React.FC = () => {
   const { translations } = useContext(LanguageContext)
@@ -39,6 +36,7 @@ const ProcessAnimation: React.FC = () => {
 
   const [startPoint, setStartPoint] = useState<CircleData | null>(null)
   const [endPoint, setEndPoint] = useState<CircleData | null>(null)
+  const [showCircles, setShowCircles] = useState(true)
 
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
@@ -64,42 +62,6 @@ const ProcessAnimation: React.FC = () => {
     if (w >= 768) return 0.5
     return w
   }
-
-  // RESIZING
-  // useEffect(() => {
-  //   const handleResize = () => {
-  //     window.location.reload()
-  //   }
-  //   window.addEventListener("resize", handleResize)
-  //   return () => window.removeEventListener("resize", handleResize)
-  // }, [])
-
-  // useEffect(() => {
-  //   const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg")
-  //   svg.setAttribute("viewBox", "0 0 377.35 785.63")
-  //   svg.style.position = "fixed"
-  //   svg.style.overflow = "hidden"
-
-  //   const path = document.createElementNS("http://www.w3.org/2000/svg", "path")
-  //   path.setAttribute("d", PATH_D_START)
-  //   svg.appendChild(path)
-  //   document.body.appendChild(svg)
-
-  //   const totalLength = path.getTotalLength()
-  //   const count = 10
-  //   const spacing = totalLength / (count - 1)
-
-  //   const points: CircleData[] = []
-  //   for (let i = 0; i < count; i++) {
-  //     const pt = path.getPointAtLength(i * spacing)
-  //     points.push({ x: pt.x, y: pt.y })
-  //   }
-
-  //   setCircleCoords(points)
-  //   return () => {
-  //     svg.remove()
-  //   }
-  // }, [])
 
   useEffect(() => {
     const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg")
@@ -177,20 +139,18 @@ const ProcessAnimation: React.FC = () => {
   }, [currentPath])
 
   const handleMorph = (index: number) => {
-    // const from = isStraight ? PATH_D_END : PATH_D_START
-    // const to = isStraight ? PATH_D_START : PATH_D_END
-    // const interpolator = flubber.interpolate(from, to, { maxSegmentLength: 2 })
-
     setIsMorphing(true)
+    setShowCircles(false)
 
     const interpolator = flubber.interpolate(PATH_D_START, PATH_D_END(), {
       maxSegmentLength: 2,
     })
 
     const dummy = { t: 0 }
-    const targetX = 70
+    const targetX = window.innerWidth < 768 ? 30 : 70
 
-    // Hide all descs
+    
+
     descRefs.current.forEach((el) => {
       if (el) gsap.to(el, { autoAlpha: 0, duration: 0.4 })
     })
@@ -204,7 +164,6 @@ const ProcessAnimation: React.FC = () => {
         setCurrentPath(d)
         drawPath(d)
 
-        // Animate circle Xs
         const updatedCoords = circleCoords.map((pt) => ({
           ...pt,
           x: gsap.utils.interpolate(pt.x, targetX, dummy.t),
@@ -212,62 +171,17 @@ const ProcessAnimation: React.FC = () => {
         setCircleCoords(updatedCoords)
       },
       onComplete: () => {
-        // Snap
-        // const snapped = circleCoords.map((pt) => ({ ...pt, x: targetX }))
-        // setCircleCoords(snapped)
-
         setTimeout(() => {
-          // const reversedIndex = stepDetails.length - 1 - index
           router.push(`/consulting?section=${index}`)
         }, 800)
       },
     })
   }
 
-  //Circle / title / desc ANIMATION
-
   useGSAP(() => {
     circleRefs.current.forEach((el, i) => {
       if (!el) return
-
-      // gsap.fromTo(
-      //   el,
-      //   { scale: 0, opacity: 0 },
-      //   {
-      //     scale: 1,
-      //     opacity: 1,
-      //     duration: 0.6,
-      //     ease: "back.out(1.7)",
-      //     scrollTrigger: {
-      //       trigger: el,
-      //       start: "top 75%",
-      //       end: "center center",
-      //       toggleActions: "play none none reset",
-      //     },
-      //   }
-      // )
-
-      // const title = titleRefs.current[i]
       const desc = descRefs.current[i]
-
-      // if (title) {
-      //   gsap.fromTo(
-      //     title,
-      //     { y: 30, opacity: 0 },
-      //     {
-      //       y: 0,
-      //       opacity: 1,
-      //       duration: 0.6,
-      //       delay: 0.2,
-      //       ease: "power3.out",
-      //       scrollTrigger: {
-      //         trigger: title,
-      //         start: "top 85%",
-      //         toggleActions: "play none none reset",
-      //       },
-      //     }
-      //   )
-      // }
 
       if (desc) {
         gsap.fromTo(
@@ -309,7 +223,7 @@ const ProcessAnimation: React.FC = () => {
         />
 
         {/* ✅ Start circle */}
-        {startPoint && (
+        {showCircles && startPoint && (
           <div
             className="absolute w-5 h-5 bg-white border border-black rounded-full"
             style={{
@@ -329,7 +243,7 @@ const ProcessAnimation: React.FC = () => {
         )}
 
         {/* ✅ End circle */}
-        {endPoint && (
+        {showCircles && endPoint && (
           <div
             className="absolute w-5 h-5 bg-white border border-black rounded-full"
             style={{

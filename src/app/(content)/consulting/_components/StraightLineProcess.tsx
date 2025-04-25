@@ -16,7 +16,7 @@ const BASE_PATH_WIDTH = 377.35
 
 const StraightLineProcess: React.FC = () => {
   const { translations } = useContext(LanguageContext)
-  const stepDetails = translations?.landingPage.processSteps || []
+  const stepDetails = translations?.consultingPage.consultingSteps || []
 
   const [circleCoords, setCircleCoords] = useState<CircleData[]>([])
   const canvasRef = useRef<HTMLCanvasElement>(null)

@@ -116,7 +116,79 @@
   "consultingPage": {
     "title": "CONSULT",
     "titleTop": "LET'S",
-    "titleBottom": "CONSULT"
+    "titleBottom": "CONSULT",
+    "consultingSteps": [
+      {
+        "title": "10. Grand Opening",
+        "description": "- Launch event & promotional campaign <br/> - Performance monitoring during the first month",
+        "position": "top-0 -left-8 md:left-8 -translate-x-1/2 md:translate-x-0",
+        "titlePosition": "",
+        "btnPosition": "justify-start"
+      },
+      {
+        "title": "9. System Setup",
+        "description": "- Supplier selection & contract for food & beverages <br/> - Partnership with delivery platforms (Wolt, Lieferando, Uber Eats) <br/> - POS, reservation, and payment system integration",
+        "position": "top-0 md:top-4 -left-9 md:left-0 translate-x-0 md:-translate-x-1/3",
+        "titlePosition": "translate-x-8 md:translate-x-0",
+        "btnPosition": "justify-start"
+      },
+      {
+        "title": "8. Staff Recruitment & Training",
+        "description": "- Hiring key personnel (chefs, kitchen staff, service team) <br/> - Hygiene & safety training <br/> - Service and operations manual training",
+        "position": "top-12 left-0 md:-left-6 -translate-x-1/2 md:translate-x-0",
+        "titlePosition": "",
+        "btnPosition": "justify-start"
+      },
+      {
+        "title": "7. Online Marketing",
+        "description": "- Marketing strategy & promotion planning <br/> - Professional photos & videos showcasing brand story <br/> - Optimized website development <br/> - Social media & promotional channel management",
+        "position": "top-12 md:top-16 -left-2 translate-x-0 md:left-0 md:-translate-x-1/4",
+        "titlePosition": "",
+        "btnPosition": "justify-start"
+      },
+      {
+        "title": "6. Construction & Installation",
+        "description": "- Interior construction Kitchen equipment & furniture installation <br/> - Contractor selection & project management <br/> - Final touch-ups and finishing details",
+        "position": "top-8 md:top-12 right-0 translate-x-1/4 text-right",
+        "titlePosition": "",
+        "btnPosition": "justify-end"
+      },
+      {
+        "title": "5. Interior Design",
+        "description": "- Concept development & space planning <br/> - Electrical & facility layout planning <br/> - Architectural blueprint preparation <br/> - Furniture & lighting design",
+        "position": "top-0 right-6 md:right-12 text-right",
+        "titlePosition": "-translate-x-4 md:translate-x-0",
+        "btnPosition": "justify-end"
+      },
+      {
+        "title": "4. Branding",
+        "description": "- Visual identity design <br/> - Logo, signage, menu, and packaging design",
+        "position": "top-8 md:top-0 -left-20 md:-translate-x-1/3",
+        "titlePosition": "",
+        "btnPosition": "justify-start"
+      },
+      {
+        "title": "3. Legal Permits",
+        "description": "- Company formation (UG, GmbH) <br/> - Business registration (Gewerbeanmeldung) <br/> - Liquor license (Gaststättenerlaubnis) Health department approval",
+        "position": "top-8 -right-16 md:-right-24 text-right",
+        "titlePosition": "",
+        "btnPosition": "justify-start"
+      },
+      {
+        "title": "2. Location Selection ",
+        "description": "- Local market & commercial district analysis <br/> - Property condition & zoning verification <br/> - Lease negotiation",
+        "position": "top-12 md:top-0 left-0 -translate-x-1/3 md:-translate-x-2/3",
+        "titlePosition": "translate-x-2",
+        "btnPosition": "justify-start"
+      },
+      {
+        "title": "1. Business Plan",
+        "description": "- Target audience analysis & market research <br/> - Menu concept & pricing strategy <br/> - Budgeting, investment, and revenue forecast <br/> - Business plan for official submission",
+        "position": "top-0 -right-16 md:left-24",
+        "titlePosition": "translate-x-0 md:-translate-x-8",
+        "btnPosition": "justify-start"
+      }
+    ]
   },
   "aboutUsPage": {
     "titleTop": "odd office is",
