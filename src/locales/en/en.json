@@ -137,7 +137,7 @@
     "title": "CONSULT",
     "titleTop": "CONSULT",
     "titleBottom": "SERVICES",
-    "processStepsMoreDetail": [
+    "consultingSteps": [
       {
         "title": "10. Grand Opening",
         "description": "- Launch event & promotional campaign <br/> - Performance monitoring during the first month",
