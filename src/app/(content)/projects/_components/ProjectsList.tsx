@@ -1,10 +1,10 @@
 "use client"
 
 import React, { useContext, useState, useEffect } from "react"
-import { LanguageContext } from "../../context/LanguageContext"
+import { LanguageContext } from "../../../../context/LanguageContext"
 import ProjectItem from "./ProjectItem"
 import { getDownloadURL, listAll, ref } from "firebase/storage"
-import { storage } from "../../services/firebase-config"
+import { storage } from "../../../../services/firebase-config"
 
 const ProjectsList: React.FC = () => {
   const { translations } = useContext(LanguageContext)

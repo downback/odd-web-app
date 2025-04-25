@@ -8,7 +8,7 @@ interface HoverLinkProps {
   href: string
   linkText: string
   className?: string
-  underlineColor?: string // Tailwind class for underline color
+  underlineColor?: string 
   isExternal?: boolean
 }
 

@@ -27,7 +27,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({ titleTop, titleBottom }) => {
       setMobileWidth(window.innerWidth < 768)
     }
 
-    handleResize() // Initial check
+    handleResize()
     window.addEventListener("resize", handleResize)
     return () => window.removeEventListener("resize", handleResize)
   }, [])
@@ -48,7 +48,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({ titleTop, titleBottom }) => {
     const normalize = gsap.utils.normalize(0, scrollRange)
     const headerHeight = mobileWidth ? "2.5rem" : "2rem"
 
-    const lastSnap = -1
+    // const lastSnap = -1
     let lastScroll = window.scrollY
 
     const tl = gsap.timeline()
@@ -85,34 +85,63 @@ const PageHeader: React.FC<PageHeaderProps> = ({ titleTop, titleBottom }) => {
         const direction = window.scrollY > lastScroll ? "down" : "up"
         lastScroll = window.scrollY
 
-        if (snapped !== lastSnap) {
-          if (snapped === 1 && direction === "down") {
-            gsap.to(pageHeaderText, {
-              height: headerHeight,
-              ease: "power2.out",
-              backgroundColor: "#edebeb",
-              duration: 0.6,
-            })
-            gsap.to(textBox, {
-              scale: "0.45",
-              ease: "power2.out",
-              transform: "translateY(-45%)",
-              duration: 0.3,
-            })
-          } else if (snapped === 0 && direction === "up") {
-            gsap.to(pageHeaderText, {
-              height: originalHeight,
-              backgroundColor: "transparent", // Back to transparent
-              duration: 0.6,
-              ease: "power2.out",
-            })
-            gsap.to(textBox, {
-              scale: "1",
-              transform: "translateY(0)",
-              ease: "power2.out",
-              duration: 0.3,
-            })
-          }
+        //   if (snapped !== lastSnap) {
+        //     if (snapped === 1 && direction === "down") {
+        //       gsap.to(pageHeaderText, {
+        //         height: headerHeight,
+        //         ease: "power2.out",
+        //         backgroundColor: "#edebeb",
+        //         duration: 0.6,
+        //       })
+        //       gsap.to(textBox, {
+        //         scale: "0.45",
+        //         ease: "power2.out",
+        //         transform: "translateY(-45%)",
+        //         duration: 0.6,
+        //       })
+        //     } else if (snapped === 0 && direction === "up") {
+        //       gsap.to(pageHeaderText, {
+        //         height: originalHeight,
+        //         backgroundColor: "transparent",
+        //         duration: 0.6,
+        //         ease: "power2.out",
+        //       })
+        //       gsap.to(textBox, {
+        //         scale: "1",
+        //         transform: "translateY(0)",
+        //         ease: "power2.out",
+        //         duration: 0.6,
+        //       })
+        //     }
+        //   }
+        // },
+        // Trigger height and background color change based on scroll progress
+        if (snapped === 1 && direction === "down") {
+          gsap.to(pageHeaderText, {
+            height: headerHeight,
+            backgroundColor: "#edebeb",
+            duration: 0.4,
+            ease: "power2.out",
+          })
+          gsap.to(textBox, {
+            scale: 0.45,
+            ease: "power2.out",
+            transform: "translateY(-45%)",
+            duration: 0.4,
+          })
+        } else if (snapped === 0 && direction === "up") {
+          gsap.to(pageHeaderText, {
+            height: originalHeight,
+            backgroundColor: "transparent",
+            duration: 0.4,
+            ease: "power2.out",
+          })
+          gsap.to(textBox, {
+            scale: 1,
+            transform: "translateY(0)",
+            ease: "power2.out",
+            duration: 0.4,
+          })
         }
       },
       onEnterBack: () => {
@@ -120,14 +149,14 @@ const PageHeader: React.FC<PageHeaderProps> = ({ titleTop, titleBottom }) => {
         gsap.to(pageHeaderText, {
           height: originalHeight,
           backgroundColor: "transparent",
-          duration: 0.6,
+          duration: 0.4,
           ease: "power2.out",
         })
         gsap.to(textBox, {
           scale: "1",
           transform: "translateY(0)",
           ease: "power2.out",
-          duration: 0.6,
+          duration: 0.4,
         })
       },
     })
@@ -136,7 +165,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({ titleTop, titleBottom }) => {
       gsap.set(pageHeaderText, { height: originalHeight })
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
     }
-  }, [mobileWidth])
+  }, [])
 
   return (
     <>
@@ -148,7 +177,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({ titleTop, titleBottom }) => {
         <div
           ref={textBoxRef}
           lang="en"
-          className="w-full flex flex-col items-center "
+          className="w-full flex flex-col items-center"
         >
           <div ref={textTopRef} className="">
             {titleTop}
@@ -167,3 +196,7 @@ export default PageHeader
 //TODO
 //absolute or sticky and make margin top on the content
 //sticky top-12
+
+{
+  /* <div className="absolute top-0 left-0 w-full h-full bg-amber-300"/> */
+}

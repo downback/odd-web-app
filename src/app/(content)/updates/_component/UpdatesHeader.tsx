@@ -6,7 +6,7 @@ import PageHeader from "@/components/ui/PageHeader"
 
 const UpdatesHeader: React.FC = () => {
   const { translations } = useContext(LanguageContext)
-  const oddPeopleTranslation = translations.oddPeoplePage
+  const oddPeopleTranslation = translations?.UpdatesPage
 
   return (
     <>

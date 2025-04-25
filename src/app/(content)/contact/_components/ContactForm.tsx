@@ -1,10 +1,12 @@
 "use client"
 
-import React from "react"
+import React, { useContext } from "react"
 import { useFormik } from "formik"
 import * as Yup from "yup"
+import { LanguageContext } from "../../../../context/LanguageContext"
 
 import { MdArrowOutward } from "react-icons/md"
+import { twMerge } from "tailwind-merge"
 
 interface ContactFormProps {
   selectedServices: string[]
@@ -15,6 +17,9 @@ const ContactForm: React.FC<ContactFormProps> = ({
   selectedServices,
   onRemoveInterest,
 }) => {
+  const { translations } = useContext(LanguageContext)
+  const ContactFormTranslation = translations.contactPage
+
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -53,10 +58,17 @@ const ContactForm: React.FC<ContactFormProps> = ({
     },
   })
 
+  const buttonClass = twMerge(
+    "px-4 py-2 font-semibold text-white rounded transition-colors",
+    formik.isValid && Object.keys(formik.errors).length === 0
+      ? "bg-stone-950"
+      : "bg-stone-700"
+  )
+
   return (
-    <div className="w-5/6 md:w-4/9 lg:w-2/5 p-6 border border-black rounded">
+    <div className="w-5/6 md:w-2/5 lg:w-1/3 p-6 border border-black rounded">
       <h2 className="text-2xl font-bold text-center text-black mb-4">
-        Contact Us
+        {ContactFormTranslation.messageBoxTitle}
       </h2>
       <form onSubmit={formik.handleSubmit} className="space-y-4">
         {/* Name */}
@@ -174,22 +186,19 @@ const ContactForm: React.FC<ContactFormProps> = ({
               onClick={() => window.scrollTo(0, 100)}
               className="text-stone-400 flex flex-row gap-1 height-12 items-center cursor-pointer"
             >
-              Go to add the your required service
+              {ContactFormTranslation.messageBoxTitle}
               <MdArrowOutward />
             </div>
           )}
         </div>
 
         <div className="text-xs text-stone-600 text-right">
-          * required fields
+          * {ContactFormTranslation.requiredField}
         </div>
 
-        <div className="text-center">
-          <button
-            type="submit"
-            className="px-4 py-2 bg-black text-white font-semibold rounded hover:bg-gray-800 transition-colors"
-          >
-            Send Message
+        <div className="text-center ">
+          <button type="submit" className={buttonClass}>
+            {ContactFormTranslation.sendMessage}
           </button>
         </div>
       </form>
