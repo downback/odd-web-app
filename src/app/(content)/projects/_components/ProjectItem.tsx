@@ -1,7 +1,8 @@
 "use client"
 
-import React, { useRef, useState, useEffect } from "react"
+import React, { useRef, useState, useEffect, useContext } from "react"
 import Image from "next/image"
+import { LanguageContext } from "../../../../context/LanguageContext"
 import gsap from "gsap"
 import { useGSAP } from "@gsap/react"
 import { MdOutlineOpenInFull } from "react-icons/md"
@@ -15,7 +16,7 @@ interface ProjectItemProps {
   imgList: string[]
   location: string
   date: string
-  scopeTags: string
+  scopeTags: string[]
   projectText: string
   projectListLength: number
   isOpen: boolean
@@ -33,6 +34,9 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
   isOpen,
   onToggle,
 }) => {
+  const { translations } = useContext(LanguageContext)
+  const projectsPageTranslation = translations.projectsPage
+
   const dropDownRef = useRef<HTMLDivElement>(null)
   const sliderContainerRef = useRef<HTMLDivElement>(null)
   const slideWrapperRef = useRef<HTMLDivElement>(null)
@@ -141,21 +145,21 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
         className=" w-full h-22 cursor-pointer border-b-[1.2px] border-stone-100 inset-shadow-[0_-1.2px_0_0_rgba(0,0,0,0.05)] px-6"
       >
         <div className="w-full h-full flex flex-row justify-between items-center">
-          <div className="w-24 md:w-xs flex h-full justify-between items-center">
-            <div className="text-xl uppercase">{title}</div>
+          <div className="w-1/3 md:w-xs flex h-full justify-between items-center">
+            <div className="text-lg md:text-xl uppercase">{title}</div>
           </div>
-          <div className="w-24 md:w-xs text-sm text-center font-light text-gray-500">
+          <div className="w-1/3 md:w-xs text-xs md:text-sm text-center font-light text-gray-500">
             {subTitle}
           </div>
           <div className="flex-1 flex text-base h-16 justify-end items-center gap-2">
             {isOpen ? (
               <>
-                <div>Click to close</div>
-                <MdOutlineCloseFullscreen />
+                <div className="hidden md:block">Click to close</div>
+                <MdOutlineCloseFullscreen className="text-sm md:text-base" />
               </>
             ) : (
               <div>
-                <MdOutlineOpenInFull />
+                <MdOutlineOpenInFull className="text-sm md:text-base" />
               </div>
             )}
           </div>
@@ -164,7 +168,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
 
       <div
         ref={dropDownRef}
-        className="w-full h-auto relative"
+        className="w-full h-fit relative"
         style={{
           visibility: "hidden",
           height: 0,
@@ -175,30 +179,30 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
         {/* Top triangle bar */}
         <div
           ref={topBarRef}
-          className="w-full relative h-32 border-b-[1.2px] border-stone-100 inset-shadow-[0_-1.2px_0_0_rgba(0,0,0,0.05)]"
+          className="w-full relative h-24 border-b-[1.2px] border-stone-100 inset-shadow-[0_-1.2px_0_0_rgba(0,0,0,0.05)]"
           style={{ backgroundColor: "#d6d3d1" }}
         >
           <div
             ref={topLeftRef}
-            className="absolute top-0 left-0 w-0 h-0 border-t-[128px] border-r-[0px] border-b-[0px]  border-solid"
+            className="absolute top-0 left-0 w-0 h-0 border-t-[96px] border-r-[0px] border-b-[0px]  border-solid"
             style={{
               borderColor: "transparent transparent transparent #292524",
               borderLeftWidth: "50px",
             }}
           />
-          <div className="w-full h-full flex flex-col justify-center items-start py-12 px-6 tex-sm">
+          <div className="w-full h-full flex flex-col justify-center items-start px-6 tex-sm">
             <div className="w-full h-fit flex justify-between">
-              <p className="w-fit md:w-36  text-sm">Location :</p>
+              <p className="w-fit md:w-36  text-sm">{projectsPageTranslation.location} :</p>
               <p>{location}</p>
             </div>
             <div className="w-full h-fit flex justify-between">
-              <p className="w-fit md:w-36 text-sm">Completion Date :</p>
+              <p className="w-fit md:w-36 text-sm">{projectsPageTranslation.completionDate} :</p>
               <p>{date}</p>
             </div>
           </div>
           <div
             ref={topRightRef}
-            className="absolute top-0 right-0 w-0 h-0 border-t-[128px] border-b-[0px] border-l-[0px] border-solid"
+            className="absolute top-0 right-0 w-0 h-0 border-t-[96px] border-l-[0px] border-b-[0px]  border-solid"
             style={{
               borderColor: "transparent #292524  transparent transparent ",
               borderRightWidth: "50px",
@@ -251,13 +255,13 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
           {/* Slide Controls */}
           <div
             onClick={handlePrev}
-            className="absolute top-0 w-2/5 h-140 md:h-120 left-3 md:left-0 cursor-pointer flex justify-start md:justify-center items-center"
+            className="absolute top-0 w-2/5 h-140 md:h-120 left-3 md:left-20 lg:left-0 cursor-pointer flex justify-start lg:justify-center items-center"
           >
             <MdArrowBackIosNew className="m-0 text-2xl" />
           </div>
           <div
             onClick={handleNext}
-            className="absolute top-0 w-2/5 h-140 md:h-120 right-3 md:right-0 cursor-pointer flex justify-end md:justify-center items-center"
+            className="absolute top-0 w-2/5 h-140 md:h-120 right-3 md:right-20 lg:right-0 cursor-pointer flex justify-end lg:justify-center items-center"
           >
             <MdArrowForwardIos className="m-0 text-2xl" />
           </div>
@@ -268,28 +272,37 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
         {/* Bottom triangle bar */}
         <div
           ref={bottomBarRef}
-          className="w-full relative h-60 md:h-120 border-b-[1.2px] border-stone-100 inset-shadow-[0_-1.2px_0_0_rgba(0,0,0,0.05)] "
+          className="w-full relative h-90 md:h-64 border-b-[1.2px] border-stone-100 inset-shadow-[0_-1.2px_0_0_rgba(0,0,0,0.05)] "
           style={{ backgroundColor: "#d6d3d1" }}
         >
           <div
             ref={bottomLeftRef}
-            className="absolute top-0 left-0 w-0 h-0 border-t-[0px] border-r-[0px] border-b-[320px] md:border-b-[480px] border-solid"
+            className="absolute top-0 left-0 w-0 h-0 border-t-[0px] border-r-[0px] border-b-[360px] md:border-b-[256px]  border-solid"
             style={{
               borderColor: "transparent transparent transparent #292524",
               borderLeftWidth: "50px",
             }}
           />
-          <div className="w-full h-full flex flex-col justify-center items-start py-12 px-6">
-            <div>
-              <p className="text-sm">Scope of Work :</p>
-              <p>{scopeTags}</p>
-              <p className="">{projectText}</p>
+          <div className="w-full h-fit flex flex-col justify-start items-center p-6">
+            <div className="w-full h-fit flex justify-between flex-col md:flex-row">
+              <p className="w-fit md:w-36 text-sm">{projectsPageTranslation.scopeOfWorks} :</p>
+              <div className="w-full flex flex-wrap justify-start md:justify-end gap-1 text-xs md:text-sm mt-2">
+                {scopeTags.map((tag, index) => (
+                  <div
+                    key={index}
+                    className=" w-fit border border-stone-950 rounded-xl px-2 "
+                  >
+                    {tag}
+                  </div>
+                ))}
+              </div>
             </div>
-            <div></div>
+
+            <p className="mt-12">{projectText}</p>
           </div>
           <div
             ref={bottomRightRef}
-            className="absolute top-0 right-0 w-0 h-0 border-t-[0px] border-l-[0px] border-b-[256px]  border-solid"
+            className="absolute top-0 right-0 w-0 h-0 border-t-[0px] border-r-[0px] border-b-[360px] md:border-b-[256px] border-solid"
             style={{
               borderColor: "transparent #292524 transparent transparent",
               borderRightWidth: "50px",

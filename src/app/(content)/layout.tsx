@@ -1,5 +1,6 @@
 import "../globals.css"
 import { ReactNode } from "react"
+import Head from "next/head"
 
 // import Header from "@/components/common/header/Header"
 // import Footer from "@/components/common/footer/Footer"
@@ -10,12 +11,13 @@ import { Nunito_Sans, Noto_Sans_KR } from "next/font/google"
 const nunito = Nunito_Sans({
   subsets: ["latin"],
   weight: ["300", "400", "500"],
+  style: ["normal", "italic"],
   variable: "--font-nunito",
 })
 
 const noto = Noto_Sans_KR({
-  subsets: ["latin"],
-  weight: ["300", "400", "700"],
+  subsets: ["latin-ext"],
+  weight: ["300", "400", "500"],
   variable: "--font-noto",
 })
 
@@ -45,6 +47,9 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={`${nunito.variable} ${noto.variable}`}>
+      <Head>
+        <link rel="icon" href="../../../public/favicon.ico" />
+      </Head>
       <body>
         <ContextWrapper>
           <Layout>{children}</Layout>

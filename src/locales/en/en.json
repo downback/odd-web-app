@@ -76,56 +76,152 @@
   },
   "projectsPage": {
     "title": "PROJECTS",
-    "titleTop": "EXPLORE",
-    "titleBottom": "PROJECTS",
+    "titleTop": "PROJECTS",
+    "titleBottom": "ARCHIVE",
+    "location": "Location",
+    "completionDate": "Completion Date",
+    "scopeOfWorks": "Scope of Works",
     "projectsList": [
       {
         "title": "Sword Master Noodle",
         "subTitle": "Korean Noodle Restaurant",
         "location": "Dunckerstraße 30, 10439 Berlin",
         "date": "September 2022",
-        "scopeTags": "Consulting, Branding (BI), Interior Design, Recipe Development, Managed and Operated",
-        "projectText": "Gogogi was founded through the collaboration of three creatives from Korea: an electronic musician, a fashion stylist, and an interior designer.The concept was not to create a simple dining space serving Korean food, but rather to establish an experiential space where food, aroma, spatial design, and music come together in harmony."
+        "scopeTags": [
+          "Consulting",
+          "BI",
+          "Interior Design",
+          "Recipe Development",
+          "Operations"
+        ],
+        "projectText": "A restaurant designed to showcase the process of making Kalguksu as a performance while creating a seamless flow where diners can visually appreciate the preparation and savor the dish at their table."
       },
       {
         "title": "odd cafe",
         "subTitle": "Café",
         "location": "Zelterstraße 6, 10439 Berlin",
-        "date": "April 12, 2023",
-        "scopeTags": "onsulting, Branding (BI), Interior Design, Recipe Development, Managed and Operated",
-        "projectText": "Gogogi was founded through the collaboration of three creatives from Korea: an electronic musician, a fashion stylist, and an interior designer.The concept was not to create a simple dining space serving Korean food, but rather to establish an experiential space where food, aroma, spatial design, and music come together in harmony."
+        "date": "April 2023",
+        "scopeTags": [
+          "Consulting",
+          "Brand Identity (BI)",
+          "Interior Design",
+          "Food Recipe Development",
+          "Operations"
+        ],
+        "projectText": "A café built on the unique sense of comfort found in odd harmony. Featuring an unexpected pairing of desserts by a Serbian baker and coffee brewed by a Korean barista in Berlin. A space where aged materials are reassembled and transformed into furniture and lighting, creating a strangely balanced atmosphere."
       },
       {
         "title": "Lia Ppang",
         "subTitle": "Korean Dessert Café",
-        "location": "Dunckerstraße 30, 10439 Berlin",
-        "date": "September 2022",
-        "scopeTags": "Consulting, Branding (BI), Interior Design, Recipe Development, Managed and Operated",
-        "projectText": "Gogogi was founded through the collaboration of three creatives from Korea: an electronic musician, a fashion stylist, and an interior designer.The concept was not to create a simple dining space serving Korean food, but rather to establish an experiential space where food, aroma, spatial design, and music come together in harmony."
+        "location": "Choriner Straße 45, 10435 Berlin",
+        "date": "February 2021",
+        "scopeTags": ["Consulting", "BI", "Interior Design", "Construction"],
+        "projectText": "This project aimed to create a flexible atmosphere where the personality of Lia, the founder of Lia Ppang Café, could naturally blend into the space. What once served as a chicken restaurant storage was transformed into a café with a fresh and distinctive character."
       },
       {
-        "title": "Go Gogi",
+        "title": "GoGogi",
         "subTitle": "Korean Dining Restaurant",
-        "location": "Dunckerstraße 30, 10439 Berlin",
-        "date": "September 2022",
-        "scopeTags": "Consulting, Branding (BI), Interior Design, Recipe Development, Managed and Operated",
-        "projectText": "Gogogi was founded through the collaboration of three creatives from Korea: an electronic musician, a fashion stylist, and an interior designer.The concept was not to create a simple dining space serving Korean food, but rather to establish an experiential space where food, aroma, spatial design, and music come together in harmony."
+        "location": "Weinbergsweg 24, 10119 Berlin",
+        "date": "March 2015",
+        "scopeTags": [
+          "Consulting",
+          "BI",
+          "Interior Design",
+          "Recipe Development"
+        ],
+        "projectText": "Gogogi was founded through the collaboration of three creatives from Korea: an electronic musician, a fashion stylist, and an interior designer. The concept was not to create a simple dining space serving Korean food, but rather to establish an experiential space where food, aroma, spatial design, and music come together in harmony."
       }
     ]
   },
   "consultingPage": {
     "title": "CONSULT",
-    "titleTop": "LET'S",
-    "titleBottom": "CONSULT"
+    "titleTop": "CONSULT",
+    "titleBottom": "SERVICES",
+    "processStepsMoreDetail": [
+      {
+        "title": "10. Grand Opening",
+        "description": "- Launch event & promotional campaign <br/> - Performance monitoring during the first month",
+        "position": "top-0 -left-8 md:left-8 -translate-x-1/2 md:translate-x-0",
+        "titlePosition": "",
+        "btnPosition": "justify-start"
+      },
+      {
+        "title": "9. System Setup",
+        "description": "- Supplier selection & contract for food & beverages <br/> - Partnership with delivery platforms (Wolt, Lieferando, Uber Eats) <br/> - POS, reservation, and payment system integration",
+        "position": "top-0 md:top-4 -left-9 md:left-0 translate-x-0 md:-translate-x-1/3",
+        "titlePosition": "translate-x-8 md:translate-x-0",
+        "btnPosition": "justify-start"
+      },
+      {
+        "title": "8. Staff Recruitment & Training",
+        "description": "- Hiring key personnel (chefs, kitchen staff, service team) <br/> - Hygiene & safety training <br/> - Service and operations manual training",
+        "position": "top-12 left-0 md:-left-6 -translate-x-1/2 md:translate-x-0",
+        "titlePosition": "",
+        "btnPosition": "justify-start"
+      },
+      {
+        "title": "7. Online Marketing",
+        "description": "- Marketing strategy & promotion planning <br/> - Professional photos & videos showcasing brand story <br/> - Optimized website development <br/> - Social media & promotional channel management",
+        "position": "top-12 md:top-16 -left-2 translate-x-0 md:left-0 md:-translate-x-1/4",
+        "titlePosition": "",
+        "btnPosition": "justify-start"
+      },
+      {
+        "title": "6. Construction & Installation",
+        "description": "- Interior construction Kitchen equipment & furniture installation <br/> - Contractor selection & project management <br/> - Final touch-ups and finishing details",
+        "position": "top-8 md:top-12 right-0 translate-x-1/4 text-right",
+        "titlePosition": "",
+        "btnPosition": "justify-end"
+      },
+      {
+        "title": "5. Interior Design",
+        "description": "- Concept development & space planning <br/> - Electrical & facility layout planning <br/> - Architectural blueprint preparation <br/> - Furniture & lighting design",
+        "position": "top-0 right-6 md:right-12 text-right",
+        "titlePosition": "-translate-x-4 md:translate-x-0",
+        "btnPosition": "justify-end"
+      },
+      {
+        "title": "4. Branding",
+        "description": "- Visual identity design <br/> - Logo, signage, menu, and packaging design",
+        "position": "top-8 md:top-0 -left-20 md:-translate-x-1/3",
+        "titlePosition": "",
+        "btnPosition": "justify-start"
+      },
+      {
+        "title": "3. Legal Permits",
+        "description": "- Company formation (UG, GmbH) <br/> - Business registration (Gewerbeanmeldung) <br/> - Liquor license (Gaststättenerlaubnis) Health department approval",
+        "position": "top-8 -right-16 md:-right-24 text-right",
+        "titlePosition": "",
+        "btnPosition": "justify-start"
+      },
+      {
+        "title": "2. Location Selection ",
+        "description": "- Local market & commercial district analysis <br/> - Property condition & zoning verification <br/> - Lease negotiation",
+        "position": "top-12 md:top-0 left-0 -translate-x-1/3 md:-translate-x-2/3",
+        "titlePosition": "translate-x-2",
+        "btnPosition": "justify-start"
+      },
+      {
+        "title": "1. Business Plan",
+        "description": "- Target audience analysis & market research <br/> - Menu concept & pricing strategy <br/> - Budgeting, investment, and revenue forecast <br/> - Business plan for official submission",
+        "position": "top-0 -right-16 md:left-24",
+        "titlePosition": "translate-x-0 md:-translate-x-8",
+        "btnPosition": "justify-start"
+      }
+    ]
   },
   "aboutUsPage": {
-    "titleTop": "odd office is",
-    "titleBootom": "a Berlin-based studio offering business consulting and interior design. With deep experience in launching and running F&B ventures — from branding to build-out — we bring your ideas to life in spaces that work and inspire.",
+    "headerTitle": "odd office is",
+    "descTop": "a Berlin-based studio offering business consulting and interior design.",
+    "descBottom": "With deep experience in launching and running F&B ventures — from branding to build-out — we bring your ideas to life in spaces that work and inspire.",
+    "bioOpen": "Click to Explore the Bio",
+    "bioClose": "Close the Bio",
     "usList": [
       {
         "name": "Sang-hyun No",
         "descMain": "Solving problems and owning the outcome. That’s what I do.",
-        "descSub": "Restaurant Operator, Consultant, Guitarist",
+        "jobTitles": ["Restaurant Operator", "Consultant", "Guitarist"],
+        "profileImageUrl": "/images/profileImage1.png",
         "bioDetail": [
           "odd office (Consulting and Design Studio): Founder and Operator / Berlin, 2025",
           "odd cafe (Dessert Café): Founder and Operator / Berlin, 2023",
@@ -137,7 +233,14 @@
       {
         "name": "Jong-hwan Kim ",
         "descMain": "Building on a broad range of design experience, I have expanded my work from two-dimensional to spatial and synesthetic realms, continually exploring depth in design through constant experimentation.",
-        "descSub": "IInterior Designer, Consultant, Carpenter, Chef, Restaurant",
+        "jobTitles": [
+          "IInterior Designer",
+          "Consultant",
+          "Carpenter",
+          "Chef",
+          "Restaurant"
+        ],
+        "profileImageUrl": "/images/profileImage2.png",
         "bioDetail": [
           "odd office (Consulting and Design Studio): Founder and Operator / Berlin, 2025",
           "Vingot (Dessert Café): Interior Construction / Berlin, 2023",
@@ -162,10 +265,10 @@
       }
     ]
   },
-  "oddPeoplePage": {
+  "UpdatesPage": {
     "title": "UPDATES",
-    "titleTop": "HERE ARE",
-    "titleBottom": "NEW UPDATES",
+    "titleTop": "NEW",
+    "titleBottom": "UPDATES",
     "peopleList": [
       {
         "name": "ODD PEOPLE1",
@@ -181,7 +284,30 @@
   },
   "contactPage": {
     "title": "CONTACT",
-    "titleTop": "LET'S",
-    "titleBottom": "CONTACT"
+    "titleTop": "CONTACT",
+    "titleBottom": "HERE",
+    "radioBoxTitle": "Select your interests",
+    "messageBoxTitle": " Send here a Message",
+    "serviceReselectMessage": "Go to add the your required service",
+    "requiredField": "required fields",
+    "sendMessage": "Send Message"
+  },
+  "imprintPage": {
+    "title": "Imprint",
+    "responsibleEntityTitle": "1. Responsible Entity",
+    "responsibleEntityText": "Responsible for data processing on this website is:\nodd office GbR\nZelterstr. 6, 10439 Berlin Germany\nEmail: odd.office.ber@gmail.com",
+    "dataCollectionTitle": "2. Data Collection",
+    "dataCollectionText": "We collect personal information (name, email, phone number) provided voluntarily through our contact form, emails, or calls, solely to offer our consulting services.",
+    "hostingTitle": "3. Hosting and Third-party Providers",
+    "hostingText": "Our website is hosted by Vercel Inc., and we use Firebase (Google) for user authentication, storage, and basic analytics.\n\nFirebase's Privacy Policy: https://firebase.google.com/support/privacy\nVercel's Privacy Policy: https://vercel.com/legal/privacy-policy",
+    "cookiesTitle": "4. Cookies",
+    "cookiesText": "We use essential cookies required for the basic functions of our website and Firebase analytics to understand basic user interactions. You can manage cookie settings in your browser settings.",
+    "dataStorageTitle": "5. Data Storage & Security",
+    "dataStorageText": "Your data is securely stored on Firebase servers located in Europe or the USA, complying with GDPR requirements. We use security measures to protect your data from unauthorized access.",
+    "yourRightsTitle": "6. Your Rights (according to GDPR)",
+    "yourRightsText": "Right of access, rectification, and erasure of personal data.\nRight to restriction of processing and data portability.\nRight to withdraw consent at any time.\nFor any privacy concerns or exercising your rights, please contact us at odd.office.ber@gmail.com"
+  },
+  "privacyPolicyPage": {
+    "title": "privacyPolicyPage"
   }
 }

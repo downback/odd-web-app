@@ -1,5 +1,5 @@
 import React from "react"
-import ProjectsList from "@/components/ui/ProjectsList"
+import ProjectsList from "@/app/(content)/projects/_components/ProjectsList"
 
 const ProjectsSection: React.FC = () => {
   return (

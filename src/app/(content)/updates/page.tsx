@@ -39,10 +39,10 @@ const UpdatesPage = () => {
   return (
     <div className="w-full h-auto flex flex-col min-h-screen">
       <UpdatesHeader />
-      <div className="w-full mt-20">
+      <div className="w-full mt-12 md:mt-16">
         <UpdateDetail update={selectedUpdate} />
       </div>
-      <div className="w-full mb-40">
+      <div className="w-full mt-12 md:mt-16 mb-40">
         <UpdateList
           updates={updates}
           onSelect={(item) => setSelectedUpdate(item)}

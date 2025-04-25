@@ -47,7 +47,7 @@ const UpdateList: React.FC<UpdateListProps> = ({
                   : "cursor-pointer hover:bg-stone-200"
               )}
             >
-              <div className="w-xs flex h-full justify-between items-center">
+              <div className="w-2/5 md:w-xs flex h-full justify-between items-center">
                 <div className="text-xl font-semibold">{update.title}</div>
                 <div className="text-sm text-gray-500">{update.date}</div>
               </div>

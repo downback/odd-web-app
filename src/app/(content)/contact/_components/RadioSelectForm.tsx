@@ -33,7 +33,7 @@ const RadioSelectForm: React.FC<RadioSelectFormProps> = ({
   // }
 
   return (
-    <div className="w-5/6 md:w-4/9 lg:w-2/5 p-6 border border-black rounded shadow-sm">
+    <div className="w-5/6 md:w-2/5 lg:w-1/3 p-6 border border-black rounded shadow-sm">
       <h2 className="text-2xl font-bold text-center text-black mb-4">
         Select your interests
       </h2>
