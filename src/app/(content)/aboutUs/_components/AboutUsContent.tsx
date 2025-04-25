@@ -17,7 +17,7 @@ const AboutUsContent: React.FC = () => {
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      setMousePos({ x: e.clientX + 100, y: e.clientY + 100 }) 
+      setMousePos({ x: e.clientX + 100, y: e.clientY + 100 })
     }
 
     window.addEventListener("mousemove", handleMouseMove)
@@ -57,7 +57,7 @@ const AboutUsContent: React.FC = () => {
             <div className="w-1/4">{usItem.name}</div>
             <div className="flex-1 flex flex-col ml-2 md:ml-0">
               <div className="text-2xl italic cursor-pointer">
-                "{usItem.descMain}"
+                &quot; {usItem.descMain} &quot;
               </div>
 
               <div className="w-full flex flex-wrap justify-start gap-1 text-xs md:text-sm mt-2">
@@ -111,7 +111,7 @@ const AboutUsContent: React.FC = () => {
               alt="Profile"
               className="absolute w-30 h-30 shadow-lg z-50 object-cover"
               style={{
-                top: mousePos.y, 
+                top: mousePos.y,
                 left: mousePos.x,
                 pointerEvents: "none",
               }}
