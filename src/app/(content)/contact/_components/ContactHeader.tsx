@@ -1,19 +1,10 @@
-"use client"
-
-import React, { useContext } from "react"
-import { LanguageContext } from "../../../../context/LanguageContext"
+import React from "react"
 import PageHeader from "@/components/ui/PageHeader"
 
 const ContactHeader: React.FC = () => {
-  const { translations } = useContext(LanguageContext)
-  const contactTranslation = translations.contactPage
-
   return (
     <>
-      <PageHeader
-        titleTop={contactTranslation.titleTop}
-        titleBottom={contactTranslation.titleBottom}
-      />
+      <PageHeader titleTop="CONTACT" titleBottom="HERE" />
     </>
   )
 }

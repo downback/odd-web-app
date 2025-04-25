@@ -149,8 +149,6 @@ const ProcessAnimation: React.FC = () => {
     const dummy = { t: 0 }
     const targetX = window.innerWidth < 768 ? 30 : 70
 
-    
-
     descRefs.current.forEach((el) => {
       if (el) gsap.to(el, { autoAlpha: 0, duration: 0.4 })
     })

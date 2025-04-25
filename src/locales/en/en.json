@@ -134,9 +134,6 @@
     ]
   },
   "consultingPage": {
-    "title": "CONSULT",
-    "titleTop": "CONSULT",
-    "titleBottom": "SERVICES",
     "consultingSteps": [
       {
         "title": "10. Grand Opening",
@@ -266,26 +263,10 @@
     ]
   },
   "UpdatesPage": {
-    "title": "UPDATES",
-    "titleTop": "NEW",
-    "titleBottom": "UPDATES",
-    "peopleList": [
-      {
-        "name": "ODD PEOPLE1",
-        "descMain": "Korean Dining Restaurant",
-        "descSub": "Dunckerstraße 30, 10439 Berlin"
-      },
-      {
-        "name": "ODD PEOPLE2",
-        "descMain": "Korean Dining Restaurant",
-        "descSub": "Dunckerstraße 30, 10439 Berlin"
-      }
-    ]
+    "comingSoonText": "New Updates Coming soon ...",
+    "openedArticle": "This article is open above"
   },
   "contactPage": {
-    "title": "CONTACT",
-    "titleTop": "CONTACT",
-    "titleBottom": "HERE",
     "radioBoxTitle": "Select your interests",
     "messageBoxTitle": " Send here a Message",
     "serviceReselectMessage": "Go to add the your required service",
