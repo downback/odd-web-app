@@ -1,17 +1,22 @@
 "use client"
 
+import React, { useContext } from "react"
 import Image from "next/image"
 import { UpdateItem } from "../page"
+import { LanguageContext } from "../../../../context/LanguageContext"
 
 interface UpdatesDetailProps {
   update: UpdateItem | null
 }
 
 const UpdatesDetail: React.FC<UpdatesDetailProps> = ({ update }) => {
+  const { translations } = useContext(LanguageContext)
+  const UpdatesPageTranslation = translations?.UpdatesPage
+
   if (!update) {
     return (
       <div className="w-full h-72 flex justify-center items-center">
-        <p className="text-gray-500">New Updates Coming soon ...</p>
+        <p className="text-gray-500">{UpdatesPageTranslation.comingSoonText}</p>
       </div>
     )
   }

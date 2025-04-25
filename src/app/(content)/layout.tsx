@@ -2,8 +2,6 @@ import "../globals.css"
 import { ReactNode } from "react"
 import Head from "next/head"
 
-// import Header from "@/components/common/header/Header"
-// import Footer from "@/components/common/footer/Footer"
 import Layout from "@/components/layouts/Layout"
 import { ContextWrapper } from "../../provider/context-wrapper"
 import { Nunito_Sans, Noto_Sans_KR } from "next/font/google"
@@ -26,29 +24,11 @@ export const metadata = {
   description: "We are Odd Office",
 }
 
-// export default function RootLayout({
-//   children,
-// }: {
-//   children: React.ReactNode
-// }) {
-//   return (
-//     <html lang="en" className={`${nunito.variable} ${noto.variable}`}>
-//       <body>
-//         <ContextWrapper>
-//           <Header />
-//           <main>{children}</main>
-//           <Footer />
-//         </ContextWrapper>
-//       </body>
-//     </html>
-//   )
-// }
-
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={`${nunito.variable} ${noto.variable}`}>
       <Head>
-        <link rel="icon" href="../../../public/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <body>
         <ContextWrapper>
@@ -109,3 +89,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 // WED
 // THU
 // FRI
+
+
+
