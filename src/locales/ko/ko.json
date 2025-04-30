@@ -237,13 +237,13 @@
     "openedArticle": "위에서 열람 중인 아티클입니다"
   },
   "contactPage": {
-    "radioBoxTitle": "1. 관심 분야 선택",
-    "messageBoxTitle": "2. 메시지 보내기",
-    "serviceReselectMessage": "필요한 서비스를 선택해주세요",
+    "radioBoxTitle": "1. 필요한 서비스 선택하기",
+    "messageBoxTitle": "2. 문의 메시지 보내기",
+    "serviceReselectMessage": "필요한 서비스를 선택하러 가기",
     "requiredField": "필수 항목",
     "sendMessage": "메시지 보내기",
     "confirmationMessageTitle": "메시지가 성공적으로 전송되었습니다!",
-    "confirmationMessageText": "메시지를 보내주셔서 감사합니다. 이메일로 확인 메일을 보내드렸으며, 최대한 빠르게 답변드리겠습니다.",
+    "confirmationMessageText": "메시지를 보내주셔서 감사합니다. 귀하의 이메일로 확인 메일을 보내드렸으며, 최대한 빠르게 답변드리겠습니다.",
     "options": [
       "사업 기획",
       "입지 선정 및 임대 계약",

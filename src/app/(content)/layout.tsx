@@ -85,3 +85,15 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 
 //[ ] firebase api rule
 //[ ] email
+
+// grand open black dot blinking
+// page header bug
+// admin uploaded item order
+// about us name in korean for kr
+// kr bolder
+// login
+// 기본 세팅 한글로
+
+// Do you have an idea / to start your business in Berlin?
+// 베를린에서의 새로운 사업을 구상중이십니까?
+// It’ll never be easy / But we’ll make it less painful
