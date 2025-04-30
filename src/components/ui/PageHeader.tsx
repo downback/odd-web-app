@@ -60,7 +60,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({ titleTop, titleBottom }) => {
         ? "2.5rem"
         : "2rem"
 
-    let lastScroll = window.scrollY
+    // let lastScroll = window.scrollY
 
     const tl = gsap.timeline()
     tl.from(textTop, {
@@ -93,7 +93,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({ titleTop, titleBottom }) => {
         const progress = normalize(self.scroll())
         const snapped = snapHeight(progress)
         // const direction = window.scrollY > lastScroll ? "down" : "up"
-        lastScroll = window.scrollY
+        // lastScroll = window.scrollY
 
         if (snapped === 1) {
           gsap.to(pageHeaderText, {
