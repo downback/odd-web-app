@@ -11,8 +11,8 @@ const ProjectHeader: React.FC = () => {
   return (
     <>
       <PageHeader
-        titleTop={projectsTranslation.titleTop}
-        titleBottom={projectsTranslation.titleBottom}
+        titleTop="PROJECTS"
+        titleBottom="ARCHIVE"
       />
     </>
   )

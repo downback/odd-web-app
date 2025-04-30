@@ -2,105 +2,102 @@
   "landingPage": {
     "processSteps": [
       {
-        "title": "10. Grand Opening",
-        "description": "Launch with events and monitor performance",
+        "title": "10. 그랜드 오프닝",
+        "description": "오픈 행사 및 초기 점검",
         "position": "top-0 -left-8 md:left-8 -translate-x-1/2 md:translate-x-0",
         "titlePosition": "",
         "btnPosition": "justify-start"
       },
       {
-        "title": "9. System Setup",
-        "description": "Set up supply chain and POS systems",
+        "title": "9. 시스템 세팅",
+        "description": "공급 계약 및 시스템 세팅",
         "position": "top-0 left-2 md:left-12",
         "titlePosition": "translate-x-8 md:translate-x-0",
         "btnPosition": "justify-start"
       },
       {
-        "title": "8. Staff Recruitment & Training",
-        "description": "Hire team and conduct training sessions",
-        "position": "top-14 left-0 md:top-0 md:right-0 -translate-x-1/2 md:translate-x-1/2 text-left",
+        "title": "8. 인력 채용 및 교육",
+        "description": "인력 채용 및 교육",
+        "position": "top-14 left- md:top-0 md:right-0 -translate-x-1/2 md:translate-x-1/2 text-left",
         "titlePosition": "translate-x-0 md:-translate-x-16",
         "btnPosition": "justify-start"
       },
       {
-        "title": "7. Online Marketing",
-        "description": "Build website and prepare promotional content",
+        "title": "7. 온라인 마케팅",
+        "description": "웹사이트 제작 및 홍보 준비",
         "position": "top-16 md:top-16 left-0 translate-x-0 md:left-0 md:-translate-x-1/5",
         "titlePosition": "",
         "btnPosition": "justify-start"
       },
       {
-        "title": "6. Construction & Installation",
-        "description": "Oversee construction and install equipment",
+        "title": "6. 공사 및 설치",
+        "description": "시공 및 장비·가구 설치",
         "position": "top-8 md:top-12 right-0 translate-x-1/4 text-right",
         "titlePosition": "",
         "btnPosition": "justify-end"
       },
       {
-        "title": "5. Interior Design",
-        "description": "Create floor plans and kitchen layout",
+        "title": "5. 인테리어 디자인",
+        "description": "공간 구성 및 설비 계획",
         "position": "-top-6 md:top-0 right-6 md:right-12 text-right",
         "titlePosition": "-translate-x-4 md:translate-x-0",
         "btnPosition": "justify-end"
       },
       {
-        "title": "4. Branding",
-        "description": "Design logo, visuals, and menu layout",
+        "title": "4. 브랜딩",
+        "description": "로고·메뉴·간판 등 브랜드 디자인",
         "position": "top-0 -left-24 md:-translate-x-1/2",
         "titlePosition": "",
         "btnPosition": "justify-start"
       },
       {
-        "title": "3. Legal Permits",
-        "description": "Register business and obtain required licenses",
+        "title": "3. 인허가 등록",
+        "description": "사업자 등록, 인허가 및 규정 준수",
         "position": "top-12 -right-12 translate-x-0  md:top-0 md:right-0 md:translate-x-1/2 text-right",
         "titlePosition": "",
         "btnPosition": "justify-start"
       },
       {
-        "title": "2. Location Selection ",
-        "description": "Analyze locations and finalize lease agreements",
+        "title": "2. 입지 선정",
+        "description": "입지 분석, 건물 확인, 임대 계약",
         "position": "-top-6 md:top-0 left-8 md:-translate-x-2/3",
         "titlePosition": "translate-x-2",
         "btnPosition": "justify-start"
       },
       {
-        "title": "1. Business Plan",
-        "description": "Define target customers, develop menu, <br/> and create financial plan",
+        "title": "1. 사업 기획",
+        "description": "타깃 설정, 메뉴·예산·사업 계획 수립",
         "position": "top-0 -right-20 md:left-0 translate-x-0 md:translate-x-1/2",
         "titlePosition": "translate-x-0 md:-translate-x-12",
         "btnPosition": "justify-start"
       }
     ],
-    "oddOfficeShortDesc": "brings your idea to life — with bold concepts, sharp visuals, and the paperwork magic you didn’t know you needed.",
-    "viewAllProjects": "View All Projects",
-    "learnMoreButton": "Learn more about us"
+    "oddOfficeShortDesc": "대담한 콘셉트, 날카로운 시각 디자인, 그리고 당신이 필요로 했던 모든 문서 작업까지 — 아이디어를 현실로 만듭니다.",
+    "viewAllProjects": "모든 프로젝트 보기",
+    "learnMoreButton": "더 알아보기"
   },
   "projectsPage": {
-    "title": "PROJECTS",
-    "titleTop": "PROJECTS",
-    "titleBottom": "ARCHIVE",
-    "location": "Location",
-    "completionDate": "Completion Date",
-    "scopeOfWorks": "Scope of Works",
+    "location": "위치",
+    "completionDate": "완공 날짜",
+    "scopeOfWorks": "참여 범위",
     "projectsList": [
       {
         "title": "Sword Master Noodle",
-        "subTitle": "Korean Noodle Restaurant",
+        "subTitle": "칼국수 레스토랑",
         "location": "Dunckerstraße 30, 10439 Berlin",
         "date": "September 2022",
         "scopeTags": [
-          "Consulting",
+          "컨설팅",
           "BI",
-          "Interior Design",
-          "Recipe Development",
-          "Operations"
+          "인테리어 디자인",
+          "음식 레시피 개발",
+          "운영"
         ],
-        "projectText": "A restaurant designed to showcase the process of making Kalguksu as a performance while creating a seamless flow where diners can visually appreciate the preparation and savor the dish at their table."
+        "projectText": "이질적인 것들과의 조화에서 오는 이상한 안정감을 컨셉으로 한 카페.  베를린에서 선보이는 세르비아 베이커의 디저트, 그리고 한국인이 내린 커피. 예전에 사용되었던 재료를 이용한 새로운 용도의 가구와 조명들.  "
       },
       {
         "title": "odd cafe",
-        "subTitle": "Café",
+        "subTitle": "카페",
         "location": "Zelterstraße 6, 10439 Berlin",
         "date": "April 2023",
         "scopeTags": [
@@ -113,108 +110,79 @@
         "projectText": "A café built on the unique sense of comfort found in odd harmony. Featuring an unexpected pairing of desserts by a Serbian baker and coffee brewed by a Korean barista in Berlin. A space where aged materials are reassembled and transformed into furniture and lighting, creating a strangely balanced atmosphere."
       },
       {
-        "title": "Lia Ppang",
-        "subTitle": "Korean Dessert Café",
+        "title": "리아빵",
+        "subTitle": "한국식 카페",
         "location": "Choriner Straße 45, 10435 Berlin",
         "date": "February 2021",
-        "scopeTags": ["Consulting", "BI", "Interior Design", "Construction"],
-        "projectText": "This project aimed to create a flexible atmosphere where the personality of Lia, the founder of Lia Ppang Café, could naturally blend into the space. What once served as a chicken restaurant storage was transformed into a café with a fresh and distinctive character."
+        "scopeTags": ["컨설팅", "BI", "인테리어 디자인", "시공"],
+        "projectText": "호두과자 팬 하나로 시작해 ‘리아빵’ 카페를 만든 운영자 ‘리아’의 개성이 자연스럽게 스며들 수 있도록, 공간의 여백을 살려 유연한 분위기를 조성하는 것을 목표로 한 프로젝트였습니다. 기존 치킨집 창고였던 공간을 새로운 감각의 카페로 전환하였습니다."
       },
       {
-        "title": "GoGogi",
-        "subTitle": "Korean Dining Restaurant",
+        "title": "고고기",
+        "subTitle": "한식 레스토랑",
         "location": "Weinbergsweg 24, 10119 Berlin",
         "date": "March 2015",
         "scopeTags": [
-          "Consulting",
+          "컨설팅",
           "BI",
-          "Interior Design",
-          "Recipe Development"
+          "인테리어 디자인",
+          "음식 레시피 개발",
+          "운영"
         ],
-        "projectText": "Gogogi was founded through the collaboration of three creatives from Korea: an electronic musician, a fashion stylist, and an interior designer. The concept was not to create a simple dining space serving Korean food, but rather to establish an experiential space where food, aroma, spatial design, and music come together in harmony."
+        "projectText": "한국에서 활동했던 전자 음악 뮤지션, 패션 스타일리스트, 인테리어 디자이너 3명이 협업하여 시작한 한식 레스토랑. 한식을 파는 단순한 식사 장소가 아니라, 음식, 냄새, 공간 디자인, 음악의 조화를 통해  경험의 공간이 되어야 한다는 철학을 바탕으로 탄생했습니다."
       }
     ]
   },
   "consultingPage": {
     "consultingSteps": [
       {
-        "title": "10. Grand Opening",
-        "description": "- Launch event & promotional campaign <br/> - Performance monitoring during the first month",
-        "position": "top-0 -left-8 md:left-8 -translate-x-1/2 md:translate-x-0",
-        "titlePosition": "",
-        "btnPosition": "justify-start"
+        "title": "10. 정식 오픈",
+        "description": "- Launch event & promotional campaign <br/> - Performance monitoring during the first month"
       },
       {
-        "title": "9. System Setup",
-        "description": "- Supplier selection & contract for food & beverages <br/> - Partnership with delivery platforms (Wolt, Lieferando, Uber Eats) <br/> - POS, reservation, and payment system integration",
-        "position": "top-0 md:top-4 -left-9 md:left-0 translate-x-0 md:-translate-x-1/3",
-        "titlePosition": "translate-x-8 md:translate-x-0",
-        "btnPosition": "justify-start"
+        "title": "9. 시스템 구축",
+        "description": "- Supplier selection & contract for food & beverages <br/> - Partnership with delivery platforms (Wolt, Lieferando, Uber Eats) <br/> - POS, reservation, and payment system integration"
       },
       {
-        "title": "8. Staff Recruitment & Training",
-        "description": "- Hiring key personnel (chefs, kitchen staff, service team) <br/> - Hygiene & safety training <br/> - Service and operations manual training",
-        "position": "top-12 left-0 md:-left-6 -translate-x-1/2 md:translate-x-0",
-        "titlePosition": "",
-        "btnPosition": "justify-start"
+        "title": "8. 직원 채용 및 교육",
+        "description": "- Hiring key personnel (chefs, kitchen staff, service team) <br/> - Hygiene & safety training <br/> - Service and operations manual training"
       },
       {
-        "title": "7. Online Marketing",
-        "description": "- Marketing strategy & promotion planning <br/> - Professional photos & videos showcasing brand story <br/> - Optimized website development <br/> - Social media & promotional channel management",
-        "position": "top-12 md:top-16 -left-2 translate-x-0 md:left-0 md:-translate-x-1/4",
-        "titlePosition": "",
-        "btnPosition": "justify-start"
+        "title": "7. 온라인 마케팅",
+        "description": "- Marketing strategy & promotion planning <br/> - Professional photos & videos showcasing brand story <br/> - Optimized website development <br/> - Social media & promotional channel management"
       },
       {
-        "title": "6. Construction & Installation",
-        "description": "- Interior construction Kitchen equipment & furniture installation <br/> - Contractor selection & project management <br/> - Final touch-ups and finishing details",
-        "position": "top-8 md:top-12 right-0 translate-x-1/4 text-right",
-        "titlePosition": "",
-        "btnPosition": "justify-end"
+        "title": "6. 시공 및 설치",
+        "description": "- Interior construction Kitchen equipment & furniture installation <br/> - Contractor selection & project management <br/> - Final touch-ups and finishing details"
       },
       {
-        "title": "5. Interior Design",
-        "description": "- Concept development & space planning <br/> - Electrical & facility layout planning <br/> - Architectural blueprint preparation <br/> - Furniture & lighting design",
-        "position": "top-0 right-6 md:right-12 text-right",
-        "titlePosition": "-translate-x-4 md:translate-x-0",
-        "btnPosition": "justify-end"
+        "title": "5. 인테리어 디자인",
+        "description": "- Concept development & space planning <br/> - Electrical & facility layout planning <br/> - Architectural blueprint preparation <br/> - Furniture & lighting design"
       },
       {
-        "title": "4. Branding",
-        "description": "- Visual identity design <br/> - Logo, signage, menu, and packaging design",
-        "position": "top-8 md:top-0 -left-20 md:-translate-x-1/3",
-        "titlePosition": "",
-        "btnPosition": "justify-start"
+        "title": "4. 브랜딩",
+        "description": "- Visual identity design <br/> - Logo, signage, menu, and packaging design"
       },
       {
-        "title": "3. Legal Permits",
-        "description": "- Company formation (UG, GmbH) <br/> - Business registration (Gewerbeanmeldung) <br/> - Liquor license (Gaststättenerlaubnis) Health department approval",
-        "position": "top-8 -right-16 md:-right-24 text-right",
-        "titlePosition": "",
-        "btnPosition": "justify-start"
+        "title": "3. 법적 허가와 행정 절차",
+        "description": "- Company formation (UG, GmbH) <br/> - Business registration (Gewerbeanmeldung) <br/> - Liquor license (Gaststättenerlaubnis) Health department approval"
       },
       {
-        "title": "2. Location Selection ",
-        "description": "- Local market & commercial district analysis <br/> - Property condition & zoning verification <br/> - Lease negotiation",
-        "position": "top-12 md:top-0 left-0 -translate-x-1/3 md:-translate-x-2/3",
-        "titlePosition": "translate-x-2",
-        "btnPosition": "justify-start"
+        "title": "2. 입지 선정과 계약",
+        "description": "- Local market & commercial district analysis <br/> - Property condition & zoning verification <br/> - Lease negotiation"
       },
       {
-        "title": "1. Business Plan",
-        "description": "- Target audience analysis & market research <br/> - Menu concept & pricing strategy <br/> - Budgeting, investment, and revenue forecast <br/> - Business plan for official submission",
-        "position": "top-0 -right-16 md:left-24",
-        "titlePosition": "translate-x-0 md:-translate-x-8",
-        "btnPosition": "justify-start"
+        "title": "1. 비즈니스 계획",
+        "description": "- Target audience analysis & market research <br/> - Menu concept & pricing strategy <br/> - Budgeting, investment, and revenue forecast <br/> - Business plan for official submission"
       }
     ]
   },
   "aboutUsPage": {
-    "headerTitle": "odd office is",
-    "descTop": "a Berlin-based studio offering business consulting and interior design.",
-    "descBottom": "With deep experience in launching and running F&B ventures — from branding to build-out — we bring your ideas to life in spaces that work and inspire.",
-    "bioOpen": "Click to Explore the Bio",
-    "bioClose": "Close the Bio",
+    "headerTitle": "odd office는",
+    "descTop": "베를린을 기반으로 한 비즈니스 컨설팅 및 인테리어 디자인 스튜디오입니다.",
+    "descBottom": "F&B 창업 및 운영에 대한 풍부한 경험을 바탕으로, 브랜딩부터 공간 구현까지 — 실용적이면서도 영감을 주는 공간을 만듭니다.",
+    "bioOpen": "자세히 보기",
+    "bioClose": "닫기",
     "usList": [
       {
         "name": "Sang-hyun No",
@@ -265,32 +233,55 @@
     ]
   },
   "UpdatesPage": {
-    "comingSoonText": "New Updates Coming soon ...",
-    "openedArticle": "This article is open above"
+    "comingSoonText": "새로운 업데이트가 곧 제공될 예정입니다...",
+    "openedArticle": "위에서 열람 중인 아티클입니다"
   },
   "contactPage": {
-    "radioBoxTitle": "Select your interests",
-    "messageBoxTitle": " Send here a Message",
-    "serviceReselectMessage": "Go to add the your required service",
-    "requiredField": "required fields",
-    "sendMessage": "Send Message"
-  },
-  "imprintPage": {
-    "title": "Imprint",
-    "responsibleEntityTitle": "1. Responsible Entity",
-    "responsibleEntityText": "Responsible for data processing on this website is:\nodd office GbR\nZelterstr. 6, 10439 Berlin Germany\nEmail: odd.office.ber@gmail.com",
-    "dataCollectionTitle": "2. Data Collection",
-    "dataCollectionText": "We collect personal information (name, email, phone number) provided voluntarily through our contact form, emails, or calls, solely to offer our consulting services.",
-    "hostingTitle": "3. Hosting and Third-party Providers",
-    "hostingText": "Our website is hosted by Vercel Inc., and we use Firebase (Google) for user authentication, storage, and basic analytics.\n\nFirebase's Privacy Policy: https://firebase.google.com/support/privacy\nVercel's Privacy Policy: https://vercel.com/legal/privacy-policy",
-    "cookiesTitle": "4. Cookies",
-    "cookiesText": "We use essential cookies required for the basic functions of our website and Firebase analytics to understand basic user interactions. You can manage cookie settings in your browser settings.",
-    "dataStorageTitle": "5. Data Storage & Security",
-    "dataStorageText": "Your data is securely stored on Firebase servers located in Europe or the USA, complying with GDPR requirements. We use security measures to protect your data from unauthorized access.",
-    "yourRightsTitle": "6. Your Rights (according to GDPR)",
-    "yourRightsText": "Right of access, rectification, and erasure of personal data.\nRight to restriction of processing and data portability.\nRight to withdraw consent at any time.\nFor any privacy concerns or exercising your rights, please contact us at odd.office.ber@gmail.com"
+    "radioBoxTitle": "1. 관심 분야 선택",
+    "messageBoxTitle": "2. 메시지 보내기",
+    "serviceReselectMessage": "필요한 서비스를 선택해주세요",
+    "requiredField": "필수 항목",
+    "sendMessage": "메시지 보내기",
+    "confirmationMessageTitle": "메시지가 성공적으로 전송되었습니다!",
+    "confirmationMessageText": "메시지를 보내주셔서 감사합니다. 이메일로 확인 메일을 보내드렸으며, 최대한 빠르게 답변드리겠습니다.",
+    "options": [
+      "사업 기획",
+      "입지 선정 및 임대 계약",
+      "인허가 및 행정 절차",
+      "브랜딩",
+      "인테리어 디자인",
+      "공사 및 설치",
+      "온라인 마케팅",
+      "직원 채용 및 교육",
+      "시스템 세팅",
+      "그랜드 오프닝"
+    ]
   },
   "privacyPolicyPage": {
-    "title": "privacyPolicyPage"
+    "title": "개인정보 처리방침",
+    "responsibleEntityTitle": "1. 책임 주체",
+    "responsibleEntityText": "본 웹사이트의 데이터 처리는 다음 주체가 책임을 집니다:\nodd office GbR\nZelterstr. 6, 10439 Berlin Germany\n이메일: odd.office.ber@gmail.com",
+    "dataCollectionTitle": "2. 데이터 수집",
+    "dataCollectionText": "저희는 연락 양식, 이메일, 전화 등을 통해 자발적으로 제공된 개인정보(이름, 이메일, 전화번호)를 컨설팅 서비스를 제공하기 위해 수집합니다.",
+    "hostingTitle": "3. 호스팅 및 제3자 서비스",
+    "hostingText": "웹사이트는 Vercel Inc.에서 호스팅되며, Firebase(Google)를 사용자 인증, 저장소 및 기본 분석 목적으로 사용합니다.\n\nFirebase 개인정보처리방침: https://firebase.google.com/support/privacy\nVercel 개인정보처리방침: https://vercel.com/legal/privacy-policy",
+    "cookiesTitle": "4. 쿠키",
+    "cookiesText": "웹사이트의 기본 기능을 위한 필수 쿠키와 Firebase 분석을 위해 쿠키를 사용합니다. 쿠키 설정은 브라우저에서 조정할 수 있습니다.",
+    "dataStorageTitle": "5. 데이터 저장 및 보안",
+    "dataStorageText": "귀하의 데이터는 유럽 또는 미국에 위치한 Firebase 서버에 GDPR 기준에 따라 안전하게 저장됩니다. 무단 접근으로부터 보호하기 위한 보안 조치를 사용하고 있습니다.",
+    "yourRightsTitle": "6. 귀하의 권리 (GDPR 기준)",
+    "yourRightsText": "개인정보 열람, 정정, 삭제 권리\n처리 제한 및 데이터 이동 권리\n동의 철회 권리\n개인정보 관련 문의는 odd.office.ber@gmail.com으로 연락주시기 바랍니다."
+  },
+  "imprintPage": {
+    "title": "법적 고지",
+    "legalTitle": "§5 TMG에 따른 정보",
+    "legalText": "odd office GbR\nZelterstr. 6, 10439 Berlin\nGermany",
+    "contactTitle": "연락처",
+    "contactText": "이메일: odd.office.ber@gmail.com",
+    "responsibleTitle": "§55 Abs. 2 RStV에 따른 책임자",
+    "responsibleText": "Sanghyun No\nZelterstr. 6, 10439 Berlin",
+    "businessTitle": "부가세 번호 및 사업자 등록",
+    "businessText": "부가가치세 식별 번호 (USt-IdNr.):\n사업자 등록 번호: (2025년 초에 제공 예정)",
+    "finalNote": "기타 문의사항은 odd.office.ber@gmail.com으로 연락주시기 바랍니다."
   }
 }
