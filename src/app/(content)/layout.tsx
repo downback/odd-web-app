@@ -64,8 +64,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 //[x] desktop-image position
 
 // ----UPDATES----
-//[ ] responsible design margins
-//[ ] separate no data and loading
+//[x] responsible design margins
+//[x] separate no data and loading
 
 // ----CONTACT----
 //[x] mobile-x button width
