@@ -1,14 +1,14 @@
 "use client"
 
 import React from "react"
-import ProjectsListWrapper from "./_components/ProjectsListWrapper"
 import ProjectHeader from "./_components/ProjectHeader"
+import ProjectsList from "@/app/(content)/projects/_components/ProjectsList"
 
 const ProjectsPage: React.FC = () => {
   return (
     <div className="relative h-max">
       <ProjectHeader />
-      <ProjectsListWrapper />
+      <ProjectsList />
     </div>
   )
 }

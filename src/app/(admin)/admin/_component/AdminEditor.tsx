@@ -58,7 +58,7 @@ const AdminEditor: React.FC = () => {
 
   return (
     <div>
-      <h2 className="text-xl font-semibold mb-4">Upload New Update</h2>
+      <h2 className="text-xl font-semibold mb-4">Upload A New Update</h2>
       <form onSubmit={formik.handleSubmit} className="space-y-4">
         <input
           type="text"

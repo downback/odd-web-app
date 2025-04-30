@@ -4,6 +4,7 @@ import AboutUsHeader from "./_components/AboutUsHeader"
 const AboutUsPage: React.FC = () => {
   return (
     <div className="flex flex-col w-full min-h-screen">
+      {/* margin */}
       <div className="h-25 md:h-30"></div>
       <AboutUsHeader />
       <AboutUsContent />

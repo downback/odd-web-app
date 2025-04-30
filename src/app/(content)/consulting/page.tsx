@@ -6,6 +6,7 @@ const ConsultingPage: React.FC = () => {
   return (
     <div className="flex flex-col items-center justify-center w-full min-h-screen">
       <ConsultingHeader />
+      {/* margin */}
       <div className="h-25 md:h-30"></div>
       <Suspense fallback={<div className="py-16">Loading process...</div>}>
         <StraightLineProcess />

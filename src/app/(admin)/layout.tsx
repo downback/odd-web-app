@@ -1,8 +1,7 @@
-import "../globals.css"
-
 import { ReactNode } from "react"
-import { ContextWrapper } from "../../context/context-wrapper"
 import { Nunito_Sans, Noto_Sans_KR } from "next/font/google"
+import { ContextWrapper } from "../../context/context-wrapper"
+import "../globals.css"
 
 const nunito = Nunito_Sans({
   subsets: ["latin"],
@@ -25,11 +24,10 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={`${nunito.variable} ${noto.variable}`}>
       <body>
-      <ContextWrapper>
-        <div className="min-h-screen bg-gray-50 p-6">{children}</div>
-      </ContextWrapper>
+        <ContextWrapper>
+          <main className="min-h-screen p-6">{children}</main>
+        </ContextWrapper>
       </body>
     </html>
   )
 }
-

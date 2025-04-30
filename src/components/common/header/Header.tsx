@@ -23,51 +23,14 @@ const Header: React.FC = () => {
   const mobileMenuRef = useRef<HTMLDivElement>(null)
   const logoRef = useRef<HTMLImageElement>(null)
   const [menuOpen, setMenuOpen] = useState(false)
-  // const [lastScrollTop, setLastScrollTop] = useState(0)
   const { sectionTriggerRef } = useScrollTrigger()
 
   useGSAP(() => {
     const header = headerRef.current
     const bg = bgRef.current
     const logo = logoRef.current
-    // const trigger = triggerRef.current
 
     if (!header || !bg || !logo || !sectionTriggerRef.current) return
-
-    // const animateY = gsap.quickTo(header, "y", {
-    //   duration: 0.8,
-    //   ease: "power3.out",
-    // })
-
-    // gsap.to(header, {
-    //   height: "2.5rem",
-    //   duration: 0.6,
-    //   ease: "power1.inOut",
-    //   scrollTrigger: {
-    //     // trigger: sectionTriggerRef.current,
-    //     trigger: header,
-    //     start: "+=600",
-    //     end: "+=100",
-    //     scrub: true,
-    //     markers: true,
-    //   },
-    // })
-    // gsap.to(logo, {
-    //   scale: 0.8,
-    //   duration: 0.6,
-    //   ease: "power1.inOut",
-    //   scrollTrigger: {
-    //     // trigger: sectionTriggerRef.current,
-    //     trigger: header,
-    //     // start: "top top",
-    //     start: "+=600",
-    //     end: "+=100",
-    //     scrub: true,
-    //     // markers: true,
-    //   },
-    // })
-
-    // let lastScroll = window.scrollY
 
     const handleScroll = () => {
       const currentScroll = window.scrollY
@@ -84,9 +47,6 @@ const Header: React.FC = () => {
           opacity: 1,
         })
       }
-
-      // lastScroll = currentScroll <= 0 ? 0 : currentScroll
-      // setLastScrollTop(lastScroll)
     }
 
     window.addEventListener("scroll", handleScroll)
@@ -104,19 +64,20 @@ const Header: React.FC = () => {
     setMenuOpen((prev) => {
       const isOpening = !prev
 
-      // Expand/collapse background height
+      if (!menu || !bg) return isOpening
+
       gsap.to(bg, {
         opacity: 1,
         height: isOpening ? "100dvh" : "100%",
-        // autoAlpha: isOpening ? 1 : 0,
         duration: 0.2,
         ease: "power2.inOut",
       })
 
       gsap.to(menu, {
-        height: isOpening ? "100dvh" : "100%",
+        height: isOpening ? "100dvh" : "0",
+        opacity: isOpening ? 1 : 0,
         y: isOpening ? 0 : -50,
-        autoAlpha: isOpening ? 1 : 0,
+        pointerEvents: isOpening ? "auto" : "none",
         duration: 0.6,
         delay: isOpening ? 0.2 : 0,
         ease: "power2.out",
@@ -163,16 +124,10 @@ const Header: React.FC = () => {
           ref={bgRef}
           className="w-full h-full absolute left-0 top-0 bg-[#edebeb] border-b-1 border-stone-100 inset-shadow-[0_-1px_0_0_rgba(0,0,0,0.05)] "
         />
-        {/* header border designs */}
-        {/* <div
-        ref={bgRef}
-        className="w-full h-full absolute left-0 top-0 bg-[#edebeb] border-b-1 border-stone-800"
-      /> */}
-        {/* <div ref={bgRef} className="w-full h-full absolute left-0 top-0 bg-linear-to-b from-[#edebeb]/96 from-80% via-[#edebeb]/85 via-85% to-transparent to-100%"/> */}
       </header>
       <div
         ref={mobileMenuRef}
-        className="fixed top-14 left-0 w-full px-8 py-4 z-50 md:hidden opacity-0 "
+        className="fixed top-14 left-0 w-full px-8 py-4 z-50 md:hidden opacity-0 h-0 pointer-events-none overflow-hidden"
       >
         <NavBar
           navClassName="mt-6"
@@ -189,12 +144,3 @@ const Header: React.FC = () => {
 }
 
 export default Header
-
-//TODO
-// [x] entire header : scroll up - appear / scroll down - disappear (?)
-// [x] header background-color : scroll start - appear
-// [x] menu hover : underline with animation
-// [x] mobile menu : hamburger menu (?)
-
-//DEBUG
-// [] 코드를 업데이트해서 새로 저장했을때문 ScrollTrigger가 적용됨

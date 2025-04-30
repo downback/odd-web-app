@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useContext, useState, useEffect } from "react"
+import React, { useContext, useState, useEffect, useRef } from "react"
 import { LanguageContext } from "../../../../context/LanguageContext"
 import ProjectItem from "./ProjectItem"
 import { getDownloadURL, listAll, ref } from "firebase/storage"
@@ -12,6 +12,8 @@ const ProjectsList: React.FC = () => {
   const projectListLength = projects.length
   const [openIndex, setOpenIndex] = useState<number | null>(null)
   const [imgUrlsList, setImgUrlsList] = useState<string[][]>([])
+
+  const projectRefs = useRef<(HTMLDivElement | null)[]>([])
 
   useEffect(() => {
     const fetchAllImages = async () => {
@@ -40,29 +42,59 @@ const ProjectsList: React.FC = () => {
   }, [projects])
 
   const handleToggle = (index: number) => {
-    setOpenIndex((prev) => (prev === index ? null : index))
+    const isCurrentlyOpen = openIndex === index
+
+    if (!isCurrentlyOpen) {
+      const targetElement = projectRefs.current[index]
+      if (targetElement) {
+        const positionTopOffset = 176
+        const listHeight = 82
+        const scrollPosition = positionTopOffset + listHeight * index
+
+        window.scrollTo({
+          top: scrollPosition,
+          behavior: "smooth",
+        })
+      }
+
+      setTimeout(() => {
+        setOpenIndex(index)
+      }, 500)
+    } else {
+      setOpenIndex(null)
+    }
   }
 
   return (
     <div className="w-full h-fit my-24">
-      <h1 className="text-sm font-light pb-2 border-b-[1.2px] border-stone-100 inset-shadow-[0_-1.2px_0_0_rgba(0,0,0,0.05)]  px-6">
-        {translations.projectsPage.title}
-      </h1>
+      <div
+        lang="en"
+        className="text-sm font-light pb-2 border-b-[1.2px] border-stone-100 inset-shadow-[0_-1.2px_0_0_rgba(0,0,0,0.05)]  px-6"
+      >
+        PROJECTS
+      </div>
       <div className="flex flex-col relative">
         {projects.map((project, index) => (
-          <ProjectItem
+          <div
             key={index}
-            title={project.title}
-            subTitle={project.subTitle}
-            imgList={imgUrlsList[index] || []}
-            location={project.location}
-            date={project.date}
-            scopeTags={project.scopeTags}
-            projectText={project.projectText}
-            projectListLength={projectListLength}
-            isOpen={openIndex === index}
-            onToggle={() => handleToggle(index)}
-          />
+            ref={(el) => {
+              projectRefs.current[index] = el
+            }}
+          >
+            <ProjectItem
+              key={index}
+              title={project.title}
+              subTitle={project.subTitle}
+              imgList={imgUrlsList[index] || []}
+              location={project.location}
+              date={project.date}
+              scopeTags={project.scopeTags}
+              projectText={project.projectText}
+              projectListLength={projectListLength}
+              isOpen={openIndex === index}
+              onToggle={() => handleToggle(index)}
+            />
+          </div>
         ))}
       </div>
     </div>

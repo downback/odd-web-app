@@ -9,6 +9,7 @@ interface ProcessDetailBoxProps {
   titleClassName?: string
   btnClassName?: string
   clickLink: () => void
+  boxRef?: React.Ref<HTMLHeadingElement>
   titleRef?: React.Ref<HTMLHeadingElement>
   descRef?: React.Ref<HTMLParagraphElement>
   forceFixedPosition?: boolean // ✅ new prop
@@ -22,6 +23,7 @@ const ProcessDetailBox: React.FC<ProcessDetailBoxProps> = ({
   titleClassName,
   btnClassName,
   clickLink,
+  boxRef,
   titleRef,
   descRef,
   forceFixedPosition,
@@ -29,9 +31,9 @@ const ProcessDetailBox: React.FC<ProcessDetailBoxProps> = ({
 }) => {
   return (
     <div
+      ref={boxRef}
       className={twMerge(
         "absolute w-65 md:w-max h-fit ",
-        // !forceFixedPosition && className
         forceFixedPosition ? "top-0 left-8 md:left-12" : className
       )}
     >
@@ -45,7 +47,6 @@ const ProcessDetailBox: React.FC<ProcessDetailBoxProps> = ({
       >
         <h3>{title}</h3>
       </div>
-      {/* <p className="text-gray-600 mt-1">{description}</p> */}
       <div
         ref={descRef}
         className={twMerge(

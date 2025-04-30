@@ -23,7 +23,8 @@ const ContactPage: React.FC = () => {
   return (
     <div className="w-full h-fit flex flex-col">
       <ContactHeader />
-      <div className="my-16 w-full h-fit flex flex-col md:flex-row justify-center items-center md:justify-evenly md:items-start gap-6 md:gap-0">
+      {/* margin */}
+      <div className="my-16 w-full h-fit flex flex-col lg:flex-row justify-center items-center lg:justify-evenly lg:items-start gap-10 lg:gap-0">
         <RadioSelectForm
           selected={selectedServices}
           onToggle={handleToggleInterest}

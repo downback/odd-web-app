@@ -3,7 +3,7 @@ import { ReactNode } from "react"
 import Head from "next/head"
 
 import Layout from "@/components/layouts/Layout"
-import { ContextWrapper } from "../../provider/context-wrapper"
+import { ContextWrapper } from "../../context/context-wrapper"
 import { Nunito_Sans, Noto_Sans_KR } from "next/font/google"
 
 const nunito = Nunito_Sans({
@@ -40,55 +40,48 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 }
 
 // TODO MAIN
+//[ ] page top bottom margin, font size standardize
+//[x] mobile menu
+//[x] enhance page header performance
+//[x] nav bar item order
+//[ ] lang="en"
 
 // ----LANDING----
-//[x] drawing - position up
-//[x] process - start and end point design
-//[ ] process - svg animation improve & page transition
-//[ ] json data update
-//[ ] UI/UX detail
+//[x] text and arrow position
+//[-] enhance line animation
 
 // ----PROJECTS----
-//[ ] lists - list highlight design
-//[ ] item - clean up
-//[ ] item - slider
-//[ ] item - hover info / click and closed
-//[ ] UI/UX detail
+//[x] mobile-image section margin
+//[x] mobile-description section margin
+//[x] add loading animation
+//[x] when the box opens, screen position should be moved
 
 // ----CONSULTING----
-//[ ] process - start and end point design
-//[ ] process - info and design update
-//[ ] UI/UX detail
+//[x] scroll animation (mild)
+//[x] when it navigates from the landing page, the header animation has error
 
 // ----ABOUT US----
-//[ ] header - test and scroll position update
-//[ ] text - info and design update
-//[ ] UI/UX detail
+//[x] desktop-image position
 
 // ----UPDATES----
-//[ ] UI/UX detail
-//[ ] detail - info and design update
-//[ ] lists - list highlight design
-//[ ] firebase api
+//[ ] responsible design margins
+//[ ] separate no data and loading
 
 // ----CONTACT----
-//[x] select - multiple select
-//[x] form - validation
-//[x] form - nodemailer
+//[x] mobile-x button width
+//[x] 1,2, numbering
+//[x] conformation modal
 
 // ----ADMIN----
-//[ ] ui
-//[ ] fire store
-//[ ] fire storage
+//[x] basic ui
 
-//DEBUG
-//[ ] page headers - color glitching
+// ----Imprint / Privacy policy----
+//[x] x button to close
+//[x] font
+//[x] margin
 
-//SCHEDULE
-// TUE -
-// WED
-// THU
-// FRI
+//[ ] json - EN
+//[ ] json - KO
 
-
-
+//[ ] firebase api rule
+//[ ] email

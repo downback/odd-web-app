@@ -4,6 +4,8 @@ import React, { useRef, useEffect, useState, useContext } from "react"
 import { useSearchParams } from "next/navigation"
 import { LanguageContext } from "../../../../context/LanguageContext"
 import ProcessDetailBox from "../../landing/_components/ProcessDetailBox"
+import gsap from "gsap"
+import { useGSAP } from "@gsap/react"
 
 interface CircleData {
   x: number
@@ -22,6 +24,11 @@ const StraightLineProcess: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
   const sectionRefs = useRef<HTMLDivElement[]>([])
+  const boxRefs = useRef<HTMLHeadingElement[]>([])
+  const blackDotRefs = useRef<HTMLHeadingElement[]>([])
+
+  boxRefs.current = []
+  blackDotRefs.current = []
 
   const getResponsiveWidth = () => {
     const raw = containerRef.current?.offsetWidth || window.innerWidth
@@ -30,7 +37,7 @@ const StraightLineProcess: React.FC = () => {
 
   const lineWidth = () => (window.innerWidth < 768 ? 0.7 : 0.5)
   const PATH_D_END = () =>
-    window.innerWidth < 768 ? `M30,1600 L30,0` : `M70,1000 L70,0`
+    window.innerWidth < 768 ? `M30,1600 L30,0` : `M70,850 L70,0`
   const BASE_PATH_HEIGHT = () => (window.innerWidth < 768 ? 1600 : 1000)
 
   useEffect(() => {
@@ -99,7 +106,6 @@ const StraightLineProcess: React.FC = () => {
     drawPath(PATH_D_END())
   }, [circleCoords])
 
-  // --- Section Scroll ---
   const searchParams = useSearchParams()
   const sectionIndex = parseInt(searchParams.get("section") || "11", 10)
 
@@ -111,11 +117,45 @@ const StraightLineProcess: React.FC = () => {
       }
     }
 
-    // Wait one frame or delay slightly to ensure refs are rendered
     requestAnimationFrame(() => {
       setTimeout(scrollToSection, 100)
     })
   }, [sectionIndex, circleCoords])
+
+  useGSAP(() => {
+    sectionRefs.current.forEach((el, i) => {
+      if (!el) return
+      const box = boxRefs.current[i]
+      const blackDot = blackDotRefs.current[i]
+
+      if (box && blackDot) {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: box,
+            start: "top 70%",
+            end: "center center",
+            toggleActions: "play reverse play reverse",
+            // markers: true,
+          },
+        })
+
+        tl.to(box, {
+          scale: 1.08,
+          x: 20,
+          duration: 0.6,
+          ease: "power4.out",
+        }).to(
+          blackDot,
+          {
+            opacity: 1,
+            duration: 0.6,
+            ease: "power4.out",
+          },
+          "<"
+        )
+      }
+    })
+  }, [circleCoords])
 
   return (
     <div
@@ -160,15 +200,31 @@ const StraightLineProcess: React.FC = () => {
               }}
             >
               <div className="w-5 h-5 bg-white border border-black rounded-full" />
+
               {step && (
-                <ProcessDetailBox
-                  title={step.title}
-                  description={step.description}
-                  className="left-[90px] top-[-16px]"
-                  forceFixedPosition={true}
-                  isDetailPage={true}
-                  clickLink={() => {}}
-                />
+                <>
+                  <div
+                    ref={(el) => {
+                      if (el) blackDotRefs.current[i] = el
+                    }}
+                    className="absolute top-0 left-0 w-3 h-3 bg-black rounded-full"
+                    style={{
+                      transform: "translate(30%, 30%)",
+                      opacity: 0,
+                    }}
+                  />
+                  <ProcessDetailBox
+                    title={step.title}
+                    description={step.description}
+                    className="left-[90px] top-[-16px]"
+                    forceFixedPosition={true}
+                    boxRef={(el) => {
+                      boxRefs.current[i] = el as HTMLHeadingElement
+                    }}
+                    isDetailPage={true}
+                    clickLink={() => {}}
+                  />
+                </>
               )}
             </div>
           )

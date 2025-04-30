@@ -22,11 +22,10 @@ const NavBar: React.FC<NavBarProps> = ({
   const navItems = [
     { label: "Projects", path: "/projects" },
     { label: "Consulting", path: "/consulting" },
-    { label: "About Us", path: "/aboutUs" },
     { label: "Updates", path: "/updates" },
+    { label: "About Us", path: "/aboutUs" },
     { label: "Contact", path: "/contact" },
   ]
-
 
   return (
     <nav className={twMerge("", navClassName)}>
@@ -39,9 +38,7 @@ const NavBar: React.FC<NavBarProps> = ({
         {isHome ? (
           <li>
             <Link href="/" onClick={() => toggleMenu?.(false)}>
-              <div
-                className="relative transition-all duration-300 hover:before:scale-x-100 before:content-[''] before:absolute before:left-0 before:top-1/2 before:h-[1px] before:w-full before:bg-black before:scale-x-0 before:origin-left before:transition-transform before:duration-400"
-              >
+              <div className="relative transition-all duration-300 hover:before:scale-x-100 before:content-[''] before:absolute before:left-0 before:top-1/2 before:h-[1px] before:w-full before:bg-black before:scale-x-0 before:origin-left before:transition-transform before:duration-400">
                 Home
               </div>
             </Link>
@@ -55,14 +52,6 @@ const NavBar: React.FC<NavBarProps> = ({
             <li key={item.path}>
               <Link href={item.path} onClick={() => toggleMenu?.(false)}>
                 <div
-                  // menu item active design
-                  // className={twMerge(
-                  //   "relative transition-all duration-300",
-                  //   isActive ? "font-bold" : "hover:before:scale-x-100",
-                  //   !isActive &&
-                  //     "before:content-[''] before:absolute before:left-0 before:top-1/2 before:h-[1px] before:w-full before:bg-black before:scale-x-0 before:origin-left before:transition-transform before:duration-400"
-                  // )}
-
                   className={twMerge(
                     "relative transition-all duration-300",
                     isActive

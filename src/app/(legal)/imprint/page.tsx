@@ -5,62 +5,45 @@ import { LanguageContext } from "../../../context/LanguageContext"
 
 const ImprintPage: React.FC = () => {
   const { translations } = useContext(LanguageContext)
-  const imprintPage = translations.imprintPage
+  const imprint = translations.imprintPage
 
   return (
-    <div className="px-6 sm:px-12 md:px-16 my-12 flex flex-col">
-      <h1 className="text-4xl font-bold text-center mb-6">
-        {imprintPage.title}
+    <div className="flex flex-col w-fit">
+      <h1 className="text-2xl md:text-3xl font-bold text-center mb-12 md:mb-20">
+        {imprint.title}
       </h1>
 
-      {/* Responsible Entity */}
-      <section className="mb-8">
-        <h2 className="text-2xl font-semibold mb-2">
-          {imprintPage.responsibleEntityTitle}
-        </h2>
-        <p className="text-lg">{imprintPage.responsibleEntityText}</p>
+      {/* §5 TMG */}
+      <section className="mb-6 md:mb-8">
+        <h2 className="text-lg md:text-xl font-semibold mb-1 md:mb-2">{imprint.legalTitle}</h2>
+        <p className="text-sm md:text-base whitespace-pre-line">{imprint.legalText}</p>
       </section>
 
-      {/* Data Collection */}
-      <section className="mb-8">
-        <h2 className="text-2xl font-semibold mb-2">
-          {imprintPage.dataCollectionTitle}
-        </h2>
-        <p className="text-lg">{imprintPage.dataCollectionText}</p>
+      {/* Contact */}
+      <section className="mb-6 md:mb-8">
+        <h2 className="text-lg md:text-xl font-semibold mb-1 md:mb-2">{imprint.contactTitle}</h2>
+        <p className="text-sm md:text-base whitespace-pre-line">{imprint.contactText}</p>
       </section>
 
-      {/* Hosting and Third-party Providers */}
-      <section className="mb-8">
-        <h2 className="text-2xl font-semibold mb-2">
-          {imprintPage.hostingTitle}
+      {/* Responsible Person */}
+      <section className="mb-6 md:mb-8">
+        <h2 className="text-lg md:text-xl font-semibold mb-1 md:mb-2">
+          {imprint.responsibleTitle}
         </h2>
-        <p className="text-lg">{imprintPage.hostingText}</p>
+        <p className="text-sm md:text-base whitespace-pre-line">
+          {imprint.responsibleText}
+        </p>
       </section>
 
-      {/* Cookies */}
-      <section className="mb-8">
-        <h2 className="text-2xl font-semibold mb-2">
-          {imprintPage.cookiesTitle}
-        </h2>
-        <p className="text-lg">{imprintPage.cookiesText}</p>
+      {/* Business Info */}
+      <section className="mb-6 md:mb-8">
+        <h2 className="text-lg md:text-xl font-semibold mb-1 md:mb-2">{imprint.businessTitle}</h2>
+        <p className="text-sm md:text-base whitespace-pre-line">{imprint.businessText}</p>
       </section>
 
-      {/* Data Storage & Security */}
-      <section className="mb-8">
-        <h2 className="text-2xl font-semibold mb-2">
-          {imprintPage.dataStorageTitle}
-        </h2>
-        <p className="text-lg">{imprintPage.dataStorageText}</p>
-      </section>
-
-      {/* Your Rights (according to GDPR) */}
-      <section className="mb-8">
-        <h2 className="text-2xl font-semibold mb-2">
-          {imprintPage.yourRightsTitle}
-        </h2>
-        <ul className="text-lg list-disc pl-6">
-          <li>{imprintPage.yourRightsText}</li>
-        </ul>
+      {/* Final Note */}
+      <section className="mb-6 md:mb-8">
+        <p className="text-sm md:text-base">{imprint.finalNote}</p>
       </section>
     </div>
   )

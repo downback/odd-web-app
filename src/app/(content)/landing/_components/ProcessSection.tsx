@@ -52,12 +52,8 @@ const ProcessSection: React.FC = () => {
   }, [])
 
   return (
-    <div className="w-full h-auto flex flex-col">
-      {/* <h1 className="text-center font-semibold">
-        Did you got an idea to start your business in Germany?
-      </h1> */}
+    <div lang="en" className="w-full h-auto flex flex-col">
       <ProcessAnimation />
-
       <div
         ref={textTriggerRef}
         lang="en"

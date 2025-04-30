@@ -18,19 +18,25 @@ export interface UpdateItem {
 const UpdatesPage = () => {
   const [updates, setUpdates] = useState<UpdateItem[]>([])
   const [selectedUpdate, setSelectedUpdate] = useState<UpdateItem | null>(null)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const fetchUpdates = async () => {
-      const q = query(collection(db, "updates"), orderBy("date", "desc"))
-      const querySnapshot = await getDocs(q)
-      const items: UpdateItem[] = querySnapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      })) as UpdateItem[]
+      try {
+        const q = query(collection(db, "updates"), orderBy("date", "desc"))
+        const querySnapshot = await getDocs(q)
+        const items: UpdateItem[] = querySnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        })) as UpdateItem[]
 
-      console.log("Fetched updates:", items) // ✅ Add this line
-      setUpdates(items)
-      setSelectedUpdate(items[0])
+        setUpdates(items)
+        setSelectedUpdate(items[0] || null)
+      } catch (error) {
+        console.error("Failed to fetch updates:", error)
+      } finally {
+        setLoading(false)
+      }
     }
 
     fetchUpdates()
@@ -40,11 +46,12 @@ const UpdatesPage = () => {
     <div className="w-full h-auto flex flex-col min-h-screen">
       <UpdatesHeader />
       <div className="w-full mt-12 md:mt-16">
-        <UpdateDetail update={selectedUpdate} />
+        <UpdateDetail isLoading={loading} update={selectedUpdate} />
       </div>
       <div className="w-full mt-12 md:mt-16 mb-40">
         <UpdateList
           updates={updates}
+          isLoading={loading}
           onSelect={(item) => setSelectedUpdate(item)}
           selectedId={selectedUpdate?.id}
         />

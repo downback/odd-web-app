@@ -17,7 +17,7 @@ const AboutUsContent: React.FC = () => {
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      setMousePos({ x: e.clientX + 100, y: e.clientY + 100 })
+      setMousePos({ x: e.pageX + 30, y: e.pageY + 30 })
     }
 
     window.addEventListener("mousemove", handleMouseMove)
@@ -96,8 +96,8 @@ const AboutUsContent: React.FC = () => {
                       className="ml-0 md:ml-6 mt-4 md:mt-6 text-sm md:text-base"
                     >
                       <li className="flex flex-row">
-                        <div className="absolute mt-1 w-4 h-4 md:w-5 md:h-5 bg-white border border-black rounded-full"></div>
-                        <p className="ml-6">{bio}</p>
+                        <div className="absolute mt-1 md:mt-1 w-3 h-3 md:w-4 md:h-4 bg-white border border-black rounded-full"></div>
+                        <p className="ml-4 md:ml-6">{bio}</p>
                       </li>
                     </ul>
                   ))}

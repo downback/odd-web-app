@@ -72,7 +72,9 @@
         "btnPosition": "justify-start"
       }
     ],
-    "processTitle": "you got an idea to start your business?"
+    "oddOfficeShortDesc": "brings your idea to life — with bold concepts, sharp visuals, and the paperwork magic you didn’t know you needed.",
+    "viewAllProjects": "View All Projects",
+    "learnMoreButton": "Learn more about us"
   },
   "projectsPage": {
     "title": "PROJECTS",

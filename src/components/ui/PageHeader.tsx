@@ -20,14 +20,21 @@ const PageHeader: React.FC<PageHeaderProps> = ({ titleTop, titleBottom }) => {
   const textTopRef = useRef<HTMLDivElement>(null)
   const textBottomRef = useRef<HTMLDivElement>(null)
 
-  const [mobileWidth, setMobileWidth] = useState(false)
+  const [screenSize, setScreenSize] = useState("normal")
 
   useEffect(() => {
     const handleResize = () => {
-      setMobileWidth(window.innerWidth < 768)
+      const width = window.innerWidth
+      if (width < 640) {
+        setScreenSize("mobile")
+      } else if (width >= 1280) {
+        setScreenSize("desktop")
+      } else {
+        setScreenSize("normal")
+      }
     }
 
-    handleResize()
+    handleResize() // Run once on mount
     window.addEventListener("resize", handleResize)
     return () => window.removeEventListener("resize", handleResize)
   }, [])
@@ -43,16 +50,19 @@ const PageHeader: React.FC<PageHeaderProps> = ({ titleTop, titleBottom }) => {
       return
 
     const originalHeight = getComputedStyle(pageHeaderText).height
-    const scrollRange = 100 // how far user must scroll for animation
+    const scrollRange = 100
     const snapHeight = gsap.utils.snap([0, 1])
     const normalize = gsap.utils.normalize(0, scrollRange)
-    const headerHeight = mobileWidth ? "2.5rem" : "2rem"
+    const headerHeight =
+      screenSize === "mobile"
+        ? "1.9rem"
+        : screenSize === "desktop"
+        ? "2.5rem"
+        : "2rem"
 
-    // const lastSnap = -1
     let lastScroll = window.scrollY
 
     const tl = gsap.timeline()
-
     tl.from(textTop, {
       opacity: 0,
       y: 50,
@@ -74,7 +84,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({ titleTop, titleBottom }) => {
       height: originalHeight,
     })
 
-    ScrollTrigger.create({
+    const trigger = ScrollTrigger.create({
       trigger: triggerBox,
       start: "top top",
       end: "bottom bottom",
@@ -85,38 +95,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({ titleTop, titleBottom }) => {
         const direction = window.scrollY > lastScroll ? "down" : "up"
         lastScroll = window.scrollY
 
-        //   if (snapped !== lastSnap) {
-        //     if (snapped === 1 && direction === "down") {
-        //       gsap.to(pageHeaderText, {
-        //         height: headerHeight,
-        //         ease: "power2.out",
-        //         backgroundColor: "#edebeb",
-        //         duration: 0.6,
-        //       })
-        //       gsap.to(textBox, {
-        //         scale: "0.45",
-        //         ease: "power2.out",
-        //         transform: "translateY(-45%)",
-        //         duration: 0.6,
-        //       })
-        //     } else if (snapped === 0 && direction === "up") {
-        //       gsap.to(pageHeaderText, {
-        //         height: originalHeight,
-        //         backgroundColor: "transparent",
-        //         duration: 0.6,
-        //         ease: "power2.out",
-        //       })
-        //       gsap.to(textBox, {
-        //         scale: "1",
-        //         transform: "translateY(0)",
-        //         ease: "power2.out",
-        //         duration: 0.6,
-        //       })
-        //     }
-        //   }
-        // },
-        // Trigger height and background color change based on scroll progress
-        if (snapped === 1 && direction === "down") {
+        if (snapped === 1) {
           gsap.to(pageHeaderText, {
             height: headerHeight,
             backgroundColor: "#edebeb",
@@ -125,11 +104,11 @@ const PageHeader: React.FC<PageHeaderProps> = ({ titleTop, titleBottom }) => {
           })
           gsap.to(textBox, {
             scale: 0.45,
-            ease: "power2.out",
             transform: "translateY(-45%)",
             duration: 0.4,
+            ease: "power2.out",
           })
-        } else if (snapped === 0 && direction === "up") {
+        } else if (snapped === 0) {
           gsap.to(pageHeaderText, {
             height: originalHeight,
             backgroundColor: "transparent",
@@ -139,13 +118,12 @@ const PageHeader: React.FC<PageHeaderProps> = ({ titleTop, titleBottom }) => {
           gsap.to(textBox, {
             scale: 1,
             transform: "translateY(0)",
-            ease: "power2.out",
             duration: 0.4,
+            ease: "power2.out",
           })
         }
       },
       onEnterBack: () => {
-        // When scrolling back into the trigger area, reset the height and background color
         gsap.to(pageHeaderText, {
           height: originalHeight,
           backgroundColor: "transparent",
@@ -161,18 +139,47 @@ const PageHeader: React.FC<PageHeaderProps> = ({ titleTop, titleBottom }) => {
       },
     })
 
-    return () => {
-      gsap.set(pageHeaderText, { height: originalHeight })
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
+    if (window.scrollY >= scrollRange) {
+      gsap.set(pageHeaderText, {
+        height: headerHeight,
+        backgroundColor: "#edebeb",
+        duration: 0.4,
+        ease: "power2.out",
+      })
+      gsap.set(textBox, {
+        scale: 0.45,
+        transform: "translateY(-45%)",
+        duration: 0.4,
+        ease: "power2.out",
+      })
+    } else {
+      gsap.set(pageHeaderText, {
+        height: originalHeight,
+        backgroundColor: "transparent",
+        duration: 0.4,
+        ease: "power2.out",
+      })
+      gsap.set(textBox, {
+        scale: 1,
+        transform: "translateY(0)",
+        duration: 0.4,
+        ease: "power2.out",
+      })
     }
-  }, [])
+
+    return () => {
+      trigger.kill()
+      ScrollTrigger.getAll().forEach((t) => t.kill())
+    }
+  }, [screenSize])
 
   return (
     <>
-      <div ref={triggerBoxRef} className=" w-full h-8" />
+      <div ref={triggerBoxRef} className="w-full h-8" />
       <div
+        lang="en"
         ref={headerBoxRef}
-        className=" z-30 sticky top-12 w-full  pb-10 border-b-[1.2px] border-stone-100 inset-shadow-[0_-1.2px_0_0_rgba(0,0,0,0.05)] text-6xl xl:text-7xl"
+        className="z-30 sticky top-12 w-full pb-1 sm:pb-10 text-5xl sm:text-6xl xl:text-7xl border-b-[1.2px] border-stone-100 inset-shadow-[0_-1.2px_0_0_rgba(0,0,0,0.05)]"
       >
         <div
           ref={textBoxRef}
@@ -192,11 +199,3 @@ const PageHeader: React.FC<PageHeaderProps> = ({ titleTop, titleBottom }) => {
 }
 
 export default PageHeader
-
-//TODO
-//absolute or sticky and make margin top on the content
-//sticky top-12
-
-{
-  /* <div className="absolute top-0 left-0 w-full h-full bg-amber-300"/> */
-}

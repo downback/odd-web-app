@@ -49,21 +49,24 @@ const AdminBoard: React.FC = () => {
   return (
     <div className="mt-10">
       <h2 className="text-xl font-semibold mb-4">Uploaded Items</h2>
-      {updates.map((item) => (
-        <div
-          key={item.id}
-          className="border p-3 rounded mb-3 bg-gray-50 flex flex-col gap-2"
-        >
-          <div className="font-semibold">{item.title}</div>
-          <div className="text-sm text-gray-500">{item.date}</div>
-          <button
-            onClick={() => handleDelete(item.id, item.imageUrl)}
-            className="bg-red-500 text-white text-sm px-3 py-1 rounded hover:bg-red-600 w-fit"
+      {updates
+        .slice()
+        .reverse()
+        .map((item) => (
+          <div
+            key={item.id}
+            className="border p-3 rounded mb-3 bg-gray-50 flex flex-col gap-2"
           >
-            Delete
-          </button>
-        </div>
-      ))}
+            <div className="font-semibold">{item.title}</div>
+            <div className="text-sm text-gray-500">{item.date}</div>
+            <button
+              onClick={() => handleDelete(item.id, item.imageUrl)}
+              className="bg-red-600 text-white text-sm px-3 py-1 rounded hover:bg-red-700 w-fit"
+            >
+              Delete
+            </button>
+          </div>
+        ))}
     </div>
   )
 }

@@ -1,15 +1,19 @@
 "use client"
 
-import React, { useRef } from "react"
+import React, { useRef, useContext } from "react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { useGSAP } from "@gsap/react"
 import Link from "next/link"
 import { MdArrowOutward } from "react-icons/md"
+import { LanguageContext } from "../../../../context/LanguageContext"
 
 gsap.registerPlugin(ScrollTrigger)
 
 const LandingVideoSection: React.FC = () => {
+  const { translations } = useContext(LanguageContext)
+  const landingTranslation = translations.landingPage
+
   const videoRef = useRef<HTMLVideoElement>(null)
   const videoWrapperRef = useRef<HTMLDivElement>(null)
   const textRef1 = useRef<HTMLDivElement>(null)
@@ -93,14 +97,11 @@ const LandingVideoSection: React.FC = () => {
               style={{
                 textShadow: "3px 5px 5px #d6d3d1",
               }}
+              lang="en"
             >
               odd office
             </h3>
-            <div>brings your idea to life</div>
-            <div>
-              — with bold concepts, sharp visuals, and the paperwork magic you
-              didn’t know you needed.
-            </div>
+            <div>{landingTranslation.oddOfficeShortDesc}</div>
           </div>
           <div className="w-1/2 md:w-1/3 h-full flex flex-row ">
             <Link
@@ -108,7 +109,7 @@ const LandingVideoSection: React.FC = () => {
               className="w-full h-6 flex flex-row justify-end items-center gap-1"
             >
               <div className="relative inline-block before:content-[''] before:absolute before:left-0 before:top-1/2 before:h-[1px] before:w-full before:bg-black before:scale-x-0 before:origin-left before:transition-transform before:duration-400 hover:before:scale-x-100">
-                View all projects
+                {landingTranslation.viewAllProjects}
               </div>
               <MdArrowOutward />
             </Link>
@@ -119,7 +120,7 @@ const LandingVideoSection: React.FC = () => {
           className=" w-full h-48 flex justify-center items-center"
         >
           <div className="w-auto h-auto text-center ">
-            <div className="text-xl text-bold">
+            <div lang="en" className="text-xl text-bold">
               Do you get curious about us?
             </div>
             <Link href="/aboutUs" className="w-fit">
@@ -130,7 +131,7 @@ const LandingVideoSection: React.FC = () => {
                     textShadow: "3px 5px 5px #d6d3d1",
                   }}
                 >
-                  Learn more about us
+                  {landingTranslation.learnMoreButton}
                 </span>
               </div>
             </Link>

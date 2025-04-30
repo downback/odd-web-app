@@ -53,10 +53,15 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
   const bottomRightRef = useRef<HTMLDivElement>(null)
 
   const [currentSlide, setCurrentSlide] = useState(0)
-  // const [slideCount, setSlideCount] = useState(0)
   const [sliderContainerWidth, setSliderContainerWidth] = useState(0)
+  const [imageLoaded, setImageLoaded] = useState<boolean[]>([])
 
-  // const slideCount = imgList.length
+  useEffect(() => {
+    if (imgList.length > 0) {
+      setImageLoaded(Array(imgList.length).fill(false))
+    }
+  }, [imgList])
+
   useEffect(() => {
     const updateWidth = () => {
       if (sliderContainerRef.current) {
@@ -142,19 +147,23 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
     <div className="w-full h-fit flex flex-col relative">
       <div
         onClick={onToggle}
-        className=" w-full h-22 cursor-pointer border-b-[1.2px] border-stone-100 inset-shadow-[0_-1.2px_0_0_rgba(0,0,0,0.05)] px-6"
+        className=" w-full h-22 py-0.5 cursor-pointer border-b-[1.2px] border-stone-100 inset-shadow-[0_-1.2px_0_0_rgba(0,0,0,0.05)] px-6"
       >
         <div className="w-full h-full flex flex-row justify-between items-center">
           <div className="w-1/3 md:w-xs flex h-full justify-between items-center">
-            <div className="text-lg md:text-xl uppercase">{title}</div>
+            <div lang="en" className="text-lg md:text-xl uppercase">
+              {title}
+            </div>
           </div>
-          <div className="w-1/3 md:w-xs text-xs md:text-sm text-center font-light text-gray-500">
+          <div className="w-1/3 md:w-xs text-xs md:text-sm text-left md:text-center font-light text-gray-500">
             {subTitle}
           </div>
           <div className="flex-1 flex text-base h-16 justify-end items-center gap-2">
             {isOpen ? (
               <>
-                <div className="hidden md:block">Click to close</div>
+                <div lang="en" className="hidden md:block">
+                  Click to close
+                </div>
                 <MdOutlineCloseFullscreen className="text-sm md:text-base" />
               </>
             ) : (
@@ -176,7 +185,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
           transformOrigin: "top",
         }}
       >
-        {/* Top triangle bar */}
+        {/* Top bar */}
         <div
           ref={topBarRef}
           className="w-full relative h-24 border-b-[1.2px] border-stone-100 inset-shadow-[0_-1.2px_0_0_rgba(0,0,0,0.05)]"
@@ -192,12 +201,16 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
           />
           <div className="w-full h-full flex flex-col justify-center items-start px-6 tex-sm">
             <div className="w-full h-fit flex justify-between">
-              <p className="w-fit md:w-36  text-sm">{projectsPageTranslation.location} :</p>
-              <p>{location}</p>
+              <p className="w-fit md:w-36  text-sm">
+                {projectsPageTranslation.location} :
+              </p>
+              <p lang="en">{location}</p>
             </div>
             <div className="w-full h-fit flex justify-between">
-              <p className="w-fit md:w-36 text-sm">{projectsPageTranslation.completionDate} :</p>
-              <p>{date}</p>
+              <p className="w-fit md:w-36 text-sm">
+                {projectsPageTranslation.completionDate} :
+              </p>
+              <p lang="en">{date}</p>
             </div>
           </div>
           <div
@@ -211,13 +224,8 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
         </div>
 
         {/* Main content */}
-
-        {/* Slide Section */}
-        <div className="relative w-full h-140 md:h-120 flex justify-between overflow-hidden border-b-[1.2px] border-stone-100 inset-shadow-[0_-1.2px_0_0_rgba(0,0,0,0.05)]">
-          {/* Left Border */}
+        <div className="relative w-full h-110 md:h-120 flex justify-between overflow-hidden border-b-[1.2px] border-stone-100 inset-shadow-[0_-1.2px_0_0_rgba(0,0,0,0.05)]">
           <div ref={leftBorderRef} className="w-[50px] bg-stone-800 h-full" />
-
-          {/* Slides */}
           <div
             ref={sliderContainerRef}
             className="w-full flex-1 py-4 h-full relative overflow-hidden"
@@ -236,14 +244,24 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
                 <div
                   key={idx}
                   style={{ width: sliderContainerWidth }}
-                  className="slide w-full h-full flex justify-center items-center"
+                  className="relative slide w-full h-full flex justify-center items-center"
                 >
-                  <div className="w-auto h-full overflow-hidden flex items-center">
+                  <div className="w-auto h-full overflow-hidden flex items-center relative">
+                    {!imageLoaded[idx] && (
+                      <div className="absolute z-10 inset-0 bg-gray-200 animate-pulse" />
+                    )}
                     <Image
                       src={url}
                       alt={`${title}-${idx}`}
                       width={1500}
                       height={1000}
+                      onLoadingComplete={() => {
+                        setImageLoaded((prev) => {
+                          const updated = [...prev]
+                          updated[idx] = true
+                          return updated
+                        })
+                      }}
                       className="object-cover h-auto w-full md:h-full md:w-auto"
                     />
                   </div>
@@ -251,25 +269,22 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
               ))}
             </div>
           </div>
-
-          {/* Slide Controls */}
           <div
             onClick={handlePrev}
-            className="absolute top-0 w-2/5 h-140 md:h-120 left-3 md:left-20 lg:left-0 cursor-pointer flex justify-start lg:justify-center items-center"
+            className="absolute top-0 w-2/5 h-110 md:h-120 left-3 md:left-20 lg:left-0 cursor-pointer flex justify-start lg:justify-center items-center"
           >
             <MdArrowBackIosNew className="m-0 text-2xl" />
           </div>
           <div
             onClick={handleNext}
-            className="absolute top-0 w-2/5 h-140 md:h-120 right-3 md:right-20 lg:right-0 cursor-pointer flex justify-end lg:justify-center items-center"
+            className="absolute top-0 w-2/5 h-110 md:h-120 right-3 md:right-20 lg:right-0 cursor-pointer flex justify-end lg:justify-center items-center"
           >
             <MdArrowForwardIos className="m-0 text-2xl" />
           </div>
-          {/* Right Border */}
           <div ref={rightBorderRef} className="w-[50px] h-full bg-stone-800" />
         </div>
 
-        {/* Bottom triangle bar */}
+        {/* Bottom bar */}
         <div
           ref={bottomBarRef}
           className="w-full relative h-90 md:h-64 border-b-[1.2px] border-stone-100 inset-shadow-[0_-1.2px_0_0_rgba(0,0,0,0.05)] "
@@ -285,8 +300,10 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
           />
           <div className="w-full h-fit flex flex-col justify-start items-center p-6">
             <div className="w-full h-fit flex justify-between flex-col md:flex-row">
-              <p className="w-fit md:w-36 text-sm">{projectsPageTranslation.scopeOfWorks} :</p>
-              <div className="w-full flex flex-wrap justify-start md:justify-end gap-1 text-xs md:text-sm mt-2">
+              <p className="w-fit md:w-36 text-sm">
+                {projectsPageTranslation.scopeOfWorks} :
+              </p>
+              <div className="w-full flex flex-wrap justify-start md:justify-end gap-1 text-xs md:text-sm mt-2 md:mt-0">
                 {scopeTags.map((tag, index) => (
                   <div
                     key={index}
@@ -298,7 +315,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
               </div>
             </div>
 
-            <p className="mt-12">{projectText}</p>
+            <p className="mt-8 md:mt-12">{projectText}</p>
           </div>
           <div
             ref={bottomRightRef}

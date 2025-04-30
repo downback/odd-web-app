@@ -171,7 +171,7 @@ const ProcessAnimation: React.FC = () => {
       onComplete: () => {
         setTimeout(() => {
           router.push(`/consulting?section=${index}`)
-        }, 800)
+        }, 600)
       },
     })
   }
@@ -189,7 +189,7 @@ const ProcessAnimation: React.FC = () => {
             y: 0,
             opacity: 1,
             duration: 0.6,
-            delay: 0.6,
+            // delay: 0.6,
             ease: "power3.out",
             scrollTrigger: {
               trigger: desc,
@@ -295,11 +295,6 @@ const ProcessAnimation: React.FC = () => {
                 className="w-5 h-5 bg-white border border-black rounded-full"
               />
               {step && (
-                // <div
-                //   ref={(el) => {
-                //     if (el) detailRefs.current[i] = el
-                //   }}
-                // >
                 <ProcessDetailBox
                   title={step.title}
                   description={step.description}
@@ -315,7 +310,6 @@ const ProcessAnimation: React.FC = () => {
                   }}
                   forceFixedPosition={isMorphing}
                 />
-                // </div>
               )}
             </div>
           )

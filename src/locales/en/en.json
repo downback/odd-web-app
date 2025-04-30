@@ -72,10 +72,11 @@
         "btnPosition": "justify-start"
       }
     ],
-    "processTitle": "you got an idea to start your business?"
+    "oddOfficeShortDesc": "brings your idea to life — with bold concepts, sharp visuals, and the paperwork magic you didn’t know you needed.",
+    "viewAllProjects": "View All Projects",
+    "learnMoreButton": "Learn more about us"
   },
   "projectsPage": {
-    "title": "PROJECTS",
     "titleTop": "PROJECTS",
     "titleBottom": "ARCHIVE",
     "location": "Location",
@@ -267,14 +268,28 @@
     "openedArticle": "This article is open above"
   },
   "contactPage": {
-    "radioBoxTitle": "Select your interests",
-    "messageBoxTitle": " Send here a Message",
+    "radioBoxTitle": "1. Select your interests",
+    "messageBoxTitle": "2. Send a Message",
     "serviceReselectMessage": "Go to add the your required service",
     "requiredField": "required fields",
-    "sendMessage": "Send Message"
+    "sendMessage": "Send Message",
+    "confirmationMessageTitle": "Message sent successfully!",
+    "confirmationMessageText": "Thank you for your message. We've sent a confirmation to your email, and will respond as soon as possible.",
+    "options": [
+      "Business Plan",
+      "Location Selection & Lease Agreement",
+      "Legal Permits & Administrative Procedures",
+      "Branding",
+      "Interior Design",
+      "Construction & Installation",
+      "Online Marketing",
+      "Staff Recruitment & Training",
+      "System Setup",
+      "Grand Opening"
+    ]
   },
-  "imprintPage": {
-    "title": "Imprint",
+  "privacyPolicyPage": {
+    "title": "Privacy Policy",
     "responsibleEntityTitle": "1. Responsible Entity",
     "responsibleEntityText": "Responsible for data processing on this website is:\nodd office GbR\nZelterstr. 6, 10439 Berlin Germany\nEmail: odd.office.ber@gmail.com",
     "dataCollectionTitle": "2. Data Collection",
@@ -288,7 +303,16 @@
     "yourRightsTitle": "6. Your Rights (according to GDPR)",
     "yourRightsText": "Right of access, rectification, and erasure of personal data.\nRight to restriction of processing and data portability.\nRight to withdraw consent at any time.\nFor any privacy concerns or exercising your rights, please contact us at odd.office.ber@gmail.com"
   },
-  "privacyPolicyPage": {
-    "title": "privacyPolicyPage"
+  "imprintPage": {
+    "title": "Imprint",
+    "legalTitle": "Information according to §5 TMG (German Telemedia Act)",
+    "legalText": "odd office GbR\nZelterstr. 6, 10439 Berlin\nGermany",
+    "contactTitle": "Contact",
+    "contactText": "Email: odd.office.ber@gmail.com",
+    "responsibleTitle": "Responsible Person (according to §55 Abs. 2 RStV)",
+    "responsibleText": "Sanghyun No\nZelterstr. 6, 10439 Berlin",
+    "businessTitle": "VAT and Business Registration",
+    "businessText": "VAT Identification number (USt-IdNr.):\nBusiness Registration Number: (It will be provided soon in early 2025)",
+    "finalNote": "For any further questions, please contact us at odd.office.ber@gmail.com"
   }
 }
