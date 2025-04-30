@@ -1,19 +1,10 @@
-"use client"
-
-import React, { useContext } from "react"
-import { LanguageContext } from "../../../../context/LanguageContext"
+import React from "react"
 import PageHeader from "@/components/ui/PageHeader"
 
 const ProjectHeader: React.FC = () => {
-  const { translations } = useContext(LanguageContext)
-  const projectsTranslation = translations.projectsPage
-
   return (
     <>
-      <PageHeader
-        titleTop="PROJECTS"
-        titleBottom="ARCHIVE"
-      />
+      <PageHeader titleTop="PROJECTS" titleBottom="ARCHIVE" />
     </>
   )
 }

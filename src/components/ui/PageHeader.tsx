@@ -92,7 +92,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({ titleTop, titleBottom }) => {
       onUpdate: (self) => {
         const progress = normalize(self.scroll())
         const snapped = snapHeight(progress)
-        const direction = window.scrollY > lastScroll ? "down" : "up"
+        // const direction = window.scrollY > lastScroll ? "down" : "up"
         lastScroll = window.scrollY
 
         if (snapped === 1) {
