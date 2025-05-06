@@ -17,13 +17,13 @@ interface CircleData {
   y: number
 }
 
-const PATH_D_START = `M186.27,842.73c-1.16-44.94,66.22-104.26,51.43-117.63-12.03-10.87-85.37,27.64-105.21,11.63-60.74-49.05,174.85-85.15,152.73-135.72C260.55,544.62-6.47,550.34.43,469.98c8.39-97.66,405.39,80.68,374.96-21.5-23.22-77.98-265.76-73.4-233.32-139.93,20.63-42.3,165.53-8.85,167.03-66.88,1.48-57.29-206.57,19.9-199.5-33.23,6.44-48.36,172.43-30.54,139.71-88.61-12.54-22.25-52.29-17.17-60.11-49.28-1.69-6.96-.54-65.19-.54-70.55`
+const PATH_D_START = `M186.27,906.8c-1.16-44.94,66.22-104.26,51.43-117.63-12.03-10.87-85.37,27.64-105.21,11.63-60.74-49.05,174.85-85.15,152.73-135.72C260.55,608.69-6.47,614.41.43,534.05c8.39-97.66,405.39,80.68,374.96-21.5-23.22-77.98-265.76-73.4-233.32-139.93,20.63-42.3,165.53-8.85,167.03-66.88,1.48-57.29-206.57,19.9-199.5-33.23,6.44-48.36,172.43-30.54,139.71-88.61-12.54-22.25-48.67-18.27-60.11-49.28-6.41-17.37-2.76-27.96-.54-70.55.34-6.54,0-57.75,0-64.07`
 
 const PATH_D_END = () =>
-  window.innerWidth < 768 ? `M30,842.73 L30,0` : `M70,842.73 L70,0`
+  window.innerWidth < 768 ? `M30,906.8 L30,0` : `M70,906.8 L70,0`
 
 const BASE_PATH_WIDTH = 377.35
-const BASE_PATH_HEIGHT = 842.73
+const BASE_PATH_HEIGHT = 906.8
 
 const ProcessAnimation: React.FC = () => {
   const { translations } = useContext(LanguageContext)
@@ -44,6 +44,7 @@ const ProcessAnimation: React.FC = () => {
   const circleRefs = useRef<HTMLDivElement[]>([])
   const titleRefs = useRef<HTMLHeadingElement[]>([])
   const descRefs = useRef<HTMLParagraphElement[]>([])
+  const lastCircleRef = useRef<HTMLDivElement>(null)
 
   circleRefs.current = []
   titleRefs.current = []
@@ -77,7 +78,7 @@ const ProcessAnimation: React.FC = () => {
     const totalLength = path.getTotalLength()
     const count = stepDetails.length
     const startOffset = totalLength * 0.04
-    const endOffset = totalLength * 0.96
+    const endOffset = totalLength * 0.94
     const spacing = (endOffset - startOffset) / (count - 1)
 
     const points: CircleData[] = []
@@ -202,6 +203,25 @@ const ProcessAnimation: React.FC = () => {
         )
       }
     })
+
+    gsap.fromTo(
+      lastCircleRef.current,
+      { opacity: 0 },
+      {
+        opacity: 1,
+        repeat: -1,
+        yoyo: true,
+        duration: 0.4,
+        ease: "power1.inOut",
+        scrollTrigger: {
+          trigger: lastCircleRef.current,
+          start: "top 75%",
+          end: "center top",
+          toggleActions: "play pause resume reset",
+          // markers: true,
+        },
+      }
+    )
   }, [circleCoords])
 
   return (
@@ -223,7 +243,7 @@ const ProcessAnimation: React.FC = () => {
         {/* ✅ Start circle */}
         {showCircles && startPoint && (
           <div
-            className="absolute w-5 h-5 bg-white border border-black rounded-full"
+            className="absolute w-5 h-5 bg-white border border-black rounded-full flex justify-center items-center"
             style={{
               left: `${
                 (startPoint.x * getResponsiveWidth()) / BASE_PATH_WIDTH
@@ -237,7 +257,12 @@ const ProcessAnimation: React.FC = () => {
               }px`,
               transform: "translate(-50%, -50%)",
             }}
-          />
+          >
+            <div
+              ref={lastCircleRef}
+              className="w-3 h-3 bg-black rounded-full"
+            ></div>
+          </div>
         )}
 
         {/* ✅ End circle */}

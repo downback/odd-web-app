@@ -26,7 +26,7 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={`${nunito.variable} ${noto.variable}`}>
+    <html lang="ko" className={`${nunito.variable} ${noto.variable}`}>
       <Head>
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -80,20 +80,21 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 //[x] font
 //[x] margin
 
-//[ ] json - EN
-//[ ] json - KO
+//[x] json - EN
+//[x] json - KO
 
+//[x] create email
+
+//[x] 랜딩페이지에 grand open 하얀색 원 안에, 검정 원 깜빡거리기
+//[x] 웹사이트 기본 세팅 한글로
+//[ ] KO / EN 폰트 bolder
+//[ ] about us 페이지 이름 한글로
+
+//[ ] 세부페이지들 헤더 오류 수정
+//[ ] 모바일에서 랜딩페이지 디자인이 너무 꽉차 보여서 애니메이션 살짝 변경
+//[ ] landing page video loading earlier
 //[ ] firebase api rule
-//[ ] email
-
-// grand open black dot blinking
-// page header bug
-// admin uploaded item order
-// about us name in korean for kr
-// kr bolder
-// login
-// 기본 세팅 한글로
-
-// Do you have an idea / to start your business in Berlin?
-// 베를린에서의 새로운 사업을 구상중이십니까?
-// It’ll never be easy / But we’ll make it less painful
+//[ ] admin 페이지 로그인 기능 추가
+//[ ] admin 업로드 된 아이템들 순서 수정
+//[ ] projects 페이지 종이 열리는 애니메이션 더 스무스하게 변경
+//[ ] info@odd-office.de 연결 안되는 버그 수정

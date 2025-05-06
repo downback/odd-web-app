@@ -14,8 +14,8 @@ interface LanguageContextProps {
 }
 
 export const LanguageContext = createContext<LanguageContextProps>({
-  locale: "en",
-  translations: en,
+  locale: "ko",
+  translations: ko,
   setLanguage: () => {},
 })
 
@@ -26,8 +26,8 @@ interface LanguageProviderProps {
 export const LanguageProvider: React.FC<LanguageProviderProps> = ({
   children,
 }) => {
-  const [locale, setLocale] = useState<string>("en")
-  const [translations, setTranslations] = useState<Translations>(en)
+  const [locale, setLocale] = useState<string>("ko")
+  const [translations, setTranslations] = useState<Translations>(ko)
 
   const setLanguage = (lang: string) => {
     if (lang === "ko") {

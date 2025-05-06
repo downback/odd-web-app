@@ -1,32 +1,7 @@
 @import "tailwindcss";
-/* @import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&family=Puritan:wght@400;700&display=swap"); */
-
-/* @import "tailwindcss/preflight"; */
 @tailwind utilities;
 
-/* @layer base {
-  * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    scroll-behavior: smooth;
-  }
-
-  * {
-    scrollbar-width: none;
-  }
-
-  ::-webkit-scrollbar {
-    display: none;
-  }
-} */
-
-:root {
-  /* --primary-color: #0d6efd; */
-  /* --secondary-color: #6c757d; */
-}
-
-html {
+html[lang="en"] {
   font-family: var(--font-nunito);
 }
 

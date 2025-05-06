@@ -30,7 +30,7 @@ const LandingVideoSection: React.FC = () => {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: wrapper,
-        start: "top center", // when wrapper hits top of viewport
+        start: "top center", 
         end: "bottom top",
         scrub: true,
         onEnter: () => video.play(),
@@ -41,15 +41,14 @@ const LandingVideoSection: React.FC = () => {
       },
     })
 
-    // Animate height to full screen
     tl.to(text1, {
       yPercent: -20,
       ease: "none",
       duration: 0.7,
       scrollTrigger: {
         trigger: text1,
-        start: "top bottom",
-        end: "bottom center",
+        start: "top 75%",
+        end: "bottom 30%",
         scrub: true,
         // markers: true,
       },
@@ -61,8 +60,8 @@ const LandingVideoSection: React.FC = () => {
       duration: 0.7,
       scrollTrigger: {
         trigger: text2,
-        start: "top bottom",
-        end: "bottom center",
+        start: "top 75%",
+        end: "bottom 30%",
         scrub: true,
         // markers: true,
       },
@@ -101,7 +100,8 @@ const LandingVideoSection: React.FC = () => {
             >
               odd office
             </h3>
-            <div>{landingTranslation.oddOfficeShortDesc}</div>
+            <div>{landingTranslation.oddOfficeShortDescTop}</div>
+            <div>{landingTranslation.oddOfficeShortDescBottom}</div>
           </div>
           <div className="w-1/2 md:w-1/3 h-full flex flex-row ">
             <Link

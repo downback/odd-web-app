@@ -11,7 +11,7 @@
       {
         "title": "9. System Setup",
         "description": "Set up supply chain and POS systems",
-        "position": "top-0 left-2 md:left-12",
+        "position": "top-0 left-0 md:left-12",
         "titlePosition": "translate-x-8 md:translate-x-0",
         "btnPosition": "justify-start"
       },
@@ -72,7 +72,12 @@
         "btnPosition": "justify-start"
       }
     ],
-    "oddOfficeShortDesc": "brings your idea to life — with bold concepts, sharp visuals, and the paperwork magic you didn’t know you needed.",
+    "introTextTop": "Do you have an idea",
+    "introTextBottom": "to start your business in Berlin?",
+    "outtroTextTop": "It will never be easy",
+    "outtroTextBottom": "But we’ll make it less painful",
+    "oddOfficeShortDescTop": "brings your idea to life",
+    "oddOfficeShortDescBottom": "— with bold concepts, sharp visuals, and the paperwork magic you didn’t know you needed.",
     "viewAllProjects": "View All Projects",
     "learnMoreButton": "Learn more about us"
   },
@@ -152,7 +157,7 @@
       },
       {
         "title": "6. Construction & Installation",
-        "description": "- Interior construction Kitchen equipment & furniture installation <br/> - Contractor selection & project management <br/> - Final touch-ups and finishing details"
+        "description": "- Interior construction  <br/> - Kitchen equipment & furniture installation <br/> - Contractor selection & project management <br/> - Final touch-ups and finishing details"
       },
       {
         "title": "5. Interior Design",
@@ -164,7 +169,7 @@
       },
       {
         "title": "3. Legal Permits",
-        "description": "- Company formation (UG, GmbH) <br/> - Business registration (Gewerbeanmeldung) <br/> - Liquor license (Gaststättenerlaubnis) Health department approval"
+        "description": "- Company formation (UG, GmbH) <br/> - Business registration (Gewerbeanmeldung) <br/> - Liquor license (Gaststättenerlaubnis)  <br/> - Health department approval"
       },
       {
         "title": "2. Location Selection ",
@@ -204,7 +209,7 @@
           "Consultant",
           "Carpenter",
           "Chef",
-          "Restaurant"
+          "Restaurant Operator"
         ],
         "profileImageUrl": "/images/profileImage2.png",
         "bioDetail": [

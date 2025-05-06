@@ -18,7 +18,7 @@
       {
         "title": "8. 인력 채용 및 교육",
         "description": "인력 채용 및 교육",
-        "position": "top-14 left- md:top-0 md:right-0 -translate-x-1/2 md:translate-x-1/2 text-left",
+        "position": "top-0 left-6 md:top-0 md:right-0 md:translate-x-1/2 text-left",
         "titlePosition": "translate-x-0 md:-translate-x-16",
         "btnPosition": "justify-start"
       },
@@ -72,7 +72,12 @@
         "btnPosition": "justify-start"
       }
     ],
-    "oddOfficeShortDesc": "대담한 콘셉트, 날카로운 시각 디자인, 그리고 당신이 필요로 했던 모든 문서 작업까지 — 아이디어를 현실로 만듭니다.",
+    "introTextTop": "베를린에서 당신의 아이디어가",
+    "introTextBottom": "현실이 되는 상상해보셨나요?",
+    "outtroTextTop": "과정이 쉽다고 말할 수는 없지만,",
+    "outtroTextBottom": "막막함과 낯설음은 덜어드릴게요",
+    "oddOfficeShortDescTop": "상상에 머물던 아이디어부터 복잡한 행정 절차까지",
+    "oddOfficeShortDescBottom": "— 전 과정을 함께하며 현실로 만들어드립니다.",
     "viewAllProjects": "모든 프로젝트 보기",
     "learnMoreButton": "더 알아보기"
   },
@@ -137,43 +142,43 @@
     "consultingSteps": [
       {
         "title": "10. 정식 오픈",
-        "description": "- Launch event & promotional campaign <br/> - Performance monitoring during the first month"
+        "description": "- 오픈 이벤트 및 프로모션 진행 <br/> - 초기 운영 성과 모니터링"
       },
       {
         "title": "9. 시스템 구축",
-        "description": "- Supplier selection & contract for food & beverages <br/> - Partnership with delivery platforms (Wolt, Lieferando, Uber Eats) <br/> - POS, reservation, and payment system integration"
+        "description": "- 식음료 공급 업체 선정 및 계약 <br/> - 딜리버리 업체 선정 및 계약 (Wolt, Lieferando, Uber Eats) <br/> - POS, 예약 및 결제 시스템 선정 및 계약"
       },
       {
         "title": "8. 직원 채용 및 교육",
-        "description": "- Hiring key personnel (chefs, kitchen staff, service team) <br/> - Hygiene & safety training <br/> - Service and operations manual training"
+        "description": "- 주요 인력 채용 <br/> - 위생 및 안전 교육 <br/> - 매뉴얼 교육"
       },
       {
         "title": "7. 온라인 마케팅",
-        "description": "- Marketing strategy & promotion planning <br/> - Professional photos & videos showcasing brand story <br/> - Optimized website development <br/> - Social media & promotional channel management"
+        "description": "- 마케팅 전략 및 프로모션 기획 <br/> - 브랜드 스토리를 강조한 사진, 영상 촬영 <br/> - 최적화 된 홈페이지 제작 <br/> - 홍보채널 관리"
       },
       {
         "title": "6. 시공 및 설치",
-        "description": "- Interior construction Kitchen equipment & furniture installation <br/> - Contractor selection & project management <br/> - Final touch-ups and finishing details"
+        "description": "- 인테리어 시공 <br/> - 주방 장비 및 가구 설치 <br/> - 시공업체 선정 및 공사 일정 관리 <br/> - 디테일 마감 작업"
       },
       {
         "title": "5. 인테리어 디자인",
-        "description": "- Concept development & space planning <br/> - Electrical & facility layout planning <br/> - Architectural blueprint preparation <br/> - Furniture & lighting design"
+        "description": "- 디자인 컨셉 및 공간 계획 <br/> - 전기 및 설비 계획 <br/> - 설계도 작성 <br/> - 가구와 조명 디자인"
       },
       {
         "title": "4. 브랜딩",
-        "description": "- Visual identity design <br/> - Logo, signage, menu, and packaging design"
+        "description": "- 비주얼 아이덴티티 디자인 <br/> - 로고, 간판, 메뉴판, 패키징 디자인"
       },
       {
         "title": "3. 법적 허가와 행정 절차",
-        "description": "- Company formation (UG, GmbH) <br/> - Business registration (Gewerbeanmeldung) <br/> - Liquor license (Gaststättenerlaubnis) Health department approval"
+        "description": "- 회사 설립 (UG, GmbH) <br/> - 사업자 등록 (Gewerbeanmeldung) <br/> - 주류 판매 허가 (Gaststättenerlaubnis) <br/> - 위생청 허가"
       },
       {
         "title": "2. 입지 선정과 계약",
-        "description": "- Local market & commercial district analysis <br/> - Property condition & zoning verification <br/> - Lease negotiation"
+        "description": "- 지역 상권 분석 <br/> - 건물 용도와 컨디션 검토 <br/> - 임대 계약 협상"
       },
       {
         "title": "1. 비즈니스 계획",
-        "description": "- Target audience analysis & market research <br/> - Menu concept & pricing strategy <br/> - Budgeting, investment, and revenue forecast <br/> - Business plan for official submission"
+        "description": "- 타겟 고객층 분석 및 시장 조사 <br/> - 메뉴 컨셉과 가격 전략 수립 <br/> - 예산, 투자, 예상 수익 계획 <br/> - 공식 제출용 비즈니스 플랜 작성"
       }
     ]
   },
@@ -186,8 +191,8 @@
     "usList": [
       {
         "name": "Sang-hyun No",
-        "descMain": "Solving problems and owning the outcome. That’s what I do.",
-        "jobTitles": ["Restaurant Operator", "Consultant", "Guitarist"],
+        "descMain": "문제를 해결하고 책임지는 것. 제가 하는 일입니다.",
+        "jobTitles": ["레스토랑 운영자", "컨설턴트", "기타 연주자"],
         "profileImageUrl": "/images/profileImage1.png",
         "bioDetail": [
           "odd office (Consulting and Design Studio): Founder and Operator / Berlin, 2025",
@@ -199,13 +204,13 @@
       },
       {
         "name": "Jong-hwan Kim ",
-        "descMain": "Building on a broad range of design experience, I have expanded my work from two-dimensional to spatial and synesthetic realms, continually exploring depth in design through constant experimentation.",
+        "descMain": "디자인 전반의 다양한 경험을 바탕으로, 평면에서 공간, 나아가 공감각적 영역으로 확장하며 깊이 있는 디자인을 탐구하고 끊임없이 새로운 시도를 이어가고 있습니다.",
         "jobTitles": [
-          "IInterior Designer",
-          "Consultant",
-          "Carpenter",
-          "Chef",
-          "Restaurant"
+          "인테리어 디자이너",
+          "컨설턴트",
+          "목수",
+          "요리사",
+          "레스토랑 운영자"
         ],
         "profileImageUrl": "/images/profileImage2.png",
         "bioDetail": [
