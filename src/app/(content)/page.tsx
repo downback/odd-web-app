@@ -23,7 +23,7 @@ const HomePage: React.FC = () => {
 
   return (
     <div className="flex flex-col">
-      <div className="w-full h-[75vh]">
+      <div className="w-full h-[70vh] md:h-[80vh]">
         <DrawingSection />
       </div>
       <div className="w-full -translate-y-6">
@@ -37,9 +37,3 @@ const HomePage: React.FC = () => {
 }
 
 export default HomePage
-
-//PAGE TODO
-//[ ] make the line horizontally centered with illustration
-//[ ] text box position re-arranging - desktop
-//[ ] text box position re-arranging - mobile
-//[ ] text box json data

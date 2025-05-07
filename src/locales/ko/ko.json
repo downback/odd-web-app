@@ -18,7 +18,7 @@
       {
         "title": "8. 인력 채용 및 교육",
         "description": "인력 채용 및 교육",
-        "position": "top-0 left-6 md:top-0 md:right-0 md:translate-x-1/2 text-left",
+        "position": "top-0 left-6 md:top-0 md:left-36 text-left",
         "titlePosition": "translate-x-0 md:-translate-x-16",
         "btnPosition": "justify-start"
       },
