@@ -23,10 +23,10 @@ const HomePage: React.FC = () => {
 
   return (
     <div className="flex flex-col">
-      <div className="w-full h-[80dvh]">
+      <div className="w-full h-[75vh]">
         <DrawingSection />
       </div>
-      <div className="w-full -translate-y-10">
+      <div className="w-full -translate-y-6">
         <ProcessSection />
       </div>
       <div className="w-full mb-20">

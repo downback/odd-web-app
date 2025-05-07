@@ -158,7 +158,7 @@ const AnimatedMotionDrawing: React.FC = () => {
       <div
         ref={textRef}
         lang="en"
-        className=" absolute top-10 left-0 font-bold text-5xl sm:text-6xl xl:text-7xl w-full h-4/5 flex flex-col justify-center items-center"
+        className=" absolute top-4 left-0 font-bold text-5xl sm:text-6xl xl:text-7xl w-full h-4/5 flex flex-col justify-center items-center"
       >
         <div className="w-full h-fit flex-1" />
         <div className="w-9/10 md:w-4/5 lg:w-3/5 h-max overflow-hidden font-medium">
@@ -181,7 +181,7 @@ const AnimatedMotionDrawing: React.FC = () => {
           </div>
           <div className="w-full h-fit flex justify-center">WITH US</div>
         </div>
-        <div className="w-full h-fit flex-1 flex justify-center items-center -translate-y-10 md:translate-y-0">
+        <div className="w-full h-fit flex-1 flex justify-center items-center -translate-y-6 md:translate-y-0">
           <div ref={introTextRef} className="">
             <div className="text-center text-lg md:text-xl xl:text-2xl w-full font-normal">
               <div>{landingTranslation.introTextTop}</div>
@@ -189,7 +189,7 @@ const AnimatedMotionDrawing: React.FC = () => {
             </div>
           </div>
         </div>
-        <div ref={arrowRef} className="absolute -bottom-20 md:-bottom-16">
+        <div ref={arrowRef} className="absolute -bottom-24 md:-bottom-16">
           <MdKeyboardDoubleArrowDown className="text-3xl" />
         </div>
       </div>

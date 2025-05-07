@@ -87,10 +87,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 
 //[x] 랜딩페이지에 grand open 하얀색 원 안에, 검정 원 깜빡거리기
 //[x] 웹사이트 기본 세팅 한글로
-//[ ] KO / EN 폰트 bolder
-//[ ] about us 페이지 이름 한글로
+//[x] KO / EN 폰트 bolder
+//[x] about us 페이지 이름 한글로
 
-//[ ] 세부페이지들 헤더 오류 수정
+//[x] 세부페이지들 헤더 오류 수정
+
 //[ ] 모바일에서 랜딩페이지 디자인이 너무 꽉차 보여서 애니메이션 살짝 변경
 //[ ] landing page video loading earlier
 //[ ] firebase api rule
@@ -98,3 +99,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 //[ ] admin 업로드 된 아이템들 순서 수정
 //[ ] projects 페이지 종이 열리는 애니메이션 더 스무스하게 변경
 //[ ] info@odd-office.de 연결 안되는 버그 수정
+
+//[ ] 모든페이지 로딩시 페이지 가장 위에가게
+//[ ] 모든페이지 폰트 (한글 영어 다)
+//[ ] 모든페이지 마진
+//[ ] 프로젝트 - 열리는 애니메이션 수정
+//[ ] 컨설팅 - 폰트 크기 / 애니메이션
+//[ ] 콘택 - 폰트 크기
