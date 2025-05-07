@@ -28,7 +28,7 @@ const NavBar: React.FC<NavBarProps> = ({
   ]
 
   return (
-    <nav className={twMerge("", navClassName)}>
+    <nav lang="en" className={twMerge("", navClassName)}>
       <ul
         className={twMerge(
           "flex text-sm gap-5 cursor-pointer justify-center",

@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useRef, useState, useEffect } from "react"
+import React, { useRef, useState, useEffect, useLayoutEffect } from "react"
 import gsap from "gsap"
 import { useGSAP } from "@gsap/react"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
@@ -39,6 +39,34 @@ const PageHeader: React.FC<PageHeaderProps> = ({ titleTop, titleBottom }) => {
     return () => window.removeEventListener("resize", handleResize)
   }, [])
 
+  useLayoutEffect(() => {
+    const textTop = textTopRef.current
+    const textBottom = textBottomRef.current
+
+    if (!textTop || !textBottom) return
+
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline()
+      tl.from(textTop, {
+        opacity: 0,
+        y: 50,
+        duration: 0.6,
+        ease: "power3.out",
+      }).from(
+        textBottom,
+        {
+          opacity: 0,
+          y: 50,
+          duration: 0.6,
+          ease: "power3.out",
+        },
+        "<+0.1"
+      )
+    }, textBoxRef) // limits selectors to inside this container
+
+    return () => ctx.revert() // clean up on unmount
+  }, [])
+
   useGSAP(() => {
     const triggerBox = triggerBoxRef.current
     const pageHeaderText = headerBoxRef.current
@@ -60,22 +88,22 @@ const PageHeader: React.FC<PageHeaderProps> = ({ titleTop, titleBottom }) => {
         ? "2.5rem"
         : "2rem"
 
-    const tl = gsap.timeline()
-    tl.from(textTop, {
-      opacity: 0,
-      y: 50,
-      duration: 0.6,
-      ease: "power3.out",
-    }).from(
-      textBottom,
-      {
-        opacity: 0,
-        y: 50,
-        duration: 0.6,
-        ease: "power3.out",
-      },
-      "<+0.1"
-    )
+    // const tl = gsap.timeline()
+    // tl.from(textTop, {
+    //   opacity: 0,
+    //   y: 50,
+    //   duration: 0.6,
+    //   ease: "power3.out",
+    // }).from(
+    //   textBottom,
+    //   {
+    //     opacity: 0,
+    //     y: 50,
+    //     duration: 0.6,
+    //     ease: "power3.out",
+    //   },
+    //   "<+0.1"
+    // )
 
     gsap.set(pageHeaderText, {
       backgroundColor: "transparent",
