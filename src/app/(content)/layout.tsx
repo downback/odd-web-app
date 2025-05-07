@@ -8,7 +8,7 @@ import { Nunito_Sans, Noto_Sans_KR } from "next/font/google"
 
 const nunito = Nunito_Sans({
   subsets: ["latin"],
-  weight: ["300", "400", "500"],
+  weight: ["300", "400", "500", "700"],
   style: ["normal", "italic"],
   variable: "--font-nunito",
 })
