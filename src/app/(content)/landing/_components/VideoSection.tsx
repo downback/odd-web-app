@@ -30,7 +30,7 @@ const LandingVideoSection: React.FC = () => {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: wrapper,
-        start: "top center", 
+        start: "top center",
         end: "bottom top",
         scrub: true,
         onEnter: () => video.play(),
@@ -91,17 +91,15 @@ const LandingVideoSection: React.FC = () => {
           className=" w-full h-48 flex justify-between px-4 pt-0 md:pt-2"
         >
           <div className="w-1/2 md:w-2/5 h-full">
-            <h3
-              className="text-xl text-bold"
-              style={{
-                textShadow: "3px 5px 5px #d6d3d1",
-              }}
-              lang="en"
-            >
+            <h3 className="text-xl text-bold" lang="en">
               odd office
             </h3>
-            <div>{landingTranslation.oddOfficeShortDescTop}</div>
-            <div>{landingTranslation.oddOfficeShortDescBottom}</div>
+            <div className="text-sm">
+              {landingTranslation.oddOfficeShortDescTop}
+            </div>
+            <div className="text-sm">
+              {landingTranslation.oddOfficeShortDescBottom}
+            </div>
           </div>
           <div className="w-1/2 md:w-1/3 h-full flex flex-row ">
             <Link
@@ -120,17 +118,12 @@ const LandingVideoSection: React.FC = () => {
           className=" w-full h-48 flex justify-center items-center"
         >
           <div className="w-auto h-auto text-center ">
-            <div lang="en" className="text-xl text-bold">
+            <div lang="en" className="text-lg md:text-xl text-bold">
               Do you get curious about us?
             </div>
             <Link href="/aboutUs" className="w-fit">
               <div className="relative inline-block overflow-hidden">
-                <span
-                  className="relative inline-block before:content-[''] before:absolute before:left-0 before:top-1/2 before:h-[1px] before:w-full before:bg-black before:scale-x-0 before:origin-left before:transition-transform before:duration-400 hover:before:scale-x-100"
-                  style={{
-                    textShadow: "3px 5px 5px #d6d3d1",
-                  }}
-                >
+                <span className="relative inline-block before:content-[''] before:absolute before:left-0 before:top-1/2 before:h-[1px] before:w-full before:bg-black before:scale-x-0 before:origin-left before:transition-transform before:duration-400 hover:before:scale-x-100">
                   {landingTranslation.learnMoreButton}
                 </span>
               </div>
@@ -143,3 +136,7 @@ const LandingVideoSection: React.FC = () => {
 }
 
 export default LandingVideoSection
+
+//chore : style={{
+//   textShadow: "3px 5px 5px #d6d3d1",
+// }}

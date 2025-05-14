@@ -4,7 +4,7 @@ import PageHeader from "@/components/ui/PageHeader"
 const ContactHeader: React.FC = () => {
   return (
     <>
-      <PageHeader titleTop="CONTACT" titleBottom="HERE" />
+      <PageHeader titleTop="INITIAL" titleBottom="CONTACT" />
     </>
   )
 }

@@ -21,6 +21,8 @@ const StraightLineProcess: React.FC = () => {
   const stepDetails = translations?.consultingPage.consultingSteps || []
 
   const [circleCoords, setCircleCoords] = useState<CircleData[]>([])
+  const [isMobile, setIsMobile] = useState(false)
+
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
   const sectionRefs = useRef<HTMLDivElement[]>([])
@@ -30,15 +32,23 @@ const StraightLineProcess: React.FC = () => {
   boxRefs.current = []
   blackDotRefs.current = []
 
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+    handleResize()
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
+
   const getResponsiveWidth = () => {
     const raw = containerRef.current?.offsetWidth || window.innerWidth
-    return raw < 768 ? (7 / 8) * raw : (4 / 5) * raw
+    return isMobile ? (7 / 8) * raw : (4 / 5) * raw
   }
 
-  const lineWidth = () => (window.innerWidth < 768 ? 0.7 : 0.5)
-  const PATH_D_END = () =>
-    window.innerWidth < 768 ? `M30,1600 L30,0` : `M70,850 L70,0`
-  const BASE_PATH_HEIGHT = () => (window.innerWidth < 768 ? 1600 : 1000)
+  const lineWidth = () => (isMobile ? 0.7 : 0.5)
+  const PATH_D_END = () => (isMobile ? `M30,1600 L30,0` : `M70,800 L70,0`)
+  const BASE_PATH_HEIGHT = () => (isMobile ? 1600 : 1000)
 
   useEffect(() => {
     const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg")
@@ -64,7 +74,7 @@ const StraightLineProcess: React.FC = () => {
 
     setCircleCoords(points)
     return () => svg.remove()
-  }, [stepDetails])
+  }, [stepDetails, isMobile])
 
   const drawPath = (d: string) => {
     const canvas = canvasRef.current
@@ -74,10 +84,7 @@ const StraightLineProcess: React.FC = () => {
 
     const containerWidth = getResponsiveWidth()
     const scaleX = containerWidth / BASE_PATH_WIDTH
-    const scaleY =
-      window.innerWidth < 768
-        ? (1.9 * containerWidth) / BASE_PATH_WIDTH
-        : scaleX
+    const scaleY = isMobile ? (1.9 * containerWidth) / BASE_PATH_WIDTH : scaleX
 
     const dpr = window.devicePixelRatio || 1
     const newWidth = containerWidth
@@ -104,7 +111,7 @@ const StraightLineProcess: React.FC = () => {
 
   useEffect(() => {
     drawPath(PATH_D_END())
-  }, [circleCoords])
+  }, [circleCoords, isMobile])
 
   const searchParams = useSearchParams()
   const sectionIndex = parseInt(searchParams.get("section") || "11", 10)
@@ -140,7 +147,7 @@ const StraightLineProcess: React.FC = () => {
         })
 
         tl.to(box, {
-          scale: 1.08,
+          scale: isMobile ? 1.05 : 1.08,
           x: 20,
           duration: 0.6,
           ease: "power4.out",

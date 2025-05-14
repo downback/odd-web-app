@@ -12,6 +12,7 @@ interface ProcessDetailBoxProps {
   boxRef?: React.Ref<HTMLHeadingElement>
   titleRef?: React.Ref<HTMLHeadingElement>
   descRef?: React.Ref<HTMLParagraphElement>
+  bgRef?: React.Ref<HTMLDivElement>
   forceFixedPosition?: boolean // ✅ new prop
   isDetailPage?: boolean
 }
@@ -25,6 +26,7 @@ const ProcessDetailBox: React.FC<ProcessDetailBoxProps> = ({
   clickLink,
   boxRef,
   titleRef,
+  bgRef,
   descRef,
   forceFixedPosition,
   isDetailPage = false,
@@ -33,7 +35,7 @@ const ProcessDetailBox: React.FC<ProcessDetailBoxProps> = ({
     <div
       ref={boxRef}
       className={twMerge(
-        "absolute w-65 md:w-max h-fit ",
+        "absolute w-max md:w-max h-fit ",
         forceFixedPosition ? "top-0 left-8 md:left-12" : className
       )}
     >
@@ -71,11 +73,14 @@ const ProcessDetailBox: React.FC<ProcessDetailBoxProps> = ({
               <p>Learn More</p>
               <MdArrowOutward />
             </div>
-            <div className="w-full h-full absolute bottom-0 left-0 rounded-xl blur-md md:blur-xl bg-[#edebeb] -z-10" />
           </>
           //
         )}
       </div>
+      <div
+        ref={bgRef}
+        className="w-full h-full absolute bottom-0 left-0 rounded-xl blur-sm md:blur-xl bg-[#edebeb] -z-20"
+      />
     </div>
   )
 }

@@ -4,72 +4,72 @@
       {
         "title": "10. 그랜드 오프닝",
         "description": "오픈 행사 및 초기 점검",
-        "position": "top-0 -left-8 md:left-8 -translate-x-1/2 md:translate-x-0",
+        "position": "top-0 right-0 -translate-x-1/2 md:left-8 md:translate-x-2",
         "titlePosition": "",
         "btnPosition": "justify-start"
       },
       {
         "title": "9. 시스템 세팅",
         "description": "공급 계약 및 시스템 세팅",
-        "position": "top-0 left-2 md:left-12",
+        "position": "top-0 left-2 md:left-12 md:top-2",
         "titlePosition": "translate-x-8 md:translate-x-0",
         "btnPosition": "justify-start"
       },
       {
         "title": "8. 인력 채용 및 교육",
         "description": "인력 채용 및 교육",
-        "position": "top-0 left-6 md:top-0 md:left-36 text-left",
-        "titlePosition": "translate-x-0 md:-translate-x-16",
-        "btnPosition": "justify-start"
+        "position": "top-2 right-6 md:-top-2 md:left-0 md:translate-x-3/2 text-right md:text-left",
+        "titlePosition": "translate-x-0 md:-translate-x-24",
+        "btnPosition": "justify-end"
       },
       {
         "title": "7. 온라인 마케팅",
         "description": "웹사이트 제작 및 홍보 준비",
-        "position": "top-16 md:top-16 left-0 translate-x-0 md:left-0 md:-translate-x-1/5",
+        "position": "top-14 left-0 translate-x-0 md:top-0 md:left-14",
         "titlePosition": "",
         "btnPosition": "justify-start"
       },
       {
         "title": "6. 공사 및 설치",
         "description": "시공 및 장비·가구 설치",
-        "position": "top-8 md:top-12 right-0 translate-x-1/4 text-right",
+        "position": "top-8 -left-6 text-left md:top-12 ",
         "titlePosition": "",
-        "btnPosition": "justify-end"
+        "btnPosition": "justify-start md:justify-end"
       },
       {
         "title": "5. 인테리어 디자인",
         "description": "공간 구성 및 설비 계획",
-        "position": "-top-6 md:top-0 right-6 md:right-12 text-right",
-        "titlePosition": "-translate-x-4 md:translate-x-0",
+        "position": "-top-6 md:top-0 right-10 md:right-8 text-right",
+        "titlePosition": "-translate-x-4 md:-translate-x-6",
         "btnPosition": "justify-end"
       },
       {
         "title": "4. 브랜딩",
         "description": "로고·메뉴·간판 등 브랜드 디자인",
-        "position": "top-0 -left-24 md:-translate-x-1/2",
-        "titlePosition": "",
+        "position": "top-0 -left-24 md:right-0 md:-translate-x-2/3 text-left md:text-right",
+        "titlePosition": "translate-x-0 md:-translate-x-6",
         "btnPosition": "justify-start"
       },
       {
         "title": "3. 인허가 등록",
         "description": "사업자 등록, 인허가 및 규정 준수",
-        "position": "top-12 -right-12 translate-x-0  md:top-0 md:right-0 md:translate-x-1/2 text-right",
+        "position": "top-4 right-6 translate-x-0 text-right lg:top-0 lg:left-12 lg:text-left",
         "titlePosition": "",
-        "btnPosition": "justify-start"
+        "btnPosition": "justify-end"
       },
       {
         "title": "2. 입지 선정",
         "description": "입지 분석, 건물 확인, 임대 계약",
-        "position": "-top-6 md:top-0 left-8 md:-translate-x-2/3",
-        "titlePosition": "translate-x-2",
-        "btnPosition": "justify-start"
+        "position": "top-0 -right-2 md:right-0 md:-translate-x-2/5 text-right",
+        "titlePosition": "-translate-x-12 md:translate-x-6",
+        "btnPosition": "justify-end"
       },
       {
         "title": "1. 사업 기획",
         "description": "타깃 설정, 메뉴·예산·사업 계획 수립",
-        "position": "top-0 -right-20 md:left-0 translate-x-0 md:translate-x-1/2",
-        "titlePosition": "translate-x-0 md:-translate-x-12",
-        "btnPosition": "justify-start"
+        "position": "top-0 right-4 translate-x-0 text-right md:text-left md:left-0 md:translate-x-1/2",
+        "titlePosition": "-translate-x-6 md:-translate-x-12",
+        "btnPosition": "justify-end"
       }
     ],
     "introTextTop": "베를린에서 당신의 아이디어가",
@@ -98,7 +98,7 @@
           "음식 레시피 개발",
           "운영"
         ],
-        "projectText": "이질적인 것들과의 조화에서 오는 이상한 안정감을 컨셉으로 한 카페.  베를린에서 선보이는 세르비아 베이커의 디저트, 그리고 한국인이 내린 커피. 예전에 사용되었던 재료를 이용한 새로운 용도의 가구와 조명들.  "
+        "projectText": "칼국수 만드는 과정을 퍼포먼스처럼 감상하고, 테이블 위에서 음식을 음미하는 흐름을 공간에 담아낸 레스토랑."
       },
       {
         "title": "odd cafe",
@@ -106,13 +106,13 @@
         "location": "Zelterstraße 6, 10439 Berlin",
         "date": "April 2023",
         "scopeTags": [
-          "Consulting",
-          "Brand Identity (BI)",
-          "Interior Design",
-          "Food Recipe Development",
-          "Operations"
+          "컨설팅",
+          "BI",
+          "인테리어 디자인",
+          "음식 레시피 개발",
+          "운영"
         ],
-        "projectText": "A café built on the unique sense of comfort found in odd harmony. Featuring an unexpected pairing of desserts by a Serbian baker and coffee brewed by a Korean barista in Berlin. A space where aged materials are reassembled and transformed into furniture and lighting, creating a strangely balanced atmosphere."
+        "projectText": "이질적인 것들과의 조화에서 오는 이상한 안정감을 컨셉으로 한 카페.  베를린에서 선보이는 세르비아 베이커의 디저트, 그리고 한국인이 내린 커피. 예전에 사용되었던 재료를 이용한 새로운 용도의 가구와 조명들."
       },
       {
         "title": "리아빵",
@@ -146,7 +146,7 @@
       },
       {
         "title": "9. 시스템 구축",
-        "description": "- 식음료 공급 업체 선정 및 계약 <br/> - 딜리버리 업체 선정 및 계약 (Wolt, Lieferando, Uber Eats) <br/> - POS, 예약 및 결제 시스템 선정 및 계약"
+        "description": "- 식음료 공급 업체 선정 및 계약 <br/> - 딜리버리 업체 선정 및 계약 <br/> (Wolt, Lieferando, Uber Eats) <br/> - POS, 예약 및 결제 시스템 선정 및 계약"
       },
       {
         "title": "8. 직원 채용 및 교육",
@@ -242,8 +242,8 @@
     "openedArticle": "위에서 열람 중인 아티클입니다"
   },
   "contactPage": {
-    "radioBoxTitle": "1. 필요한 서비스 선택하기",
-    "messageBoxTitle": "2. 문의 메시지 보내기",
+    "radioBoxTitle": "필요한 서비스 선택하기",
+    "messageBoxTitle": "문의 메시지 보내기",
     "serviceReselectMessage": "필요한 서비스를 선택하러 가기",
     "requiredField": "필수 항목",
     "sendMessage": "메시지 보내기",

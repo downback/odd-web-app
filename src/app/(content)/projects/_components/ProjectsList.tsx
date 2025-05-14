@@ -6,6 +6,10 @@ import ProjectItem from "./ProjectItem"
 import { getDownloadURL, listAll, ref } from "firebase/storage"
 import { storage } from "../../../../services/firebase-config"
 
+import gsap from "gsap"
+import { ScrollToPlugin } from "gsap/ScrollToPlugin"
+gsap.registerPlugin(ScrollToPlugin)
+
 const ProjectsList: React.FC = () => {
   const { translations } = useContext(LanguageContext)
   const projects = translations.projectsPage.projectsList
@@ -41,28 +45,69 @@ const ProjectsList: React.FC = () => {
     fetchAllImages()
   }, [projects])
 
-  const handleToggle = (index: number) => {
-    const isCurrentlyOpen = openIndex === index
+  // const handleToggle = (index: number) => {
+  //   const isCurrentlyOpen = openIndex === index
 
-    if (!isCurrentlyOpen) {
+  //   if (!isCurrentlyOpen) {
+  //     const targetElement = projectRefs.current[index]
+  //     if (targetElement) {
+  //       const positionTopOffset = 176
+  //       const listHeight = 82
+  //       const scrollPosition = positionTopOffset + listHeight * index
+
+  //       window.scrollTo({
+  //         top: scrollPosition,
+  //         behavior: "smooth",
+  //       })
+  //     }
+
+  //     setTimeout(() => {
+  //       setOpenIndex(index)
+  //     }, 500)
+  //   } else {
+  //     setOpenIndex(null)
+  //   }
+  // }
+
+  const handleToggle = (index: number) => {
+    const isSameItem = openIndex === index
+
+    if (isSameItem) {
+      // Close if same item clicked again
+      setOpenIndex(null)
+      return
+    }
+
+    // Step 1: Close currently open
+    setOpenIndex(null)
+
+    // Step 2: Wait for collapse animation, then scroll
+    setTimeout(() => {
       const targetElement = projectRefs.current[index]
       if (targetElement) {
         const positionTopOffset = 176
         const listHeight = 82
         const scrollPosition = positionTopOffset + listHeight * index
 
-        window.scrollTo({
-          top: scrollPosition,
-          behavior: "smooth",
+        // window.scrollTo({
+        //   top: scrollPosition,
+        //   behavior: "smooth",
+        // })
+        gsap.to(window, {
+          scrollTo: {
+            y: scrollPosition,
+            // autoKill: true,
+          },
+          duration: 0.8,
+          ease: "power2.out",
         })
       }
 
+      // Step 3: After scroll, open the new one
       setTimeout(() => {
         setOpenIndex(index)
-      }, 500)
-    } else {
-      setOpenIndex(null)
-    }
+      }, 800) // Adjust to match scroll smooth duration
+    }, 600) // Adjust to match collapse animation duration
   }
 
   return (

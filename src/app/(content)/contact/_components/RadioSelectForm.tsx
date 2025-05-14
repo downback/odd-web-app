@@ -2,6 +2,8 @@
 
 import React, { useContext, useState, useEffect } from "react"
 import { LanguageContext } from "../../../../context/LanguageContext"
+import { PiNumberCircleOneFill } from "react-icons/pi";
+
 
 interface RadioSelectFormProps {
   selected: string[]
@@ -29,12 +31,12 @@ const RadioSelectForm: React.FC<RadioSelectFormProps> = ({
 
   return (
     <div className="w-5/6 lg:w-2/5">
-      <h2
-        lang="en"
-        className="text-2xl font-bold text-left text-black mb-6 md:mb-8"
-      >
-        {contactTranslation.radioBoxTitle}
-      </h2>
+      <div className="w-full h-full flex items-center gap-1 md:gap-2 mb-6 md:mb-8">
+        <PiNumberCircleOneFill className="text-2xl md:text-3xl font-semibold md:font-bold"/>
+        <h2 className="text-xl md:text-2xl font-semibold md:font-bold text-left">
+          {contactTranslation.radioBoxTitle}
+        </h2>
+      </div>
       <div className="w-full p-4 lg:p-6 border border-black rounded shadow-sm">
         <form className="space-y-3">
           {contactTranslation.options.map((option, index) => (

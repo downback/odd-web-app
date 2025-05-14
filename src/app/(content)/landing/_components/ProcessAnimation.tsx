@@ -44,11 +44,13 @@ const ProcessAnimation: React.FC = () => {
   const circleRefs = useRef<HTMLDivElement[]>([])
   const titleRefs = useRef<HTMLHeadingElement[]>([])
   const descRefs = useRef<HTMLParagraphElement[]>([])
+  const bgRefs = useRef<HTMLParagraphElement[]>([])
   const lastCircleRef = useRef<HTMLDivElement>(null)
 
   circleRefs.current = []
   titleRefs.current = []
   descRefs.current = []
+  bgRefs.current = []
 
   const getResponsiveWidth = () => {
     const raw = containerRef.current?.offsetWidth || window.innerWidth
@@ -177,51 +179,102 @@ const ProcessAnimation: React.FC = () => {
     })
   }
 
+  // useGSAP(() => {
+  //   circleRefs.current.forEach((el, i) => {
+  //     if (!el) return
+  //     const desc = descRefs.current[i]
+
+  //     if (desc) {
+  //       gsap.fromTo(
+  //         desc,
+  //         { y: 30, opacity: 0 },
+  //         {
+  //           y: 0,
+  //           opacity: 1,
+  //           duration: 0.6,
+  //           // delay: 0.6,
+  //           ease: "power3.out",
+  //           scrollTrigger: {
+  //             trigger: desc,
+  //             start: "top 75%",
+  //             end: "center 40%",
+  //             toggleActions: "play reverse play reverse",
+  //             // markers: true,
+  //           },
+  //         }
+  //       )
+  //     }
+  //   })
+
+  //   gsap.fromTo(
+  //     lastCircleRef.current,
+  //     { opacity: 0 },
+  //     {
+  //       opacity: 1,
+  //       repeat: -1,
+  //       yoyo: true,
+  //       duration: 0.4,
+  //       ease: "power1.inOut",
+  //       scrollTrigger: {
+  //         trigger: lastCircleRef.current,
+  //         start: "top 75%",
+  //         end: "center top",
+  //         toggleActions: "play pause resume reset",
+  //         // markers: true,
+  //       },
+  //     }
+  //   )
+  // }, [circleCoords])
+
   useGSAP(() => {
     circleRefs.current.forEach((el, i) => {
       if (!el) return
       const desc = descRefs.current[i]
+      const bg = bgRefs.current[i]
 
-      if (desc) {
-        gsap.fromTo(
-          desc,
-          { y: 30, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.6,
-            // delay: 0.6,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: desc,
-              start: "top 75%",
-              end: "center 40%",
-              toggleActions: "play reverse play reverse",
-              // markers: true,
-            },
-          }
-        )
-      }
-    })
-
-    gsap.fromTo(
-      lastCircleRef.current,
-      { opacity: 0 },
-      {
+      const animateIn = {
+        y: 0,
         opacity: 1,
-        repeat: -1,
-        yoyo: true,
-        duration: 0.4,
-        ease: "power1.inOut",
+        duration: 0.6,
+        ease: "power3.out",
         scrollTrigger: {
-          trigger: lastCircleRef.current,
+          trigger: desc || bg, // fall back to any available
           start: "top 75%",
-          end: "center top",
-          toggleActions: "play pause resume reset",
+          end: "center 40%",
+          toggleActions: "play reverse play reverse",
           // markers: true,
         },
       }
-    )
+
+      if (desc) {
+        gsap.fromTo(desc, { y: 30, opacity: 0 }, animateIn)
+      }
+
+      if (bg) {
+        gsap.fromTo(bg, { y: 30, opacity: 0 }, animateIn)
+      }
+    })
+
+    if (lastCircleRef.current) {
+      gsap.fromTo(
+        lastCircleRef.current,
+        { opacity: 0 },
+        {
+          opacity: 1,
+          repeat: -1,
+          yoyo: true,
+          duration: 0.4,
+          ease: "power1.inOut",
+          scrollTrigger: {
+            trigger: lastCircleRef.current,
+            start: "top 75%",
+            end: "center top",
+            toggleActions: "play pause resume reset",
+            // markers: true,
+          },
+        }
+      )
+    }
   }, [circleCoords])
 
   return (
@@ -306,7 +359,7 @@ const ProcessAnimation: React.FC = () => {
               ref={(el) => {
                 if (el) circleRefs.current[i] = el
               }}
-              className="absolute w-5 h-5 z-[200]"
+              className="absolute w-5 h-5 "
               style={{
                 left: `${x}px`,
                 top: `${y}px`,
@@ -317,7 +370,7 @@ const ProcessAnimation: React.FC = () => {
                 ref={(el) => {
                   if (el) circleRefs.current[i] = el
                 }}
-                className="w-5 h-5 bg-white border border-black rounded-full"
+                className="w-5 h-5 bg-white border border-black rounded-full z-[200]"
               />
               {step && (
                 <ProcessDetailBox
@@ -332,6 +385,9 @@ const ProcessAnimation: React.FC = () => {
                   }}
                   descRef={(el) => {
                     descRefs.current[i] = el as HTMLParagraphElement
+                  }}
+                  bgRef={(el) => {
+                    bgRefs.current[i] = el as HTMLParagraphElement
                   }}
                   forceFixedPosition={isMorphing}
                 />

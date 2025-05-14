@@ -4,7 +4,7 @@ import PageHeader from "@/components/ui/PageHeader"
 const ConsultingHeader: React.FC = () => {
   return (
     <>
-      <PageHeader titleTop="CONSULT" titleBottom="SERVICES" />
+      <PageHeader titleTop="BUSINESS" titleBottom="CONSULTING" />
     </>
   )
 }

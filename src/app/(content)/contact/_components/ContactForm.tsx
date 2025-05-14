@@ -8,6 +8,9 @@ import { LanguageContext } from "../../../../context/LanguageContext"
 import { MdArrowOutward } from "react-icons/md"
 import { twMerge } from "tailwind-merge"
 import ConfirmationModal from "@/components/ui/ConfirmationModal"
+import { PiNumberCircleTwoFill } from "react-icons/pi";
+
+
 
 interface ContactFormProps {
   selectedServices: string[]
@@ -72,9 +75,12 @@ const ContactForm: React.FC<ContactFormProps> = ({
 
   return (
     <div className="w-5/6 lg:w-2/5">
-      <h2 className="text-2xl font-bold text-left text-black mb-6 md:mb-8">
-        {ContactFormTranslation.messageBoxTitle}
-      </h2>
+      <div className="w-full h-full flex items-center gap-1 md:gap-2 mb-6 md:mb-8">
+        <PiNumberCircleTwoFill className="text-2xl md:text-3xl font-semibold md:font-bold"/>
+        <h2 className="text-xl md:text-2xl font-semibold md:font-bold text-left">
+          {ContactFormTranslation.messageBoxTitle}
+        </h2>
+      </div>
       <div className="w-full p-4 lg:p-6 border border-black rounded">
         <form onSubmit={formik.handleSubmit} className="space-y-4">
           <div>
