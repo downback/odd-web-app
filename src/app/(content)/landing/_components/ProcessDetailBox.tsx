@@ -66,7 +66,7 @@ const ProcessDetailBox: React.FC<ProcessDetailBoxProps> = ({
             <div
               onClick={clickLink}
               className={twMerge(
-                "cursor-pointer flex flex-row w-full md:justify-end pl-2 md:pl-0 mt-2 md:mt-4 text-sm md:text-base",
+                "w-sm md:w-full cursor-pointer flex flex-row md:justify-end pl-2 md:pl-0 mt-2 md:mt-4 text-sm md:text-base",
                 !forceFixedPosition && btnClassName
               )}
             >

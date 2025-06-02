@@ -54,13 +54,11 @@ const ContactForm: React.FC<ContactFormProps> = ({
         )
 
         if (!res.ok) throw new Error("Failed to send message")
-
-        // alert("Message sent successfully!")
         setModalOpen(true)
         resetForm()
       } catch (error) {
         console.error(error)
-        setModalOpen(true)
+        // setModalOpen(true)
         alert("Something went wrong. Please try again later.")
       }
     },
