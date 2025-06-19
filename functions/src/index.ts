@@ -34,18 +34,19 @@ app.post(
       })
 
       await transporter.sendMail({
-        to: process.env.GMAIL_TO,
+        // to: process.env.GMAIL_TO,
+        to: [process.env.GMAIL_TO, email],
         from: email,
-        subject: `Odd Office Inquiry from ${name}`,
+        subject: `${name}님께서 Odd Office에 문의하셨습니다.`,
         html: `
-        <h2>New Inquiry from Odd Office Contact Form</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Contact Detail:</strong> ${number || "N/A"}</p>
-        <p><strong>Selected Services:</strong> ${
+        <h2>Odd Office Contact 문의사항</h2>
+        <p><strong>성함 / Name: </strong> ${name}</p>
+        <p><strong>이메일 / Email: </strong> ${email}</p>
+        <p><strong>연락처 / Contact Detail: </strong> ${number || "-"}</p>
+        <p><strong>요청 서비스 / Selected Services: </strong> ${
           Array.isArray(selectedServices)
             ? selectedServices.join(", ")
-            : selectedServices || "N/A"
+            : selectedServices || "-"
         }</p>
         <p><strong>Message:</strong></p>
         <p>${message || "No message provided"}</p>
