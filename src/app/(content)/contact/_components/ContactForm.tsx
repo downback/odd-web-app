@@ -39,17 +39,14 @@ const ContactForm: React.FC<ContactFormProps> = ({
     }),
     onSubmit: async (values, { resetForm }) => {
       try {
-        const res = await fetch(
-          "https://us-central1-odd-office.cloudfunctions.net/api/send",
-          {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              ...values,
-              interests: selectedServices,
-            }),
-          }
-        )
+        const res = await fetch("/api/send", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            ...values,
+            selectedServices,
+          }),
+        })
 
         if (!res.ok) throw new Error("Failed to send message")
         setModalOpen(true)
