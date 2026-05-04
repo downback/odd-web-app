@@ -1,8 +1,9 @@
 
 ## immigration
-- [ ] remove firebase related files, code
 - [ ] supabase setting
 - [ ] page transition loaders
+
+- [ ] remove firebase related files, code
 
 - [ ] favicon
 - [ ] admin page update

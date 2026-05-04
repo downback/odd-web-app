@@ -1,6 +1,5 @@
 import "../globals.css"
 import { ReactNode } from "react"
-import Head from "next/head"
 
 import Layout from "@/components/layouts/Layout"
 import { ContextWrapper } from "../../context/context-wrapper"
@@ -22,14 +21,14 @@ const noto = Noto_Sans_KR({
 export const metadata = {
   title: "Odd Office",
   description: "We are Odd Office",
+  icons: {
+    icon: "/images/logo.ico",
+  },
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="ko" className={`${nunito.variable} ${noto.variable}`}>
-      <Head>
-        <link rel="icon" href="/images/logo.ico" />
-      </Head>
       <body>
         <ContextWrapper>
           <Layout>{children}</Layout>
@@ -94,8 +93,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 
 //[ ] 모바일에서 랜딩페이지 디자인이 너무 꽉차 보여서 애니메이션 살짝 변경
 //[ ] landing page video loading earlier
-//[ ] firebase api rule
-//[ ] admin 페이지 로그인 기능 추가
+//[x] supabase api rule
+//[x] admin 페이지 로그인 기능 추가
 //[ ] admin 업로드 된 아이템들 순서 수정
 //[ ] projects 페이지 종이 열리는 애니메이션 더 스무스하게 변경
 //[ ] info@odd-office.de 연결 안되는 버그 수정
