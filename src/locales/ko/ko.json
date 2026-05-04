@@ -87,10 +87,21 @@
     "scopeOfWorks": "참여 범위",
     "projectsList": [
       {
+        "title": "헬로82",
+        "subTitle": "Korea culture Event hall",
+        "location": "Saarbrücker Str. 5, 10405 Berlin",
+        "date": "2025년 12월",
+        "scopeTags": [
+          "인테리어 디자인",
+          "시공"
+        ],
+        "projectText": "과거 마굿간 공간의 헤리티지를 유지한 채, K-culture를 위한 다양한 이벤트와 활동이 유연하게 펼쳐질 수 있도록 무대와 판매 공간, 모듈형 가구를 통합적으로 디자인한 프로젝트입니다."
+      },
+      {
         "title": "Sword Master Noodle",
         "subTitle": "칼국수 레스토랑",
         "location": "Dunckerstraße 30, 10439 Berlin",
-        "date": "September 2022",
+        "date": "2022년 9월",
         "scopeTags": [
           "컨설팅",
           "BI",
@@ -104,7 +115,7 @@
         "title": "odd cafe",
         "subTitle": "카페",
         "location": "Zelterstraße 6, 10439 Berlin",
-        "date": "April 2023",
+        "date": "2023년 4월",
         "scopeTags": [
           "컨설팅",
           "BI",
@@ -118,7 +129,7 @@
         "title": "리아빵",
         "subTitle": "한국식 카페",
         "location": "Choriner Straße 45, 10435 Berlin",
-        "date": "February 2021",
+        "date": "2021년 2월",
         "scopeTags": ["컨설팅", "BI", "인테리어 디자인", "시공"],
         "projectText": "호두과자 팬 하나로 시작해 ‘리아빵’ 카페를 만든 운영자 ‘리아’의 개성이 자연스럽게 스며들 수 있도록, 공간의 여백을 살려 유연한 분위기를 조성하는 것을 목표로 한 프로젝트였습니다. 기존 치킨집 창고였던 공간을 새로운 감각의 카페로 전환하였습니다."
       },
@@ -126,7 +137,7 @@
         "title": "고고기",
         "subTitle": "한식 레스토랑",
         "location": "Weinbergsweg 24, 10119 Berlin",
-        "date": "March 2015",
+        "date": "2015년 3월",
         "scopeTags": [
           "컨설팅",
           "BI",

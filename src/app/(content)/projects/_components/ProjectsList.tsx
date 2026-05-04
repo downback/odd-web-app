@@ -3,8 +3,7 @@
 import React, { useContext, useState, useEffect, useRef } from "react"
 import { LanguageContext } from "../../../../context/LanguageContext"
 import ProjectItem from "./ProjectItem"
-import { getDownloadURL, listAll, ref } from "firebase/storage"
-import { storage } from "../../../../services/firebase-config"
+import { getSupabaseClient } from "../../../../services/supabase-client"
 
 import gsap from "gsap"
 import { ScrollToPlugin } from "gsap/ScrollToPlugin"
@@ -23,12 +22,28 @@ const ProjectsList: React.FC = () => {
     const fetchAllImages = async () => {
       const allImages: string[][] = await Promise.all(
         projects.map(async (_project, index) => {
-          const folderRef = ref(storage, `projects/project${index + 1}`)
+          const folderPath = `project${index + 1}`
           try {
-            const result = await listAll(folderRef)
-            const urls = await Promise.all(
-              result.items.map((itemRef) => getDownloadURL(itemRef))
-            )
+            const supabase = getSupabaseClient()
+            const { data, error } = await supabase.storage
+              .from("projects")
+              .list(folderPath, {
+                limit: 100,
+                sortBy: { column: "name", order: "asc" },
+              })
+
+            if (error) throw error
+
+            const urls = (data || [])
+              .filter((item) => item.name && !item.name.startsWith("."))
+              .map((item) => {
+                const { data: publicUrlData } = supabase.storage
+                  .from("projects")
+                  .getPublicUrl(`${folderPath}/${item.name}`)
+
+                return publicUrlData.publicUrl
+              })
+
             return urls
           } catch (error) {
             console.error(

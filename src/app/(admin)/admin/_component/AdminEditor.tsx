@@ -1,9 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { storage, db } from "../../../../services/firebase-config"
-import { ref, uploadBytes, getDownloadURL } from "firebase/storage"
-import { addDoc, collection, Timestamp } from "firebase/firestore"
+import { getSupabaseClient } from "../../../../services/supabase-client"
 import { useFormik } from "formik"
 import * as Yup from "yup"
 
@@ -33,15 +31,35 @@ const AdminEditor: React.FC = () => {
       setLoading(true)
 
       try {
-        const imageRef = ref(storage, `uploads/${Date.now()}-${imageFile.name}`)
-        await uploadBytes(imageRef, imageFile)
-        const imageUrl = await getDownloadURL(imageRef)
+        const supabase = getSupabaseClient()
+        const sanitizedFileName = imageFile.name.replace(/[^a-zA-Z0-9.-]/g, "-")
+        const imagePath = `${Date.now()}-${sanitizedFileName}`
+        const { error: uploadError } = await supabase.storage
+          .from("updates")
+          .upload(imagePath, imageFile, {
+            cacheControl: "3600",
+            upsert: false,
+          })
 
-        await addDoc(collection(db, "updates"), {
-          ...values,
-          imageUrl,
-          createdAt: Timestamp.now(),
+        if (uploadError) throw uploadError
+
+        const { data: publicUrlData } = supabase.storage
+          .from("updates")
+          .getPublicUrl(imagePath)
+
+        const { error: insertError } = await supabase.from("updates").insert({
+          title: values.title,
+          date: values.date,
+          description: values.description,
+          image_url: publicUrlData.publicUrl,
+          image_path: imagePath,
+          created_at: new Date().toISOString(),
         })
+
+        if (insertError) {
+          await supabase.storage.from("updates").remove([imagePath])
+          throw insertError
+        }
 
         resetForm()
         setImageFile(null)

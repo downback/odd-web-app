@@ -87,6 +87,17 @@
     "scopeOfWorks": "Scope of Works",
     "projectsList": [
       {
+        "title": "HELLO82",
+        "subTitle": "Korea culture Event hall",
+        "location": "Saarbrücker Str. 5, 10405 Berlin",
+        "date": "December 2025",
+        "scopeTags": [
+          "Interior Design",
+          "Construction"
+        ],
+        "projectText": "This project preserves the heritage of a former stable while reinterpreting the space to support a wide range of K-culture events and activities. The stage, retail area, and modular furniture were designed in an integrated way to create a flexible and cohesive environment."
+      },
+      {
         "title": "Sword Master Noodle",
         "subTitle": "Korean Noodle Restaurant",
         "location": "Dunckerstraße 30, 10439 Berlin",

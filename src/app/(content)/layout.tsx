@@ -28,7 +28,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="ko" className={`${nunito.variable} ${noto.variable}`}>
       <Head>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/images/logo.ico" />
       </Head>
       <body>
         <ContextWrapper>

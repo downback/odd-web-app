@@ -1,9 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { db, storage } from "../../../../services/firebase-config"
-import { collection, getDocs, deleteDoc, doc } from "firebase/firestore"
-import { ref, deleteObject } from "firebase/storage"
+import { getSupabaseClient } from "../../../../services/supabase-client"
 
 interface UpdateItem {
   id: string
@@ -11,17 +9,33 @@ interface UpdateItem {
   description: string
   date: string
   imageUrl: string
+  imagePath?: string | null
 }
 
 const AdminBoard: React.FC = () => {
   const [updates, setUpdates] = useState<UpdateItem[]>([])
 
   const fetchUpdates = async () => {
-    const snapshot = await getDocs(collection(db, "updates"))
-    const data = snapshot.docs.map((doc) => ({
-      id: doc.id,
-      ...doc.data(),
-    })) as UpdateItem[]
+    const supabase = getSupabaseClient()
+    const { data: updatesData, error } = await supabase
+      .from("updates")
+      .select("id,title,description,date,image_url,image_path")
+      .order("date", { ascending: false })
+
+    if (error) {
+      console.error("Failed to fetch updates:", error)
+      return
+    }
+
+    const data: UpdateItem[] = (updatesData || []).map((item) => ({
+      id: item.id,
+      title: item.title,
+      description: item.description,
+      date: item.date,
+      imageUrl: item.image_url,
+      imagePath: item.image_path,
+    }))
+
     setUpdates(data)
   }
 
@@ -29,15 +43,28 @@ const AdminBoard: React.FC = () => {
     fetchUpdates()
   }, [])
 
-  const handleDelete = async (id: string, imageUrl: string) => {
+  const handleDelete = async (id: string, imagePath?: string | null) => {
     const confirmDelete = confirm("Are you sure you want to delete this?")
     if (!confirmDelete) return
 
     try {
-      const path = decodeURIComponent(imageUrl.split("/o/")[1].split("?")[0])
-      const imageRef = ref(storage, path)
-      await deleteObject(imageRef)
-      await deleteDoc(doc(db, "updates", id))
+      const supabase = getSupabaseClient()
+
+      if (imagePath) {
+        const { error: storageError } = await supabase.storage
+          .from("updates")
+          .remove([imagePath])
+
+        if (storageError) throw storageError
+      }
+
+      const { error: deleteError } = await supabase
+        .from("updates")
+        .delete()
+        .eq("id", id)
+
+      if (deleteError) throw deleteError
+
       alert("Deleted successfully")
       fetchUpdates()
     } catch (error) {
@@ -60,7 +87,7 @@ const AdminBoard: React.FC = () => {
             <div className="font-semibold">{item.title}</div>
             <div className="text-sm text-gray-500">{item.date}</div>
             <button
-              onClick={() => handleDelete(item.id, item.imageUrl)}
+              onClick={() => handleDelete(item.id, item.imagePath)}
               className="bg-red-600 text-white text-sm px-3 py-1 rounded hover:bg-red-700 w-fit"
             >
               Delete

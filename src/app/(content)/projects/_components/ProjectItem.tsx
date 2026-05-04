@@ -248,7 +248,9 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
                 >
                   <div className="w-auto h-full overflow-hidden flex items-center relative">
                     {!imageLoaded[idx] && (
-                      <div className="absolute z-10 inset-0 bg-gray-200 animate-pulse" />
+                      <div className="absolute z-10 inset-0 flex items-center justify-center">
+                        <div className="w-8 h-8 border-2 border-transparent border-t-stone-900 rounded-full animate-spin" />
+                      </div>
                     )}
                     <Image
                       src={url}
