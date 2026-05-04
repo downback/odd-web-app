@@ -205,7 +205,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({ titleTop, titleBottom }) => {
       <div
         lang="en"
         ref={headerBoxRef}
-        className="z-30 sticky top-12 w-full pb-6 sm:pb-10 text-5xl sm:text-6xl xl:text-7xl border-b-[1.2px] border-stone-100 inset-shadow-[0_-1.2px_0_0_rgba(0,0,0,0.05)]"
+        className="z-30 sticky top-12 w-full pb-6 md:pb-10 text-5xl md:text-6xl xl:text-7xl border-b-[1.2px] border-stone-100 inset-shadow-[0_-1.2px_0_0_rgba(0,0,0,0.05)]"
       >
         <div
           ref={textBoxRef}

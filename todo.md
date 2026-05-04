@@ -5,6 +5,9 @@
 
 - [ ] remove firebase related files, code
 
+10. **Remove Firebase Last**
+11. **Verify End-to-End**
+
 - [ ] favicon
 - [ ] admin page update
 - [ ] main page animation
@@ -99,6 +102,7 @@
    - Remove `firebase`, `firebase-tools`
    - Remove `functions/`, `firebase.json`, `firestore.indexes.json` if no longer needed
    - Run `npm install` to refresh lockfile
+
 
 11. **Verify End-to-End**
    - `npm run build`

@@ -69,8 +69,8 @@ const ContactForm: React.FC<ContactFormProps> = ({
   return (
     <div className="w-5/6 lg:w-2/5">
       <div className="w-full h-full flex items-center gap-1 md:gap-2 mb-6 md:mb-8">
-        <PiNumberCircleTwoFill className="text-2xl md:text-3xl font-semibold md:font-bold" />
-        <h2 className="text-xl md:text-2xl font-semibold md:font-bold text-left">
+        <PiNumberCircleTwoFill className="text-2xl font-semibold" />
+        <h2 className="text-xl font-normal text-left">
           {ContactFormTranslation.messageBoxTitle}
         </h2>
       </div>

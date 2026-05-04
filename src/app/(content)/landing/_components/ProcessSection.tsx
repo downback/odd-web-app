@@ -57,7 +57,7 @@ const ProcessSection: React.FC = () => {
       <div
         ref={textTriggerRef}
         lang="en"
-        className="font-bold text-5xl md:text-6xl w-full h-full flex flex-col justify-center items-center"
+        className="font-bold text-5xl md:text-6xl xl:text-7xl w-full h-full flex flex-col justify-center items-center"
       >
         <div className="w-full md:w-4/7 h-max overflow-hidden font-medium px-1">
           <div className="w-full h-fit flex justify-center">WELCOME TO</div>

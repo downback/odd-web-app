@@ -91,7 +91,7 @@ const LandingVideoSection: React.FC = () => {
           className=" w-full h-48 flex justify-between px-4 pt-0 md:pt-2"
         >
           <div className="w-1/2 md:w-2/5 h-full">
-            <h3 className="text-xl text-bold" lang="en">
+            <h3 className="text-xl font-bold" lang="en">
               odd office
             </h3>
             <div className="text-sm">
@@ -118,7 +118,7 @@ const LandingVideoSection: React.FC = () => {
           className=" w-full h-48 flex justify-center items-center"
         >
           <div className="w-auto h-auto text-center ">
-            <div lang="en" className="text-lg md:text-xl text-bold">
+            <div lang="en" className="text-lg md:text-xl font-bold">
               Do you get curious about us?
             </div>
             <Link href="/aboutUs" className="w-fit">
