@@ -22,7 +22,7 @@ const ProjectsList: React.FC = () => {
     const fetchAllImages = async () => {
       const allImages: string[][] = await Promise.all(
         projects.map(async (_project, index) => {
-          const folderPath = `project${index + 1}`
+          const folderPath = `project${projectListLength - index}`
           try {
             const supabase = getSupabaseClient()
             const { data, error } = await supabase.storage
@@ -58,7 +58,7 @@ const ProjectsList: React.FC = () => {
     }
 
     fetchAllImages()
-  }, [projects])
+  }, [projects, projectListLength])
 
   // const handleToggle = (index: number) => {
   //   const isCurrentlyOpen = openIndex === index
