@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useRef, useEffect, useState, useContext } from "react"
+import React, { useRef, useEffect, useState, useContext, useMemo, useCallback } from "react"
 import { useSearchParams } from "next/navigation"
 import { LanguageContext } from "../../../../context/LanguageContext"
 import ProcessDetailBox from "../../landing/_components/ProcessDetailBox"
@@ -18,7 +18,10 @@ const BASE_PATH_WIDTH = 377.35
 
 const StraightLineProcess: React.FC = () => {
   const { translations } = useContext(LanguageContext)
-  const stepDetails = translations?.consultingPage.consultingSteps || []
+  const stepDetails = useMemo(
+    () => translations?.consultingPage.consultingSteps || [],
+    [translations]
+  )
 
   const [circleCoords, setCircleCoords] = useState<CircleData[]>([])
   const [isMobile, setIsMobile] = useState(false)
@@ -41,14 +44,20 @@ const StraightLineProcess: React.FC = () => {
     return () => window.removeEventListener("resize", handleResize)
   }, [])
 
-  const getResponsiveWidth = () => {
+  const getResponsiveWidth = useCallback(() => {
     const raw = containerRef.current?.offsetWidth || window.innerWidth
     return isMobile ? (7 / 8) * raw : (4 / 5) * raw
-  }
+  }, [isMobile])
 
-  const lineWidth = () => (isMobile ? 0.7 : 0.5)
-  const PATH_D_END = () => (isMobile ? `M30,1600 L30,0` : `M70,800 L70,0`)
-  const BASE_PATH_HEIGHT = () => (isMobile ? 1600 : 1000)
+  const lineWidth = useCallback(() => (isMobile ? 0.7 : 0.5), [isMobile])
+  const PATH_D_END = useCallback(
+    () => (isMobile ? `M30,1600 L30,0` : `M70,800 L70,0`),
+    [isMobile]
+  )
+  const BASE_PATH_HEIGHT = useCallback(
+    () => (isMobile ? 1600 : 1000),
+    [isMobile]
+  )
 
   useEffect(() => {
     const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg")
@@ -74,44 +83,47 @@ const StraightLineProcess: React.FC = () => {
 
     setCircleCoords(points)
     return () => svg.remove()
-  }, [stepDetails, isMobile])
+  }, [stepDetails, PATH_D_END])
 
-  const drawPath = (d: string) => {
-    const canvas = canvasRef.current
-    if (!canvas) return
-    const ctx = canvas.getContext("2d")
-    if (!ctx) return
+  const drawPath = useCallback(
+    (d: string) => {
+      const canvas = canvasRef.current
+      if (!canvas) return
+      const ctx = canvas.getContext("2d")
+      if (!ctx) return
 
-    const containerWidth = getResponsiveWidth()
-    const scaleX = containerWidth / BASE_PATH_WIDTH
-    const scaleY = isMobile ? (1.9 * containerWidth) / BASE_PATH_WIDTH : scaleX
+      const containerWidth = getResponsiveWidth()
+      const scaleX = containerWidth / BASE_PATH_WIDTH
+      const scaleY = isMobile ? (1.9 * containerWidth) / BASE_PATH_WIDTH : scaleX
 
-    const dpr = window.devicePixelRatio || 1
-    const newWidth = containerWidth
-    const newHeight = BASE_PATH_HEIGHT() * scaleY
+      const dpr = window.devicePixelRatio || 1
+      const newWidth = containerWidth
+      const newHeight = BASE_PATH_HEIGHT() * scaleY
 
-    canvas.width = newWidth * dpr
-    canvas.height = newHeight * dpr
-    canvas.style.width = `${newWidth}px`
-    canvas.style.height = `${newHeight}px`
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
+      canvas.width = newWidth * dpr
+      canvas.height = newHeight * dpr
+      canvas.style.width = `${newWidth}px`
+      canvas.style.height = `${newHeight}px`
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
 
-    const path2D = new Path2D(d)
-    const offsetX = (newWidth - BASE_PATH_WIDTH * scaleX) / 2
+      const path2D = new Path2D(d)
+      const offsetX = (newWidth - BASE_PATH_WIDTH * scaleX) / 2
 
-    ctx.clearRect(0, 0, canvas.width, canvas.height)
-    ctx.save()
-    ctx.translate(offsetX, 0)
-    ctx.scale(scaleX, scaleY)
-    ctx.strokeStyle = "black"
-    ctx.lineWidth = lineWidth()
-    ctx.stroke(path2D)
-    ctx.restore()
-  }
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
+      ctx.save()
+      ctx.translate(offsetX, 0)
+      ctx.scale(scaleX, scaleY)
+      ctx.strokeStyle = "black"
+      ctx.lineWidth = lineWidth()
+      ctx.stroke(path2D)
+      ctx.restore()
+    },
+    [isMobile, getResponsiveWidth, lineWidth, BASE_PATH_HEIGHT]
+  )
 
   useEffect(() => {
     drawPath(PATH_D_END())
-  }, [circleCoords, isMobile])
+  }, [circleCoords, drawPath, PATH_D_END])
 
   const searchParams = useSearchParams()
   const sectionIndex = parseInt(searchParams.get("section") || "11", 10)

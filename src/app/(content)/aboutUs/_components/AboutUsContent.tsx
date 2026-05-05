@@ -1,6 +1,7 @@
 "use client"
 
-import React, { useState, useContext, useRef, useEffect } from "react"
+import React, { useState, useContext, useEffect } from "react"
+import Image from "next/image"
 import { LanguageContext } from "../../../../context/LanguageContext"
 import { twMerge } from "tailwind-merge"
 
@@ -12,8 +13,6 @@ const AboutUsContent: React.FC = () => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
   const [showImage, setShowImage] = useState(false)
   const [imageUrl, setImageUrl] = useState<string | null>(null)
-
-  const imageRef = useRef<HTMLImageElement>(null)
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -105,10 +104,12 @@ const AboutUsContent: React.FC = () => {
             </div>
           </div>
           {showImage && imageUrl && (
-            <img
-              ref={imageRef}
+            <Image
               src={imageUrl}
               alt="Profile"
+              width={120}
+              height={120}
+              unoptimized
               className="absolute w-30 h-30 shadow-lg z-50 object-cover"
               style={{
                 top: mousePos.y,

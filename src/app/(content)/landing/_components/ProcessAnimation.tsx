@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useRef, useEffect, useState, useContext } from "react"
+import React, { useRef, useEffect, useState, useContext, useMemo, useCallback } from "react"
 import { useRouter } from "next/navigation"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
@@ -28,7 +28,10 @@ const BASE_PATH_HEIGHT = 906.8
 const ProcessAnimation: React.FC = () => {
   const { translations } = useContext(LanguageContext)
   const router = useRouter()
-  const stepDetails = translations?.landingPage.processSteps || []
+  const stepDetails = useMemo(
+    () => translations?.landingPage.processSteps || [],
+    [translations]
+  )
 
   const [circleCoords, setCircleCoords] = useState<CircleData[]>([])
   const [currentPath, setCurrentPath] = useState(PATH_D_START)
@@ -52,19 +55,19 @@ const ProcessAnimation: React.FC = () => {
   descRefs.current = []
   bgRefs.current = []
 
-  const getResponsiveWidth = () => {
+  const getResponsiveWidth = useCallback(() => {
     const raw = containerRef.current?.offsetWidth || window.innerWidth
     if (raw < 768) return (7 / 8) * raw
     if (raw >= 768) return (4 / 5) * raw
     return raw
-  }
+  }, [])
 
-  const lineWidth = () => {
+  const lineWidth = useCallback(() => {
     const w = window.innerWidth
     if (w < 768) return 0.7
     if (w >= 768) return 0.5
     return w
-  }
+  }, [])
 
   useEffect(() => {
     const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg")
@@ -99,7 +102,7 @@ const ProcessAnimation: React.FC = () => {
     }
   }, [stepDetails])
 
-  const drawPath = (d: string) => {
+  const drawPath = useCallback((d: string) => {
     const canvas = canvasRef.current
     if (!canvas) return
     const ctx = canvas.getContext("2d")
@@ -133,13 +136,13 @@ const ProcessAnimation: React.FC = () => {
     ctx.lineWidth = lineWidth()
     ctx.stroke(path2D)
     ctx.restore()
-  }
+  }, [getResponsiveWidth, lineWidth])
 
   // Animate Morph
 
   useEffect(() => {
     drawPath(currentPath)
-  }, [currentPath])
+  }, [currentPath, drawPath])
 
   const handleMorph = (index: number) => {
     setIsMorphing(true)
