@@ -91,28 +91,38 @@ const AdminAuthGate: React.FC<AdminAuthGateProps> = ({ children }) => {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <p className="text-sm text-stone-500">Checking admin session...</p>
+      <div className="flex min-h-screen items-center justify-center px-6">
+        <p className="rounded-full border border-stone-200 bg-white px-4 py-2 text-sm text-stone-500 shadow-sm">
+          Checking admin session...
+        </p>
       </div>
     )
   }
 
   if (!userEmail) {
     return (
-      <div className="min-h-screen flex items-center justify-center px-6">
+      <div className="flex min-h-screen items-center justify-center px-6">
         <form
           onSubmit={handleSignIn}
-          className="w-full max-w-sm border border-black rounded p-6 space-y-4"
+          className="w-full max-w-sm space-y-5 rounded-lg border border-stone-200 bg-white p-6 shadow-sm"
         >
           <div>
-            <h1 className="text-2xl font-bold">Admin Login</h1>
-            <p className="text-sm text-stone-500 mt-1">
+            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-stone-400">
+              Odd Office
+            </p>
+            <h1 className="text-2xl font-semibold tracking-tight">
+              Admin login
+            </h1>
+            <p className="mt-1 text-sm text-stone-500">
               Sign in with your Supabase admin account.
             </p>
           </div>
 
           <div>
-            <label htmlFor="admin-email" className="block font-semibold mb-1">
+            <label
+              htmlFor="admin-email"
+              className="mb-2 block text-sm font-semibold text-stone-700"
+            >
               Email
             </label>
             <input
@@ -122,14 +132,14 @@ const AdminAuthGate: React.FC<AdminAuthGateProps> = ({ children }) => {
               onChange={(event) => setEmail(event.target.value)}
               required
               autoComplete="email"
-              className="w-full p-2 border border-black rounded"
+              className="w-full rounded-md border border-stone-200 bg-stone-50 px-3 py-2.5 text-sm outline-none transition focus:border-stone-950 focus:bg-white focus:ring-4 focus:ring-stone-200"
             />
           </div>
 
           <div>
             <label
               htmlFor="admin-password"
-              className="block font-semibold mb-1"
+              className="mb-2 block text-sm font-semibold text-stone-700"
             >
               Password
             </label>
@@ -140,7 +150,7 @@ const AdminAuthGate: React.FC<AdminAuthGateProps> = ({ children }) => {
               onChange={(event) => setPassword(event.target.value)}
               required
               autoComplete="current-password"
-              className="w-full p-2 border border-black rounded"
+              className="w-full rounded-md border border-stone-200 bg-stone-50 px-3 py-2.5 text-sm outline-none transition focus:border-stone-950 focus:bg-white focus:ring-4 focus:ring-stone-200"
             />
           </div>
 
@@ -153,7 +163,7 @@ const AdminAuthGate: React.FC<AdminAuthGateProps> = ({ children }) => {
           <button
             type="submit"
             disabled={submitting}
-            className="w-full bg-black text-white py-2 rounded hover:bg-stone-800 transition disabled:bg-stone-500"
+            className="w-full rounded-md bg-stone-950 py-2.5 text-sm font-semibold text-white transition hover:bg-stone-700 disabled:cursor-not-allowed disabled:bg-stone-400"
           >
             {submitting ? "Signing in..." : "Sign In"}
           </button>
@@ -164,17 +174,19 @@ const AdminAuthGate: React.FC<AdminAuthGateProps> = ({ children }) => {
 
   if (!isAdmin) {
     return (
-      <div className="min-h-screen flex items-center justify-center px-6">
-        <div className="w-full max-w-sm border border-black rounded p-6 space-y-4">
+      <div className="flex min-h-screen items-center justify-center px-6">
+        <div className="w-full max-w-sm space-y-4 rounded-lg border border-stone-200 bg-white p-6 shadow-sm">
           <div>
-            <h1 className="text-2xl font-bold">Access Blocked</h1>
-            <p className="text-sm text-stone-500 mt-1">
+            <h1 className="text-2xl font-semibold tracking-tight">
+              Access blocked
+            </h1>
+            <p className="mt-1 text-sm text-stone-500">
               You are signed in, but this account is not registered as an
               admin.
             </p>
           </div>
 
-          <div className="border border-stone-300 rounded p-3 text-sm text-stone-600 overflow-hidden text-ellipsis">
+          <div className="overflow-hidden text-ellipsis rounded-md border border-stone-200 bg-stone-50 p-3 text-sm text-stone-600">
             {userEmail}
           </div>
 
@@ -187,7 +199,7 @@ const AdminAuthGate: React.FC<AdminAuthGateProps> = ({ children }) => {
           <button
             type="button"
             onClick={handleSignOut}
-            className="w-full border border-black py-2 rounded hover:bg-black hover:text-white transition"
+            className="w-full rounded-md border border-stone-950 py-2.5 text-sm font-semibold transition hover:bg-stone-950 hover:text-white"
           >
             Sign Out
           </button>
@@ -198,19 +210,21 @@ const AdminAuthGate: React.FC<AdminAuthGateProps> = ({ children }) => {
 
   return (
     <div>
-      <div className="max-w-2xl mx-auto px-6 pt-8 flex justify-between items-center gap-4">
-        <p className="text-sm text-stone-500 overflow-hidden text-ellipsis">
-          Signed in as {userEmail}
-        </p>
-        <button
-          type="button"
-          onClick={handleSignOut}
-          className="border border-black px-3 py-1 rounded text-sm hover:bg-black hover:text-white transition"
-        >
-          Sign Out
-        </button>
-      </div>
       {children}
+      <div className="border-t border-stone-200 bg-white/80 backdrop-blur">
+        <div className="mx-auto flex w-full items-center justify-between gap-4 px-5 py-4 sm:px-8">
+          <p className="overflow-hidden text-ellipsis text-sm text-stone-500">
+            Signed in as <span className="font-semibold">{userEmail}</span>
+          </p>
+          <button
+            type="button"
+            onClick={handleSignOut}
+            className="shrink-0 rounded-md border border-stone-950 px-3 py-1.5 text-sm font-semibold transition hover:bg-stone-950 hover:text-white"
+          >
+            Sign Out
+          </button>
+        </div>
+      </div>
     </div>
   )
 }

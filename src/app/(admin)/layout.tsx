@@ -25,7 +25,9 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
     <html lang="en" className={`${nunito.variable} ${noto.variable}`}>
       <body>
         <ContextWrapper>
-          <main className="min-h-screen p-6">{children}</main>
+          <main className="min-h-screen bg-[#f6f3ef]/90 text-stone-950">
+            {children}
+          </main>
         </ContextWrapper>
       </body>
     </html>

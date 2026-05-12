@@ -84,54 +84,56 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
       height: isOpen ? targetHeight : 0,
       visibility: isOpen ? "visible" : "hidden",
       scaleY: isOpen ? 1 : 0,
-      duration: 0.55,
-      ease: "circ.in",
+      duration: 0.7,
+      ease: isOpen ? "power3.out" : "power2.in",
     })
 
     gsap.to(leftBorderRef.current, {
       x: isOpen ? "-100%" : "0",
-      duration: 0.55,
-      ease: "circ.in",
+      duration: 0.7,
+      ease: isOpen ? "power3.out" : "power2.in",
     })
     gsap.to(rightBorderRef.current, {
       x: isOpen ? "100%" : "0",
-      duration: 0.55,
-      ease: "circ.in",
+      duration: 0.7,
+      ease: isOpen ? "power3.out" : "power2.in",
     })
 
     gsap.to(topBarRef.current, {
       backgroundColor: isOpen
         ? "rgba(214, 211, 209, 0.4)"
         : "rgba(214, 211, 209, 1)",
-      duration: 0.55,
+      duration: 0.7,
+      ease: "power2.inOut",
     })
     gsap.to(bottomBarRef.current, {
       backgroundColor: isOpen
         ? "rgba(214, 211, 209, 0.4)"
         : "rgba(214, 211, 209, 1)",
-      duration: 0.55,
+      duration: 0.7,
+      ease: "power2.inOut",
     })
 
     gsap.to(topLeftRef.current, {
       borderLeftWidth: isOpen ? "0" : "50px",
-      duration: 0.55,
-      ease: "circ.in",
+      duration: 0.7,
+      ease: isOpen ? "power3.out" : "power2.in",
     })
     gsap.to(topRightRef.current, {
       borderRightWidth: isOpen ? "0" : "50px",
-      duration: 0.55,
-      ease: "circ.in",
+      duration: 0.7,
+      ease: isOpen ? "power3.out" : "power2.in",
     })
 
     gsap.to(bottomLeftRef.current, {
       borderLeftWidth: isOpen ? "0" : "50px",
-      duration: 0.55,
-      ease: "circ.in",
+      duration: 0.7,
+      ease: isOpen ? "power3.out" : "power2.in",
     })
     gsap.to(bottomRightRef.current, {
       borderRightWidth: isOpen ? "0" : "50px",
-      duration: 0.55,
-      ease: "circ.in",
+      duration: 0.7,
+      ease: isOpen ? "power3.out" : "power2.in",
     })
   }, [isOpen])
 

@@ -60,29 +60,6 @@ const ProjectsList: React.FC = () => {
     fetchAllImages()
   }, [projects, projectListLength])
 
-  // const handleToggle = (index: number) => {
-  //   const isCurrentlyOpen = openIndex === index
-
-  //   if (!isCurrentlyOpen) {
-  //     const targetElement = projectRefs.current[index]
-  //     if (targetElement) {
-  //       const positionTopOffset = 176
-  //       const listHeight = 82
-  //       const scrollPosition = positionTopOffset + listHeight * index
-
-  //       window.scrollTo({
-  //         top: scrollPosition,
-  //         behavior: "smooth",
-  //       })
-  //     }
-
-  //     setTimeout(() => {
-  //       setOpenIndex(index)
-  //     }, 500)
-  //   } else {
-  //     setOpenIndex(null)
-  //   }
-  // }
 
   const handleToggle = (index: number) => {
     const isSameItem = openIndex === index
@@ -100,29 +77,24 @@ const ProjectsList: React.FC = () => {
     setTimeout(() => {
       const targetElement = projectRefs.current[index]
       if (targetElement) {
-        const positionTopOffset = 176
-        const listHeight = 82
+        const positionTopOffset = 175
+        const listHeight = 80
         const scrollPosition = positionTopOffset + listHeight * index
 
-        // window.scrollTo({
-        //   top: scrollPosition,
-        //   behavior: "smooth",
-        // })
         gsap.to(window, {
           scrollTo: {
             y: scrollPosition,
-            // autoKill: true,
           },
-          duration: 0.8,
-          ease: "power2.out",
+          duration: 0.9,
+          ease: "power3.out",
         })
       }
 
-      // Step 3: After scroll, open the new one
+      // Step 3: Overlap scroll and opening for smoother transition
       setTimeout(() => {
         setOpenIndex(index)
-      }, 800) // Adjust to match scroll smooth duration
-    }, 600) // Adjust to match collapse animation duration
+      }, 600) // Start opening before scroll fully completes
+    }, 500) // Start scroll slightly before collapse completes
   }
 
   return (
